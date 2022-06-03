@@ -1,0 +1,656 @@
+fileFormatVersion: 2
+guid: 590e159ac1663bf4a8604bbe5f4bc977
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 732401440302416792
+    second: ninjya_0
+  - first:
+      213: 9058581065389183567
+    second: ninjya_1
+  - first:
+      213: 4486650126579341685
+    second: ninjya_2
+  - first:
+      213: 8868671314331266771
+    second: ninjya_3
+  - first:
+      213: -3057735202174550457
+    second: ninjya_4
+  - first:
+      213: -2856752754239125065
+    second: ninjya_5
+  - first:
+      213: -8009050076085208169
+    second: ninjya_6
+  - first:
+      213: -1726786814376475648
+    second: ninjya_7
+  - first:
+      213: 8269355250993250994
+    second: ninjya_8
+  - first:
+      213: -7519908227515934249
+    second: ninjya_9
+  - first:
+      213: -5511391616621684489
+    second: ninjya_10
+  - first:
+      213: -4453796961485197737
+    second: ninjya_11
+  - first:
+      213: -1317844073991457057
+    second: ninjya_12
+  - first:
+      213: 1992609028855972080
+    second: ninjya_13
+  - first:
+      213: 799371139520428617
+    second: ninjya_14
+  - first:
+      213: -3492427817947930595
+    second: ninjya_15
+  - first:
+      213: -2684467284755730625
+    second: ninjya_16
+  - first:
+      213: -331120772207728457
+    second: ninjya_17
+  - first:
+      213: 1930479627845885934
+    second: ninjya_18
+  - first:
+      213: -1184899374119308493
+    second: ninjya_19
+  - first:
+      213: -6574375778290135653
+    second: ninjya_20
+  - first:
+      213: 4880044106913739565
+    second: ninjya_21
+  - first:
+      213: 5024783735751930258
+    second: ninjya_22
+  - first:
+      213: 6648676274562155396
+    second: ninjya_23
+  - first:
+      213: -6379394256660056751
+    second: ninjya_24
+  - first:
+      213: 111322785046477365
+    second: ninjya_25
+  - first:
+      213: -773971541816761599
+    second: ninjya_26
+  - first:
+      213: 3663616133207268340
+    second: ninjya_27
+  - first:
+      213: -623803968791401828
+    second: ninjya_28
+  - first:
+      213: -9206527843867073078
+    second: ninjya_29
+  - first:
+      213: 7787177193030921554
+    second: ninjya_30
+  - first:
+      213: -6292312532105622878
+    second: ninjya_31
+  - first:
+      213: 8339827802187243733
+    second: ninjya_32
+  - first:
+      213: 7005004374714824758
+    second: ninjya_33
+  - first:
+      213: 1009464880282932287
+    second: ninjya_34
+  - first:
+      213: 3435000221941229287
+    second: ninjya_35
+  - first:
+      213: -4383986377735141778
+    second: ninjya_36
+  - first:
+      213: -3448109914165463545
+    second: ninjya_37
+  - first:
+      213: -3881844224994500348
+    second: ninjya_38
+  - first:
+      213: -5519063312517313559
+    second: ninjya_39
+  - first:
+      213: 6565296920899848923
+    second: ninjya_40
+  - first:
+      213: 173750195279565154
+    second: ninjya_41
+  - first:
+      213: 5234387378951138380
+    second: ninjya_42
+  - first:
+      213: -930376234546750524
+    second: ninjya_43
+  - first:
+      213: -808953028733304386
+    second: ninjya_44
+  - first:
+      213: 1373854170727766956
+    second: ninjya_45
+  - first:
+      213: -1421926485813329195
+    second: ninjya_46
+  - first:
+      213: 1302263571488724996
+    second: ninjya_47
+  - first:
+      213: 7970902044465391194
+    second: ninjya_48
+  - first:
+      213: 503775349143362635
+    second: ninjya_49
+  - first:
+      213: 276690924958351292
+    second: ninjya_50
+  - first:
+      213: 26252797920035598
+    second: ninjya_51
+  - first:
+      213: 3579992980954872835
+    second: ninjya_52
+  - first:
+      213: 7953959682687297910
+    second: ninjya_53
+  - first:
+      213: 2026637444533517329
+    second: ninjya_54
+  - first:
+      213: -4682116120628816110
+    second: ninjya_55
+  - first:
+      213: 8659107900612817671
+    second: ninjya_56
+  - first:
+      213: -5113359360263243049
+    second: ninjya_57
+  - first:
+      213: -8052218901604458226
+    second: ninjya_58
+  - first:
+      213: 2353317753939441291
+    second: ninjya_59
+  - first:
+      213: 5642584407957120877
+    second: ninjya_60
+  - first:
+      213: -1749006922218176360
+    second: ninjya_61
+  - first:
+      213: -8667246552320774797
+    second: ninjya_62
+  - first:
+      213: 2982957910589952666
+    second: ninjya_63
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 160
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ninjya_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 540
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 893c532ca330a2a00800000000000000
+      internalID: 732401440302416792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ninjya_1
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 540
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f421a9b0c7b86bd70800000000000000
+      internalID: 9058581065389183567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ninjya_2
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 540
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5791932d488c34e30800000000000000
+      internalID: 4486650126579341685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ninjya_3
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 540
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3de69687299d31b70800000000000000
+      internalID: 8868671314331266771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ninjya_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 360
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74ebd21c80eb095d0800000000000000
+      internalID: -3057735202174550457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ninjya_5
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 360
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b945787186ca58d0800000000000000
+      internalID: -2856752754239125065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ninjya_6
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 360
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79b30aab3632ad090800000000000000
+      internalID: -8009050076085208169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ninjya_7
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 360
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 004034e8a883908e0800000000000000
+      internalID: -1726786814376475648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ninjya_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 180
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b2c6f0b9c6a2c270800000000000000
+      internalID: 8269355250993250994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ninjya_9
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 180
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d9106b2f4be3a790800000000000000
+      internalID: -7519908227515934249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ninjya_10
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 180
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f8d239768a9383b0800000000000000
+      internalID: -5511391616621684489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ninjya_11
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 180
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75ee5f0c24fe032c0800000000000000
+      internalID: -4453796961485197737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ninjya_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd6b2640cc316bde0800000000000000
+      internalID: -1317844073991457057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ninjya_13
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f0423dba5b27ab10800000000000000
+      internalID: 1992609028855972080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ninjya_14
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94a70dee0dfe71b00800000000000000
+      internalID: 799371139520428617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ninjya_15
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 0
+        width: 180
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d10658b3767688fc0800000000000000
+      internalID: -3492427817947930595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
