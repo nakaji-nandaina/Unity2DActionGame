@@ -51,6 +51,12 @@ ExportedObj/
 # Unity3D generated file on crash reports
 sysinfo.txt
 
+#Tohide
+Assets/2D_Destruction/
+Assets/Cainos/
+Assets/Music/
+Assets/Image/
+
 # Builds
 *.apk
 *.unitypackage
