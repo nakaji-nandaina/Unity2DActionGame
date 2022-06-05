@@ -127,6 +127,7 @@ MonoBehaviour:
   destroyTime: 0.5
   clips:
   - {fileID: 8300000, guid: 23ecac033d0dd5845a1cad76291b1a37, type: 3}
+  - {fileID: 8300000, guid: 2b93af80c5c532e4484a286ac6d9788b, type: 3}
 --- !u!50 &-622062615537280862
 Rigidbody2D:
   serializedVersion: 4

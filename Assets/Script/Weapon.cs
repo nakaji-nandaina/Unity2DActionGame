@@ -38,6 +38,7 @@ public class Weapon : MonoBehaviour
         {
             collision.gameObject.GetComponent<EnemyController>().TakeDamage(attackDamage, this.transform.position);
             Destroy(this.gameObject);
+            GameManager.instance.PlayAudio(clips[1]);
         }
         if (collision.gameObject.tag == "Wall")
         {
