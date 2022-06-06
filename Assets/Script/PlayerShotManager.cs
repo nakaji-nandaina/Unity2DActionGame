@@ -21,7 +21,7 @@ public class PlayerShotManager : MonoBehaviour
     public void ShotAttack(Vector2 PlayerPos, Vector2 MousePos, Vector2 attackDir,GameObject shotWeapon)
     {
         targetPos = MousePos;
-        SpawnPos = PlayerPos + (MousePos - PlayerPos).normalized;
+        SpawnPos = PlayerPos + (MousePos - PlayerPos).normalized*0.7f;
         direction = attackDir.normalized;
         shotRotate = Quaternion.Euler(0, 0,
             Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg-90);
