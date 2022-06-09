@@ -32,6 +32,7 @@ public class Door : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        IsDestory = true;   
+        IsDestory = true;
+        //ここに.wavいれる
     }
 }
