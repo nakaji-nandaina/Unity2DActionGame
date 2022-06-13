@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
 
     public static int currentMoney = 0;
 
+    //会話システム関係
     private string[] dialogLines;
 
     private int currentLine;
@@ -54,10 +55,19 @@ public class GameManager : MonoBehaviour
     private float writingSpeed;
     private float writingDef = 0.05f;
 
+    //効果音BGM関係
     private AudioSource audioSource;
     [SerializeField]
     private AudioClip talkdot;
 
+    //フェードアウト用
+    private float fadeTime=2f;
+    private float fadeCount=2f;
+    public bool isFadeout = false;
+    public bool isFadein = false;
+    public Image fadeImage;
+    private float alfa = 1.0f;
+    private float isOne;
     private void Awake()
     {
         if (instance == null)
@@ -73,10 +83,21 @@ public class GameManager : MonoBehaviour
         writingSpeed = writingDef;
         PlayerState();
         UpdateMoneyUI(0);
+        alfa = fadeImage.color.a;
+        setFadein();
     }
 
     // Update is called once per frame
     void Update()
+    {
+        
+        DialogControll();
+        Fadeout();
+        Fadein();
+        Debug.Log(Convert.ToString(alfa));
+    }
+
+    private void DialogControll()
     {
         if (dialogBox.activeInHierarchy)
         {
@@ -115,7 +136,7 @@ public class GameManager : MonoBehaviour
         player.kaiwaNow = dialogBox.activeInHierarchy;
         if (player.kaiwaNow)
         {
-            player.playerAnim.SetBool("IsMove",false);
+            player.playerAnim.SetBool("IsMove", false);
         }
     }
 
@@ -189,6 +210,70 @@ public class GameManager : MonoBehaviour
         nameSpace.SetActive(x);
     }
     
+    private void Fadeout()
+    {
+        if (isFadeout)
+        {
+            fadeImage.enabled = true;
+            alfa += 0.005f;
+            fadeCount = -0.002f;
+            fadeImage.color = new Color(0, 0, 0, alfa);
+            Debug.Log("フェード中");
+        }
+        if (alfa>=1)
+        {
+            fadeImage.enabled = true;
+            alfa = 1;
+            Debug.Log("フェードおわり");
+            fadeCount =fadeTime;
+            isFadeout = false;
+            Time.timeScale = 1;
+        }
+    }
+    private void Fadein()
+    {
+        if (isFadein)
+        {
+            isFadein = true;
+            fadeImage.enabled = true;
+            alfa -= 0.02f;
+            fadeCount -= 0.002f;
+            fadeImage.color = new Color(0, 0, 0, alfa);
+            if (alfa <= 0)
+            {
+                fadeImage.enabled = false;
+                fadeCount = fadeTime;
+                isFadein = false;
+                Time.timeScale = 1;
+
+            }
+        }
+        
+    }
+
+    public void setFadeout()
+    {
+        alfa = 0f;
+        isFadeout = true;
+        Time.timeScale = 0;
+        fadeCount = fadeTime;
+        Fadeout();
+    }
+    public void setFadein()
+    {
+        fadeImage.enabled = true;
+        isFadein = true;
+        alfa = 1f;
+        fadeImage.color = new Color(0, 0, 0, alfa);
+        Fadein();
+        Time.timeScale = 0;
+        fadeCount = fadeTime;
+    }
+
+
+
+
+
     public void PlayAudio(AudioClip clip)
     {
         audioSource.PlayOneShot(clip);

@@ -16,6 +16,7 @@ public class KaidanMoveScene : MonoBehaviour
     [SerializeField]
     private Vector2[] NextPosition;
     float turnonT;
+    bool isNext = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +29,7 @@ public class KaidanMoveScene : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (turnonT > 0)
         {
@@ -40,11 +41,16 @@ public class KaidanMoveScene : MonoBehaviour
             GameManager.instance.UpdateSceneUI(IsCount, STime, Count);
             if (Count <= 0)
             {
-                SceneManager.LoadScene(Scene[SceneNum]);
-                GameManager.StartSpone = new Vector2(NextPosition[SceneNum].x, NextPosition[SceneNum].y);
-                GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-                GameManager.playerX = playerObj.GetComponent<Animator>().GetFloat("X");
-                GameManager.playerY = playerObj.GetComponent<Animator>().GetFloat("Y");
+                GameManager.instance.setFadeout();
+                if (isNext)
+                {
+                    SceneManager.LoadScene(Scene[SceneNum]);
+                    GameManager.StartSpone = new Vector2(NextPosition[SceneNum].x, NextPosition[SceneNum].y);
+                    GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+                    GameManager.playerX = playerObj.GetComponent<Animator>().GetFloat("X");
+                    GameManager.playerY = playerObj.GetComponent<Animator>().GetFloat("Y");
+                }
+                isNext = true;
 
             }
         }
