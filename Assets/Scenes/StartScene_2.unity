@@ -36740,6 +36740,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3998535447738269167 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7231210900179515094, guid: 376b643e5797dbb499121e05c2ac33ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 3998535447738269161}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9074385019606733775
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36867,6 +36879,11 @@ PrefabInstance:
       propertyPath: moneyText
       value: 
       objectReference: {fileID: 3998535447738269166}
+    - target: {fileID: 9074385018434786009, guid: 3afc399c8c56b0a4299433d5cc1e01d2,
+        type: 3}
+      propertyPath: fadeImage
+      value: 
+      objectReference: {fileID: 3998535447738269167}
     - target: {fileID: 9074385018434786010, guid: 3afc399c8c56b0a4299433d5cc1e01d2,
         type: 3}
       propertyPath: m_Name
