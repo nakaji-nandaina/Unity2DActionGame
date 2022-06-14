@@ -83,7 +83,8 @@ public class GameManager : MonoBehaviour
         writingSpeed = writingDef;
         PlayerState();
         UpdateMoneyUI(0);
-        alfa = fadeImage.color.a;
+
+        //alfa = fadeImage.color.a;
         setFadein();
     }
 
@@ -214,7 +215,7 @@ public class GameManager : MonoBehaviour
     {
         if (isFadeout)
         {
-            fadeImage.enabled = true;
+            
             alfa += 0.005f;
             fadeCount = -0.002f;
             fadeImage.color = new Color(0, 0, 0, alfa);
@@ -222,7 +223,7 @@ public class GameManager : MonoBehaviour
         }
         if (alfa>=1)
         {
-            fadeImage.enabled = true;
+            
             alfa = 1;
             Debug.Log("フェードおわり");
             fadeCount =fadeTime;
@@ -235,13 +236,13 @@ public class GameManager : MonoBehaviour
         if (isFadein)
         {
             isFadein = true;
-            fadeImage.enabled = true;
+            
             alfa -= 0.02f;
             fadeCount -= 0.002f;
             fadeImage.color = new Color(0, 0, 0, alfa);
             if (alfa <= 0)
             {
-                fadeImage.enabled = false;
+                
                 fadeCount = fadeTime;
                 isFadein = false;
                 Time.timeScale = 1;
@@ -253,18 +254,20 @@ public class GameManager : MonoBehaviour
 
     public void setFadeout()
     {
+        
         alfa = 0f;
         isFadeout = true;
+        fadeImage.color = new Color(0, 0, 0, alfa);
         Time.timeScale = 0;
         fadeCount = fadeTime;
         Fadeout();
     }
     public void setFadein()
     {
-        fadeImage.enabled = true;
+        
         isFadein = true;
-        alfa = 1f;
-        fadeImage.color = new Color(0, 0, 0, alfa);
+        alfa = 1;
+        fadeImage.color = new Color(0, 0, 0, 1);
         Fadein();
         Time.timeScale = 0;
         fadeCount = fadeTime;

@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Break
   - Money
+  - Fade
   layers:
   - Default
   - TransparentFX
