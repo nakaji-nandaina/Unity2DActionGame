@@ -125231,6 +125231,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FadeCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4842074478110187659, guid: 494a0c0d22cf6f048a43733a57026fd7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8990148321616437621, guid: 494a0c0d22cf6f048a43733a57026fd7,
         type: 3}
       propertyPath: m_AnchoredPosition.x

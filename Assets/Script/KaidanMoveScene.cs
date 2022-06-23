@@ -41,16 +41,14 @@ public class KaidanMoveScene : MonoBehaviour
             GameManager.instance.UpdateSceneUI(IsCount, STime, Count);
             if (Count <= 0)
             {
-                GameManager.instance.setFadeout();
-                if (isNext)
-                {
-                    SceneManager.LoadScene(Scene[SceneNum]);
-                    GameManager.StartSpone = new Vector2(NextPosition[SceneNum].x, NextPosition[SceneNum].y);
-                    GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-                    GameManager.playerX = playerObj.GetComponent<Animator>().GetFloat("X");
-                    GameManager.playerY = playerObj.GetComponent<Animator>().GetFloat("Y");
-                }
-                isNext = true;
+                //GameManager.instance.setFadeout();
+                //SceneManager.LoadScene(Scene[SceneNum]);
+                FadeManager.Instance.LoadScene(Scene[SceneNum],1f);
+                GameManager.StartSpone = new Vector2(NextPosition[SceneNum].x, NextPosition[SceneNum].y);
+                GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+                GameManager.playerX = playerObj.GetComponent<Animator>().GetFloat("X");
+                GameManager.playerY = playerObj.GetComponent<Animator>().GetFloat("Y");
+                
 
             }
         }

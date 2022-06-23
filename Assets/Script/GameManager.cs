@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
     private float fadeCount=2f;
     public bool isFadeout = false;
     public bool isFadein = false;
-    public Image fadeImage;
+    //private Image fadeImage;
     private float alfa = 1.0f;
     private float isOne;
     private void Awake()
@@ -83,9 +83,9 @@ public class GameManager : MonoBehaviour
         writingSpeed = writingDef;
         PlayerState();
         UpdateMoneyUI(0);
-
+        
         //alfa = fadeImage.color.a;
-        setFadein();
+        //setFadein();
     }
 
     // Update is called once per frame
@@ -93,9 +93,11 @@ public class GameManager : MonoBehaviour
     {
         
         DialogControll();
+        /*
         Fadeout();
         Fadein();
         Debug.Log(Convert.ToString(alfa));
+        */
     }
 
     private void DialogControll()
@@ -211,6 +213,7 @@ public class GameManager : MonoBehaviour
         nameSpace.SetActive(x);
     }
     
+    /*
     private void Fadeout()
     {
         if (isFadeout)
@@ -218,7 +221,7 @@ public class GameManager : MonoBehaviour
             
             alfa += 0.005f;
             fadeCount = -0.002f;
-            fadeImage.color = new Color(0, 0, 0, alfa);
+            //fadeImage.color = new Color(0, 0, 0, alfa);
             Debug.Log("フェード中");
         }
         if (alfa>=1)
@@ -239,7 +242,7 @@ public class GameManager : MonoBehaviour
             
             alfa -= 0.02f;
             fadeCount -= 0.002f;
-            fadeImage.color = new Color(0, 0, 0, alfa);
+            //fadeImage.color = new Color(0, 0, 0, alfa);
             if (alfa <= 0)
             {
                 
@@ -257,7 +260,7 @@ public class GameManager : MonoBehaviour
         
         alfa = 0f;
         isFadeout = true;
-        fadeImage.color = new Color(0, 0, 0, alfa);
+        //fadeImage.color = new Color(0, 0, 0, alfa);
         Time.timeScale = 0;
         fadeCount = fadeTime;
         Fadeout();
@@ -267,12 +270,12 @@ public class GameManager : MonoBehaviour
         
         isFadein = true;
         alfa = 1;
-        fadeImage.color = new Color(0, 0, 0, 1);
+        //fadeImage.color = new Color(0, 0, 0, 1);
         Fadein();
         Time.timeScale = 0;
         fadeCount = fadeTime;
     }
-
+    */
 
 
 
