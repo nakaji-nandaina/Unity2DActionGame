@@ -62,6 +62,10 @@ public class BreakObj : MonoBehaviour
                     obj.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
                     obj.GetComponent<Rigidbody2D>().angularVelocity = 0.0f;
                     obj.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                    if (this.gameObject.tag == "Enemy" && obj.gameObject.name != "Area")
+                    {
+                        obj.gameObject.AddComponent<AbsorbParts>();
+                    }
                 }
             }
             else if(miniTime <= 0&&i==0)
@@ -86,15 +90,17 @@ public class BreakObj : MonoBehaviour
                 miniTime = 10;
                 foreach (GameObject obj in myParts)
                 {
-
                     obj.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.05f;
+
                 }
             }
+        
             foreach (GameObject obj in myParts)
             {
                 obj.transform.position = new Vector3(Mathf.Clamp(obj.transform.position.x, area.bounds.min.x , area.bounds.max.x ),
                     Mathf.Clamp(obj.transform.position.y, area.bounds.min.y , area.bounds.max.y ), obj.transform.position.z);
             }
+            
         }
         
     }
