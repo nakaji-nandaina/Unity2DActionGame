@@ -72,6 +72,8 @@ public class EnemyController : MonoBehaviour
         chaseWaitCounter = chaseWaitTime;
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
         breakObj = GetComponent<BreakObj>();
+        isAttackCounter = isAttackTime;
+        attackCounter = attackTime;
         
     }
 
@@ -107,13 +109,13 @@ public class EnemyController : MonoBehaviour
                 isChaseing = false;
             }
 
-            if (!isChaseing)
+            if (!isChaseing&& attackCounter == attackTime)
             {
                 enemyAnim.SetFloat("Y", -1.0f);
                 enemyAnim.SetFloat("X", 0.0f);
                 notChase();
             }
-            else
+            if(isChaseing|| attackCounter != attackTime)
             {
                 MakeDir();
                 Chase();
@@ -188,13 +190,19 @@ public class EnemyController : MonoBehaviour
 
     private void LongAttack()
     {
-
+        rb.velocity = Vector2.zero;
+        enemyAnim.SetBool("LongAttack", true);
         if (attackCounter<=0)
         {
+            if (isAttackCounter == isAttackTime)
+            {
+
+            }
             if (isAttackCounter <= 0)
             {
                 isAttackCounter = isAttackTime;
                 attackCounter = attackTime;
+                enemyAnim.SetBool("LongAttack", false);
             }
             else
             {
