@@ -51,6 +51,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private AudioClip levelClip;
+    [SerializeField]
+    private GameObject levelText;
+    private float leveluptime =1.0f;
+    private float levelupcount;
 
     void Start()
     {
@@ -60,6 +64,7 @@ public class PlayerController : MonoBehaviour
         kaiwaNow = false;
         maxHealth = GameManager.maxHealth;
         currentHealth = GameManager.currentHealth;
+        levelupcount = 0;
         if (SceneManager.GetActiveScene().name == "StartScene")
         {
             currentHealth = GameManager.maxHealth;
@@ -75,6 +80,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (levelupcount > 0)
+        {
+            levelupcount -= Time.deltaTime;
+            if (levelupcount <= 0)
+            {
+                levelText.SetActive(false);
+            }
+        }
         if (!kaiwaNow&&!isDead)
         {
             if (invincibilityCounter > 0)
@@ -140,11 +153,14 @@ public class PlayerController : MonoBehaviour
             {
                 isLevelUpOnce = false;
                 GameManager.instance.PlayAudio(levelClip);
+                levelupcount = leveluptime;
+                levelText.SetActive(true);
             }
         }
         GameManager.instance.UpdateXPUI();
         GameManager.instance.UpdateHealthUI();
     }
+
     public void DamagePlayer(int Damage)
     {
         if (invincibilityCounter <= 0)
