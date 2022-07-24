@@ -119,6 +119,10 @@ public class PlayerController : MonoBehaviour
                 attackCounter = 0;
             }
         }
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
         
     }
     /// <summary>
