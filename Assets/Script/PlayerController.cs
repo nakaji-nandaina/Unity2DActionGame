@@ -151,6 +151,7 @@ public class PlayerController : MonoBehaviour
         {
             currentLevel++;
             maxHealth += Convert.ToInt32(maxHealth * 0.05);
+            currentHealth = maxHealth;
             currentXP -= nextXP;
             nextXP *= 2;
             if (isLevelUpOnce)

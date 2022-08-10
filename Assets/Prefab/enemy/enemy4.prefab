@@ -1702,8 +1702,9 @@ MonoBehaviour:
   attackCounter: 0
   isAttackTime: 0
   isAttackCounter: 0
-  xp: 10000
+  xp: 10
   longAt: 0
+  attackObj: {fileID: 0}
   area: {fileID: 0}
   currentHealth: 50
   knockBackTime: 0
@@ -1888,6 +1889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropItem:
   - {fileID: 7352195759069961805, guid: 44cab840aa77c3f499af8fd7bc9a11a1, type: 3}
+  dropP: 50
 --- !u!1 &8818022702050288607
 GameObject:
   m_ObjectHideFlags: 0
