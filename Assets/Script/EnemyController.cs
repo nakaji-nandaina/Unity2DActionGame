@@ -36,7 +36,8 @@ public class EnemyController : MonoBehaviour
     private int xp=10;
     [SerializeField]
     private bool longAt=false;
-
+    [SerializeField]
+    private GameObject attackObj;
 
     [SerializeField]
     private BoxCollider2D area;
@@ -57,7 +58,7 @@ public class EnemyController : MonoBehaviour
 
     NavMeshAgent2D agent;
     private bool isChaseing;
-    
+    private EnemyShotManager ShotManager;
     private BreakObj breakObj;
     [SerializeField]
     private GameObject damageUI;
@@ -74,7 +75,7 @@ public class EnemyController : MonoBehaviour
         breakObj = GetComponent<BreakObj>();
         isAttackCounter = isAttackTime;
         attackCounter = attackTime;
-        
+        ShotManager = GetComponent<EnemyShotManager>();
     }
 
     // Update is called once per frame
@@ -196,9 +197,13 @@ public class EnemyController : MonoBehaviour
         {
             if (isAttackCounter == isAttackTime)
             {
-
+                isAttackCounter -= Time.deltaTime;
+                Debug.Log("enemyShot");
+                Vector2 attackDir = playerPos.position - this.transform.position;
+                ShotManager.EmemyShot(playerPos.position,this.gameObject.transform.position,attackDir,attackObj);
+                
             }
-            if (isAttackCounter <= 0)
+            else if (isAttackCounter <= 0)
             {
                 isAttackCounter = isAttackTime;
                 attackCounter = attackTime;
@@ -208,6 +213,7 @@ public class EnemyController : MonoBehaviour
             {
                 isAttackCounter -= Time.deltaTime;
             }
+            
         }
         else
         {
@@ -286,10 +292,10 @@ public class EnemyController : MonoBehaviour
     {
         if (!isDead)
         {
-
-            currentHealth -= damage;
+            int culDamage= Random.Range((int)(damage * 0.8), damage * 2);
+            currentHealth -= culDamage;
             GameObject DamageObj = Instantiate(damageUI,playerPos.position, Quaternion.Euler(0,0,0));
-            DamageObj.GetComponent<DamageUI>().DamageSet(damage, playerPos.position,this.gameObject);
+            DamageObj.GetComponent<DamageUI>().DamageSet(culDamage, playerPos.position,this.gameObject);
             if (currentHealth <= 0)
             {
                 //rb.velocity = Vector2.zero;

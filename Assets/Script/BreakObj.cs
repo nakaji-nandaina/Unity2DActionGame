@@ -74,7 +74,6 @@ public class BreakObj : MonoBehaviour
                 i = 1;
                 foreach (GameObject obj in myParts)
                 {
-
                     // 飛ばすパワーと回転をランダムに設定
                     Vector2 forcePower = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(3.5f, 4.0f));
                     
