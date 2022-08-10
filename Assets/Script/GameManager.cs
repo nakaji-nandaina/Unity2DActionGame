@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public Text dialogText;
     public GameObject nameSpace;
     public Text CharName;
+    public bool Choice;
     public GameObject SceneSlide;
     private KaidanMoveScene kaidan;
     //前のシーンのプレイヤーの状態を格納する変数
@@ -47,7 +48,7 @@ public class GameManager : MonoBehaviour
 
     //会話システム関係
     private string[] dialogLines;
-
+    private string[] yesDialogLines;
     private int currentLine;
 
     private bool justStarted;
@@ -112,10 +113,18 @@ public class GameManager : MonoBehaviour
                     {
                         currentLine++;
                         dialogText.text = "";
-                        if (currentLine >= dialogLines.Length)
+                        if (currentLine >= dialogLines.Length&&!Choice)
                         {
                             dialogBox.SetActive(false);
                             nameSpace.SetActive(false);
+                        }
+                        else if (currentLine >= dialogLines.Length)
+                        {
+                            Choice = false;
+                            dialogLines = yesDialogLines;
+                            currentLine = 0;
+                            writingSpeed = writingDef;
+                            StartCoroutine(IEWrite(dialogLines[currentLine]));
                         }
                         else
                         {
@@ -191,7 +200,7 @@ public class GameManager : MonoBehaviour
         moneyText.text=Convert.ToString(currentMoney)+"G";
     }
 
-    public void ShowDialog(string[] lines, string Name)
+    public void ShowDialog(string[] lines, string Name,bool yesno,string[] YesLines)
     {
         dialogText.text = "";
         dialogLines = lines;
@@ -206,6 +215,8 @@ public class GameManager : MonoBehaviour
             CharName.text = Name;
         }
         justStarted = true;
+        Choice = yesno;
+        yesDialogLines = YesLines;
     }
     public void ShowDialogChange(bool x)
     {
