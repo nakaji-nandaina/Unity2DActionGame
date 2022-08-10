@@ -8,6 +8,10 @@ public class DialogActivater : MonoBehaviour
     private string[] lines;
     [SerializeField, Header("名前")]
     private string CharName;
+    [SerializeField, Header("選択肢分岐")]
+    private bool Choice=false;
+    [SerializeField, Header("上選択文章"), Multiline(3)]
+    private string[] YesLines;
     private bool canActivater;
 
     // Start is called before the first frame update
@@ -21,7 +25,7 @@ public class DialogActivater : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(1) && canActivater && !GameManager.instance.dialogBox.activeInHierarchy)
         {
-            GameManager.instance.ShowDialog(lines,CharName);
+            GameManager.instance.ShowDialog(lines,CharName,Choice,YesLines);
             if (this.gameObject.GetComponent<NPCanim>())
             {
                 this.gameObject.GetComponent<NPCanim>().ChageDir();
