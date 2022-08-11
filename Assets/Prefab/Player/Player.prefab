@@ -150,7 +150,7 @@ MonoBehaviour:
   nextXP: 0
   currentLevel: 0
   knockbackTime: 0.2
-  knockbackForce: 3
+  knockbackForce: 1
   invicibilityTime: 1
   kaiwaNow: 0
   myWeapon:
