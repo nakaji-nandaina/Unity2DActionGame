@@ -287,6 +287,8 @@ MonoBehaviour:
   lines:
   - "\u306F\u3058\u3051\u308B\u307B\u3063\u307A\u306E\u3000\u307C\u3046\u3050\u3084\u3067\u3059"
   CharName: "\u307C\u3046\u3050\u3084"
+  Choice: 0
+  YesLines: []
 --- !u!1001 &61343571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -493,6 +495,8 @@ MonoBehaviour:
   - "\u3053\u3053\u304B\u3089\u5148\u3000\u30C0\u30F3\u30B8\u30E7\u30F3"
   - "\u3063\u3066\u30BF\u30ED\u30A6\u304C\u8A00\u3063\u3066\u305F"
   CharName: 
+  Choice: 0
+  YesLines: []
 --- !u!212 &115898095
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -555,7 +559,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &115898097
 Rigidbody2D:
@@ -689,7 +693,7 @@ Transform:
   m_Children:
   - {fileID: 258919976}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &199184464
 PolygonCollider2D:
@@ -1025,7 +1029,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &486920090 stripped
 Transform:
@@ -1209,7 +1213,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &523615713
 Rigidbody2D:
@@ -1504,7 +1508,7 @@ Transform:
   - {fileID: 340697255}
   - {fileID: 1468900785}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &583615018
 PrefabInstance:
@@ -16382,7 +16386,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &903480397 stripped
 GameObject:
@@ -16462,7 +16466,7 @@ Transform:
   - {fileID: 649445726}
   - {fileID: 1360545303}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &988433479
 PrefabInstance:
@@ -16578,7 +16582,7 @@ Transform:
   - {fileID: 579847353}
   - {fileID: 214953514}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1209567622
 GameObject:
@@ -16644,7 +16648,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1277640398 stripped
 GameObject:
@@ -17331,7 +17335,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1592627656
 GameObject:
@@ -17367,8 +17371,14 @@ Transform:
   - {fileID: 2114471101}
   - {fileID: 523624258}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1600081244 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 844886496126775659, guid: 376b643e5797dbb499121e05c2ac33ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 3998535447738269161}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1604565525
 GameObject:
   m_ObjectHideFlags: 0
@@ -17401,7 +17411,7 @@ Transform:
   - {fileID: 724043795}
   - {fileID: 486920090}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1620222054
 PrefabInstance:
@@ -17675,6 +17685,8 @@ MonoBehaviour:
   lines:
   - "\u307B\u3063\u307A\u3093\u306F\u3058\u3051\u308B\u3000\u3076\u304D\u3084\u3067\u3059"
   CharName: "\u3076\u304D\u3084"
+  Choice: 0
+  YesLines: []
 --- !u!1001 &1745816903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17854,7 +17866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 474238, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 474238, guid: fd9d58dbfb8f846f58b62a48334a0058, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -18043,6 +18055,9 @@ MonoBehaviour:
   - "\u307C\u304F\u306F\u3000\u30AC\u30F3\u30C7\u30EA\u30FB\u30C7\u30EA\u30C7\u30EA\u30FC\u30CB"
   - "\u30C7\u30D0\u30C3\u30AF\u3088\u3046\u306B\u3064\u304F\u3089\u308C\u305F\u3000\n\u304B\u306A\u3057\u304D\u30E2\u30EB\u30E2\u30C3\u30C8\u3060"
   CharName: "\u30AC\u30F3\u30C7\u30EA"
+  Choice: 1
+  YesLines:
+  - "\u3070\u3093\u3060\u308C"
 --- !u!114 &1813396740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78837,6 +78852,8 @@ MonoBehaviour:
   - "\u3053\u3053\u306F\u3000\u30D0\u30F3\u30C0\u30FC\u30EC\u304A\u3046\u306E\u3059\u3080\u3057\u308D\u3060\u3002\n"
   - "\u304A\u3046\u306B\u3042\u3044\u305F\u3051\u308C\u3070\n\u306B\u304B\u3044\u306B\u3042\u304C\u3063\u3066\u3000\u307E\u3063\u3059\u3050\u3059\u3059\u3081\u3002\n"
   CharName: "\u30BF\u30ED\u30A6"
+  Choice: 0
+  YesLines: []
 --- !u!61 &1880512626
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -79378,6 +79395,8 @@ MonoBehaviour:
   - "\u3088\u3046\u3053\u305D\u30CA\u30F3\u30C0\u30A4\u30CA\u3058\u3087\u3046\u3078\n"
   - "\u3042\u306A\u305F\u3082\u3000\u304A\u3046\u306E\u3044\u3089\u3044\u3092\n\u3046\u3051\u306B\u3053\u3089\u308C\u305F\u306E\u3067\u3059\u304B\uFF1F"
   CharName: "\u30B8\u30ED\u30A6"
+  Choice: 0
+  YesLines: []
 --- !u!61 &2114471104
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80487,7 +80506,7 @@ PrefabInstance:
     - target: {fileID: 9074385018434786008, guid: 3afc399c8c56b0a4299433d5cc1e01d2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9074385018434786008, guid: 3afc399c8c56b0a4299433d5cc1e01d2,
         type: 3}
@@ -80574,6 +80593,11 @@ PrefabInstance:
       propertyPath: fadeImage
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9074385018434786009, guid: 3afc399c8c56b0a4299433d5cc1e01d2,
+        type: 3}
+      propertyPath: choiceBox
+      value: 
+      objectReference: {fileID: 1600081244}
     - target: {fileID: 9074385018434786010, guid: 3afc399c8c56b0a4299433d5cc1e01d2,
         type: 3}
       propertyPath: m_Name

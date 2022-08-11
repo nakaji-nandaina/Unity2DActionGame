@@ -26,11 +26,16 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Text moneyText;
 
+    //会話システムUI
     public GameObject dialogBox;
     public Text dialogText;
     public GameObject nameSpace;
     public Text CharName;
+    public GameObject choiceBox;
     public bool Choice;
+    public bool YesChoice;
+    public bool NoChoice;
+    private bool Choiced;
     public GameObject SceneSlide;
     private KaidanMoveScene kaidan;
     //前のシーンのプレイヤーの状態を格納する変数
@@ -84,7 +89,9 @@ public class GameManager : MonoBehaviour
         writingSpeed = writingDef;
         PlayerState();
         UpdateMoneyUI(0);
-        
+        YesChoice = false;
+        NoChoice = false;
+        Choiced = false;
         //alfa = fadeImage.color.a;
         //setFadein();
     }
@@ -105,29 +112,56 @@ public class GameManager : MonoBehaviour
     {
         if (dialogBox.activeInHierarchy)
         {
-            if (Input.GetMouseButtonUp(1))
+            if (Input.GetMouseButtonUp(1)||Choiced)
             {
+                Choiced = false;
                 if (!justStarted)
                 {
                     if (!isWriting)
                     {
                         currentLine++;
-                        dialogText.text = "";
+                        
                         if (currentLine >= dialogLines.Length&&!Choice)
                         {
+                            dialogText.text = "";
                             dialogBox.SetActive(false);
                             nameSpace.SetActive(false);
+                            choiceBox.SetActive(false);
                         }
                         else if (currentLine >= dialogLines.Length)
                         {
-                            Choice = false;
-                            dialogLines = yesDialogLines;
-                            currentLine = 0;
-                            writingSpeed = writingDef;
-                            StartCoroutine(IEWrite(dialogLines[currentLine]));
+                            choiceBox.SetActive(true);
+                            Debug.Log(YesChoice + "Yesc");
+                            Debug.Log(NoChoice + "Noc");
+                            if (YesChoice)
+                            {
+                                dialogText.text = "";
+                                YesChoice = false;
+                                NoChoice = false;
+                                choiceBox.SetActive(false);
+                                Choice = false;
+                                dialogLines = yesDialogLines;
+                                currentLine = 0;
+                                writingSpeed = writingDef;
+                                StartCoroutine(IEWrite(dialogLines[currentLine]));
+                            }
+                            else if (NoChoice)
+                            {
+                                dialogText.text = "";
+                                YesChoice = false;
+                                NoChoice = false;
+                                choiceBox.SetActive(false);
+                                Choice = false;
+                                dialogLines = yesDialogLines;
+                                currentLine = 0;
+                                writingSpeed = writingDef;
+                                StartCoroutine(IEWrite(dialogLines[currentLine]));
+                            }
+                            
                         }
                         else
                         {
+                            dialogText.text = "";
                             writingSpeed = writingDef;
                             StartCoroutine(IEWrite(dialogLines[currentLine]));
                             //dialogText.text = dialogLines[currentLine];
@@ -222,6 +256,19 @@ public class GameManager : MonoBehaviour
     {
         dialogBox.SetActive(x);
         nameSpace.SetActive(x);
+    }
+
+    public void ChoiceYesDialog()
+    {
+        YesChoice = true;
+        Choiced = true;
+        Debug.Log("Yes");
+    }
+    public void ChoiceNoDialog()
+    {
+        Choiced = true;
+        NoChoice = true;
+        Debug.Log("No");
     }
     
     /*
