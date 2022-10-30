@@ -18,4 +18,8 @@ public class ClickYes : MonoBehaviour
     {
         GameManager.instance.ChoiceYesDialog();
     }
+    public void clickno()
+    {
+        GameManager.instance.ChoiceNoDialog();
+    }
 }
