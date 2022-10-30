@@ -81,7 +81,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isDead)
+        if (!isDead&&!GameManager.instance.Isdialog)
         {
             
             if (isKnockingBack)
@@ -133,6 +133,10 @@ public class EnemyController : MonoBehaviour
                 this.GetComponent<SpriteRenderer>().flipX = true;
             }
             */
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
         }
     }
 
