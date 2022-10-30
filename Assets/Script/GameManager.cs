@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
     //会話システム関係
     private string[] dialogLines;
     private string[] yesDialogLines;
+    private string[] noDialogLines;
     private int currentLine;
 
     private bool justStarted;
@@ -157,7 +158,7 @@ public class GameManager : MonoBehaviour
                                 NoChoice = false;
                                 choiceBox.SetActive(false);
                                 Choice = false;
-                                dialogLines = yesDialogLines;
+                                dialogLines = noDialogLines;
                                 currentLine = 0;
                                 writingSpeed = writingDef;
                                 StartCoroutine(IEWrite(dialogLines[currentLine]));
@@ -239,7 +240,7 @@ public class GameManager : MonoBehaviour
         moneyText.text=Convert.ToString(currentMoney)+"G";
     }
 
-    public void ShowDialog(string[] lines, string Name,bool yesno,string[] YesLines)
+    public void ShowDialog(string[] lines, string Name,bool yesno,string[] YesLines, string[] NoLines)
     {
         dialogText.text = "";
         dialogLines = lines;
@@ -256,6 +257,7 @@ public class GameManager : MonoBehaviour
         justStarted = true;
         Choice = yesno;
         yesDialogLines = YesLines;
+        noDialogLines = NoLines;
     }
     public void ShowDialogChange(bool x)
     {
