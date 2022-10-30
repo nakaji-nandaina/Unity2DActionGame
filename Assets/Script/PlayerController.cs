@@ -57,6 +57,7 @@ public class PlayerController : MonoBehaviour
     private float leveluptime =1.0f;
     private float levelupcount;
 
+    public InventoryObject inventory;
 
     void Start()
     {

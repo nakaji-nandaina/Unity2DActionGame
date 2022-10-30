@@ -9,6 +9,8 @@ public class AbsorbParts : MonoBehaviour
     private Vector2 moveDir=Vector2.zero;
     private Rigidbody2D rb;
     private BoxCollider2D box;
+    public Item parts; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,9 @@ public class AbsorbParts : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            if (parts){
+                collision.gameObject.GetComponent<PlayerController>().inventory.AddItem(parts, 1);
+            }
             Destroy(this.gameObject);
         }
     }

@@ -17,6 +17,9 @@ public class BreakObj : MonoBehaviour
     [SerializeField]
     private bool isDrop=false;
     private DropItem dropitem;
+
+    [SerializeField]
+    private Item parts;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +36,6 @@ public class BreakObj : MonoBehaviour
         // 自分の子要素をチェック
         foreach (Transform child in gameObject.transform)
         {
-
             // パーツに Rigidbody2D を追加して Kinematic にしておく
             child.gameObject.AddComponent<Rigidbody2D>();
             child.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
@@ -65,6 +67,8 @@ public class BreakObj : MonoBehaviour
                     if (this.gameObject.tag == "Enemy" && obj.gameObject.name != "Area")
                     {
                         obj.gameObject.AddComponent<AbsorbParts>();
+                        obj.gameObject.GetComponent<AbsorbParts>().parts = parts;
+
                     }
                 }
             }

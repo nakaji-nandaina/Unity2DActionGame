@@ -289,6 +289,7 @@ MonoBehaviour:
   CharName: "\u307C\u3046\u3050\u3084"
   Choice: 0
   YesLines: []
+  NoLines: []
 --- !u!1001 &61343571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -497,6 +498,7 @@ MonoBehaviour:
   CharName: 
   Choice: 0
   YesLines: []
+  NoLines: []
 --- !u!212 &115898095
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17687,6 +17689,7 @@ MonoBehaviour:
   CharName: "\u3076\u304D\u3084"
   Choice: 0
   YesLines: []
+  NoLines: []
 --- !u!1001 &1745816903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18053,11 +18056,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - "\u307C\u304F\u306F\u3000\u30AC\u30F3\u30C7\u30EA\u30FB\u30C7\u30EA\u30C7\u30EA\u30FC\u30CB"
-  - "\u30C7\u30D0\u30C3\u30AF\u3088\u3046\u306B\u3064\u304F\u3089\u308C\u305F\u3000\n\u304B\u306A\u3057\u304D\u30E2\u30EB\u30E2\u30C3\u30C8\u3060"
+  - "\u304B\u3044\u308F\u30B7\u30B9\u30C6\u30E0\u306E\u30C7\u30D0\u30C3\u30AF\u3088\u3046\u306B\u3064\u304F\u3089\u308C\u305F\u3000\n\u304B\u306A\u3057\u304D\u30E2\u30EB\u30E2\u30C3\u30C8\u3060"
   CharName: "\u30AC\u30F3\u30C7\u30EA"
   Choice: 1
   YesLines:
-  - "\u3070\u3093\u3060\u308C"
+  - return Yes;
+  NoLines:
+  - return No;
 --- !u!114 &1813396740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78854,6 +78859,7 @@ MonoBehaviour:
   CharName: "\u30BF\u30ED\u30A6"
   Choice: 0
   YesLines: []
+  NoLines: []
 --- !u!61 &1880512626
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -79397,6 +79403,7 @@ MonoBehaviour:
   CharName: "\u30B8\u30ED\u30A6"
   Choice: 0
   YesLines: []
+  NoLines: []
 --- !u!61 &2114471104
 BoxCollider2D:
   m_ObjectHideFlags: 0

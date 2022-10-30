@@ -1215,6 +1215,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 79b76406716a80e449336fc234520d63, type: 3}
   area: {fileID: 6045458822443111997}
   isDrop: 1
+  parts: {fileID: 11400000, guid: d1c05473f52da7a4d9ed935edf63610e, type: 2}
 --- !u!212 &4525847476812285346
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1295,6 +1296,7 @@ MonoBehaviour:
   isAttackCounter: 0
   xp: 10
   longAt: 0
+  attackObj: {fileID: 0}
   area: {fileID: 0}
   currentHealth: 50
   knockBackTime: 0
@@ -1479,6 +1481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropItem:
   - {fileID: 7352195759069961805, guid: 44cab840aa77c3f499af8fd7bc9a11a1, type: 3}
+  dropP: 50
 --- !u!1 &6517014008750709008
 GameObject:
   m_ObjectHideFlags: 0
