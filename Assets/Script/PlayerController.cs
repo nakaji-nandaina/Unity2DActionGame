@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     public int currentXP;
     public int nextXP;
     public int currentLevel;
+    public int at;
 
     private bool isknockingback;
     private Vector2 knockDir;
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour
     private float leveluptime =1.0f;
     private float levelupcount;
 
+
     void Start()
     {
         currentXP = GameManager.currentXP;
@@ -64,6 +66,7 @@ public class PlayerController : MonoBehaviour
         kaiwaNow = false;
         maxHealth = GameManager.maxHealth;
         currentHealth = GameManager.currentHealth;
+        at = 10;
         levelupcount = 0;
         if (SceneManager.GetActiveScene().name == "StartScene")
         {
@@ -123,7 +126,27 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            PlayerStatus.GetInstance().ReStatus(currentXP, nextXP, maxHealth, GameManager.currentMoney, at, currentLevel);
+            PlayerStatus.GetInstance().Save();
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            PlayerStatus.GetInstance().Load();
+            currentXP = PlayerStatus.GetInstance().currentXp;
+            nextXP = PlayerStatus.GetInstance().nextXp;
+            maxHealth = PlayerStatus.GetInstance().MaxHp;
+            currentHealth = maxHealth;
+            GameManager.currentMoney = PlayerStatus.GetInstance().Gold;
+            at = PlayerStatus.GetInstance().AttackPoint;
+            currentLevel = PlayerStatus.GetInstance().currentLv;
+            GameManager.instance.UpdateHealthUI();
+            GameManager.instance.UpdateXPUI();
+            GameManager.instance.UpdateMoneyUI(GameManager.currentMoney);
+        }
+
     }
     /// <summary>
     /// プレイヤー吹き飛ばし処理
@@ -164,6 +187,7 @@ public class PlayerController : MonoBehaviour
         }
         GameManager.instance.UpdateXPUI();
         GameManager.instance.UpdateHealthUI();
+        
     }
 
     public void DamagePlayer(int Damage)
@@ -280,7 +304,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             weaponAnim.SetTrigger("Attack");
-            ShotManager.ShotAttack(this.transform.position,mousePos,attackDir,myWeapon[0]);
+            ShotManager.ShotAttack(this.transform.position,mousePos,attackDir,myWeapon[0],at);
 
         }
     }

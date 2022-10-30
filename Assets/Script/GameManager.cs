@@ -36,6 +36,9 @@ public class GameManager : MonoBehaviour
     public bool YesChoice;
     public bool NoChoice;
     private bool Choiced;
+
+    public bool Isdialog;
+
     public GameObject SceneSlide;
     private KaidanMoveScene kaidan;
     //前のシーンのプレイヤーの状態を格納する変数
@@ -92,6 +95,7 @@ public class GameManager : MonoBehaviour
         YesChoice = false;
         NoChoice = false;
         Choiced = false;
+        Isdialog = false;
         //alfa = fadeImage.color.a;
         //setFadein();
     }
@@ -110,6 +114,7 @@ public class GameManager : MonoBehaviour
 
     private void DialogControll()
     {
+        Isdialog = dialogBox.activeInHierarchy;
         if (dialogBox.activeInHierarchy)
         {
             if (Input.GetMouseButtonUp(1)||Choiced)

@@ -150,8 +150,8 @@ MonoBehaviour:
   nextXP: 0
   currentLevel: 0
   knockbackTime: 0.2
-  knockbackForce: 1
-  invicibilityTime: 1
+  knockbackForce: 0.5
+  invicibilityTime: 0.5
   kaiwaNow: 0
   myWeapon:
   - {fileID: 2482943847549993309, guid: 52cfa148600923240a13979b1e1199c9, type: 3}
