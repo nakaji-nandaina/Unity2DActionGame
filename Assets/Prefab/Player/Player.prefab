@@ -149,6 +149,7 @@ MonoBehaviour:
   currentXP: 0
   nextXP: 0
   currentLevel: 0
+  at: 0
   knockbackTime: 0.2
   knockbackForce: 0.5
   invicibilityTime: 0.5
@@ -157,6 +158,7 @@ MonoBehaviour:
   - {fileID: 2482943847549993309, guid: 52cfa148600923240a13979b1e1199c9, type: 3}
   levelClip: {fileID: 8300000, guid: e371d5968f947e5498a9f6dcd44bf480, type: 3}
   levelText: {fileID: 8030022509000291885}
+  inventory: {fileID: 11400000, guid: e1350831c6108a14890638fdc88a9ffc, type: 2}
 --- !u!114 &1672310285104073477
 MonoBehaviour:
   m_ObjectHideFlags: 0
