@@ -31,7 +31,7 @@ public class Coin : MonoBehaviour
             
             rb.AddForce(Vector2.up*1000);
             coinSE.PlayOneShot(clips[0]);
-            GameManager.instance.UpdateMoneyUI(moneyValue);
+            GameManager.instance.UpdateMoneyUI(moneyValue+GameManager.currentMoney);
         }
     }
     private void Destcoin(){
