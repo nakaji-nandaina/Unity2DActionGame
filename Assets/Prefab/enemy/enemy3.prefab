@@ -1299,8 +1299,8 @@ MonoBehaviour:
   attackObj: {fileID: 0}
   area: {fileID: 0}
   currentHealth: 50
-  knockBackTime: 0
-  knockBackForce: 7
+  knockBackTime: 0.1
+  knockBackForce: 4
   damageUI: {fileID: 8014826492145826156, guid: 30aa0c63e637a0c468ceb26a4514b81b,
     type: 3}
 --- !u!50 &4525847476812285344
