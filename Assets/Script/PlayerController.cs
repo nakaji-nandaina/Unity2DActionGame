@@ -130,25 +130,35 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.O))
         {
-            PlayerStatus.GetInstance().ReStatus(currentXP, nextXP, maxHealth, GameManager.currentMoney, at, currentLevel);
-            PlayerStatus.GetInstance().Save();
+            SavePlayer();
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
-            PlayerStatus.GetInstance().Load();
-            currentXP = PlayerStatus.GetInstance().currentXp;
-            nextXP = PlayerStatus.GetInstance().nextXp;
-            maxHealth = PlayerStatus.GetInstance().MaxHp;
-            currentHealth = maxHealth;
-            GameManager.currentMoney = PlayerStatus.GetInstance().Gold;
-            at = PlayerStatus.GetInstance().AttackPoint;
-            currentLevel = PlayerStatus.GetInstance().currentLv;
-            GameManager.instance.UpdateHealthUI();
-            GameManager.instance.UpdateXPUI();
-            GameManager.instance.UpdateMoneyUI(GameManager.currentMoney);
+            LoadPlayer();
         }
 
     }
+    public void SavePlayer()
+    {
+        PlayerStatus.GetInstance().ReStatus(currentXP, nextXP, maxHealth, GameManager.currentMoney, at, currentLevel);
+        PlayerStatus.GetInstance().Save();
+    }
+
+    public void LoadPlayer()
+    {
+        PlayerStatus.GetInstance().Load();
+        currentXP = PlayerStatus.GetInstance().currentXp;
+        nextXP = PlayerStatus.GetInstance().nextXp;
+        maxHealth = PlayerStatus.GetInstance().MaxHp;
+        currentHealth = maxHealth;
+        GameManager.currentMoney = PlayerStatus.GetInstance().Gold;
+        at = PlayerStatus.GetInstance().AttackPoint;
+        currentLevel = PlayerStatus.GetInstance().currentLv;
+        GameManager.instance.UpdateHealthUI();
+        GameManager.instance.UpdateXPUI();
+        GameManager.instance.UpdateMoneyUI(GameManager.currentMoney);
+    }
+
     /// <summary>
     /// プレイヤー吹き飛ばし処理
     /// </summary>
