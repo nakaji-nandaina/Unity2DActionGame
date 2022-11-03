@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     private bool Choiced;
 
     public bool Isdialog;
+    public bool NormalDialog;
 
     public GameObject SceneSlide;
     private KaidanMoveScene kaidan;
@@ -46,8 +47,8 @@ public class GameManager : MonoBehaviour
     public static float playerX;
     public static float playerY;
 
-    public static int currentXP=0;
-    public static int nextXP=100;
+    public static int currentXP = 0;
+    public static int nextXP = 100;
     public static int currentlevel = 1;
     public static int maxHealth = 100;
     public static int currentHealth = 100;
@@ -65,14 +66,16 @@ public class GameManager : MonoBehaviour
     private float writingSpeed;
     private float writingDef = 0.05f;
 
+    private string DialogFuncName;
+
     //効果音BGM関係
     private AudioSource audioSource;
     [SerializeField]
     private AudioClip talkdot;
 
     //フェードアウト用
-    private float fadeTime=2f;
-    private float fadeCount=2f;
+    private float fadeTime = 2f;
+    private float fadeCount = 2f;
     public bool isFadeout = false;
     public bool isFadein = false;
     //private Image fadeImage;
@@ -83,6 +86,7 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            //player.LoadPlayer();
         }
     }
 
@@ -92,11 +96,13 @@ public class GameManager : MonoBehaviour
         isWriting = false;
         writingSpeed = writingDef;
         PlayerState();
-        UpdateMoneyUI(0);
+        UpdateMoneyUI(currentMoney);
         YesChoice = false;
         NoChoice = false;
         Choiced = false;
         Isdialog = false;
+        NormalDialog = false;
+        DialogFuncName = "NullReturn";
         //alfa = fadeImage.color.a;
         //setFadein();
     }
@@ -104,7 +110,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         DialogControll();
         /*
         Fadeout();
@@ -116,9 +122,9 @@ public class GameManager : MonoBehaviour
     private void DialogControll()
     {
         Isdialog = dialogBox.activeInHierarchy;
-        if (dialogBox.activeInHierarchy)
+        if (dialogBox.activeInHierarchy && NormalDialog)
         {
-            if (Input.GetMouseButtonUp(1)||Choiced)
+            if (Input.GetMouseButtonUp(1) || Choiced)
             {
                 Choiced = false;
                 if (!justStarted)
@@ -126,15 +132,16 @@ public class GameManager : MonoBehaviour
                     if (!isWriting)
                     {
                         currentLine++;
-                        
-                        if (currentLine >= dialogLines.Length&&!Choice)
+
+                        if (currentLine >= dialogLines.Length && !Choice)
                         {
                             dialogText.text = "";
                             dialogBox.SetActive(false);
                             nameSpace.SetActive(false);
                             choiceBox.SetActive(false);
+                            NormalDialog = false;
                         }
-                        else if (currentLine >= dialogLines.Length)
+                        else if (currentLine >= dialogLines.Length && Choice)
                         {
                             choiceBox.SetActive(true);
                             Debug.Log(YesChoice + "Yesc");
@@ -150,6 +157,8 @@ public class GameManager : MonoBehaviour
                                 currentLine = 0;
                                 writingSpeed = writingDef;
                                 StartCoroutine(IEWrite(dialogLines[currentLine]));
+                                Invoke(DialogFuncName, 0);
+                                DialogFuncName = "NullReturn";
                             }
                             else if (NoChoice)
                             {
@@ -162,8 +171,9 @@ public class GameManager : MonoBehaviour
                                 currentLine = 0;
                                 writingSpeed = writingDef;
                                 StartCoroutine(IEWrite(dialogLines[currentLine]));
+                                DialogFuncName = "NullReturn";
                             }
-                            
+
                         }
                         else
                         {
@@ -228,20 +238,22 @@ public class GameManager : MonoBehaviour
         currentlevel = player.currentLevel;
         xpSlider.maxValue = nextXP;
         xpSlider.value = currentXP;
-        float xpRate = (float)currentXP / (float)nextXP*100f;
-        string xptext = Convert.ToString(Math.Floor(10*xpRate)/10) + "%";
+        float xpRate = (float)currentXP / (float)nextXP * 100f;
+        string xptext = Convert.ToString(Math.Floor(10 * xpRate) / 10) + "%";
         xpText.text = xptext;
-        levelText.text ="Lv"+ Convert.ToString(currentlevel);
+        levelText.text = "Lv" + Convert.ToString(currentlevel);
     }
 
     public void UpdateMoneyUI(int money)
     {
-        currentMoney += money;
-        moneyText.text=Convert.ToString(currentMoney)+"G";
+        currentMoney = money;
+        moneyText.text = Convert.ToString(currentMoney) + "G";
     }
+    
 
-    public void ShowDialog(string[] lines, string Name,bool yesno,string[] YesLines, string[] NoLines)
+    public void ShowDialog(string[] lines, string Name, bool yesno, string[] YesLines, string[] NoLines,GameObject target,bool isfunc,string funcName)
     {
+        NormalDialog = true;
         dialogText.text = "";
         dialogLines = lines;
         currentLine = 0;
@@ -258,6 +270,7 @@ public class GameManager : MonoBehaviour
         Choice = yesno;
         yesDialogLines = YesLines;
         noDialogLines = NoLines;
+        DialogFuncName = funcName;
     }
     public void ShowDialogChange(bool x)
     {
@@ -367,4 +380,13 @@ public class GameManager : MonoBehaviour
         isWriting = false;
     }
 
+
+    private void NullReturn()
+    {
+
+    }
+    private void SaveData()
+    {
+        player.SavePlayer();
+    }
 }

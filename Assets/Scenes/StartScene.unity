@@ -290,6 +290,8 @@ MonoBehaviour:
   Choice: 0
   YesLines: []
   NoLines: []
+  isfunc: 0
+  funcName: NullReturn
 --- !u!1001 &61343571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -499,6 +501,8 @@ MonoBehaviour:
   Choice: 0
   YesLines: []
   NoLines: []
+  isfunc: 0
+  funcName: NullReturn
 --- !u!212 &115898095
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17375,6 +17379,87 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1599751434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1599751436}
+  - component: {fileID: 1599751435}
+  - component: {fileID: 1599751437}
+  m_Layer: 0
+  m_Name: SavePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &1599751435
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599751434}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.21510506}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0087776}
+  m_EdgeRadius: 0
+--- !u!4 &1599751436
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599751434}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -38.01, y: -22.77, z: -92.41211}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1599751437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599751434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 658209501b8e5384fb7f8958ba58dd7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lines:
+  - "\u3084\u3059\u3082\u306E\u306E\u30D9\u30C3\u30C9\u304C\u3042\u308B\u3002"
+  - "\u3059\u3053\u3057\u306D\u3080\u3063\u3066\u3044\u304F\uFF1F\uFF08\u30BB\u30FC\u30D6\u3059\u308B\uFF09"
+  CharName: 
+  Choice: 1
+  YesLines:
+  - "\u3081\u306B\u3082\u3068\u307E\u3089\u306C\u306F\u3084\u3055\u3067\n\u3059\u3044\u307F\u3093\u3092\u3068\u3063\u305F"
+  NoLines:
+  - "\u3072\u308B\u306D\u3057\u3066\u3044\u308B\u3058\u304B\u3093\u306F\u306A\u3044"
+  isfunc: 0
+  funcName: SaveData
 --- !u!1 &1600081244 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 844886496126775659, guid: 376b643e5797dbb499121e05c2ac33ea,
@@ -17690,6 +17775,8 @@ MonoBehaviour:
   Choice: 0
   YesLines: []
   NoLines: []
+  isfunc: 0
+  funcName: NullReturn
 --- !u!1001 &1745816903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18063,6 +18150,8 @@ MonoBehaviour:
   - return Yes;
   NoLines:
   - return No;
+  isfunc: 0
+  funcName: NullReturn
 --- !u!114 &1813396740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78860,6 +78949,8 @@ MonoBehaviour:
   Choice: 0
   YesLines: []
   NoLines: []
+  isfunc: 0
+  funcName: NullReturn
 --- !u!61 &1880512626
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -79404,6 +79495,8 @@ MonoBehaviour:
   Choice: 0
   YesLines: []
   NoLines: []
+  isfunc: 0
+  funcName: NullReturn
 --- !u!61 &2114471104
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80181,7 +80274,7 @@ PrefabInstance:
     - target: {fileID: 3998535445727630863, guid: 376b643e5797dbb499121e05c2ac33ea,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3998535445869700728, guid: 376b643e5797dbb499121e05c2ac33ea,
         type: 3}
@@ -80317,6 +80410,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7836102066889790120, guid: 376b643e5797dbb499121e05c2ac33ea,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 376b643e5797dbb499121e05c2ac33ea, type: 3}
