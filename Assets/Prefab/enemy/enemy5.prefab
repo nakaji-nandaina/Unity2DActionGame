@@ -185,7 +185,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 79b76406716a80e449336fc234520d63, type: 3}
   area: {fileID: 8781460029971365318}
   isDrop: 1
-  parts: {fileID: 0}
+  parts: {fileID: 11400000, guid: a997588cc7b0bc343ab716568fbf16b1, type: 2}
 --- !u!212 &1510044904955080281
 SpriteRenderer:
   m_ObjectHideFlags: 0

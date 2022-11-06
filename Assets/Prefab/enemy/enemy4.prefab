@@ -1623,8 +1623,8 @@ MonoBehaviour:
   clips:
   - {fileID: 8300000, guid: 79b76406716a80e449336fc234520d63, type: 3}
   area: {fileID: 1532496499287682877}
-  isDrop: 0
-  parts: {fileID: 0}
+  isDrop: 1
+  parts: {fileID: 11400000, guid: a21519a6b9b07604792dc4a5ee254535, type: 2}
 --- !u!212 &8677952677609864354
 SpriteRenderer:
   m_ObjectHideFlags: 0
