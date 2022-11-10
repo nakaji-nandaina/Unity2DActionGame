@@ -81,7 +81,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isDead&&!GameManager.instance.Isdialog)
+        if (!isDead&&!GameManager.instance.Isdialog&&!GameManager.instance.isMove)
         {
             
             if (isKnockingBack)

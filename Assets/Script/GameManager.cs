@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField]
     private AudioClip talkdot;
-
+    public bool isMove=false;
     //フェードアウト用
     private float fadeTime = 2f;
     private float fadeCount = 2f;
@@ -103,6 +103,7 @@ public class GameManager : MonoBehaviour
         Isdialog = false;
         NormalDialog = false;
         DialogFuncName = "NullReturn";
+        isMove = false;
         //alfa = fadeImage.color.a;
         //setFadein();
     }
@@ -213,6 +214,11 @@ public class GameManager : MonoBehaviour
             playerObj.GetComponent<Animator>().SetFloat("X", playerX);
             playerObj.GetComponent<Animator>().SetFloat("Y", playerY);
         }
+    }
+    public void Playerstop()
+    {
+        player.isMove = true;
+        isMove = true;
     }
 
     public void UpdateSceneUI(bool IsCount, float STime, float Count)

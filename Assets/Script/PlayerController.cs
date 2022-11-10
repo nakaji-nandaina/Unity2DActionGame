@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     private float attackTime = 0.5f;
     private float attackCounter;
     public bool kaiwaNow;
+    public bool isMove;
     private bool isDead;
     public GameObject[] myWeapon;
 
@@ -65,6 +66,7 @@ public class PlayerController : MonoBehaviour
         nextXP = GameManager.nextXP;
         currentLevel = GameManager.currentlevel;
         kaiwaNow = false;
+        isMove = false;
         maxHealth = GameManager.maxHealth;
         currentHealth = GameManager.currentHealth;
         at = 10;
@@ -92,7 +94,7 @@ public class PlayerController : MonoBehaviour
                 levelText.SetActive(false);
             }
         }
-        if (!kaiwaNow&&!isDead)
+        if (!kaiwaNow&&!isDead&&!isMove)
         {
             if (invincibilityCounter > 0)
             {
