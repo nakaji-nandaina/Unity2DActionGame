@@ -218,7 +218,15 @@ public class GameManager : MonoBehaviour
     public void Playerstop()
     {
         player.isMove = true;
+    }
+    public void Enemystop()
+    {
         isMove = true;
+    }
+
+    public void Playerstart()
+    {
+        player.isMove = false;
     }
 
     public void UpdateSceneUI(bool IsCount, float STime, float Count)

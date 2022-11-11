@@ -109,6 +109,7 @@ public class FadeManager : MonoBehaviour
 	{
 		isScene = true;
 		GameManager.instance.Playerstop();
+		GameManager.instance.Enemystop();
 		StartCoroutine (TransScene (scene, interval));
 	}
 

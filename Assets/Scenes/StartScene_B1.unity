@@ -603,6 +603,11 @@ MonoBehaviour:
   - "\u3044\u308D\u3044\u308D\u306A\u30AF\u30A8\u30B9\u30C8\u304C\u306F\u3089\u308C\u3066\u3044\u308B\n"
   - "\u3069\u306E\u30AF\u30A8\u30B9\u30C8\u3092\u3046\u3051\u3088\u3046\u304B\u306A"
   CharName: 
+  Choice: 0
+  YesLines: []
+  NoLines: []
+  isfunc: 0
+  funcName: NullReturn
 --- !u!61 &716039535
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3709,6 +3714,11 @@ MonoBehaviour:
   lines:
   - "\u3060\u3044\u306A\u305D\u30FC\n"
   CharName: "\u304F\u308D\u3075\u304FA"
+  Choice: 0
+  YesLines: []
+  NoLines: []
+  isfunc: 0
+  funcName: NullReturn
 --- !u!61 &983072549
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3826,6 +3836,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1044010908 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 844886496126775659, guid: 376b643e5797dbb499121e05c2ac33ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 3998535447738269161}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1079835554 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3387833741577892543, guid: 617c3a09ad1da85418c9d81e48e3a3a4,
@@ -4438,6 +4454,11 @@ MonoBehaviour:
   lines:
   - "\u307B\u3063\u307A\u3093\u306F\u3058\u3051\u308B\u3000\u3076\u304D\u3084\u3067\u3059"
   CharName: "\u3076\u304D\u3084"
+  Choice: 0
+  YesLines: []
+  NoLines: []
+  isfunc: 0
+  funcName: NullReturn
 --- !u!1001 &1745816903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -124791,7 +124812,7 @@ PrefabInstance:
     - target: {fileID: 3998535445727630863, guid: 376b643e5797dbb499121e05c2ac33ea,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3998535445869700728, guid: 376b643e5797dbb499121e05c2ac33ea,
         type: 3}
@@ -124928,6 +124949,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7836102066889790120, guid: 376b643e5797dbb499121e05c2ac33ea,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 376b643e5797dbb499121e05c2ac33ea, type: 3}
 --- !u!95 &4654689345492164848
@@ -125012,6 +125038,11 @@ MonoBehaviour:
   - "\u3053\u3053\u306F\u307B\u3063\u307A\u3093\u307A\u3093\u3044\u304C\u3044\n\u305F\u3061\u3044\u308A\u304D\u3093\u3057\u3060\n\n"
   - "\u306F\u3044\u308A\u305F\u3051\u308C\u3070\u3000\u304A\u3046\u306B\n\u307B\u307A\u304D\u3061\u30E9\u30A4\u30BB\u30F3\u30B9\u30EC\u30D9\u30EB1\u3092\n\u306F\u3063\u3053\u3046\u3057\u3066\u3082\u3089\u3046\u3093\u3060\u306A\n\n"
   CharName: "\u304F\u308D\u3075\u304FB"
+  Choice: 0
+  YesLines: []
+  NoLines: []
+  isfunc: 0
+  funcName: NullReturn
 --- !u!114 &4654689345492164852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125375,6 +125406,11 @@ PrefabInstance:
       propertyPath: fadeImage
       value: 
       objectReference: {fileID: 570740853}
+    - target: {fileID: 9074385018434786009, guid: 3afc399c8c56b0a4299433d5cc1e01d2,
+        type: 3}
+      propertyPath: choiceBox
+      value: 
+      objectReference: {fileID: 1044010908}
     - target: {fileID: 9074385018434786010, guid: 3afc399c8c56b0a4299433d5cc1e01d2,
         type: 3}
       propertyPath: m_Name
