@@ -183,7 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: 79b76406716a80e449336fc234520d63, type: 3}
-  area: {fileID: 8781460029971365318}
+  area: {fileID: 0}
   isDrop: 1
   parts: {fileID: 11400000, guid: a997588cc7b0bc343ab716568fbf16b1, type: 2}
 --- !u!212 &1510044904955080281
@@ -268,7 +268,7 @@ MonoBehaviour:
   longAt: 1
   attackObj: {fileID: 498310258629117951, guid: dcae3954d1b302945951da1ebc15d83c,
     type: 3}
-  area: {fileID: 0}
+  area: {fileID: 8781460029971365318}
   currentHealth: 50
   knockBackTime: 0.1
   knockBackForce: 4
