@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98dacdd6af7b1a940a58386d2ab7402f, type: 3}
   m_Name: BottleFire
   m_EditorClassIdentifier: 
-  itemname: BottleFire
+  itemname: "\u304B\u3048\u3093\u3073\u3093"
   type: 0
   information: 
   itemObj: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: e05247844e456144f8dc8ea2762b56ca, type: 3}
