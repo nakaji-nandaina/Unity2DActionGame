@@ -81,6 +81,10 @@ public class GameManager : MonoBehaviour
     //private Image fadeImage;
     private float alfa = 1.0f;
     private float isOne;
+
+    //インベントリ関係
+    public InventoryUI inventoryUI;
+
     private void Awake()
     {
         if (instance == null)
@@ -104,6 +108,7 @@ public class GameManager : MonoBehaviour
         NormalDialog = false;
         DialogFuncName = "NullReturn";
         isMove = false;
+        inventoryUI = GetComponent<InventoryUI>();
         //alfa = fadeImage.color.a;
         //setFadein();
     }

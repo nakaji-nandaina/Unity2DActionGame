@@ -138,7 +138,30 @@ public class PlayerController : MonoBehaviour
         {
             LoadPlayer();
         }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (!GameManager.instance.inventoryUI.InventoryBox.activeInHierarchy)
+            {
+                OpenInventory();
+            }
+            else
+            {
+                CloseInventory();
+            }
+        }
 
+    }
+
+    public void OpenInventory()
+    {
+        GameManager.instance.inventoryUI.InventoryBox.SetActive(true);
+        GameManager.instance.inventoryUI.UpdateInventoryUI(inventory);
+        GameManager.instance.Playerstop();
+    }
+    public void CloseInventory()
+    {
+        GameManager.instance.inventoryUI.InventoryBox.SetActive(false);
+        GameManager.instance.Playerstart();
     }
     public void SavePlayer()
     {

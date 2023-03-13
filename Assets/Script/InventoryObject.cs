@@ -6,7 +6,7 @@ public class InventoryObject : ScriptableObject
 {
 
     public List<InventorySlot> Container = new List<InventorySlot>();
-    public void AddItem(Item _item, int _amount)
+    public int AddItem(Item _item, int _amount)
     {
         bool hasItem = false;
         for(int i = 0; i < Container.Count; i++)
@@ -23,6 +23,7 @@ public class InventoryObject : ScriptableObject
             Container.Add(new InventorySlot(_item, _amount));
 
         }
+        return _amount;
     }
 }
 [System.Serializable]

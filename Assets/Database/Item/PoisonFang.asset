@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98dacdd6af7b1a940a58386d2ab7402f, type: 3}
   m_Name: PoisonFang
   m_EditorClassIdentifier: 
-  itemname: PoisonFang
+  itemname: "\u3069\u304F\u306E\u304D\u3070"
   type: 1
   information: 
   itemObj: {fileID: 0}
+  itemIcon: {fileID: 0}
