@@ -71,6 +71,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -80,8 +82,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -102,9 +104,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -504,6 +509,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      enemy5_4: -5643020225817470616
+      enemy5_9: -8572638716117356139
+      enemy5_10: 1095167002395252954
+      enemy5_2: -6600404909291878195
+      enemy5_3: 3300825243217956242
+      enemy5_13: -590604730674155030
+      enemy5_8: 7071544424330006687
+      enemy5_0: -903743815862742117
+      enemy5_6: -7424549853382918970
+      enemy5_14: -4331228405657019052
+      enemy5_15: -8718654188265511030
+      enemy5_5: 4589289270875304959
+      enemy5_1: -4001030744230936395
+      enemy5_7: -631999076526510959
+      enemy5_12: 6129342180445790516
+      enemy5_11: -3096090520773831268
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

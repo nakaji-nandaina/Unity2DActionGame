@@ -116,7 +116,7 @@ public class BreakObj : MonoBehaviour
         }
         BreakSE.PlayOneShot(clips[0]);
         this.GetComponent<SpriteRenderer>().sortingOrder = -2;
-        this.GetComponent<SpriteRenderer>().sortingLayerName = "Defaulte";
+        this.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
         Destroy(this.GetComponent<BoxCollider2D>());
         Destroy(this.GetComponent<EnemyController>());
         IsBreak = true;
