@@ -19,6 +19,11 @@ public class PlayerStatus
     [SerializeField]
     int CurrentLv;
 
+    [SerializeField]
+    List<int> ItemIds;
+    [SerializeField]
+    List<int> ItemAmounts;
+
     private const string SAVEKEY = "PLAYER-STATUS-SAVE";
 
     static PlayerStatus Instance = null;
@@ -53,6 +58,19 @@ public class PlayerStatus
         get { return CurrentLv; }
         private set { CurrentLv = value; }
     }
+
+    public List<int> itemIds
+    {
+        get { return ItemIds; }
+        private set { ItemIds = value; }
+    }
+
+    public List<int> itemAmounts
+    {
+        get { return ItemAmounts; }
+        private set { ItemAmounts = value; }
+    }
+
     public PlayerStatus()
     {
         CurrentXp = 0;
@@ -61,10 +79,12 @@ public class PlayerStatus
         GOLD = 0;
         AttackPOINT = 10;
         CurrentLv = 1;
+        ItemIds = null;
+        ItemAmounts = null;
     }
     
 
-    public  PlayerStatus(int currentXp, int nextXp, int MaxHp, int Gold,int AttackPoint, int currentLv)
+    public  PlayerStatus(int currentXp, int nextXp, int MaxHp, int Gold,int AttackPoint, int currentLv,List<int> itemids,List<int>itemAmounts)
     {
         this.CurrentXp = currentXp;
         this.NextXp = nextXp;
@@ -72,9 +92,11 @@ public class PlayerStatus
         this.GOLD = Gold;
         this.AttackPOINT = AttackPoint;
         this.CurrentLv = currentLv;
+        this.itemAmounts = itemAmounts;
+        this.ItemIds = itemids;
     }
 
-    public void ReStatus(int cx, int nx, int mh, int gold, int ap, int cl)
+    public void ReStatus(int cx, int nx, int mh, int gold, int ap, int cl,List<int> ids,List<int> amounts)
     {
         currentXp = cx;
         nextXp = nx;
@@ -82,6 +104,8 @@ public class PlayerStatus
         Gold = gold;
         AttackPoint = ap;
         currentLv = cl;
+        itemAmounts = amounts;
+        itemIds = ids;
     }
 
     

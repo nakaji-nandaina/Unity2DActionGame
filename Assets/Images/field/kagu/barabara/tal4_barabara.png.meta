@@ -98,6 +98,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -107,8 +109,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -129,9 +131,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -720,6 +725,32 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      tal4_barabara_8: 3743192990728874715
+      tal4_barabara_12: -1001883776360484582
+      tal4_barabara_10: -4721624054608970123
+      tal4_barabara_14: -564741936708065909
+      tal4_barabara_11: -2838044506343990566
+      tal4_barabara_24: 371970755007520376
+      tal4_barabara_9: 610573595448739676
+      tal4_barabara_18: 6386337228362462931
+      tal4_barabara_15: -1839820481189840545
+      tal4_barabara_1: 8876555998946488909
+      tal4_barabara_23: -6608340640339998397
+      tal4_barabara_7: 2040409478172827073
+      tal4_barabara_19: 8407492783326095512
+      tal4_barabara_3: 2000887084122359434
+      tal4_barabara_17: 8856017952798972555
+      tal4_barabara_4: 59253118935787518
+      tal4_barabara_2: 7043719814196204598
+      tal4_barabara_13: 7528290323204009937
+      tal4_barabara_20: 7523549847130460066
+      tal4_barabara_21: 166968045570550241
+      tal4_barabara_22: 602707651330787621
+      tal4_barabara_0: -923100003510291076
+      tal4_barabara_5: 4731444803231816279
+      tal4_barabara_6: 8610889557934602625
+      tal4_barabara_16: -8709745812957480355
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

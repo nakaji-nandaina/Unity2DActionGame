@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 using System;
 public class PlayerController : MonoBehaviour
 {
@@ -59,6 +60,9 @@ public class PlayerController : MonoBehaviour
     private float levelupcount;
 
     public InventoryObject inventory;
+    public DataBase database;
+    private List<int> itemId;
+    private List<int> itemAmount;
 
     void Start()
     {
@@ -80,7 +84,6 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.UpdateHealthUI();
         GameManager.instance.UpdateXPUI();
         ShotManager=GetComponent<PlayerShotManager>();
-
     }
 
     // Update is called once per frame
@@ -165,7 +168,9 @@ public class PlayerController : MonoBehaviour
     }
     public void SavePlayer()
     {
-        PlayerStatus.GetInstance().ReStatus(currentXP, nextXP, maxHealth, GameManager.currentMoney, at, currentLevel);
+        itemId = database.GetItemIds(inventory);
+        itemAmount = database.GetItemAmounts(inventory);
+        PlayerStatus.GetInstance().ReStatus(currentXP, nextXP, maxHealth, GameManager.currentMoney, at, currentLevel,itemId,itemAmount);
         PlayerStatus.GetInstance().Save();
     }
 
@@ -179,6 +184,12 @@ public class PlayerController : MonoBehaviour
         GameManager.currentMoney = PlayerStatus.GetInstance().Gold;
         at = PlayerStatus.GetInstance().AttackPoint;
         currentLevel = PlayerStatus.GetInstance().currentLv;
+
+        inventory = new InventoryObject();
+        itemId = PlayerStatus.GetInstance().itemIds;
+        itemAmount = PlayerStatus.GetInstance().itemAmounts;
+        inventory.SetInitiate(itemId, itemAmount, database);
+        
         GameManager.instance.UpdateHealthUI();
         GameManager.instance.UpdateXPUI();
         GameManager.instance.UpdateMoneyUI(GameManager.currentMoney);

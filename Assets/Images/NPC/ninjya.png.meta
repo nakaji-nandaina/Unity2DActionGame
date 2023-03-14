@@ -215,6 +215,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -224,8 +226,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -246,9 +248,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -648,6 +653,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      ninjya_14: 799371139520428617
+      ninjya_15: -3492427817947930595
+      ninjya_4: -3057735202174550457
+      ninjya_1: 9058581065389183567
+      ninjya_11: -4453796961485197737
+      ninjya_2: 4486650126579341685
+      ninjya_9: -7519908227515934249
+      ninjya_13: 1992609028855972080
+      ninjya_0: 732401440302416792
+      ninjya_12: -1317844073991457057
+      ninjya_5: -2856752754239125065
+      ninjya_10: -5511391616621684489
+      ninjya_3: 8868671314331266771
+      ninjya_8: 8269355250993250994
+      ninjya_7: -1726786814376475648
+      ninjya_6: -8009050076085208169
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

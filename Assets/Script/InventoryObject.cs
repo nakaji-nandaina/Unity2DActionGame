@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName ="New Inventory",menuName = "Inventory System/Inventory")]
-public class InventoryObject : ScriptableObject
+public class InventoryObject: ScriptableObject
 {
 
     public List<InventorySlot> Container = new List<InventorySlot>();
@@ -23,8 +23,19 @@ public class InventoryObject : ScriptableObject
             Container.Add(new InventorySlot(_item, _amount));
 
         }
+        
         return _amount;
     }
+
+    public void SetInitiate(List<int> ids, List<int> amounts,DataBase dataBase)
+    {
+        for(int i=0; i < ids.Count; i++)
+        {
+            Item item= dataBase.GetItemData(ids[i]);
+            AddItem(item, amounts[i]);
+        }
+    }
+
 }
 [System.Serializable]
 public class InventorySlot

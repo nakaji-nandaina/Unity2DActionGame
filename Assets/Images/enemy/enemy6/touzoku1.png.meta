@@ -71,6 +71,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -80,8 +82,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -102,9 +104,12 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
@@ -504,6 +509,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      touzoku1_15: -537927779252823439
+      touzoku1_11: 5388258683262276656
+      touzoku1_1: -7056606603671652058
+      touzoku1_0: -8810519471644635381
+      touzoku1_2: -4433047363348391299
+      touzoku1_10: 4348294061275856862
+      touzoku1_3: 8649844135581735554
+      touzoku1_4: 3949344955716132248
+      touzoku1_13: -7498658584030840640
+      touzoku1_5: -9204196734584412740
+      touzoku1_9: 2313349854259808587
+      touzoku1_6: 6016883644136559675
+      touzoku1_7: -8546456260661674247
+      touzoku1_12: -8377483167128338433
+      touzoku1_8: -8790010946747502541
+      touzoku1_14: -8402555894332744294
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
