@@ -185,7 +185,7 @@ public class PlayerController : MonoBehaviour
         at = PlayerStatus.GetInstance().AttackPoint;
         currentLevel = PlayerStatus.GetInstance().currentLv;
 
-        inventory = new InventoryObject();
+        inventory = InventoryObject.CreateInstance<InventoryObject>();
         itemId = PlayerStatus.GetInstance().itemIds;
         itemAmount = PlayerStatus.GetInstance().itemAmounts;
         inventory.SetInitiate(itemId, itemAmount, database);

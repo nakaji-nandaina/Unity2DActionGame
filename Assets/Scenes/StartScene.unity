@@ -18171,7 +18171,7 @@ PrefabInstance:
         type: 3}
       propertyPath: doorAudio
       value: 
-      objectReference: {fileID: 8300000, guid: aaa7da1a0912af74ca74f1bd87d97542, type: 3}
+      objectReference: {fileID: 8300000, guid: 47d53737c58c72548ae1da7c0e8e12d5, type: 3}
     - target: {fileID: 208048979180052538, guid: e49e5a298b4b3de4ab877a57170bca1a,
         type: 3}
       propertyPath: m_RootOrder
@@ -18427,7 +18427,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5a0eac6b04d20574c8ff8e83e4a8595a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5b6d419a366a9654989e95c26d7b2434, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
@@ -86699,7 +86699,7 @@ PrefabInstance:
         type: 3}
       propertyPath: doorAudio
       value: 
-      objectReference: {fileID: 8300000, guid: aaa7da1a0912af74ca74f1bd87d97542, type: 3}
+      objectReference: {fileID: 8300000, guid: 47d53737c58c72548ae1da7c0e8e12d5, type: 3}
     - target: {fileID: 208048979180052538, guid: e49e5a298b4b3de4ab877a57170bca1a,
         type: 3}
       propertyPath: m_RootOrder
@@ -87047,7 +87047,7 @@ PrefabInstance:
         type: 3}
       propertyPath: doorAudio
       value: 
-      objectReference: {fileID: 8300000, guid: aaa7da1a0912af74ca74f1bd87d97542, type: 3}
+      objectReference: {fileID: 8300000, guid: 47d53737c58c72548ae1da7c0e8e12d5, type: 3}
     - target: {fileID: 208048979180052538, guid: e49e5a298b4b3de4ab877a57170bca1a,
         type: 3}
       propertyPath: m_RootOrder
@@ -87594,7 +87594,7 @@ PrefabInstance:
         type: 3}
       propertyPath: doorAudio
       value: 
-      objectReference: {fileID: 8300000, guid: aaa7da1a0912af74ca74f1bd87d97542, type: 3}
+      objectReference: {fileID: 8300000, guid: 47d53737c58c72548ae1da7c0e8e12d5, type: 3}
     - target: {fileID: 208048979180052538, guid: e49e5a298b4b3de4ab877a57170bca1a,
         type: 3}
       propertyPath: m_RootOrder
