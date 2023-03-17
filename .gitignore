@@ -54,8 +54,7 @@ sysinfo.txt
 #Tohide
 Assets/2D_Destruction/
 Assets/Cainos/
-Assets/Music/
-Assets/Image/
+Assets/Music/BGM/
 
 # Builds
 *.apk
