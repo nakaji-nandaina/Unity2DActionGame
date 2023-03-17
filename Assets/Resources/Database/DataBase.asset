@@ -20,3 +20,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c4b9932c0006582409d970df09542ec0, type: 2}
   - {fileID: 11400000, guid: c21d05a018ff0ff429fbecb48c5434a4, type: 2}
   - {fileID: 11400000, guid: d1c05473f52da7a4d9ed935edf63610e, type: 2}
+  playerLvDatabase:
+  - {fileID: 11400000, guid: 5b2358cc7869d3946bfb4ecfbfdf373d, type: 2}
+  - {fileID: 11400000, guid: 8c736d1d5d2385844b5570ac9dc06d6b, type: 2}
+  - {fileID: 11400000, guid: 69d3c950589f16a4cad931ba1d29fa4a, type: 2}
+  - {fileID: 11400000, guid: e9f7b895fd9efb34dbbb8500bfd524e7, type: 2}
+  - {fileID: 11400000, guid: 8ddc590cfa4549543a2e59cb1e026cdb, type: 2}
+  - {fileID: 11400000, guid: 3aed0e2bc5a62fb459d6c1b4b5e09422, type: 2}
+  - {fileID: 11400000, guid: ebd1d9da87da95a40a446a326602151a, type: 2}
+  - {fileID: 11400000, guid: c58dc6af1fad4e0499d03a645c6701c6, type: 2}
+  skillDatabase: []
