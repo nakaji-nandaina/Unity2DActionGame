@@ -6,7 +6,9 @@ using UnityEngine;
 public class DataBase : ScriptableObject
 {
     public List<Item> itemDatabase = new List<Item>();
-    
+    public List<Status> playerLvDatabase = new List<Status> ();
+    public List<Skill> skillDatabase = new List<Skill>();
+
     public List<int> GetItemIds(InventoryObject inventory)
     {
         List<int> itemIds= new List<int>();

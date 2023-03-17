@@ -8,15 +8,11 @@ public class PlayerStatus
     // Start is called before the first frame update
     [SerializeField]
     int CurrentXp;
-    [SerializeField]
-    int NextXp;
-    [SerializeField]
-    int MaxHP;
+    
+    
     [SerializeField]
     int GOLD;
-    [SerializeField]
-    int AttackPOINT;
-    [SerializeField]
+    
     int CurrentLv;
 
     [SerializeField]
@@ -33,26 +29,14 @@ public class PlayerStatus
         get { return CurrentXp; }
         private set { CurrentXp = value; }
     }
-    public int nextXp
-    {
-        get { return NextXp; }
-        private set { NextXp = value; }
-    }
-    public int MaxHp
-    {
-        get { return MaxHP; }
-        private set { MaxHP = value; }
-    }
+   
+   
     public int Gold
     {
         get { return GOLD; }
         private set { GOLD = value; }
     }
-    public int AttackPoint
-    {
-        get { return AttackPOINT; }
-        private set { AttackPOINT = value; }
-    }
+    
     public int currentLv
     {
         get { return CurrentLv; }
@@ -74,35 +58,26 @@ public class PlayerStatus
     public PlayerStatus()
     {
         CurrentXp = 0;
-        NextXp = 100;
-        MaxHP = 100;
         GOLD = 0;
-        AttackPOINT = 10;
         CurrentLv = 1;
         ItemIds = null;
         ItemAmounts = null;
     }
     
 
-    public  PlayerStatus(int currentXp, int nextXp, int MaxHp, int Gold,int AttackPoint, int currentLv,List<int> itemids,List<int>itemAmounts)
+    public  PlayerStatus(int currentXp,int Gold,int currentLv,List<int> itemids,List<int>itemAmounts)
     {
         this.CurrentXp = currentXp;
-        this.NextXp = nextXp;
-        this.MaxHP = MaxHp;
         this.GOLD = Gold;
-        this.AttackPOINT = AttackPoint;
         this.CurrentLv = currentLv;
         this.itemAmounts = itemAmounts;
         this.ItemIds = itemids;
     }
 
-    public void ReStatus(int cx, int nx, int mh, int gold, int ap, int cl,List<int> ids,List<int> amounts)
+    public void ReStatus(int cx, int gold, int cl,List<int> ids,List<int> amounts)
     {
         currentXp = cx;
-        nextXp = nx;
-        MaxHp = mh;
         Gold = gold;
-        AttackPoint = ap;
         currentLv = cl;
         itemAmounts = amounts;
         itemIds = ids;

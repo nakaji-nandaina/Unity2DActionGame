@@ -170,20 +170,21 @@ public class PlayerController : MonoBehaviour
     {
         itemId = database.GetItemIds(inventory);
         itemAmount = database.GetItemAmounts(inventory);
-        PlayerStatus.GetInstance().ReStatus(currentXP, nextXP, maxHealth, GameManager.currentMoney, at, currentLevel,itemId,itemAmount);
+        PlayerStatus.GetInstance().ReStatus(currentXP, GameManager.currentMoney, currentLevel,itemId,itemAmount);
         PlayerStatus.GetInstance().Save();
     }
 
     public void LoadPlayer()
     {
         PlayerStatus.GetInstance().Load();
+        currentLevel = PlayerStatus.GetInstance().currentLv;
         currentXP = PlayerStatus.GetInstance().currentXp;
-        nextXP = PlayerStatus.GetInstance().nextXp;
-        maxHealth = PlayerStatus.GetInstance().MaxHp;
+        nextXP = database.playerLvDatabase[currentLevel-1].NextXP;
+        maxHealth = database.playerLvDatabase[currentLevel - 1].Hp;
         currentHealth = maxHealth;
         GameManager.currentMoney = PlayerStatus.GetInstance().Gold;
-        at = PlayerStatus.GetInstance().AttackPoint;
-        currentLevel = PlayerStatus.GetInstance().currentLv;
+        at = database.playerLvDatabase[currentLevel - 1].Attack;
+        
 
         inventory = InventoryObject.CreateInstance<InventoryObject>();
         itemId = PlayerStatus.GetInstance().itemIds;
@@ -220,10 +221,10 @@ public class PlayerController : MonoBehaviour
         while (currentXP >= nextXP)
         {
             currentLevel++;
-            maxHealth += Convert.ToInt32(maxHealth * 0.05);
+            maxHealth =database.playerLvDatabase[currentLevel-1].Hp;
             currentHealth = maxHealth;
             currentXP -= nextXP;
-            nextXP *= 2;
+            nextXP =database.playerLvDatabase[currentLevel-1].NextXP;
             if (isLevelUpOnce)
             {
                 isLevelUpOnce = false;

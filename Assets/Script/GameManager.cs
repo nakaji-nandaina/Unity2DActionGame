@@ -74,13 +74,13 @@ public class GameManager : MonoBehaviour
     private AudioClip talkdot;
     public bool isMove=false;
     //フェードアウト用
-    private float fadeTime = 2f;
-    private float fadeCount = 2f;
+    //private float fadeTime = 2f;
+    //private float fadeCount = 2f;
     public bool isFadeout = false;
     public bool isFadein = false;
     //private Image fadeImage;
-    private float alfa = 1.0f;
-    private float isOne;
+    //private float alfa = 1.0f;
+    //private float isOne;
 
     //インベントリ関係
     public InventoryUI inventoryUI;
