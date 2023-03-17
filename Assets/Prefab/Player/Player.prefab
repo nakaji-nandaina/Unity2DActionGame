@@ -161,7 +161,7 @@ MonoBehaviour:
   isMove: 0
   myWeapon:
   - {fileID: 2482943847549993309, guid: 52cfa148600923240a13979b1e1199c9, type: 3}
-  levelClip: {fileID: 8300000, guid: e371d5968f947e5498a9f6dcd44bf480, type: 3}
+  levelClip: {fileID: 8300000, guid: 00ef1b8fd551084448197489bd3b7ae4, type: 3}
   levelText: {fileID: 8030022509000291885}
   inventory: {fileID: 11400000, guid: 9493e18068b91874dbd117cf9a58f0ec, type: 2}
   database: {fileID: 11400000, guid: 6625210e71a8587418c61eed02876cbf, type: 2}
@@ -810,7 +810,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &9074356571803065694
 MonoBehaviour:
   m_ObjectHideFlags: 0
