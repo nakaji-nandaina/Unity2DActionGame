@@ -7,6 +7,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Skill", menuName = "CreateSkill")]
 public class Skill : ScriptableObject
 {
+
     public enum EffectedStatus
     {
         Attack,
@@ -31,6 +32,7 @@ public class Skill : ScriptableObject
     public int Firstnum;
     [Header("1レベル当たりのステータス補正値上昇量")]
     public int Lvnum;
+    [Multiline(10)]
     [Header("スキルの概要")]
     public string Info;
     [Header("その他の場合のスキル効果(関数名)")]
@@ -47,4 +49,5 @@ public class Skill : ScriptableObject
         this.Info = skill.Info;
         this.Extra = skill.Extra;
     }
+
 }

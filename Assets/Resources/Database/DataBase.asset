@@ -29,4 +29,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3aed0e2bc5a62fb459d6c1b4b5e09422, type: 2}
   - {fileID: 11400000, guid: ebd1d9da87da95a40a446a326602151a, type: 2}
   - {fileID: 11400000, guid: c58dc6af1fad4e0499d03a645c6701c6, type: 2}
-  skillDatabase: []
+  skillDatabase:
+  - {fileID: 11400000, guid: 0d3cc59f378beae42990197c0521fef1, type: 2}
