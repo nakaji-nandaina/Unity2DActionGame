@@ -65,6 +65,8 @@ public class PlayerController : MonoBehaviour
     private List<int> itemId;
     private List<int> itemAmount;
 
+    private float[] buffStatus = new float[4];
+
     void Start()
     {
         currentXP = GameManager.currentXP;
@@ -73,18 +75,17 @@ public class PlayerController : MonoBehaviour
         kaiwaNow = false;
         isMove = false;
         maxHealth = GameManager.maxHealth;
+        SetStatus();
         currentHealth = GameManager.currentHealth;
-        at = 10;
         levelupcount = 0;
         if (SceneManager.GetActiveScene().name == "StartScene")
         {
             currentHealth = GameManager.maxHealth;
         }
-        
-        
         GameManager.instance.UpdateHealthUI();
         GameManager.instance.UpdateXPUI();
         ShotManager=GetComponent<PlayerShotManager>();
+        
     }
 
     // Update is called once per frame
@@ -173,19 +174,20 @@ public class PlayerController : MonoBehaviour
         itemAmount = database.GetItemAmounts(inventory);
         PlayerStatus.GetInstance().ReStatus(currentXP, GameManager.currentMoney, currentLevel,itemId,itemAmount);
         PlayerStatus.GetInstance().Save();
+        Debug.Log(PlayerStatus.GetInstance().currentLv);
     }
 
     public void LoadPlayer()
     {
         PlayerStatus.GetInstance().Load();
+        Debug.Log(PlayerStatus.GetInstance().currentLv);
         currentLevel = PlayerStatus.GetInstance().currentLv;
         currentXP = PlayerStatus.GetInstance().currentXp;
-        nextXP = database.playerLvDatabase[currentLevel-1].NextXP;
-        maxHealth = database.playerLvDatabase[currentLevel - 1].Hp;
+        nextXP = database.playerLvDatabase[currentLevel - 1].NextXP;
+        SetStatus();
         currentHealth = maxHealth;
         GameManager.currentMoney = PlayerStatus.GetInstance().Gold;
-        at = database.playerLvDatabase[currentLevel - 1].Attack;
-        
+
 
         inventory = InventoryObject.CreateInstance<InventoryObject>();
         itemId = PlayerStatus.GetInstance().itemIds;
@@ -195,6 +197,17 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.UpdateHealthUI();
         GameManager.instance.UpdateXPUI();
         GameManager.instance.UpdateMoneyUI(GameManager.currentMoney);
+    }
+
+    public void SetStatus()
+    {
+        buffStatus = skills.culculateSkillEffects();
+        float plusAt = buffStatus[0];
+        float timesAt = buffStatus[1] + 1;
+        float plusHp = buffStatus[2];
+        float timesHp = buffStatus[3]+1;
+        at = (int)(database.playerLvDatabase[currentLevel - 1].Attack*timesAt+plusAt);
+        maxHealth = (int)(database.playerLvDatabase[currentLevel - 1].Hp * timesHp + plusHp);
     }
 
     /// <summary>
@@ -222,7 +235,7 @@ public class PlayerController : MonoBehaviour
         while (currentXP >= nextXP)
         {
             currentLevel++;
-            maxHealth =database.playerLvDatabase[currentLevel-1].Hp;
+            SetStatus();
             currentHealth = maxHealth;
             currentXP -= nextXP;
             nextXP =database.playerLvDatabase[currentLevel-1].NextXP;
