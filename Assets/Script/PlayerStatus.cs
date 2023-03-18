@@ -12,7 +12,7 @@ public class PlayerStatus
     
     [SerializeField]
     int GOLD;
-    
+    [SerializeField]
     int CurrentLv;
 
     [SerializeField]
@@ -100,14 +100,14 @@ public class PlayerStatus
         PlayerPrefs.SetString(SAVEKEY, JsonUtility.ToJson(this));
         PlayerPrefs.Save();
         string statusJson = PlayerPrefs.GetString(SAVEKEY, JsonUtility.ToJson(new PlayerStatus()));
-        //Debug.LogError(statusJson);
+        Debug.LogError(statusJson);
     }
 
     public void Load()
     {
         string statusJson = PlayerPrefs.GetString(SAVEKEY,JsonUtility.ToJson(new PlayerStatus()));
         Instance = JsonUtility.FromJson<PlayerStatus>(statusJson);
-        //Debug.LogError(statusJson);
+        Debug.LogError(statusJson);
     }
 
 }

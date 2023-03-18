@@ -29,9 +29,9 @@ public class Skill : ScriptableObject
     [Header("ステータス補正の場合の効かせ方")]
     public HowToEffect howtoEffect;
     [Header("初期ステータス補正量")]
-    public int Firstnum;
+    public float Firstnum;
     [Header("1レベル当たりのステータス補正値上昇量")]
-    public int Lvnum;
+    public float Lvnum;
     [Multiline(10)]
     [Header("スキルの概要")]
     public string Info;

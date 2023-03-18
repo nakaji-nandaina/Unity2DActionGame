@@ -15,3 +15,5 @@ MonoBehaviour:
   skillContainer:
   - skill: {fileID: 11400000, guid: 0d3cc59f378beae42990197c0521fef1, type: 2}
     Lv: 1
+  - skill: {fileID: 11400000, guid: 59675a00b3ab9674b98b9695a9f8ff28, type: 2}
+    Lv: 2

@@ -37,12 +37,12 @@ public class MySkills : ScriptableObject
         }
     }
 
-    public int[] culculateSkillEffects()
+    public float[] culculateSkillEffects()
     {
-        int[] status = new int[4];
+        float[] status = new float[4];
         //[0]:plus,[1]:times
-        int[] At = new int[2];
-        int[] Hp = new int[2];
+        float[] At = new float[2];
+        float[] Hp = new float[2];
         
         for(int i = 0; i < skillContainer.Count; i++)
         {
@@ -67,9 +67,9 @@ public class MySkills : ScriptableObject
         return status;
     }
 
-    public int[] culculateSkillEffect(Skill skill,int Lv)
+    public float[] culculateSkillEffect(Skill skill,int Lv)
     {
-        int[] num = new int[2];
+        float[] num = new float[2];
         switch (skill.howtoEffect)
         {
             case Skill.HowToEffect.Plus:
