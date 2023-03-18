@@ -9,6 +9,7 @@ public class DataBase : ScriptableObject
     public List<Status> playerLvDatabase = new List<Status> ();
     public List<Skill> skillDatabase = new List<Skill>();
 
+    //アイテム関係
     public List<int> GetItemIds(InventoryObject inventory)
     {
         List<int> itemIds= new List<int>();
@@ -44,10 +45,50 @@ public class DataBase : ScriptableObject
         return -1;
     }
 
-    
-
     public Item GetItemData(int id)
     {
         return itemDatabase[id];
     }
+
+    //スキル関係
+    public List<int> GetSkillIds(MySkills skills)
+    {
+        List<int> skillIds = new List<int>();
+        for(int i=0; i < skills.skillContainer.Count; i++)
+        {
+            if (GetSkillId(skills.skillContainer[i].skill)!=-1)
+            {
+                skillIds.Add(GetSkillId(skills.skillContainer[i].skill));
+            }
+        }
+        return skillIds;
+    }
+
+    public List<int> GetSkillLvs(MySkills skills)
+    {
+        List<int> skillLvs = new List<int>();
+        for(int i=0; i< skills.skillContainer.Count; i++)
+        {
+            skillLvs.Add(skills.skillContainer[i].Lv);
+        }
+        return skillLvs;
+    }
+
+    public int GetSkillId(Skill skill)
+    {
+        for(int i=0; i < skillDatabase.Count; i++)
+        {
+            if (skillDatabase[i] == skill)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public Skill GetSkillData(int id)
+    {
+        return skillDatabase[id];
+    }
+
 }

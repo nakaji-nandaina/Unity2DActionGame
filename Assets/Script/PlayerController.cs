@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
     private float levelupcount;
 
     public InventoryObject inventory;
+    public MySkills skills;
     public DataBase database;
     private List<int> itemId;
     private List<int> itemAmount;
