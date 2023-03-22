@@ -85,6 +85,9 @@ public class GameManager : MonoBehaviour
     //インベントリ関係
     public InventoryUI inventoryUI;
 
+
+    //public Texture2D CursolImage;
+
     private void Awake()
     {
         if (instance == null)
@@ -109,6 +112,7 @@ public class GameManager : MonoBehaviour
         DialogFuncName = "NullReturn";
         isMove = false;
         inventoryUI = GetComponent<InventoryUI>();
+        //Cursor.SetCursor(CursolImage, Vector2.zero, CursorMode.Auto);
         //alfa = fadeImage.color.a;
         //setFadein();
     }
@@ -408,4 +412,5 @@ public class GameManager : MonoBehaviour
     {
         player.SavePlayer();
     }
+
 }

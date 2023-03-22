@@ -70,6 +70,7 @@ MonoBehaviour:
   isFadeout: 0
   isFadein: 0
   inventoryUI: {fileID: 0}
+  CursolImage: {fileID: 2800000, guid: 57c1508d1cfcdb64c8a8beb846ba1b54, type: 3}
 --- !u!114 &8699797446048524044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,8 +87,10 @@ MonoBehaviour:
   contentHolder: {fileID: 0}
   buttonprefab: {fileID: 4591714453909207155, guid: b73af7eafb70beb44ad95bb3c5afa9e8,
     type: 3}
+  useButton: {fileID: 0}
   name: {fileID: 0}
   explain: {fileID: 0}
+  selecteditem: {fileID: 0}
 --- !u!82 &3731645593818941418
 AudioSource:
   m_ObjectHideFlags: 0

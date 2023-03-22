@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98dacdd6af7b1a940a58386d2ab7402f, type: 3}
   m_Name: midHealPotion
   m_EditorClassIdentifier: 
-  itemname: "\u3072\u30FC\u308B\u307D\u30FC\u3057\u3087\u3093"
+  itemname: "\u307F\u3063\u3069\u307D\u30FC\u3057\u3087\u3093"
   type: 0
-  information: 
+  information: "\u304B\u3089\u3060\u3092\u3044\u3084\u3059\u3048\u304D\u305F\u3044\u3002\n\n\u3053\u3086\u3073\u306E\u3053\u3063\u305B\u3064\n\u3078\u3093\u305A\u3064\u3046\n\u3044\u3061\u3087\u3046\u3048\u3093\u306B\u304D\u304F\u3002\n\n\u3053\u3069\u3082\u304C\u306E\u3080\u3068\n\u307E\u305A\u3059\u304E\u3066\u306A\u304F\u3002\n"
   itemObj: {fileID: 0}
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: e1d63a771f1001f4989ab41148ab09f1, type: 3}
