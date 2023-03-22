@@ -166,6 +166,7 @@ public class PlayerController : MonoBehaviour
     public void CloseInventory()
     {
         GameManager.instance.inventoryUI.InventoryBox.SetActive(false);
+        GameManager.instance.inventoryUI.CloseInventory();
         GameManager.instance.Playerstart();
     }
     public void SavePlayer()
