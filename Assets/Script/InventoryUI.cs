@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,7 @@ public class InventoryUI : MonoBehaviour
     public Text name;
     public Text explain;
     public Item selecteditem;
-
+    
     public void UpdateExplainUI(Item item)
     {
         selecteditem = item;
@@ -27,6 +28,21 @@ public class InventoryUI : MonoBehaviour
         {
             useButton.SetActive(false);
         }
+    }
+
+    public void useItem(InventoryObject inventory)
+    {
+        if(inventory.UsedItem(selecteditem, 1))
+        {
+            string func =selecteditem.funcname;
+            ItemFunctions.instance.Invoke(func, 0);
+            if (!inventory.existItem(selecteditem))
+            {
+                CloseInventory();
+            }
+            UpdateInventoryUI(inventory);
+        }
+
     }
 
     public void CloseInventory()
@@ -58,7 +74,7 @@ public class InventoryUI : MonoBehaviour
         else if(currentButtonCount>currentItemCount)
         {
             Debug.Log("アイテム削除");
-            for(int i = currentButtonCount - 1; i > currentItemCount; i++)
+            for(int i = currentButtonCount-1; i >= currentItemCount; i--)
             {
                 Destroy(contentHolder.transform.GetChild(i).gameObject);
             }

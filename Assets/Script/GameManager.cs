@@ -85,6 +85,10 @@ public class GameManager : MonoBehaviour
     //インベントリ関係
     public InventoryUI inventoryUI;
 
+    public PlayerController Player
+    {
+        get { return player; }
+    }
 
     //public Texture2D CursolImage;
 

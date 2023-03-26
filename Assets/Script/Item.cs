@@ -15,6 +15,8 @@ public class Item : ScriptableObject
 
     public String itemname;
     public Type type;
+    public String funcname;
+    public float point;
     [Multiline(10)]
     public String information;
     public GameObject itemObj;

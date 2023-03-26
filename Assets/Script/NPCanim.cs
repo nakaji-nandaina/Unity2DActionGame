@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class NPCanim : MonoBehaviour
 {
-    [SerializeField]
     private Animator npcAnim;
     [SerializeField]
     private float animX, animY;
@@ -12,6 +11,7 @@ public class NPCanim : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        npcAnim = this.gameObject.GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         npcAnim.SetFloat("X", animX);
         npcAnim.SetFloat("Y", animY);

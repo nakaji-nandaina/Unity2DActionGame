@@ -157,6 +157,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void UseItem()
+    {
+        GameManager.instance.inventoryUI.useItem(inventory);
+    }
+
     public void OpenInventory()
     {
         GameManager.instance.inventoryUI.InventoryBox.SetActive(true);
