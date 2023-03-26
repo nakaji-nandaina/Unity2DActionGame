@@ -20,6 +20,8 @@ public class EnemyController : MonoBehaviour
     private Vector2 moveDir;
     [SerializeField, Tooltip("追いかけ速度")]
     private float chaseSpeed;
+    [SerializeField,Tooltip("直線追いかけ")]
+    private bool straght=false;
     [SerializeField]
     private float rangeToChase,rangeToWalk,chaseWaitTime,chaseTime,rangeToAttack;
     private float chaseCounter, chaseWaitCounter;
@@ -55,7 +57,6 @@ public class EnemyController : MonoBehaviour
     private Vector2 knockDir;
 
     private bool isDead;
-
     NavMeshAgent2D agent;
     private bool isChaseing;
     private EnemyShotManager ShotManager;
@@ -118,7 +119,10 @@ public class EnemyController : MonoBehaviour
             }
             if(isChaseing|| attackCounter != attackTime)
             {
-                MakeDir();
+                if (!straght)
+                {
+                    MakeDir();
+                }
                 Chase();
             }
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, area.bounds.min.x + 1, area.bounds.max.x - 1),
@@ -172,6 +176,10 @@ public class EnemyController : MonoBehaviour
         }
         else if (chaseWaitCounter >= 0)
         {
+            if (straght)
+            {
+                MakeDir();
+            }
             chaseWaitCounter -= Time.deltaTime;
             rb.velocity = Vector2.zero;
             if (chaseWaitCounter <= 0)
@@ -185,7 +193,14 @@ public class EnemyController : MonoBehaviour
         {
             chaseCounter -= Time.deltaTime;
             //rb.velocity = moveDir * chaseSpeed;
-            agent.Trace(this.transform.position, playerPos.position, chaseSpeed);
+            if (straght)
+            {
+                rb.velocity = moveDir*chaseSpeed;
+            }
+            else
+            {
+                agent.Trace(this.transform.position, playerPos.position, chaseSpeed);
+            }
             if (chaseCounter <= 0)
             {
                 chaseWaitCounter = chaseWaitTime;

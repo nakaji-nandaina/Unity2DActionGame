@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9074385018434786009}
   - component: {fileID: 8699797446048524044}
   - component: {fileID: 3731645593818941418}
+  - component: {fileID: 7574449991953445958}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -70,7 +71,6 @@ MonoBehaviour:
   isFadeout: 0
   isFadein: 0
   inventoryUI: {fileID: 0}
-  CursolImage: {fileID: 2800000, guid: 57c1508d1cfcdb64c8a8beb846ba1b54, type: 3}
 --- !u!114 &8699797446048524044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,3 +187,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7574449991953445958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9074385018434786010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 584da064389d6bd44bc3730e817282e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

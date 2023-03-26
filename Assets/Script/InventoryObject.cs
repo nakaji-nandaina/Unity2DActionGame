@@ -21,10 +21,43 @@ public class InventoryObject: ScriptableObject
         if (!hasItem)
         {
             Container.Add(new InventorySlot(_item, _amount));
-
         }
-        
         return _amount;
+    }
+
+    public bool UsedItem(Item _item,int _amount)
+    {
+        bool used = false;
+        for (int i = 0; i < Container.Count; i++)
+        {
+            if (Container[i].item == _item)
+            {
+                if (Container[i].amount >= _amount)
+                {
+                    Container[i].Reduceamount(_amount);
+                    used = true;
+                    if (Container[i].amount == 0)
+                    {
+                        Container.RemoveAt(i);
+                    }
+                }
+                break;
+            }
+        }
+        return used;
+    }
+    public bool existItem(Item _item)
+    {
+        bool hasItem=false;
+        for (int i = 0; i < Container.Count; i++)
+        {
+            if (Container[i].item == _item)
+            {
+                hasItem = true;
+                break;
+            }
+        }
+        return hasItem;
     }
 
     public void SetInitiate(List<int> ids, List<int> amounts,DataBase dataBase)
@@ -50,5 +83,9 @@ public class InventorySlot
     public void Addamount(int Value)
     {
         amount += Value;
+    }
+    public void Reduceamount(int Value)
+    {
+        amount -= Value;
     }
 }
