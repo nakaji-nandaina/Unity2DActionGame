@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     public int nextXP;
     public int currentLevel;
     public int at;
+    public float kbforce=0.1f;
 
     private bool isknockingback;
     private Vector2 knockDir;
@@ -372,7 +373,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             weaponAnim.SetTrigger("Attack");
-            ShotManager.ShotAttack(this.transform.position,mousePos,attackDir,myWeapon[0],at);
+            ShotManager.ShotAttack(this.transform.position,mousePos,attackDir,myWeapon[0],at,kbforce);
 
         }
     }

@@ -51,7 +51,7 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField]
     private float knockBackTime,knockBackForce;
-
+    private float knockBackPForce;
     private float knockBackCounter;
 
     private Vector2 knockDir;
@@ -90,7 +90,7 @@ public class EnemyController : MonoBehaviour
                 if (knockBackCounter > 0)
                 {
                     knockBackCounter -= Time.deltaTime;
-                    rb.velocity = knockDir * knockBackForce;
+                    rb.velocity = knockDir * knockBackPForce;
                     
                 }
                 else
@@ -275,6 +275,7 @@ public class EnemyController : MonoBehaviour
 
     }
 
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player")
@@ -300,14 +301,15 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
-    public void KnockBack(Vector3 position)
+    public void KnockBack(Vector3 position,float force)
     {
         isKnockingBack = true;
         knockBackCounter = knockBackTime;
         knockDir = transform.position - position;
         knockDir.Normalize();
+        knockBackPForce = knockBackForce + knockBackForce;
     }
-    public void TakeDamage(int damage,Vector3 position)
+    public void TakeDamage(int damage,Vector3 position,float kbforce)
     {
         if (!isDead)
         {
@@ -329,7 +331,7 @@ public class EnemyController : MonoBehaviour
                 breakObj.BreakThis();
                 //Destroy(gameObject);
             }
-            KnockBack(position);
+            KnockBack(position,kbforce);
         }
     }
 }

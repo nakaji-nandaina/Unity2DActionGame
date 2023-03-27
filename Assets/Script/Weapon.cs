@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 weaponDirection;
     private float yukkuri;
-
+    public float kbforce;
     protected AudioSource weaponAudio;
     [SerializeField]
     AudioClip[] clips;
@@ -36,7 +36,7 @@ public class Weapon : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<EnemyController>().TakeDamage(attackDamage, this.transform.position);
+            collision.gameObject.GetComponent<EnemyController>().TakeDamage(attackDamage, this.transform.position,kbforce);
             Destroy(this.gameObject);
             GameManager.instance.PlayAudio(clips[1]);
         }

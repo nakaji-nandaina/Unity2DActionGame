@@ -18,7 +18,7 @@ public class PlayerShotManager : MonoBehaviour
     {
         
     }
-    public void ShotAttack(Vector2 PlayerPos, Vector2 MousePos, Vector2 attackDir,GameObject shotWeapon,int at)
+    public void ShotAttack(Vector2 PlayerPos, Vector2 MousePos, Vector2 attackDir,GameObject shotWeapon,int at,float kbforce)
     {
         targetPos = MousePos;
         SpawnPos = PlayerPos + (MousePos - PlayerPos).normalized*0.7f;
@@ -29,5 +29,6 @@ public class PlayerShotManager : MonoBehaviour
             SpawnPos, shotRotate);
         ShotObj.GetComponent<Weapon>().moveDirection(direction);
         ShotObj.GetComponent<Weapon>().attackDamage += at;
+        ShotObj.GetComponent<Weapon>().kbforce = kbforce;
     }
 }
