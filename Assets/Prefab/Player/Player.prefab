@@ -155,7 +155,7 @@ MonoBehaviour:
   currentLevel: 0
   at: 0
   knockbackTime: 0.2
-  knockbackForce: 0.1
+  knockbackForce: 5
   invicibilityTime: 0.5
   kaiwaNow: 0
   isMove: 0
