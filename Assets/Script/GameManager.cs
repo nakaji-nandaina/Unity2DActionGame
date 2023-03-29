@@ -85,6 +85,8 @@ public class GameManager : MonoBehaviour
     //インベントリ関係
     public InventoryUI inventoryUI;
 
+    public GameObject[] shortcutButtons;
+
     public PlayerController Player
     {
         get { return player; }
@@ -97,7 +99,7 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            player.LoadPlayer();
+            //player.LoadPlayer();
         }
     }
 

@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
     private float levelupcount;
 
     public InventoryObject inventory;
+    public InventoryObject ShortCut;
     public MySkills skills;
     public DataBase database;
     private List<int> itemId;
@@ -86,7 +87,7 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.UpdateHealthUI();
         GameManager.instance.UpdateXPUI();
         ShotManager=GetComponent<PlayerShotManager>();
-        
+        GameManager.instance.inventoryUI.UpdateShortCutInventoryUI(ShortCut);
     }
 
     // Update is called once per frame

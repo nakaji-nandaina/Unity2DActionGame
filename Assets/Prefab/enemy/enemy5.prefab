@@ -259,6 +259,7 @@ MonoBehaviour:
   waitTime: 1
   walkTime: 1
   chaseSpeed: 4
+  straght: 0
   rangeToChase: 12
   rangeToWalk: 30
   chaseWaitTime: 0
@@ -272,7 +273,7 @@ MonoBehaviour:
   isAttackCounter: 0
   xp: 10
   longAt: 1
-  attackObj: {fileID: 498310258629117951, guid: dcae3954d1b302945951da1ebc15d83c,
+  attackObj: {fileID: 498310258629117951, guid: b501acc6c41bbc442bce28180d62dde5,
     type: 3}
   area: {fileID: 8781460029971365318}
   currentHealth: 50

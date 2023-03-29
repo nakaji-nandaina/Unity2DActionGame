@@ -154,6 +154,7 @@ MonoBehaviour:
   nextXP: 0
   currentLevel: 0
   at: 0
+  kbforce: 0.1
   knockbackTime: 0.2
   knockbackForce: 5
   invicibilityTime: 0.5
@@ -164,6 +165,7 @@ MonoBehaviour:
   levelClip: {fileID: 8300000, guid: 00ef1b8fd551084448197489bd3b7ae4, type: 3}
   levelText: {fileID: 8030022509000291885}
   inventory: {fileID: 11400000, guid: 9493e18068b91874dbd117cf9a58f0ec, type: 2}
+  ShortCut: {fileID: 11400000, guid: 2218e3728a0f5594b87d64cc337a857f, type: 2}
   skills: {fileID: 11400000, guid: d39835eda1aff0846a071450e28ec2c1, type: 2}
   database: {fileID: 11400000, guid: 6625210e71a8587418c61eed02876cbf, type: 2}
 --- !u!114 &1672310285104073477
