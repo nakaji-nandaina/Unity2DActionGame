@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4320f13dac76a4dadcab8866430f63, type: 3}
+  m_Name: ShortCutObj
+  m_EditorClassIdentifier: 
+  Container:
+  - item: {fileID: 11400000, guid: c4b9932c0006582409d970df09542ec0, type: 2}
+    amount: 3
+  - item: {fileID: 11400000, guid: a997588cc7b0bc343ab716568fbf16b1, type: 2}
+    amount: 152
+  - item: {fileID: 11400000, guid: a21519a6b9b07604792dc4a5ee254535, type: 2}
+    amount: 19
+  - item: {fileID: 11400000, guid: d1c05473f52da7a4d9ed935edf63610e, type: 2}
+    amount: 449
+  - item: {fileID: 0}
+    amount: 0
+  - item: {fileID: 0}
+    amount: 0
+  - item: {fileID: 0}
+    amount: 0

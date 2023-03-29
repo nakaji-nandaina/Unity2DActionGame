@@ -22,6 +22,10 @@ public class InventoryObject: ScriptableObject
         {
             Container.Add(new InventorySlot(_item, _amount));
         }
+        if (_item.type == Item.Type.UserItem)
+        {
+            GameManager.instance.inventoryUI.UpdateShortCutInventoryUI(GameManager.instance.Player.ShortCut);
+        }
         return _amount;
     }
 
@@ -46,6 +50,29 @@ public class InventoryObject: ScriptableObject
         }
         return used;
     }
+
+    public bool ShortCutUsedItem(Item _item, int _amount)
+    {
+        bool used = false;
+        for (int i = 0; i < Container.Count; i++)
+        {
+            if (Container[i].item == _item)
+            {
+                if (Container[i].amount >= _amount)
+                {
+                    Container[i].Reduceamount(_amount);
+                    used = true;
+                    if (Container[i].amount == 0)
+                    {
+                        Container[i].item=null;
+                    }
+                }
+                break;
+            }
+        }
+        return used;
+    }
+
     public bool existItem(Item _item)
     {
         bool hasItem=false;
@@ -54,6 +81,20 @@ public class InventoryObject: ScriptableObject
             if (Container[i].item == _item)
             {
                 hasItem = true;
+                break;
+            }
+        }
+        return hasItem;
+    }
+
+    public int numItem(Item _item)
+    {
+        int hasItem = 0;
+        for (int i = 0; i < Container.Count; i++)
+        {
+            if (Container[i].item == _item)
+            {
+                hasItem = Container[i].amount;
                 break;
             }
         }
