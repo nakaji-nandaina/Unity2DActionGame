@@ -47,9 +47,12 @@ public class InventoryUI : MonoBehaviour
         //GameManager.instance.shortcutButtons[num].GetComponentInChildren<Image>().sprite = selecteditem.itemIcon;
         int amount = inventory.numItem(selecteditem);
         //GameManager.instance.shortcutButtons[num].GetComponentInChildren<Text>().text = amount.ToString();
-        shortcut.Container[num].item = selecteditem;
-        shortcut.Container[num].amount = amount;
-        UpdateShortCutInventoryUI(shortcut);
+        if (selecteditem.type == Item.Type.UserItem)
+        {
+            shortcut.Container[num].item = selecteditem;
+            shortcut.Container[num].amount = amount;
+            UpdateShortCutInventoryUI(shortcut);
+        }
     }
     public void UpdateExplainUI(Item item)
     {
