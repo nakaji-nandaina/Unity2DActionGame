@@ -84,6 +84,7 @@ public class InventoryUI : MonoBehaviour
 
     public void useItem(InventoryObject inventory)
     {
+        Debug.Log("アイテム使った");
         if(inventory.UsedItem(selecteditem, 1))
         {
             string func =selecteditem.funcname;

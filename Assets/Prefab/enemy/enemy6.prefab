@@ -1028,7 +1028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 79b76406716a80e449336fc234520d63, type: 3}
+  - {fileID: 8300000, guid: fe3f918e23f8a1e41b546a7756922409, type: 3}
   area: {fileID: 2346770432634241583}
   isDrop: 1
   parts: {fileID: 11400000, guid: a997588cc7b0bc343ab716568fbf16b1, type: 2}
