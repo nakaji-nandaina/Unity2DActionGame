@@ -253,6 +253,37 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3228171186838713321, guid: 376b643e5797dbb499121e05c2ac33ea,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228171186838713321, guid: 376b643e5797dbb499121e05c2ac33ea,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2014812917752772617}
+    - target: {fileID: 3228171186838713321, guid: 376b643e5797dbb499121e05c2ac33ea,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: useItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228171186838713321, guid: 376b643e5797dbb499121e05c2ac33ea,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: InventoryUI, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228171186838713321, guid: 376b643e5797dbb499121e05c2ac33ea,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 9493e18068b91874dbd117cf9a58f0ec,
+        type: 2}
+    - target: {fileID: 3228171186838713321, guid: 376b643e5797dbb499121e05c2ac33ea,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: InventoryObject, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3998535445869700728, guid: 376b643e5797dbb499121e05c2ac33ea,
         type: 3}
       propertyPath: m_Name
