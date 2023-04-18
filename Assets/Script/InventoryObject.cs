@@ -34,6 +34,7 @@ public class InventoryObject: ScriptableObject
         bool used = false;
         for (int i = 0; i < Container.Count; i++)
         {
+            Debug.LogError(Container[i].item);
             if (Container[i].item == _item)
             {
                 if (Container[i].amount >= _amount)
@@ -107,6 +108,16 @@ public class InventoryObject: ScriptableObject
         {
             Item item= dataBase.GetItemData(ids[i]);
             AddItem(item, amounts[i]);
+        }
+    }
+
+    public void SetInitiateShortcut(List<int> ids, DataBase dataBase)
+    {
+        for (int i = 0; i < ids.Count; i++)
+        {
+            Item item = dataBase.GetItemData(ids[i]);
+            this.Container[i].item = item;
+            Debug.LogError(item);
         }
     }
 

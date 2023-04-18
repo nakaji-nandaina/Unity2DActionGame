@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Container:
   - item: {fileID: 11400000, guid: c4b9932c0006582409d970df09542ec0, type: 2}
-    amount: 3
-  - item: {fileID: 11400000, guid: a997588cc7b0bc343ab716568fbf16b1, type: 2}
-    amount: 152
-  - item: {fileID: 11400000, guid: a21519a6b9b07604792dc4a5ee254535, type: 2}
-    amount: 19
-  - item: {fileID: 11400000, guid: d1c05473f52da7a4d9ed935edf63610e, type: 2}
-    amount: 449
+    amount: 16
+  - item: {fileID: 11400000, guid: c4b9932c0006582409d970df09542ec0, type: 2}
+    amount: 16
+  - item: {fileID: 0}
+    amount: 0
+  - item: {fileID: 0}
+    amount: 0
   - item: {fileID: 0}
     amount: 0
   - item: {fileID: 0}

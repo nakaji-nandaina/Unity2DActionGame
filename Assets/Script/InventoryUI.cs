@@ -23,6 +23,7 @@ public class InventoryUI : MonoBehaviour
             Item item = shortcut.Container[i].item;
             int num = GameManager.instance.Player.inventory.numItem(item);
             shortcut.Container[i].amount = num;
+
             if (item != null&&num!=0)
             {
                 Debug.Log(num.ToString() + " " + selecteditem);
@@ -42,7 +43,7 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdateShortCutUI(int num,InventoryObject inventory,InventoryObject shortcut)
     {
-
+        if (selecteditem == null) return;
         Debug.Log(num.ToString() + " " +selecteditem);
         //GameManager.instance.shortcutButtons[num].GetComponentInChildren<Image>().sprite = selecteditem.itemIcon;
         int amount = inventory.numItem(selecteditem);
@@ -85,17 +86,15 @@ public class InventoryUI : MonoBehaviour
     public void useItem(InventoryObject inventory)
     {
         Debug.Log("アイテム使った");
+        Debug.Log(selecteditem);
         if(inventory.UsedItem(selecteditem, 1))
         {
+            Debug.Log("tukatta");
             string func =selecteditem.funcname;
             ItemFunctions.instance.Invoke(func, 0);
             if (!inventory.existItem(selecteditem))
             {
                 CloseInventory();
-            }
-            if (!inventory.existItem(selecteditem))
-            {
-                GameManager.instance.Player.ShortCut.ShortCutUsedItem(selecteditem,1);
             }
             UpdateInventoryUI(inventory);
             UpdateShortCutInventoryUI(GameManager.instance.Player.ShortCut);

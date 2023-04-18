@@ -52,8 +52,12 @@ public class GameManager : MonoBehaviour
     public static int currentlevel = 1;
     public static int maxHealth = 100;
     public static int currentHealth = 100;
-
     public static int currentMoney = 0;
+    public static List<int> itemId;
+    public static List<int> shortcutId;
+    public static List<int> itemAmount;
+
+    public static bool load = true;
 
     //会話システム関係
     private string[] dialogLines;
@@ -98,14 +102,22 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null)
         {
+            //Debug.LogError("Load");
+            //DontDestroyOnLoad(this.gameObject);
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
-            //player.LoadPlayer();
+            if (load)
+            {
+                load = false;
+                player.LoadPlayer();
+            }
+            
         }
         else
         {
-            Destroy(this);
+            Destroy(this.gameObject);
+            return;
         }
+
     }
 
     void Start()
@@ -222,7 +234,18 @@ public class GameManager : MonoBehaviour
             player.playerAnim.SetBool("IsMove", false);
         }
     }
-
+    public void PlayerStateHold()
+    {
+        currentXP = player.currentXP;
+        nextXP = player.nextXP;
+        currentlevel = player.currentLevel;
+        currentHealth = player.currentHealth;
+        itemId = player.database.GetItemIds(player.inventory);
+        shortcutId = player.database.GetItemIds(player.ShortCut);
+        itemAmount = player.database.GetItemAmounts(player.inventory);
+        
+        Debug.LogError("状態保存");
+    }
     private void PlayerState()
     {
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
