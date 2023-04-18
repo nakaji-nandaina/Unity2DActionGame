@@ -39,6 +39,7 @@ public class KaidanMoveScene : MonoBehaviour
         {
             Count -= Time.deltaTime;
             GameManager.instance.UpdateSceneUI(IsCount, STime, Count);
+            
             if (Count <= 0)
             {
                 //GameManager.instance.setFadeout();
@@ -67,6 +68,7 @@ public class KaidanMoveScene : MonoBehaviour
         {
             IsCount = true;
             IsUse = true;
+            GameManager.instance.PlayerStateHold();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

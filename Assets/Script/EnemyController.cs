@@ -28,16 +28,26 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField]
     private float waitAfterHitting;
-    [SerializeField]
+    [SerializeField, Tooltip("攻撃力")]
     private int attackDamage;
-    [SerializeField]
+    [SerializeField, Tooltip("攻撃間隔")]
     private float attackTime, attackCounter;
+    [SerializeField, Tooltip("攻撃後インターバル")]
+    private float isAttackTime;
     [SerializeField]
-    private float isAttackTime, isAttackCounter;
-    [SerializeField]
+    private float isAttackCounter;
+    [SerializeField, Tooltip("経験値")]
     private int xp=10;
-    [SerializeField]
+    [SerializeField, Tooltip("遠距離攻撃？")]
     private bool longAt=false;
+    [SerializeField, Tooltip("遠距離攻撃の連続回数")]
+    private int multiAt = 1;
+    [SerializeField]
+    private int multiAtcount;
+
+    [SerializeField, Tooltip("連続攻撃間隔")]
+    private float multiAttime = 1f;
+
     [SerializeField]
     private GameObject attackObj;
 
@@ -77,6 +87,7 @@ public class EnemyController : MonoBehaviour
         isAttackCounter = isAttackTime;
         attackCounter = attackTime;
         ShotManager = GetComponent<EnemyShotManager>();
+        multiAtcount = multiAt;
     }
 
     // Update is called once per frame
@@ -220,11 +231,17 @@ public class EnemyController : MonoBehaviour
                 Debug.Log("enemyShot");
                 Vector2 attackDir = playerPos.position - this.transform.position;
                 ShotManager.EmemyShot(playerPos.position,this.gameObject.transform.position,attackDir,attackObj);
-                
+                if (multiAtcount > 1)
+                {
+                    multiAtcount--;
+                    attackCounter = multiAttime;
+                    isAttackCounter = isAttackTime;
+                }
             }
             else if (isAttackCounter <= 0)
             {
                 isAttackCounter = isAttackTime;
+                multiAtcount = multiAt;
                 attackCounter = attackTime;
                 enemyAnim.SetBool("LongAttack", false);
             }

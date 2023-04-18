@@ -64,22 +64,18 @@ public class PlayerController : MonoBehaviour
     public InventoryObject ShortCut;
     public MySkills skills;
     public DataBase database;
-    private List<int> itemId;
-    private List<int> itemAmount;
+    public List<int> itemId;
+    public List<int> shortcutId;
+    public List<int> itemAmount;
+    public List<int> skillId;
+    public List<int> skillLvs;
 
+    private List<int> defnum = new List<int>() { 0, 0, 0, 0, 0, 0, 0 }; 
     private float[] buffStatus = new float[4];
 
     void Start()
     {
-        currentXP = GameManager.currentXP;
-        nextXP = GameManager.nextXP;
-        currentLevel = GameManager.currentlevel;
-        kaiwaNow = false;
-        isMove = false;
-        maxHealth = GameManager.maxHealth;
-        SetStatus();
-        currentHealth = GameManager.currentHealth;
-        levelupcount = 0;
+        SetPlayerInstance();
         if (SceneManager.GetActiveScene().name == "StartScene")
         {
             currentHealth = GameManager.maxHealth;
@@ -90,9 +86,34 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.inventoryUI.UpdateShortCutInventoryUI(ShortCut);
     }
 
+    private void SetPlayerInstance()
+    {
+        kaiwaNow = false;
+        isMove = false;
+        levelupcount = 0;
+        currentXP = GameManager.currentXP;
+        nextXP = GameManager.nextXP;
+        currentLevel = GameManager.currentlevel;
+        maxHealth = GameManager.maxHealth;
+        SetStatus();
+        currentHealth = GameManager.currentHealth;
+        inventory = InventoryObject.CreateInstance<InventoryObject>();
+        shortcutId = GameManager.shortcutId;
+        itemId = GameManager.itemId;
+        itemAmount = GameManager.itemAmount;
+        inventory.SetInitiate(itemId, itemAmount, database);
+        ShortCut.SetInitiateShortcut(shortcutId, database);
+        GameManager.instance.inventoryUI.UpdateShortCutInventoryUI(ShortCut);
+        //Debug.LogError(inventory);
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (isDead)
+        {
+            return;
+        }
         if (levelupcount > 0)
         {
             levelupcount -= Time.deltaTime;
@@ -179,8 +200,12 @@ public class PlayerController : MonoBehaviour
     public void SavePlayer()
     {
         itemId = database.GetItemIds(inventory);
+        shortcutId = database.GetItemIds(ShortCut);
         itemAmount = database.GetItemAmounts(inventory);
-        PlayerStatus.GetInstance().ReStatus(currentXP, GameManager.currentMoney, currentLevel,itemId,itemAmount);
+        skillId = database.GetSkillIds(skills);
+        skillLvs = database.GetSkillLvs(skills);
+
+        PlayerStatus.GetInstance().ReStatus(currentXP, GameManager.currentMoney, currentLevel,itemId,shortcutId,itemAmount,skillId,skillLvs);
         PlayerStatus.GetInstance().Save();
         Debug.Log(PlayerStatus.GetInstance().currentLv);
     }
@@ -192,16 +217,19 @@ public class PlayerController : MonoBehaviour
         currentLevel = PlayerStatus.GetInstance().currentLv;
         currentXP = PlayerStatus.GetInstance().currentXp;
         nextXP = database.playerLvDatabase[currentLevel - 1].NextXP;
-        SetStatus();
         currentHealth = maxHealth;
         GameManager.currentMoney = PlayerStatus.GetInstance().Gold;
 
-
         inventory = InventoryObject.CreateInstance<InventoryObject>();
+        shortcutId = PlayerStatus.GetInstance().shortcutIds;
         itemId = PlayerStatus.GetInstance().itemIds;
         itemAmount = PlayerStatus.GetInstance().itemAmounts;
         inventory.SetInitiate(itemId, itemAmount, database);
-        
+        ShortCut.SetInitiateShortcut(shortcutId, database);
+
+        GameManager.instance.PlayerStateHold();
+        SetStatus();
+        GameManager.instance.inventoryUI.UpdateShortCutInventoryUI(ShortCut);
         GameManager.instance.UpdateHealthUI();
         GameManager.instance.UpdateXPUI();
         GameManager.instance.UpdateMoneyUI(GameManager.currentMoney);
@@ -266,7 +294,7 @@ public class PlayerController : MonoBehaviour
         {
             currentHealth = Mathf.Clamp(currentHealth - Damage, 0, maxHealth);
             invincibilityCounter = invicibilityTime;
-            if(currentHealth == 0)
+            if(currentHealth == 0&&!isDead)
             {
                 //gameObject.SetActive(false);
                 isDead = true;

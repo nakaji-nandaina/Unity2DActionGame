@@ -18,7 +18,13 @@ public class PlayerStatus
     [SerializeField]
     List<int> ItemIds;
     [SerializeField]
+    List<int> ShortcutIds;
+    [SerializeField]
     List<int> ItemAmounts;
+    [SerializeField]
+    List<int> SkillIds;
+    [SerializeField]
+    List<int> SkillLvs;
 
     private const string SAVEKEY = "PLAYER-STATUS-SAVE";
 
@@ -48,11 +54,27 @@ public class PlayerStatus
         get { return ItemIds; }
         private set { ItemIds = value; }
     }
+    public List<int> shortcutIds
+    {
+        get { return ShortcutIds; }
+        private set { ShortcutIds = value; }
+    }
 
     public List<int> itemAmounts
     {
         get { return ItemAmounts; }
         private set { ItemAmounts = value; }
+    }
+    public List<int> skillIds
+    {
+        get { return SkillIds; }
+        private set { SkillIds = value; }
+    }
+
+    public List<int> skillLvs
+    {
+        get { return SkillLvs; }
+        private set { SkillLvs = value; }
     }
 
     public PlayerStatus()
@@ -61,26 +83,35 @@ public class PlayerStatus
         GOLD = 0;
         CurrentLv = 1;
         ItemIds = null;
+        ShortcutIds = null;
         ItemAmounts = null;
+        SkillLvs = null;
+        SkillIds = null;
     }
     
 
-    public  PlayerStatus(int currentXp,int Gold,int currentLv,List<int> itemids,List<int>itemAmounts)
+    public  PlayerStatus(int currentXp,int Gold,int currentLv,List<int> itemids,List<int> shortcutids,List<int>itemAmounts, List<int> skillids, List<int> skillLvs)
     {
         this.CurrentXp = currentXp;
         this.GOLD = Gold;
         this.CurrentLv = currentLv;
-        this.itemAmounts = itemAmounts;
+        this.ItemAmounts = itemAmounts;
+        this.ShortcutIds = shortcutids;
         this.ItemIds = itemids;
+        this.SkillIds = skillids;
+        this.SkillLvs = skillLvs;
     }
 
-    public void ReStatus(int cx, int gold, int cl,List<int> ids,List<int> amounts)
+    public void ReStatus(int cx, int gold, int cl,List<int> itemids, List<int> shortcutids, List<int> amounts,List<int> skillids,List<int> skilllvs)
     {
         currentXp = cx;
         Gold = gold;
         currentLv = cl;
         itemAmounts = amounts;
-        itemIds = ids;
+        itemIds = itemids;
+        shortcutIds = shortcutids;
+        skillIds = skillids;
+        skillLvs = skilllvs;
     }
 
     
