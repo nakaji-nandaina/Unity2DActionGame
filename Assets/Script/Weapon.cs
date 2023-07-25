@@ -40,6 +40,11 @@ public class Weapon : MonoBehaviour
             Destroy(this.gameObject);
             GameManager.instance.PlayAudio(clips[1]);
         }
+        if(collision.gameObject.tag == "Boss")
+        {
+            collision.gameObject.GetComponent<BossEnemyfirst>().TakeDamage(attackDamage);
+            Destroy(this.gameObject);
+        }
         if (collision.gameObject.tag == "Wall")
         {
             Destroy(this.gameObject);

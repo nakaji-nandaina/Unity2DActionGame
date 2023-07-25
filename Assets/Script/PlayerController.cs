@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     private float attackCounter;
     public bool kaiwaNow;
     public bool isMove;
-    private bool isDead;
+    //private bool isDead;
     public GameObject[] myWeapon;
 
     [SerializeField]
@@ -72,6 +72,43 @@ public class PlayerController : MonoBehaviour
 
     private List<int> defnum = new List<int>() { 0, 0, 0, 0, 0, 0, 0 }; 
     private float[] buffStatus = new float[4];
+    public PS ps;
+
+    public enum PS
+    {
+        normal,
+        stop,
+        conversation,
+        inventory,
+        dead,
+    }
+    public void changePS(PS nextState)
+    {
+        switch (nextState) {
+            case PS.normal:
+                playerAnim.SetBool("IsMove", true);
+                ps = nextState;
+                break;
+            case PS.stop:
+                rb.velocity = Vector2.zero;
+                ps = nextState;
+                break;
+            case PS.conversation:
+                rb.velocity = Vector2.zero;
+                playerAnim.SetBool("IsMove", false);
+                ps = nextState;
+                break;
+            case PS.inventory:
+                rb.velocity = Vector2.zero;
+                ps = nextState;
+                break;
+            case PS.dead:
+                rb.velocity = Vector2.zero;
+                ps = nextState;
+                break;
+        }
+
+    }
 
     void Start()
     {
@@ -88,8 +125,8 @@ public class PlayerController : MonoBehaviour
 
     private void SetPlayerInstance()
     {
-        kaiwaNow = false;
-        isMove = false;
+        ps = PS.normal;
+        //kaiwaNow = false;
         levelupcount = 0;
         currentXP = GameManager.currentXP;
         nextXP = GameManager.nextXP;
@@ -110,71 +147,70 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDead)
+        if (ps==PS.dead)
         {
             return;
         }
+        switch (ps){
+            case PS.dead:
+                return;
+            case PS.normal:
+                if (invincibilityCounter > 0)
+                {
+                    invincibilityCounter -= Time.deltaTime;
+                }
+                if (isknockingback)
+                {
+                    knockbackCounter -= Time.deltaTime;
+                    rb.velocity = knockbackForce * knockDir;
+
+                    if (knockbackCounter <= 0)
+                    {
+                        isknockingback = false;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                Move();
+                Attack();
+                if (attackCounter > 0)
+                {
+                    attackCounter -= Time.deltaTime;
+                }
+                if (attackCounter < 0)
+                {
+                    attackCounter = 0;
+                }
+                if (Input.GetKeyDown(KeyCode.O))
+                {
+                    SavePlayer();
+                }
+                if (Input.GetKeyDown(KeyCode.L))
+                {
+                    LoadPlayer();
+                }
+                if (Input.GetKeyDown(KeyCode.I))
+                {
+                    OpenInventory();
+                }
+                break;
+
+            case PS.inventory:
+                if (Input.GetKeyDown(KeyCode.I))
+                {
+                    CloseInventory();
+                }
+                break;
+        }
+
         if (levelupcount > 0)
         {
             levelupcount -= Time.deltaTime;
             if (levelupcount <= 0)
             {
                 levelText.SetActive(false);
-            }
-        }
-        if (!kaiwaNow&&!isDead&&!isMove)
-        {
-            if (invincibilityCounter > 0)
-            {
-                invincibilityCounter -= Time.deltaTime;
-            }
-            if (isknockingback)
-            {
-                knockbackCounter -= Time.deltaTime;
-                rb.velocity = knockbackForce * knockDir;
-
-                if (knockbackCounter <= 0)
-                {
-                    isknockingback = false;
-                }
-                else
-                {
-                    return;
-                }
-            }
-            Move();
-            Attack();
-            if (attackCounter > 0)
-            {
-                attackCounter -= Time.deltaTime;
-            }
-            if (attackCounter < 0)
-            {
-                attackCounter = 0;
-            }
-        }
-        else
-        {
-            rb.velocity = Vector2.zero;
-        }
-
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            SavePlayer();
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            LoadPlayer();
-        }
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            if (!GameManager.instance.inventoryUI.InventoryBox.activeInHierarchy)
-            {
-                OpenInventory();
-            }
-            else
-            {
-                CloseInventory();
             }
         }
 
@@ -189,13 +225,13 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.instance.inventoryUI.InventoryBox.SetActive(true);
         GameManager.instance.inventoryUI.UpdateInventoryUI(inventory);
-        GameManager.instance.Playerstop();
+        changePS(PS.inventory);
     }
     public void CloseInventory()
     {
         GameManager.instance.inventoryUI.InventoryBox.SetActive(false);
         GameManager.instance.inventoryUI.CloseInventory();
-        GameManager.instance.Playerstart();
+        changePS(PS.normal);
     }
     public void SavePlayer()
     {
@@ -294,10 +330,10 @@ public class PlayerController : MonoBehaviour
         {
             currentHealth = Mathf.Clamp(currentHealth - Damage, 0, maxHealth);
             invincibilityCounter = invicibilityTime;
-            if(currentHealth == 0&&!isDead)
+            if(currentHealth == 0&&ps!=PS.dead)
             {
                 //gameObject.SetActive(false);
-                isDead = true;
+                ps=PS.dead;
                 Destroy(this.gameObject.GetComponent<SpriteRenderer>());
             }
         }

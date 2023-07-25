@@ -72,11 +72,13 @@ public class GameManager : MonoBehaviour
 
     private string DialogFuncName;
 
+    private DialogState ds;
+
     //効果音BGM関係
     private AudioSource audioSource;
     [SerializeField]
     private AudioClip talkdot;
-    public bool isMove=false;
+    public bool isMove = false;
     //フェードアウト用
     //private float fadeTime = 2f;
     //private float fadeCount = 2f;
@@ -96,6 +98,42 @@ public class GameManager : MonoBehaviour
         get { return player; }
     }
 
+    public enum DialogState
+    {
+        wait,
+        write,
+        conv,
+        choice,
+    }
+
+    private void changeDs(DialogState nextds)
+    {
+        switch (nextds)
+        {
+            case DialogState.wait:
+                ds = nextds;
+                dialogText.text = "";
+                dialogBox.SetActive(false);
+                nameSpace.SetActive(false);
+                choiceBox.SetActive(false);
+                NormalDialog = false;
+                player.changePS(PlayerController.PS.normal);
+                break;
+            case DialogState.write:
+                ds = nextds;
+                dialogText.text = "";
+                writingSpeed = writingDef;
+                StartCoroutine(IEWrite(dialogLines[currentLine]));
+                break;
+            case DialogState.conv:
+                ds = nextds;
+                break;
+            case DialogState.choice:
+                ds = nextds;
+                choiceBox.SetActive(true);
+                break;
+        }
+    }
     //public Texture2D CursolImage;
 
     private void Awake()
@@ -110,7 +148,7 @@ public class GameManager : MonoBehaviour
                 load = false;
                 player.LoadPlayer();
             }
-            
+
         }
         else
         {
@@ -122,15 +160,15 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        
         audioSource = GetComponent<AudioSource>();
-        isWriting = false;
+        //isWriting = false;
         writingSpeed = writingDef;
         PlayerState();
         UpdateMoneyUI(currentMoney);
         YesChoice = false;
         NoChoice = false;
         Choiced = false;
-        Isdialog = false;
         NormalDialog = false;
         DialogFuncName = "NullReturn";
         isMove = false;
@@ -154,85 +192,167 @@ public class GameManager : MonoBehaviour
 
     private void DialogControll()
     {
-        Isdialog = dialogBox.activeInHierarchy;
+        switch (ds)
+        {
+            case DialogState.wait:
+                return;
+            case DialogState.write:
+                if (Input.GetMouseButtonUp(1))
+                {
+                    if (justStarted)
+                    {
+                        Debug.Log("convstart");
+                        justStarted = false;
+                        break;
+                    }
+                    writingSpeed = 0f;
+                    changeDs(DialogState.conv);
+                }
+                break;
+            case DialogState.conv:
+                if (Input.GetMouseButtonUp(1))
+                {
+                    currentLine++;
+                    Debug.Log("Next");
+                    if (currentLine >= dialogLines.Length && !Choice)
+                    {
+                        changeDs(DialogState.wait);
+                        Debug.Log("Stop");
+                    }
+                    else if (currentLine >= dialogLines.Length && Choice)
+                    {
+                        changeDs(DialogState.choice);
+                    }
+                    else
+                    {
+                        changeDs(DialogState.write);
+                        //dialogText.text = dialogLines[currentLine];
+                    }
+                }
+                break;
+            case DialogState.choice:
+                if (Input.GetMouseButtonUp(0))
+                {
+                    
+                    if (YesChoice)
+                    {
+                        dialogText.text = "";
+                        YesChoice = false;
+                        NoChoice = false;
+                        choiceBox.SetActive(false);
+                        Choice = false;
+                        dialogLines = yesDialogLines;
+                        currentLine = 0;
+                        writingSpeed = writingDef;
+                        //StartCoroutine(IEWrite(dialogLines[currentLine]));
+                        changeDs(DialogState.write);
+                        Invoke(DialogFuncName, 0);
+                        DialogFuncName = "NullReturn";
+                    }
+                    else if (NoChoice)
+                    {
+                        dialogText.text = "";
+                        YesChoice = false;
+                        NoChoice = false;
+                        choiceBox.SetActive(false);
+                        Choice = false;
+                        dialogLines = noDialogLines;
+                        currentLine = 0;
+                        writingSpeed = writingDef;
+                        //StartCoroutine(IEWrite(dialogLines[currentLine]));
+                        changeDs(DialogState.write);
+                        DialogFuncName = "NullReturn";
+                    }
+                }
+                break;
+        }
+        /***
         if (dialogBox.activeInHierarchy && NormalDialog)
         {
             if (Input.GetMouseButtonUp(1) || Choiced)
             {
                 Choiced = false;
-                if (!justStarted)
+                if (justStarted)
                 {
-                    if (!isWriting)
+                    justStarted = false;
+                    return;
+                }
+                if (!isWriting)
+                {
+                    currentLine++;
+                    if (currentLine >= dialogLines.Length && !Choice)
                     {
-                        currentLine++;
-
-                        if (currentLine >= dialogLines.Length && !Choice)
+                        dialogText.text = "";
+                        dialogBox.SetActive(false);
+                        nameSpace.SetActive(false);
+                        choiceBox.SetActive(false);
+                        NormalDialog = false;
+                        player.changePS(PlayerController.PS.normal);
+                    }
+                    else if (currentLine >= dialogLines.Length && Choice)
+                    {
+                        choiceBox.SetActive(true);
+                        Debug.Log(YesChoice + "Yesc");
+                        Debug.Log(NoChoice + "Noc");
+                        if (YesChoice)
                         {
                             dialogText.text = "";
-                            dialogBox.SetActive(false);
-                            nameSpace.SetActive(false);
+                            YesChoice = false;
+                            NoChoice = false;
                             choiceBox.SetActive(false);
-                            NormalDialog = false;
-                        }
-                        else if (currentLine >= dialogLines.Length && Choice)
-                        {
-                            choiceBox.SetActive(true);
-                            Debug.Log(YesChoice + "Yesc");
-                            Debug.Log(NoChoice + "Noc");
-                            if (YesChoice)
-                            {
-                                dialogText.text = "";
-                                YesChoice = false;
-                                NoChoice = false;
-                                choiceBox.SetActive(false);
-                                Choice = false;
-                                dialogLines = yesDialogLines;
-                                currentLine = 0;
-                                writingSpeed = writingDef;
-                                StartCoroutine(IEWrite(dialogLines[currentLine]));
-                                Invoke(DialogFuncName, 0);
-                                DialogFuncName = "NullReturn";
-                            }
-                            else if (NoChoice)
-                            {
-                                dialogText.text = "";
-                                YesChoice = false;
-                                NoChoice = false;
-                                choiceBox.SetActive(false);
-                                Choice = false;
-                                dialogLines = noDialogLines;
-                                currentLine = 0;
-                                writingSpeed = writingDef;
-                                StartCoroutine(IEWrite(dialogLines[currentLine]));
-                                DialogFuncName = "NullReturn";
-                            }
-
-                        }
-                        else
-                        {
-                            dialogText.text = "";
+                            Choice = false;
+                            dialogLines = yesDialogLines;
+                            currentLine = 0;
                             writingSpeed = writingDef;
                             StartCoroutine(IEWrite(dialogLines[currentLine]));
-                            //dialogText.text = dialogLines[currentLine];
+                            Invoke(DialogFuncName, 0);
+                            DialogFuncName = "NullReturn";
                         }
+                        else if (NoChoice)
+                        {
+                            dialogText.text = "";
+                            YesChoice = false;
+                            NoChoice = false;
+                            choiceBox.SetActive(false);
+                            Choice = false;
+                            dialogLines = noDialogLines;
+                            currentLine = 0;
+                            writingSpeed = writingDef;
+                            StartCoroutine(IEWrite(dialogLines[currentLine]));
+                            DialogFuncName = "NullReturn";
+                        }
+
                     }
                     else
                     {
-                        writingSpeed = 0f;
+                        dialogText.text = "";
+                        writingSpeed = writingDef;
+                        StartCoroutine(IEWrite(dialogLines[currentLine]));
+                        //dialogText.text = dialogLines[currentLine];
                     }
-
                 }
                 else
                 {
-                    justStarted = false;
+                    writingSpeed = 0f;
                 }
+
+
             }
         }
-        player.kaiwaNow = dialogBox.activeInHierarchy;
-        if (player.kaiwaNow)
+        
+        if (dialogBox.activeInHierarchy)
         {
-            player.playerAnim.SetBool("IsMove", false);
+            switch (player.ps)
+            {
+                case PlayerController.PS.conversation:
+                    break;
+                default:
+                    player.changePS(PlayerController.PS.conversation);
+                    break;
+            }
+            player.changePS(PlayerController.PS.conversation);
         }
+        ***/
     }
     public void PlayerStateHold()
     {
@@ -243,7 +363,7 @@ public class GameManager : MonoBehaviour
         itemId = player.database.GetItemIds(player.inventory);
         shortcutId = player.database.GetItemIds(player.ShortCut);
         itemAmount = player.database.GetItemAmounts(player.inventory);
-        
+
         Debug.LogError("状態保存");
     }
     private void PlayerState()
@@ -257,19 +377,6 @@ public class GameManager : MonoBehaviour
             playerObj.GetComponent<Animator>().SetFloat("X", playerX);
             playerObj.GetComponent<Animator>().SetFloat("Y", playerY);
         }
-    }
-    public void Playerstop()
-    {
-        player.isMove = true;
-    }
-    public void Enemystop()
-    {
-        isMove = true;
-    }
-
-    public void Playerstart()
-    {
-        player.isMove = false;
     }
 
     public void UpdateSceneUI(bool IsCount, float STime, float Count)
@@ -306,16 +413,19 @@ public class GameManager : MonoBehaviour
         currentMoney = money;
         moneyText.text = Convert.ToString(currentMoney) + "G";
     }
-    
 
-    public void ShowDialog(string[] lines, string Name, bool yesno, string[] YesLines, string[] NoLines,GameObject target,bool isfunc,string funcName)
+
+    public void ShowDialog(string[] lines, string Name, bool yesno, string[] YesLines, string[] NoLines, GameObject target, bool isfunc, string funcName)
     {
         NormalDialog = true;
+        
         dialogText.text = "";
         dialogLines = lines;
         currentLine = 0;
+        /***
         writingSpeed = writingDef;
         StartCoroutine(IEWrite(dialogLines[currentLine]));
+        ***/
         //dialogText.text = dialogLines[currentLine];
         dialogBox.SetActive(true);
         if (Name != "")
@@ -328,6 +438,8 @@ public class GameManager : MonoBehaviour
         yesDialogLines = YesLines;
         noDialogLines = NoLines;
         DialogFuncName = funcName;
+        player.changePS(PlayerController.PS.conversation);
+        changeDs(DialogState.write);
     }
     public void ShowDialogChange(bool x)
     {
@@ -347,7 +459,7 @@ public class GameManager : MonoBehaviour
         NoChoice = true;
         Debug.Log("No");
     }
-    
+
     /*
     private void Fadeout()
     {
@@ -424,7 +536,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator IEWrite(string s)
     {
-        isWriting = true;
+        //isWriting = true;
         for (int i = 0; i < s.Length; i++)
         {
             if (writingSpeed != 0)
@@ -434,7 +546,7 @@ public class GameManager : MonoBehaviour
             dialogText.text += s.Substring(i, 1);
             yield return new WaitForSeconds(writingSpeed);
         }
-        isWriting = false;
+        changeDs(DialogState.conv);
     }
 
 

@@ -61,6 +61,9 @@ public class GameMa : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        switch(player.ps){
+            
+        }
         if (dialogBox.activeInHierarchy)
         {
             if (Input.GetMouseButtonUp(1))
@@ -75,6 +78,7 @@ public class GameMa : MonoBehaviour
                         {
                             dialogBox.SetActive(false);
                             nameSpace.SetActive(false);
+                            player.changePS(PlayerController.PS.normal);
                         }
                         else
                         {
@@ -95,7 +99,10 @@ public class GameMa : MonoBehaviour
                 }
             }
         }
-        player.kaiwaNow = dialogBox.activeInHierarchy;
+        if (dialogBox.activeInHierarchy)
+        {
+            player.changePS(PlayerController.PS.conversation);
+        }
     }
 
     private void PlayerState()
