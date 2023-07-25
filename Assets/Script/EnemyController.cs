@@ -93,7 +93,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isDead&&!GameManager.instance.Isdialog&&!GameManager.instance.isMove)
+        if (!isDead&&GameManager.instance.Player.ps== PlayerController.PS.normal&&!GameManager.instance.isMove)
         {
             
             if (isKnockingBack)
@@ -324,7 +324,7 @@ public class EnemyController : MonoBehaviour
         knockBackCounter = knockBackTime;
         knockDir = transform.position - position;
         knockDir.Normalize();
-        knockBackPForce = knockBackForce + knockBackForce;
+        knockBackPForce = knockBackForce + force;
     }
     public void TakeDamage(int damage,Vector3 position,float kbforce)
     {

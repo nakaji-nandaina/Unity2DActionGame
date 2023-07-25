@@ -29,5 +29,6 @@ public class EnemyShotManager : MonoBehaviour
         GameObject ShotObj = Instantiate(shotWeapon,
             SpawnPos, shotRotate);
         ShotObj.GetComponent<EnemyWeapon>().moveDirection(direction);
+        //Debug.Log("shot");
     }
 }

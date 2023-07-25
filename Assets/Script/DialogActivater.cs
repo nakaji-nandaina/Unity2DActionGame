@@ -54,7 +54,7 @@ public class DialogActivater : MonoBehaviour
         {
             canActivater = false;
 
-            GameManager.instance.ShowDialogChange(canActivater);
+            //GameManager.instance.ShowDialogChange(canActivater);
         }
     }
 
