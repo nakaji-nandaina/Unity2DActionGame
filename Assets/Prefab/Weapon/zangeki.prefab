@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -622062615537280862}
   m_Layer: 0
   m_Name: zangeki
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,6 +128,7 @@ MonoBehaviour:
   attackDamage: 10
   shotSpeed: 20
   destroyTime: 0.5
+  kbforce: 0
   clips:
   - {fileID: 8300000, guid: 9e8966e52b4780a4384c391263e6efea, type: 3}
   - {fileID: 8300000, guid: 6bbe4687eb55cb140be81161b2386683, type: 3}
