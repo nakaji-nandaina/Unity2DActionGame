@@ -9,6 +9,9 @@ TagManager:
   - Break
   - Money
   - Fade
+  - Weapon
+  - BossFirst
+  - NoEffect
   layers:
   - Default
   - TransparentFX
@@ -23,7 +26,7 @@ TagManager:
   - 
   - NavMesh
   - 
-  - 
+  - NoEffect
   - 
   - 
   - 
