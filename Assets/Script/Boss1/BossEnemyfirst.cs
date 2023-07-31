@@ -21,9 +21,10 @@ public class BossEnemyfirst : MonoBehaviour
         Encount,
         Battle,
         Muteki,
+        Stop,
         Dead,
     }
-    BossState currentState = BossState.Default;
+    public BossState currentState = BossState.Default;
 
     //ç°âÒÇÃÇ›
     [SerializeField]
@@ -40,12 +41,14 @@ public class BossEnemyfirst : MonoBehaviour
     private GameObject[] RoutePoint;
     private int nextPoint = 0;
 
+    public GameObject BodyShotWeapon;
+
     public enum BattleState
     {
         Syukai,
         Hansya,
     }
-    BattleState battleState = BattleState.Syukai;
+    public BattleState battleState = BattleState.Syukai;
 
     void Start()
     {
@@ -59,6 +62,10 @@ public class BossEnemyfirst : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.instance.Player.ps == PlayerController.PS.stop)
+        {
+            currentState = BossState.Stop;
+        }
         switch (currentState) 
         {
             case BossState.Default:
@@ -75,6 +82,8 @@ public class BossEnemyfirst : MonoBehaviour
                 Battle();
                 return;
             case BossState.Muteki:
+                return;
+            case BossState.Stop:
                 return;
             case BossState.Dead:
                 return;
