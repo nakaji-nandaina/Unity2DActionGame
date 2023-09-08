@@ -32,3 +32,6 @@ MonoBehaviour:
   skillDatabase:
   - {fileID: 11400000, guid: 0d3cc59f378beae42990197c0521fef1, type: 2}
   - {fileID: 11400000, guid: 59675a00b3ab9674b98b9695a9f8ff28, type: 2}
+  weaponDatabase:
+  - {fileID: 11400000, guid: 09403f4cd6b1db142b54baf25525afd3, type: 2}
+  - {fileID: 11400000, guid: 683162d3398952649ac73462a6a18971, type: 2}

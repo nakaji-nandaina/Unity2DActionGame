@@ -1,20 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossEnemyfirst : MonoBehaviour
 {
     //ã§í 
     [SerializeField]
+    public int Maxhp { get; private set; } = 1000;
     private int hp;
     [SerializeField]
-    private int at;
+    public int At { get; private set; } = 10;
     private Animator anim;
     private Rigidbody2D rb;
     private Transform playerPos;
     [SerializeField]
     private float encountRange = 10f;
-
+    [SerializeField]
+    Slider hpbar;
+    [SerializeField, Tooltip("à⁄ìÆêßå¿ópï«É^ÉCÉã")]
+    GameObject limWall;
     public enum BossState 
     { 
         Default,
@@ -27,7 +32,7 @@ public class BossEnemyfirst : MonoBehaviour
     public BossState currentState = BossState.Default;
 
     //ç°âÒÇÃÇ›
-    [SerializeField]
+    [field:SerializeField]
     private GameObject headobj;
     private Transform headPos;
     private bool Ishitwall=false;
@@ -41,31 +46,39 @@ public class BossEnemyfirst : MonoBehaviour
     private GameObject[] RoutePoint;
     private int nextPoint = 0;
 
+    [SerializeField]
+    private GameObject lastPoint;
+
     public GameObject BodyShotWeapon;
+
+    private int childnum;
 
     public enum BattleState
     {
         Syukai,
         Hansya,
+        toLast,
+        Last,
     }
     public BattleState battleState = BattleState.Syukai;
 
     void Start()
     {
+        hp = Maxhp;
         anim = this.gameObject.GetComponent<Animator>();
         rb = headobj.GetComponent<Rigidbody2D>();
         headPos = headobj.GetComponent<Transform>();
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
         moveSpeed = firstSpeed;
+        childnum = this.gameObject.transform.childCount;
+        hpbar.maxValue = Maxhp;
+        hpbar.value = hp;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.instance.Player.ps == PlayerController.PS.stop)
-        {
-            currentState = BossState.Stop;
-        }
+        if (GameManager.instance.Player.ps != PlayerController.PS.normal) return;
         switch (currentState) 
         {
             case BossState.Default:
@@ -92,28 +105,47 @@ public class BossEnemyfirst : MonoBehaviour
     }
     private void ChangeState(BossState nextstate)
     {
-        currentState = nextstate;
         switch (nextstate) 
         {
             case BossState.Dead:
                 DeadEffect();
+                currentState = nextstate;
                 return;
             case BossState.Encount:
                 EncountEffect();
+                currentState = nextstate;
                 return;
             case BossState.Battle:
                 FirstDir();
+                currentState = nextstate;
                 return;
         }
 
     }
+
+    private void ChangeBattleState(BattleState nextstate)
+    {
+        switch (nextstate) {
+            case BattleState.Hansya:
+                break;
+            case BattleState.toLast:
+                break;
+            case BattleState.Last:
+                break;
+        }
+        battleState = nextstate;
+
+    }
+
     private void EncountEffect()
     {
-
+        limWall.SetActive(true);
+        hpbar.gameObject.SetActive(true);
     }
     private void DeadEffect()
     {
-
+        limWall.SetActive(false);
+        hpbar.gameObject.SetActive(false);
     }
     private void FirstDir()
     {
@@ -146,6 +178,18 @@ public class BossEnemyfirst : MonoBehaviour
         dirx = RoutePoint[nextPoint].transform.position.x - headPos.position.x;
         diry= RoutePoint[nextPoint].transform.position.y - headPos.position.y;
     }
+    public void lastDir()
+    {
+        if (1f > Vector3.Distance(headPos.position, lastPoint.transform.position))
+        {
+            dirx = 0;
+            diry = 0;
+            ChangeBattleState(BattleState.Last);
+            return;
+        }
+        dirx = lastPoint.transform.position.x - headPos.position.x;
+        diry = lastPoint.transform.position.y - headPos.position.y;
+    }
 
     private void Battle()
     {
@@ -158,64 +202,40 @@ public class BossEnemyfirst : MonoBehaviour
                 return;
             case BattleState.Hansya:
                 rb.velocity = new Vector2(dirx, diry).normalized * moveSpeed;
+                childnum = this.gameObject.transform.childCount;
+                if (childnum == 1) ChangeBattleState(BattleState.toLast);
+                return;
+            case BattleState.toLast:
+                lastDir();
+                rb.velocity = new Vector2(dirx, diry).normalized * moveSpeed;
                 return;
         }
     }
 
     public void TakeDamage(int damage)
     {
-        if (currentState == BossState.Battle)
+        if (currentState != BossState.Battle) return;
+        hp -= damage;
+        Debug.Log(hp);
+        if (hp <= Maxhp / 2 && battleState == BattleState.Syukai)
         {
-            hp -= damage;
-            if (damage <= 0)
-            {
-                ChangeState(BossState.Dead);
-            }
+            Debug.Log("é¸âÒ");
+            hp = Maxhp / 2;
+            ChangeBattleState(BattleState.Hansya);
         }
+        if (hp <= 0)
+        {
+            hp = 0;
+            ChangeState(BossState.Dead);
+            return;
+        }
+        hpbar.value = hp;
+        
     }
 
-    public void playerhit()
+    public void playerhit(Vector2 bodypos)
     {
-        GameManager.instance.Player.KnockBack(transform.position);
-        GameManager.instance.Player.DamagePlayer(at);
-    }
-
-    /*
-    private void OnTrigEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            GameManager.instance.Player.KnockBack(transform.position);
-            GameManager.instance.Player.DamagePlayer(at);
-            ReflectDir();
-        }
-        if (collision.gameObject.tag == "Weapon")
-        {
-            if (currentState != BossState.Battle) return;
-            Weapon weapon = collision.gameObject.GetComponent<Weapon>();
-            TakeDamage(weapon.attackDamage);
-        }
-        if (collision.gameObject.tag == "Wall")
-        {
-            Debug.Log("hit");
-            ReflectDir();
-        }
-    }
-    */
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            GameManager.instance.Player.KnockBack(transform.position);
-            GameManager.instance.Player.DamagePlayer(at);
-            //ReflectDir();
-        }
-        if (collision.gameObject.tag == "Wall")
-        {
-            Debug.Log("hit");
-            ReflectDir();
-        }
-    }
-    
+        GameManager.instance.Player.KnockBack(bodypos);
+        GameManager.instance.Player.DamagePlayer(At);
+    }    
 }

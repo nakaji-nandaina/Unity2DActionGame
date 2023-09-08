@@ -56,6 +56,10 @@ public class GameManager : MonoBehaviour
     public static List<int> itemId;
     public static List<int> shortcutId;
     public static List<int> itemAmount;
+    public static List<int> skillId;
+    public static List<int> skillLv;
+    public static List<int> weaponId;
+    public static int mainWeapon;
 
     public static bool load = true;
 
@@ -78,7 +82,6 @@ public class GameManager : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField]
     private AudioClip talkdot;
-    public bool isMove = false;
     //フェードアウト用
     //private float fadeTime = 2f;
     //private float fadeCount = 2f;
@@ -90,6 +93,7 @@ public class GameManager : MonoBehaviour
 
     //インベントリ関係
     public InventoryUI inventoryUI;
+    public WeaponPouchUI weaponUI;
 
     public GameObject[] shortcutButtons;
 
@@ -171,8 +175,8 @@ public class GameManager : MonoBehaviour
         Choiced = false;
         NormalDialog = false;
         DialogFuncName = "NullReturn";
-        isMove = false;
         inventoryUI = GetComponent<InventoryUI>();
+        weaponUI = GetComponent<WeaponPouchUI>();
         //Cursor.SetCursor(CursolImage, Vector2.zero, CursorMode.Auto);
         //alfa = fadeImage.color.a;
         //setFadein();
@@ -363,7 +367,10 @@ public class GameManager : MonoBehaviour
         itemId = player.database.GetItemIds(player.inventory);
         shortcutId = player.database.GetItemIds(player.ShortCut);
         itemAmount = player.database.GetItemAmounts(player.inventory);
-
+        skillId = player.database.GetSkillIds(player.skills);
+        skillLv = player.database.GetSkillIds(player.skills);
+        mainWeapon = player.mainWeapon;
+        weaponId = player.database.GetWeaponIds(player.weaponPouch);
         Debug.LogError("状態保存");
     }
     private void PlayerState()

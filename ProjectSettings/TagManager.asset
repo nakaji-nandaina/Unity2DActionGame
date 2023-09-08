@@ -12,6 +12,7 @@ TagManager:
   - Weapon
   - BossFirst
   - NoEffect
+  - EnemyArea
   layers:
   - Default
   - TransparentFX

@@ -16,12 +16,12 @@ public class PlayerController : MonoBehaviour
     private bool IsFront;
     private bool IsBack;
 
-    [SerializeField]
+    //[SerializeField]
     public Animator playerAnim;
 
     public Rigidbody2D rb;
 
-    [SerializeField]
+    private SpriteRenderer ImgWeapon;
     private Animator weaponAnim;
     private PlayerShotManager ShotManager;
 
@@ -49,9 +49,8 @@ public class PlayerController : MonoBehaviour
     private float attackTime = 0.5f;
     private float attackCounter;
     public bool kaiwaNow;
-    public bool isMove;
     //private bool isDead;
-    public GameObject[] myWeapon;
+    public WeaponData weapon;
 
     [SerializeField]
     private AudioClip levelClip;
@@ -63,12 +62,16 @@ public class PlayerController : MonoBehaviour
     public InventoryObject inventory;
     public InventoryObject ShortCut;
     public MySkills skills;
+    public WeaponPouch weaponPouch;
+    //データ保存用
     public DataBase database;
     public List<int> itemId;
     public List<int> shortcutId;
     public List<int> itemAmount;
     public List<int> skillId;
     public List<int> skillLvs;
+    public List<int> weaponId;
+    public int mainWeapon=0;
 
     private List<int> defnum = new List<int>() { 0, 0, 0, 0, 0, 0, 0 }; 
     private float[] buffStatus = new float[4];
@@ -80,6 +83,7 @@ public class PlayerController : MonoBehaviour
         stop,
         conversation,
         inventory,
+        weapon,
         dead,
     }
     public void changePS(PS nextState)
@@ -102,6 +106,10 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 ps = nextState;
                 break;
+            case PS.weapon:
+                rb.velocity = Vector2.zero;
+                ps = nextState;
+                break;
             case PS.dead:
                 rb.velocity = Vector2.zero;
                 ps = nextState;
@@ -112,6 +120,11 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        GameObject weaponhold = this.gameObject.transform.GetChild(0).gameObject;
+        weaponAnim = weaponhold.GetComponent<Animator>();
+        GameObject weaponObj = weaponhold.transform.GetChild(0).gameObject;
+        ImgWeapon = weaponObj.GetComponent<SpriteRenderer>();
+        playerAnim = GetComponent<Animator>();
         SetPlayerInstance();
         if (SceneManager.GetActiveScene().name == "StartScene")
         {
@@ -126,14 +139,7 @@ public class PlayerController : MonoBehaviour
     private void SetPlayerInstance()
     {
         ps = PS.normal;
-        //kaiwaNow = false;
-        levelupcount = 0;
-        currentXP = GameManager.currentXP;
-        nextXP = GameManager.nextXP;
-        currentLevel = GameManager.currentlevel;
-        maxHealth = GameManager.maxHealth;
-        SetStatus();
-        currentHealth = GameManager.currentHealth;
+        //インベントリのセット
         inventory = InventoryObject.CreateInstance<InventoryObject>();
         shortcutId = GameManager.shortcutId;
         itemId = GameManager.itemId;
@@ -141,24 +147,35 @@ public class PlayerController : MonoBehaviour
         inventory.SetInitiate(itemId, itemAmount, database);
         ShortCut.SetInitiateShortcut(shortcutId, database);
         GameManager.instance.inventoryUI.UpdateShortCutInventoryUI(ShortCut);
-        //Debug.LogError(inventory);
+        //武器のセット
+        weaponPouch = WeaponPouch.CreateInstance<WeaponPouch>();
+        weaponId = GameManager.weaponId;
+        mainWeapon = GameManager.mainWeapon;
+        weaponPouch.SetInitiate(weaponId, database);
+        weapon = weaponPouch.Pouch[mainWeapon];
+        //スキルのセット
+        skillId = GameManager.skillId;
+        skillLvs = GameManager.skillLv;
+        skills.SetInitiate(skillId, skillLvs, database);
+        //ステータスのセット
+        levelupcount = 0;
+        currentXP = GameManager.currentXP;
+        nextXP = GameManager.nextXP;
+        currentLevel = GameManager.currentlevel;
+        //maxHealth = GameManager.maxHealth;
+        SetStatus();
+        currentHealth = GameManager.currentHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (ps==PS.dead)
-        {
-            return;
-        }
         switch (ps){
             case PS.dead:
+                rb.velocity = Vector2.zero;
                 return;
             case PS.normal:
-                if (invincibilityCounter > 0)
-                {
-                    invincibilityCounter -= Time.deltaTime;
-                }
+                if (invincibilityCounter > 0)invincibilityCounter -= Time.deltaTime;
                 if (isknockingback)
                 {
                     knockbackCounter -= Time.deltaTime;
@@ -175,32 +192,24 @@ public class PlayerController : MonoBehaviour
                 }
                 Move();
                 Attack();
-                if (attackCounter > 0)
-                {
-                    attackCounter -= Time.deltaTime;
-                }
-                if (attackCounter < 0)
-                {
-                    attackCounter = 0;
-                }
-                if (Input.GetKeyDown(KeyCode.O))
-                {
-                    SavePlayer();
-                }
-                if (Input.GetKeyDown(KeyCode.L))
-                {
-                    LoadPlayer();
-                }
-                if (Input.GetKeyDown(KeyCode.I))
-                {
-                    OpenInventory();
-                }
+                if (attackCounter > 0)attackCounter -= Time.deltaTime;
+                if (attackCounter < 0)attackCounter = 0;
+                //if (Input.GetKeyDown(KeyCode.O))SavePlayer();
+                //if (Input.GetKeyDown(KeyCode.L))LoadPlayer();
+                if (Input.GetKeyDown(KeyCode.O)) OpenWeaponPouch();
+                if (Input.GetKeyDown(KeyCode.I)) OpenInventory();
                 break;
 
             case PS.inventory:
                 if (Input.GetKeyDown(KeyCode.I))
                 {
                     CloseInventory();
+                }
+                break;
+            case PS.weapon:
+                if (Input.GetKeyDown(KeyCode.O))
+                {
+                    CloseWeaponPouch();
                 }
                 break;
         }
@@ -233,6 +242,22 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.inventoryUI.CloseInventory();
         changePS(PS.normal);
     }
+
+    public void OpenWeaponPouch()
+    {
+        GameManager.instance.weaponUI.WeaponPouchPanel.SetActive(true);
+        GameManager.instance.weaponUI.InitiateWeaponPouch(weaponPouch);
+        GameManager.instance.weaponUI.UpdateWeaponPouchUI(weaponPouch);
+        changePS(PS.weapon);
+    }
+
+    public void CloseWeaponPouch()
+    {
+        GameManager.instance.weaponUI.WeaponPouchPanel.SetActive(false);
+        GameManager.instance.weaponUI.UpdateWeaponPouchUI(weaponPouch);
+        changePS(PS.normal);
+    }
+
     public void SavePlayer()
     {
         itemId = database.GetItemIds(inventory);
@@ -240,31 +265,47 @@ public class PlayerController : MonoBehaviour
         itemAmount = database.GetItemAmounts(inventory);
         skillId = database.GetSkillIds(skills);
         skillLvs = database.GetSkillLvs(skills);
+        weaponId = database.GetWeaponIds(weaponPouch);
 
-        PlayerStatus.GetInstance().ReStatus(currentXP, GameManager.currentMoney, currentLevel,itemId,shortcutId,itemAmount,skillId,skillLvs);
+        PlayerStatus.GetInstance().ReStatus(currentXP, GameManager.currentMoney, currentLevel,itemId,shortcutId,itemAmount,skillId,skillLvs,weaponId,mainWeapon);
         PlayerStatus.GetInstance().Save();
         Debug.Log(PlayerStatus.GetInstance().currentLv);
     }
 
     public void LoadPlayer()
     {
+        //Load
         PlayerStatus.GetInstance().Load();
         Debug.Log(PlayerStatus.GetInstance().currentLv);
+
         currentLevel = PlayerStatus.GetInstance().currentLv;
         currentXP = PlayerStatus.GetInstance().currentXp;
         nextXP = database.playerLvDatabase[currentLevel - 1].NextXP;
-        currentHealth = maxHealth;
         GameManager.currentMoney = PlayerStatus.GetInstance().Gold;
 
         inventory = InventoryObject.CreateInstance<InventoryObject>();
         shortcutId = PlayerStatus.GetInstance().shortcutIds;
         itemId = PlayerStatus.GetInstance().itemIds;
         itemAmount = PlayerStatus.GetInstance().itemAmounts;
+        skillId = PlayerStatus.GetInstance().skillIds;
+        skillLvs = PlayerStatus.GetInstance().skillLvs;
+        weaponId = PlayerStatus.GetInstance().weaponIds;
+        mainWeapon = PlayerStatus.GetInstance().mainWeapon;
+
+        if (weaponId.Count == 0)
+        {
+            mainWeapon = 0;
+            weaponId.Add(0);
+        }
         inventory.SetInitiate(itemId, itemAmount, database);
         ShortCut.SetInitiateShortcut(shortcutId, database);
+        weaponPouch.SetInitiate(weaponId, database);
+        weapon = weaponPouch.Pouch[mainWeapon];
+        skills.SetInitiate(skillId, skillLvs, database);
 
         GameManager.instance.PlayerStateHold();
         SetStatus();
+        currentHealth = maxHealth;
         GameManager.instance.inventoryUI.UpdateShortCutInventoryUI(ShortCut);
         GameManager.instance.UpdateHealthUI();
         GameManager.instance.UpdateXPUI();
@@ -399,6 +440,8 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 attackDir = mousePos - this.transform.position;
+            ImgWeapon.sprite = weapon.ImgWeapon;
+            attackTime = weapon.DisTime;
             //Debug.Log(attackDir);
             attackCounter = attackTime;
             playerAnim.SetTrigger("IsAttack");
@@ -438,8 +481,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
             weaponAnim.SetTrigger("Attack");
-            ShotManager.ShotAttack(this.transform.position,mousePos,attackDir,myWeapon[0],at,kbforce);
-
+            ShotManager.ShotAttack(this.transform.position, attackDir, weapon.shot, at, kbforce,weapon);
         }
     }
 

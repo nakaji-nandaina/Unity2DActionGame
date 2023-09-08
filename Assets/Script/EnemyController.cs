@@ -88,12 +88,13 @@ public class EnemyController : MonoBehaviour
         attackCounter = attackTime;
         ShotManager = GetComponent<EnemyShotManager>();
         multiAtcount = multiAt;
+        area = GameObject.FindGameObjectWithTag("EnemyArea").GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isDead&&GameManager.instance.Player.ps== PlayerController.PS.normal&&!GameManager.instance.isMove)
+        if (!isDead&&GameManager.instance.Player.ps== PlayerController.PS.normal)
         {
             
             if (isKnockingBack)

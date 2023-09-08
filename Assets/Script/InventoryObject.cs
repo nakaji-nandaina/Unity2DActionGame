@@ -104,7 +104,8 @@ public class InventoryObject: ScriptableObject
 
     public void SetInitiate(List<int> ids, List<int> amounts,DataBase dataBase)
     {
-        for(int i=0; i < ids.Count; i++)
+        Container = new List<InventorySlot>();
+        for (int i=0; i < ids.Count; i++)
         {
             Item item= dataBase.GetItemData(ids[i]);
             AddItem(item, amounts[i]);
@@ -113,6 +114,7 @@ public class InventoryObject: ScriptableObject
 
     public void SetInitiateShortcut(List<int> ids, DataBase dataBase)
     {
+        //Container = new List<InventorySlot>();
         for (int i = 0; i < ids.Count; i++)
         {
             Item item = dataBase.GetItemData(ids[i]);

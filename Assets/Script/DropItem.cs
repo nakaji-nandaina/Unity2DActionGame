@@ -7,11 +7,14 @@ public class DropItem : MonoBehaviour
     [SerializeField]
     private GameObject[] dropItem;
     [SerializeField]
-    private int dropP=50;
+    private int[] dropP;
+    private int dropCount;
+    [SerializeField]
+    private int max=100;
     // Start is called before the first frame update
     void Start()
     {
-        
+        dropCount = dropItem.Length;
     }
 
     // Update is called once per frame
@@ -22,12 +25,18 @@ public class DropItem : MonoBehaviour
 
     public void Drop(Vector2 sponePos)
     {
-        int r = Random.Range(1, 101);
-        if (r <= dropP)
+        int r = Random.Range(1, max+1);
+        int now = 0;
+        for(int i=0; i<dropCount; i++)
         {
-            int i = Random.Range(0, dropItem.Length);
-            sponePos = this.transform.position;
-            GameObject ShotObj = Instantiate(dropItem[i], sponePos, Quaternion.Euler(0, 0, 0));
+            now += dropP[i];
+            if (now >= r)
+            {
+                sponePos = this.transform.position;
+                GameObject DropObj = Instantiate(dropItem[i], sponePos, Quaternion.Euler(0, 0, 0));
+                return;
+            }
         }
+        
     }
 }

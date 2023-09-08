@@ -181,6 +181,9 @@ MonoBehaviour:
   isAttackCounter: 0
   xp: 10
   longAt: 0
+  multiAt: 1
+  multiAtcount: 0
+  multiAttime: 1
   attackObj: {fileID: 0}
   area: {fileID: 0}
   currentHealth: 50
@@ -347,7 +350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropItem:
   - {fileID: 7352195759069961805, guid: 44cab840aa77c3f499af8fd7bc9a11a1, type: 3}
-  dropP: 50
+  dropP: 32000000
 --- !u!95 &4668608047804953936
 Animator:
   serializedVersion: 4
