@@ -30,6 +30,7 @@ public class MySkills : ScriptableObject
 
     public void SetInitiate(List<int> ids, List<int> Lvs, DataBase dataBase)
     {
+        skillContainer = new List<SkillSlot>();
         for (int i = 0; i < ids.Count; i++)
         {
             Skill skill = dataBase.GetSkillData(ids[i]);

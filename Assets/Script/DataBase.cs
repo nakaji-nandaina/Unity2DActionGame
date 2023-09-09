@@ -8,7 +8,8 @@ public class DataBase : ScriptableObject
     public List<Item> itemDatabase = new List<Item>();
     public List<Status> playerLvDatabase = new List<Status> ();
     public List<Skill> skillDatabase = new List<Skill>();
-
+    public List<WeaponData> weaponDatabase = new List<WeaponData>();
+    
     //アイテム関係
     public List<int> GetItemIds(InventoryObject inventory)
     {
@@ -91,4 +92,24 @@ public class DataBase : ScriptableObject
         return skillDatabase[id];
     }
 
+    //武器関係
+    public List<int> GetWeaponIds(WeaponPouch weaponPouch)
+    {
+        List<int> weaponIds=new List<int>();
+        for (int i = 0; i < weaponPouch.Pouch.Count; i++)
+        {
+            weaponIds.Add(GetWeaponId(weaponPouch.Pouch[i]));
+        }
+        return weaponIds;
+    }
+
+    public int GetWeaponId(WeaponData weaponData)
+    {
+        return weaponDatabase.IndexOf(weaponData);
+    }
+
+    public WeaponData GetWeaponData(int id)
+    {
+        return weaponDatabase[id];
+    }
 }

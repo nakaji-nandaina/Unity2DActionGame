@@ -148,7 +148,6 @@ MonoBehaviour:
   moveSpeed: 8
   playerAnim: {fileID: 1682254343594695395}
   rb: {fileID: 1682254343594695396}
-  weaponAnim: {fileID: 1682254343739348482}
   maxHealth: 100
   currentXP: 0
   nextXP: 0
@@ -159,15 +158,22 @@ MonoBehaviour:
   knockbackForce: 5
   invicibilityTime: 0.5
   kaiwaNow: 0
-  isMove: 0
-  myWeapon:
-  - {fileID: 2482943847549993309, guid: 52cfa148600923240a13979b1e1199c9, type: 3}
+  weapon: {fileID: 11400000, guid: 683162d3398952649ac73462a6a18971, type: 2}
   levelClip: {fileID: 8300000, guid: 00ef1b8fd551084448197489bd3b7ae4, type: 3}
   levelText: {fileID: 8030022509000291885}
   inventory: {fileID: 11400000, guid: 9493e18068b91874dbd117cf9a58f0ec, type: 2}
   ShortCut: {fileID: 11400000, guid: 2218e3728a0f5594b87d64cc337a857f, type: 2}
   skills: {fileID: 11400000, guid: d39835eda1aff0846a071450e28ec2c1, type: 2}
+  weaponPouch: {fileID: 11400000, guid: 1829b3ef5584d13488552c6d30bcbfbf, type: 2}
   database: {fileID: 11400000, guid: 6625210e71a8587418c61eed02876cbf, type: 2}
+  itemId: 
+  shortcutId: 
+  itemAmount: 
+  skillId: 
+  skillLvs: 
+  weaponId: 
+  mainWeapon: 0
+  ps: 0
 --- !u!114 &1672310285104073477
 MonoBehaviour:
   m_ObjectHideFlags: 0

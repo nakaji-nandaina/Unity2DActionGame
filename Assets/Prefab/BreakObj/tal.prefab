@@ -523,7 +523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropItem:
   - {fileID: 7352195759069961805, guid: 44cab840aa77c3f499af8fd7bc9a11a1, type: 3}
-  dropP: 10
+  dropP: 32000000
 --- !u!61 &3232635933837551007
 BoxCollider2D:
   m_ObjectHideFlags: 0

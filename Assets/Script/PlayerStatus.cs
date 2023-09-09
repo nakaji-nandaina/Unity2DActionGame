@@ -5,7 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerStatus
 {
-    // Start is called before the first frame update
     [SerializeField]
     int CurrentXp;
     
@@ -25,6 +24,10 @@ public class PlayerStatus
     List<int> SkillIds;
     [SerializeField]
     List<int> SkillLvs;
+    [SerializeField]
+    List<int> WeaponIds;
+    [SerializeField]
+    int MainWeapon;
 
     private const string SAVEKEY = "PLAYER-STATUS-SAVE";
 
@@ -76,6 +79,17 @@ public class PlayerStatus
         get { return SkillLvs; }
         private set { SkillLvs = value; }
     }
+    public List<int> weaponIds
+    {
+        get { return WeaponIds; }
+        private set { WeaponIds = value; }
+    }
+
+    public int mainWeapon
+    {
+        get { return MainWeapon; }
+        private set { MainWeapon = value; }
+    }
 
     public PlayerStatus()
     {
@@ -90,7 +104,7 @@ public class PlayerStatus
     }
     
 
-    public  PlayerStatus(int currentXp,int Gold,int currentLv,List<int> itemids,List<int> shortcutids,List<int>itemAmounts, List<int> skillids, List<int> skillLvs)
+    public  PlayerStatus(int currentXp,int Gold,int currentLv,List<int> itemids,List<int> shortcutids,List<int>itemAmounts, List<int> skillids, List<int> skilllvs,List<int> weaponids,int mainweapon)
     {
         this.CurrentXp = currentXp;
         this.GOLD = Gold;
@@ -99,10 +113,12 @@ public class PlayerStatus
         this.ShortcutIds = shortcutids;
         this.ItemIds = itemids;
         this.SkillIds = skillids;
-        this.SkillLvs = skillLvs;
+        this.SkillLvs = skilllvs;
+        this.WeaponIds = weaponids;
+        this.MainWeapon = mainweapon;
     }
 
-    public void ReStatus(int cx, int gold, int cl,List<int> itemids, List<int> shortcutids, List<int> amounts,List<int> skillids,List<int> skilllvs)
+    public void ReStatus(int cx, int gold, int cl,List<int> itemids, List<int> shortcutids, List<int> amounts,List<int> skillids,List<int> skilllvs,List<int> weaponids,int mainweapon)
     {
         currentXp = cx;
         Gold = gold;
@@ -112,6 +128,8 @@ public class PlayerStatus
         shortcutIds = shortcutids;
         skillIds = skillids;
         skillLvs = skilllvs;
+        weaponIds = weaponids;
+        mainWeapon = mainweapon;
     }
 
     

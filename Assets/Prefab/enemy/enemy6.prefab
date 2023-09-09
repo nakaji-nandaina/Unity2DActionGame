@@ -1115,6 +1115,9 @@ MonoBehaviour:
   isAttackCounter: 0
   xp: 10
   longAt: 1
+  multiAt: 1
+  multiAtcount: 0
+  multiAttime: 1
   attackObj: {fileID: 498310258629117951, guid: dcae3954d1b302945951da1ebc15d83c,
     type: 3}
   area: {fileID: 0}
@@ -1282,7 +1285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropItem:
   - {fileID: 7352195759069961805, guid: 44cab840aa77c3f499af8fd7bc9a11a1, type: 3}
-  dropP: 50
+  dropP: 32000000
 --- !u!114 &3055677409533782280
 MonoBehaviour:
   m_ObjectHideFlags: 0

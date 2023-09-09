@@ -6,13 +6,12 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject InventoryBox;
     public GameObject contentHolder;
     public GameObject buttonprefab;
     public GameObject useButton;
     //public GameObject[] shortcutButtons;
-    public Text name;
+    public Text Name;
     public Text explain;
     public Item selecteditem;
     
@@ -58,7 +57,7 @@ public class InventoryUI : MonoBehaviour
     public void UpdateExplainUI(Item item)
     {
         selecteditem = item;
-        name.text = item.itemname;
+        Name.text = item.itemname;
         explain.text = item.information;
         if (item.type == Item.Type.UserItem)
         {
@@ -105,7 +104,7 @@ public class InventoryUI : MonoBehaviour
     public void CloseInventory()
     {
         selecteditem = null;
-        name.text = "あいてむ";
+        Name.text = "あいてむ";
         explain.text = "あいてむのせつめい";
         useButton.SetActive(false);
     }

@@ -7,28 +7,18 @@ public class PlayerShotManager : MonoBehaviour
     private Vector2 targetPos, direction, SpawnPos;
     private Quaternion shotRotate;
 
-    // Start is called before the first frame update
-    void Start()
+    public void ShotAttack(Vector2 PlayerPos,  Vector2 attackDir,GameObject shotWeapon,int at,float kbforce,WeaponData wd)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    public void ShotAttack(Vector2 PlayerPos, Vector2 MousePos, Vector2 attackDir,GameObject shotWeapon,int at,float kbforce)
-    {
-        targetPos = MousePos;
-        SpawnPos = PlayerPos + (MousePos - PlayerPos).normalized*0.7f;
+        //SpawnPos = PlayerPos + (MousePos - PlayerPos).normalized*0.7f;
         direction = attackDir.normalized;
+        SpawnPos = PlayerPos +direction*0.7f;
         shotRotate = Quaternion.Euler(0, 0,
             Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg-90);
         GameObject ShotObj = Instantiate(shotWeapon,
             SpawnPos, shotRotate);
-        ShotObj.GetComponent<Weapon>().moveDirection(direction);
-        ShotObj.GetComponent<Weapon>().attackDamage += at;
-        ShotObj.GetComponent<Weapon>().kbforce = kbforce;
+        ShotObj.GetComponent<Weapon>().WD = wd;
+        ShotObj.GetComponent<Weapon>().weaponDirection=direction;
+        ShotObj.GetComponent<Weapon>().attackDamage = at+wd.At;
+        ShotObj.GetComponent<Weapon>().kbforce = kbforce+wd.KbForce;
     }
 }
