@@ -26,8 +26,6 @@ public class EnemyController : MonoBehaviour
     private float rangeToChase,rangeToWalk,chaseWaitTime,chaseTime,rangeToAttack;
     private float chaseCounter, chaseWaitCounter;
 
-    [SerializeField]
-    private float waitAfterHitting;
     [SerializeField, Tooltip("攻撃力")]
     private int attackDamage;
     [SerializeField, Tooltip("攻撃間隔")]
@@ -42,7 +40,6 @@ public class EnemyController : MonoBehaviour
     private bool longAt=false;
     [SerializeField, Tooltip("遠距離攻撃の連続回数")]
     private int multiAt = 1;
-    [SerializeField]
     private int multiAtcount;
 
     [SerializeField, Tooltip("連続攻撃間隔")]
@@ -57,27 +54,76 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private int currentHealth;
 
-    private bool isKnockingBack;
-
     [SerializeField]
     private float knockBackTime,knockBackForce;
     private float knockBackPForce;
     private float knockBackCounter;
 
     private Vector2 knockDir;
-
-    private bool isDead;
     NavMeshAgent2D agent;
-    private bool isChaseing;
     private EnemyShotManager ShotManager;
     private BreakObj breakObj;
     [SerializeField]
     private GameObject damageUI;
 
+    public enum EnemyState
+    {
+        Longshot,
+        NotChase,
+        Wait,
+        Move,
+        KnockBack,
+        Dead,
+    }
+
+    public EnemyState ES;
+
+    public enum NCState { 
+        walk,
+        wait,
+    }
+
+    public NCState NCS;
+
+    public void ChangeES(EnemyState next)
+    {
+        switch (next) 
+        {
+            case EnemyState.Wait:
+                chaseWaitCounter = chaseWaitTime;
+                ES = next;
+                break;
+            case EnemyState.Move:
+                chaseCounter = chaseTime;
+                ES = next;
+                break;
+            case EnemyState.Longshot:
+                enemyAnim.SetBool("LongAttack", true);
+                ES = next;
+                break;
+            case EnemyState.KnockBack:
+                ES = next;
+                break;
+            case EnemyState.NotChase:
+                enemyAnim.SetFloat("X", 0.0f);
+                enemyAnim.SetFloat("Y", -1.0f);
+                NCS = NCState.wait;
+                waitCounter = waitTime;
+                ES = next;
+                break;
+            case EnemyState.Dead:
+                rb.velocity = Vector2.zero;
+                ES = next;
+                break;
+        }
+
+    }
+
     void Start()
     {
+        NCS = NCState.wait;
+        ES = EnemyState.NotChase;
         agent = GetComponent<NavMeshAgent2D>();
-        isDead = false;
         rb = GetComponent<Rigidbody2D>();
         enemyAnim = GetComponent<Animator>();
         waitCounter = waitTime;
@@ -90,175 +136,148 @@ public class EnemyController : MonoBehaviour
         multiAtcount = multiAt;
         area = GameObject.FindGameObjectWithTag("EnemyArea").GetComponent<BoxCollider2D>();
     }
+    
+    void knockback()
+    {
+        knockBackCounter -= Time.deltaTime;
+        if (knockBackCounter <= 0)
+        {
+            ChangeES(EnemyState.Move);
+            return;
+        }
+        rb.velocity = knockDir * knockBackPForce;
+    }
+
+    private void move()
+    {
+        if (longAt && Vector3.Distance(transform.position, playerPos.position) < rangeToAttack)
+        {
+            ChangeES(EnemyState.Longshot);
+            return;
+        }
+        if (chaseCounter <= 0)
+        {
+            ChangeES(EnemyState.Wait);
+            return;
+        }
+        MakeDir();
+        chaseCounter -= Time.deltaTime;
+        if (straght) rb.velocity = moveDir * chaseSpeed;
+        else agent.Trace(this.transform.position, playerPos.position, chaseSpeed);
+    }
+
+    void wait()
+    {
+        if (chaseWaitCounter <= 0)
+        {
+            ChangeES(EnemyState.Move);
+            return;
+        }
+        MakeDir();
+        chaseWaitCounter -= Time.deltaTime;
+        rb.velocity = Vector2.zero;
+    }
+
+    void toNotChase()
+    {
+        if(Vector3.Distance(transform.position, playerPos.position) >= rangeToWalk)
+        {
+            ChangeES(EnemyState.NotChase);
+            return;
+        }
+    }
+
+    void NotChase()
+    {
+        if(Vector3.Distance(transform.position, playerPos.position) < rangeToChase)
+        {
+            ChangeES(EnemyState.Move);
+            return;
+        }
+        switch (NCS) {
+            case NCState.walk:
+                moveCounter -= Time.deltaTime;
+                rb.velocity = moveDir * moveSpeed;
+                if (moveCounter > 0) return;
+                waitCounter = waitTime;
+                NCS = NCState.wait;
+                break;
+
+            case NCState.wait:
+                waitCounter -= Time.deltaTime;
+                rb.velocity = Vector2.zero;
+                if (waitCounter > 0) return;
+                moveCounter = walkTime;
+                moveDir= new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+                moveDir.Normalize();
+                NCS = NCState.walk;
+                break;
+        }
+    }
+
+    void LongShot()
+    {
+        rb.velocity = Vector2.zero;
+        attackCounter -= Time.deltaTime;
+        if (attackCounter > 0) return;
+        if (isAttackCounter == isAttackTime)
+        {
+            Vector2 attackDir= playerPos.position - this.transform.position;
+            isAttackCounter -= Time.deltaTime;
+            ShotManager.EmemyShot(playerPos.position, this.gameObject.transform.position, attackDir, attackObj);
+            if (multiAtcount <= 1) return;
+            multiAtcount--;
+            attackCounter = multiAttime;
+            isAttackCounter = isAttackTime;
+            return;
+        }
+        else if (isAttackCounter <= 0)
+        {
+            isAttackCounter = isAttackTime;
+            multiAtcount = multiAt;
+            attackCounter = attackTime;
+            enemyAnim.SetBool("LongAttack", false);
+            ChangeES(EnemyState.Move);
+            return;
+        }
+        isAttackCounter -= Time.deltaTime;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isDead&&GameManager.instance.Player.ps== PlayerController.PS.normal)
+        if (GameManager.instance.Player.ps != PlayerController.PS.normal)
         {
-            
-            if (isKnockingBack)
-            {
-                if (knockBackCounter > 0)
-                {
-                    knockBackCounter -= Time.deltaTime;
-                    rb.velocity = knockDir * knockBackPForce;
-                    
-                }
-                else
-                {
-                    rb.velocity = Vector2.zero;
-                    isKnockingBack = false;
-
-                }
+            rb.velocity = Vector2.zero;
+            return;
+        }
+        switch (ES)
+        {
+            case EnemyState.NotChase:
+                NotChase();
+                break;
+            case EnemyState.Dead:
+                rb.velocity = Vector2.zero;
                 return;
-            }
-
-            if (Vector3.Distance(transform.position, playerPos.position) < rangeToChase)
-            {
-                isChaseing = true;
-            }
-            if (Vector3.Distance(transform.position, playerPos.position) >= rangeToWalk)
-            {
-                isChaseing = false;
-            }
-
-            if (!isChaseing&& attackCounter == attackTime)
-            {
-                enemyAnim.SetFloat("Y", -1.0f);
-                enemyAnim.SetFloat("X", 0.0f);
-                notChase();
-            }
-            if(isChaseing|| attackCounter != attackTime)
-            {
-                if (!straght)
-                {
-                    MakeDir();
-                }
-                Chase();
-            }
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, area.bounds.min.x + 1, area.bounds.max.x - 1),
-                Mathf.Clamp(transform.position.y, area.bounds.min.y + 1, area.bounds.max.y - 1), transform.position.z);
-
-            /*if (moveDir.x < 0)
-            {
-                this.GetComponent<SpriteRenderer>().flipX = false;
-            }
-            else
-            {
-                this.GetComponent<SpriteRenderer>().flipX = true;
-            }
-            */
-        }
-        else
-        {
-            rb.velocity = Vector2.zero;
-        }
-    }
-
-    private void notChase()
-    {
-        if (waitCounter >= 0)
-        {
-            waitCounter -= Time.deltaTime;
-            rb.velocity = Vector2.zero;
-            if (waitCounter <= 0)
-            {
-                moveCounter = walkTime;
-                
-                moveDir = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-                moveDir.Normalize();
-            }
-        }
-        else
-        {
-            moveCounter -= Time.deltaTime;
-            rb.velocity = moveDir * moveSpeed;
-            if (moveCounter <= 0)
-            {
-                waitCounter = waitTime;
-            }
-        }
-    }
-    private void Chase()
-    {
-        if (longAt && (Vector3.Distance(transform.position, playerPos.position) < rangeToAttack || attackCounter!=attackTime))
-        {
-            LongAttack();
-        }
-        else if (chaseWaitCounter >= 0)
-        {
-            if (straght)
-            {
-                MakeDir();
-            }
-            chaseWaitCounter -= Time.deltaTime;
-            rb.velocity = Vector2.zero;
-            if (chaseWaitCounter <= 0)
-            {
-                chaseCounter = chaseTime;
-                moveDir = playerPos.position-this.transform.position;
-                moveDir.Normalize();
-            }
-        }
-        else
-        {
-            chaseCounter -= Time.deltaTime;
-            //rb.velocity = moveDir * chaseSpeed;
-            if (straght)
-            {
-                rb.velocity = moveDir*chaseSpeed;
-            }
-            else
-            {
-                agent.Trace(this.transform.position, playerPos.position, chaseSpeed);
-            }
-            if (chaseCounter <= 0)
-            {
-                chaseWaitCounter = chaseWaitTime;
-            }
-        }
-    }
-
-    private void LongAttack()
-    {
-        rb.velocity = Vector2.zero;
-        enemyAnim.SetBool("LongAttack", true);
-        if (attackCounter<=0)
-        {
-            if (isAttackCounter == isAttackTime)
-            {
-                isAttackCounter -= Time.deltaTime;
-                Debug.Log("enemyShot");
-                Vector2 attackDir = playerPos.position - this.transform.position;
-                ShotManager.EmemyShot(playerPos.position,this.gameObject.transform.position,attackDir,attackObj);
-                if (multiAtcount > 1)
-                {
-                    multiAtcount--;
-                    attackCounter = multiAttime;
-                    isAttackCounter = isAttackTime;
-                }
-            }
-            else if (isAttackCounter <= 0)
-            {
-                isAttackCounter = isAttackTime;
-                multiAtcount = multiAt;
-                attackCounter = attackTime;
-                enemyAnim.SetBool("LongAttack", false);
-            }
-            else
-            {
-                isAttackCounter -= Time.deltaTime;
-            }
-            
-        }
-        else
-        {
-            attackCounter -= Time.deltaTime;
+            case EnemyState.Wait:
+                wait();
+                toNotChase();
+                break;
+            case EnemyState.Move:
+                move();
+                toNotChase();
+                break;
+            case EnemyState.KnockBack:
+                knockback();
+                return;
+            case EnemyState.Longshot:
+                LongShot();
+                break;
         }
 
-    }
-    
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, area.bounds.min.x + 1, area.bounds.max.x - 1),
+            Mathf.Clamp(transform.position.y, area.bounds.min.y + 1, area.bounds.max.y - 1), transform.position.z);
+    }    
 
     private void MakeDir()
     {
@@ -298,7 +317,7 @@ public class EnemyController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            if (isChaseing)
+            if (ES!=EnemyState.Dead)
             {
                 PlayerController player = collision.gameObject.GetComponent<PlayerController>();
                 player.KnockBack(transform.position);
@@ -311,7 +330,7 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (isChaseing)
+            if (ES != EnemyState.Dead) 
             {
                 PlayerController player = collision.gameObject.GetComponent<PlayerController>();
                 player.KnockBack(transform.position);
@@ -321,35 +340,27 @@ public class EnemyController : MonoBehaviour
     }
     public void KnockBack(Vector3 position,float force)
     {
-        isKnockingBack = true;
         knockBackCounter = knockBackTime;
         knockDir = transform.position - position;
         knockDir.Normalize();
         knockBackPForce = knockBackForce + force;
+        ChangeES(EnemyState.KnockBack);
     }
     public void TakeDamage(int damage,Vector3 position,float kbforce)
     {
-        if (!isDead)
+        if (ES == EnemyState.Dead) return;
+        int culDamage = Random.Range((int)(damage * 0.8), (int)(damage * 1.3));
+        currentHealth -= culDamage;
+        GameObject DamageObj = Instantiate(damageUI, playerPos.position, Quaternion.Euler(0, 0, 0));
+        DamageObj.GetComponent<DamageUI>().DamageSet(culDamage, playerPos.position, this.gameObject);
+        if (currentHealth <= 0)
         {
-            int culDamage= Random.Range((int)(damage * 0.8), damage * 2);
-            currentHealth -= culDamage;
-            GameObject DamageObj = Instantiate(damageUI,playerPos.position, Quaternion.Euler(0,0,0));
-            DamageObj.GetComponent<DamageUI>().DamageSet(culDamage, playerPos.position,this.gameObject);
-            if (currentHealth <= 0)
-            {
-                //rb.velocity = Vector2.zero;
-                //Destroy(this.GetComponent<Animator>());
-                //explodable.explode();
-                //Destroy(this.GetComponent<Rigidbody2D>());
-                //Destroy(this.GetComponent<Animator>());
-                //Destroy(this.GetComponent<BoxCollider2D>());
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().KillEnemy(xp);
-                isDead = true;
-                rb.velocity = Vector2.zero;
-                breakObj.BreakThis();
-                //Destroy(gameObject);
-            }
-            KnockBack(position,kbforce);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().KillEnemy(xp);
+            ChangeES(EnemyState.Dead);
+            rb.velocity = Vector2.zero;
+            breakObj.BreakThis();
+            return;
         }
+        KnockBack(position, kbforce);
     }
 }
