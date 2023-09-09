@@ -48,7 +48,7 @@ public class WeaponPouchUI : MonoBehaviour
     public void SetExplane(int num)
     {
         selectedExplane.text = "こうげきりょく　　" + GameManager.instance.Player.weaponPouch.Pouch[num].At.ToString() + "\n";
-        selectedExplane.text += "りろーどじかん　　" + GameManager.instance.Player.weaponPouch.Pouch[num].DisTime.ToString() + "\n";
+        selectedExplane.text += "りろーどじかん　　" + GameManager.instance.Player.weaponPouch.Pouch[num].DisTime.ToString("F1") + "\n";
         if (GameManager.instance.Player.weaponPouch.Pouch[selectedWeapon].penetrate) selectedExplane.text += "貫通攻撃\n";
     }
     

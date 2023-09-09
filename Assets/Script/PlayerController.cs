@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
 
     private float attackTime = 0.5f;
     private float attackCounter;
+    private float attackAnimTime = 0.5f;
+    private float attackAnimCounter;
     public bool kaiwaNow;
     //private bool isDead;
     public WeaponData weapon;
@@ -180,20 +182,15 @@ public class PlayerController : MonoBehaviour
                 {
                     knockbackCounter -= Time.deltaTime;
                     rb.velocity = knockbackForce * knockDir;
-
-                    if (knockbackCounter <= 0)
-                    {
-                        isknockingback = false;
-                    }
-                    else
-                    {
-                        return;
-                    }
+                    if (knockbackCounter <= 0)isknockingback = false;
+                    return;
                 }
                 Move();
                 Attack();
                 if (attackCounter > 0)attackCounter -= Time.deltaTime;
                 if (attackCounter < 0)attackCounter = 0;
+                if (attackAnimCounter > 0) attackAnimCounter -= Time.deltaTime;
+                if (attackAnimCounter < 0) attackAnimCounter = 0;
                 //if (Input.GetKeyDown(KeyCode.O))SavePlayer();
                 //if (Input.GetKeyDown(KeyCode.L))LoadPlayer();
                 if (Input.GetKeyDown(KeyCode.O)) OpenWeaponPouch();
@@ -255,6 +252,7 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.instance.weaponUI.WeaponPouchPanel.SetActive(false);
         GameManager.instance.weaponUI.UpdateWeaponPouchUI(weaponPouch);
+        weapon = weaponPouch.Pouch[mainWeapon];
         changePS(PS.normal);
     }
 
@@ -388,43 +386,29 @@ public class PlayerController : MonoBehaviour
         if (rb.velocity != Vector2.zero)
         {
             playerAnim.SetBool("IsMove", true);
-            if (attackCounter <= 0)
+            if (attackAnimCounter > 0) return;
+            if (Input.GetAxisRaw("Horizontal") != 0)
             {
-                if (Input.GetAxisRaw("Horizontal") != 0)
+                if (Input.GetAxisRaw("Horizontal") > 0)
                 {
-                    if (Input.GetAxisRaw("Horizontal") > 0)
-                    {
-                        playerAnim.SetFloat("X", 1f);
-                        playerAnim.SetFloat("Y", 0);
-
-                        //weaponAnim.SetFloat("X", 1f);
-                        //weaponAnim.SetFloat("Y", 0);
-                    }
-                    else
-                    {
-                        playerAnim.SetFloat("X", -1f);
-                        playerAnim.SetFloat("Y", 0);
-
-                        //weaponAnim.SetFloat("X", -1f);
-                        //weaponAnim.SetFloat("Y", 0);
-                    }
-                }
-                else if (Input.GetAxisRaw("Vertical") > 0)
-                {
-                    playerAnim.SetFloat("X", 0);
-                    playerAnim.SetFloat("Y", 1f);
-
-                    //weaponAnim.SetFloat("X", 0);
-                    //weaponAnim.SetFloat("Y", 1f);
+                    playerAnim.SetFloat("X", 1f);
+                    playerAnim.SetFloat("Y", 0);
                 }
                 else
                 {
-                    playerAnim.SetFloat("X", 0);
-                    playerAnim.SetFloat("Y", -1f);
-
-                    //weaponAnim.SetFloat("X", 0);
-                    //weaponAnim.SetFloat("Y", -1f);
+                    playerAnim.SetFloat("X", -1f);
+                    playerAnim.SetFloat("Y", 0);
                 }
+            }
+            else if (Input.GetAxisRaw("Vertical") > 0)
+            {
+                playerAnim.SetFloat("X", 0);
+                playerAnim.SetFloat("Y", 1f);
+            }
+            else
+            {
+                playerAnim.SetFloat("X", 0);
+                playerAnim.SetFloat("Y", -1f);
             }
         }
         else
@@ -442,6 +426,8 @@ public class PlayerController : MonoBehaviour
             Vector2 attackDir = mousePos - this.transform.position;
             ImgWeapon.sprite = weapon.ImgWeapon;
             attackTime = weapon.DisTime;
+            if (attackAnimTime > attackTime) attackAnimCounter = attackTime;
+            else attackAnimCounter = attackAnimTime;
             //Debug.Log(attackDir);
             attackCounter = attackTime;
             playerAnim.SetTrigger("IsAttack");

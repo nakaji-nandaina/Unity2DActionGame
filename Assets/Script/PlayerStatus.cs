@@ -5,7 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerStatus
 {
-    // Start is called before the first frame update
     [SerializeField]
     int CurrentXp;
     

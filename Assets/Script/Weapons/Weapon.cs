@@ -63,6 +63,7 @@ public class Weapon : MonoBehaviour
                 {
                     collision.gameObject.GetComponent<BossfirstHead>().takeDamage(attackDamage);
                 }
+                if (WD.penetrate) return;
                 Destroy(this.gameObject);
                 break;
 
@@ -72,6 +73,7 @@ public class Weapon : MonoBehaviour
 
             case "Break":
                 collision.gameObject.GetComponent<BreakObj>().BreakThis();
+                if (WD.penetrate) return;
                 Destroy(this.gameObject);
                 break;
         }
