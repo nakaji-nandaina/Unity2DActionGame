@@ -6,7 +6,6 @@ public class Coin : MonoBehaviour
 {
     public int moneyValue = 10;
     private Animator coinanim;
-    protected AudioSource coinSE;
     [SerializeField] 
     AudioClip[] clips;
     private Rigidbody2D rb;
@@ -14,7 +13,6 @@ public class Coin : MonoBehaviour
     void Start()
     {
         coinanim = GetComponent<Animator>();
-        coinSE = GetComponents<AudioSource>()[0];
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -28,9 +26,9 @@ public class Coin : MonoBehaviour
         if (collision.tag == "Player")
         {
             coinanim.SetTrigger("Got");
-            
-            rb.AddForce(Vector2.up*1000);
-            coinSE.PlayOneShot(clips[0]);
+            Destroy(this.gameObject.transform.Find("coinしんぼる").gameObject);
+            rb.AddForce(Vector2.up*0.1f);
+            GameManager.instance.PlayAudio(clips[0]);
             GameManager.instance.UpdateMoneyUI(moneyValue+GameManager.currentMoney);
         }
     }

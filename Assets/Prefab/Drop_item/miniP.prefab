@@ -31,7 +31,8 @@ Transform:
   m_LocalPosition: {x: -23.99, y: -23.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8950105449739347832}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -99,7 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af70673350fe2647bb9efbc368ff8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 53c4651cbf53e4842ab0d6ac07d23ece, type: 2}
+  item: {fileID: 11400000, guid: 7fc2a1f7fc0deea488b577af2cc869a6, type: 2}
+  audioClip: {fileID: 8300000, guid: fb034c646af634b4fba8d5b43d7e6c36, type: 3}
 --- !u!50 &2817903440300174567
 Rigidbody2D:
   serializedVersion: 4
@@ -115,7 +117,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -138,7 +140,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9, y: 0.9}
+    oldSize: {x: 1.0588236, y: 1.0588236}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -147,3 +149,78 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4891262, y: 0.9}
   m_EdgeRadius: 0
+--- !u!1001 &1932310245365703976
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 873045813792874745}
+    m_Modifications:
+    - target: {fileID: 7414570485408498256, guid: 5e65916e9d192594dafa01f24538e98d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414570485408498256, guid: 5e65916e9d192594dafa01f24538e98d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414570485408498256, guid: 5e65916e9d192594dafa01f24538e98d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414570485408498256, guid: 5e65916e9d192594dafa01f24538e98d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414570485408498256, guid: 5e65916e9d192594dafa01f24538e98d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414570485408498256, guid: 5e65916e9d192594dafa01f24538e98d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414570485408498256, guid: 5e65916e9d192594dafa01f24538e98d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414570485408498256, guid: 5e65916e9d192594dafa01f24538e98d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414570485408498256, guid: 5e65916e9d192594dafa01f24538e98d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414570485408498256, guid: 5e65916e9d192594dafa01f24538e98d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7414570485408498256, guid: 5e65916e9d192594dafa01f24538e98d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8520219145065901714, guid: 5e65916e9d192594dafa01f24538e98d,
+        type: 3}
+      propertyPath: m_Name
+      value: "Drop\u3057\u3093\u307C\u308B"
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5e65916e9d192594dafa01f24538e98d, type: 3}
+--- !u!4 &8950105449739347832 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7414570485408498256, guid: 5e65916e9d192594dafa01f24538e98d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1932310245365703976}
+  m_PrefabAsset: {fileID: 0}

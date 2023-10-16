@@ -11,7 +11,7 @@ public class BossEnemyfirst : MonoBehaviour
     private int hp;
     [SerializeField]
     public int At { get; private set; } = 10;
-    private Animator anim;
+    public Animator anim;
     private Rigidbody2D rb;
     private Transform playerPos;
     [SerializeField]
@@ -20,6 +20,7 @@ public class BossEnemyfirst : MonoBehaviour
     Slider hpbar;
     [SerializeField, Tooltip("à⁄ìÆêßå¿ópï«É^ÉCÉã")]
     GameObject limWall;
+
     public enum BossState 
     { 
         Default,

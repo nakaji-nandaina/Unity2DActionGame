@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a69b241bb55be744ad73125768b3a24, type: 3}
+  m_Name: Kenjyu
+  m_EditorClassIdentifier: 
+  Name: "\u3051\u3093\u3058\u3085\u3046"
+  delay: 0
+  chase: 0
+  penetrate: 0
+  cursor: 0
+  dasei: 0
+  kinsetu: 0
+  yumi: 1
+  bakuhatu: 1
+  nagaoshi: 0
+  ImgWeapon: {fileID: 21300000, guid: 67e7dd0f986fba649b7248e360372845, type: 3}
+  Icon: {fileID: 21300000, guid: f761b8c7db56a234cb0fbd568ce5e053, type: 3}
+  At: 5
+  KbForce: 5
+  Speed: 25
+  DisTime: 0.2
+  DestTime: 0.5
+  ShotSound: {fileID: 8300000, guid: 6bbe4687eb55cb140be81161b2386683, type: 3}
+  HitSound: {fileID: 8300000, guid: 9137a9eadc3f4ad438ffd35eeddaa755, type: 3}
+  shot: {fileID: 2482943847549993309, guid: 7a7e181216943b54daf98dc3a9e3debe, type: 3}

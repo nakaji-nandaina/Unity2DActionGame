@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: DataBase
   m_EditorClassIdentifier: 
   itemDatabase:
+  - {fileID: 11400000, guid: 7fc2a1f7fc0deea488b577af2cc869a6, type: 2}
+  - {fileID: 11400000, guid: afac721ffb75b614d9151752b0454ca4, type: 2}
   - {fileID: 11400000, guid: b999e2e0e4e131243b5600e0e2d92b63, type: 2}
   - {fileID: 11400000, guid: a997588cc7b0bc343ab716568fbf16b1, type: 2}
   - {fileID: 11400000, guid: a21519a6b9b07604792dc4a5ee254535, type: 2}
-  - {fileID: 11400000, guid: 53c4651cbf53e4842ab0d6ac07d23ece, type: 2}
-  - {fileID: 11400000, guid: c4b9932c0006582409d970df09542ec0, type: 2}
   - {fileID: 11400000, guid: c21d05a018ff0ff429fbecb48c5434a4, type: 2}
   - {fileID: 11400000, guid: d1c05473f52da7a4d9ed935edf63610e, type: 2}
   playerLvDatabase:
@@ -36,3 +36,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 09403f4cd6b1db142b54baf25525afd3, type: 2}
   - {fileID: 11400000, guid: 683162d3398952649ac73462a6a18971, type: 2}
   - {fileID: 11400000, guid: 4fc5810347e246e43be1837f368ab280, type: 2}
+  - {fileID: 11400000, guid: e8c06261c04da0640b13e252b1374a6e, type: 2}
+  - {fileID: 11400000, guid: 4c6137b9640c16642b629f115dd70a4c, type: 2}
+  - {fileID: 11400000, guid: 5dd871067c52c8446be990a50844c659, type: 2}
+  - {fileID: 11400000, guid: 3f0260b58314ecc4da740d21f8183bc2, type: 2}
+  - {fileID: 11400000, guid: 3b5a6f5cb33867e4eb4f0bdcb32c915d, type: 2}

@@ -50,6 +50,8 @@ public class WeaponPouchUI : MonoBehaviour
         selectedExplane.text = "こうげきりょく　　" + GameManager.instance.Player.weaponPouch.Pouch[num].At.ToString() + "\n";
         selectedExplane.text += "りろーどじかん　　" + GameManager.instance.Player.weaponPouch.Pouch[num].DisTime.ToString("F1") + "\n";
         if (GameManager.instance.Player.weaponPouch.Pouch[selectedWeapon].penetrate) selectedExplane.text += "貫通攻撃\n";
+        if (GameManager.instance.Player.weaponPouch.Pouch[selectedWeapon].nagaoshi) selectedExplane.text += "連続攻撃\n";
+        if (GameManager.instance.Player.weaponPouch.Pouch[selectedWeapon].cursor) selectedExplane.text += "操作可能\n";
     }
     
     public void UpdateWeaponPouchUI(WeaponPouch weaponPouch)

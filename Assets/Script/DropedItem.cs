@@ -5,7 +5,7 @@ using UnityEngine;
 public class DropedItem : MonoBehaviour
 {
     // Start is called before the first frame update
-    private BoxCollider2D collider2D;
+    private BoxCollider2D Collider2D;
     [SerializeField]
     private Item item;
     private float destTime=0.6f;
@@ -19,9 +19,10 @@ public class DropedItem : MonoBehaviour
     private void Start()
     {
         destCount = destTime;
-        collider2D = this.gameObject.GetComponent<BoxCollider2D>();
+        Collider2D = this.gameObject.GetComponent<BoxCollider2D>();
         rb = this.gameObject.GetComponent<Rigidbody2D>();
         sp = this.gameObject.GetComponent<SpriteRenderer>();
+        this.gameObject.AddComponent<AudioSource>();
         audioSource = this.gameObject.GetComponent<AudioSource>();
     }
     private void Update()
@@ -47,8 +48,9 @@ public class DropedItem : MonoBehaviour
         if (collision.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerController>().inventory.AddItem(item, 1);
+            Destroy(this.gameObject.transform.Find("Drop‚µ‚ñ‚Ú‚é").gameObject);
             audioSource.PlayOneShot(audioClip);
-            Destroy(collider2D);
+            Destroy(Collider2D);
             got = true;
         }
     }

@@ -32,35 +32,30 @@ public class GameManager : MonoBehaviour
     public GameObject nameSpace;
     public Text CharName;
     public GameObject choiceBox;
+    [HideInInspector]
     public bool Choice;
+    [HideInInspector]
     public bool YesChoice;
+    [HideInInspector]
     public bool NoChoice;
-    private bool Choiced;
-
+    [HideInInspector]
     public bool Isdialog;
+    [HideInInspector]
     public bool NormalDialog;
 
     public GameObject SceneSlide;
     private KaidanMoveScene kaidan;
     //前のシーンのプレイヤーの状態を格納する変数
+    [HideInInspector]
     public static Vector2 StartSpone;
-    public static float playerX;
-    public static float playerY;
-
-    public static int currentXP = 0;
-    public static int nextXP = 100;
-    public static int currentlevel = 1;
-    public static int maxHealth = 100;
-    public static int currentHealth = 100;
-    public static int currentMoney = 0;
-    public static List<int> itemId;
-    public static List<int> shortcutId;
-    public static List<int> itemAmount;
-    public static List<int> skillId;
-    public static List<int> skillLv;
-    public static List<int> weaponId;
+    [HideInInspector]
+    public static float playerX,playerY;
+    [HideInInspector]
+    public static int currentXP,nextXP,currentlevel,maxHealth, currentHealth ,currentMoney = 0;
+    [HideInInspector]
+    public static List<int> itemId, shortcutId, itemAmount, skillId, skillLv, weaponId;
     public static int mainWeapon;
-
+    [HideInInspector]
     public static bool load = true;
 
     //会話システム関係
@@ -83,16 +78,18 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private AudioClip talkdot;
     //フェードアウト用
-    //private float fadeTime = 2f;
-    //private float fadeCount = 2f;
+    [HideInInspector]
     public bool isFadeout = false;
+    [HideInInspector]
     public bool isFadein = false;
-    //private Image fadeImage;
-    //private float alfa = 1.0f;
-    //private float isOne;
+
+    //敵のダメージUI
+    public GameObject damageText;
 
     //インベントリ関係
+    [HideInInspector]
     public InventoryUI inventoryUI;
+    [HideInInspector]
     public WeaponPouchUI weaponUI;
 
     public GameObject[] shortcutButtons;
@@ -172,7 +169,6 @@ public class GameManager : MonoBehaviour
         UpdateMoneyUI(currentMoney);
         YesChoice = false;
         NoChoice = false;
-        Choiced = false;
         NormalDialog = false;
         DialogFuncName = "NullReturn";
         inventoryUI = GetComponent<InventoryUI>();
@@ -457,12 +453,10 @@ public class GameManager : MonoBehaviour
     public void ChoiceYesDialog()
     {
         YesChoice = true;
-        Choiced = true;
         Debug.Log("Yes");
     }
     public void ChoiceNoDialog()
     {
-        Choiced = true;
         NoChoice = true;
         Debug.Log("No");
     }

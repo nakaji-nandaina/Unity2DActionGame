@@ -12,6 +12,13 @@ public class WeaponData : ScriptableObject
     public bool delay;
     public bool chase;
     public bool penetrate;
+    public bool cursor;
+    public bool dasei;
+    public bool kinsetu;
+    public bool yumi;
+    public bool bakuhatu;
+    //’·‰Ÿ‚µ‚É‚æ‚é•Ší‚ÌËo
+    public bool nagaoshi;
     //•Ší‚Ì‰æ‘œ
     public Sprite ImgWeapon;
     public Sprite Icon;
