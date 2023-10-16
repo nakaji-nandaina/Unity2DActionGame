@@ -70,7 +70,10 @@ MonoBehaviour:
   talkdot: {fileID: 8300000, guid: cde1d21650281a34c8b3816347515fe6, type: 3}
   isFadeout: 0
   isFadein: 0
+  damageText: {fileID: 8014826492145826156, guid: 30aa0c63e637a0c468ceb26a4514b81b,
+    type: 3}
   inventoryUI: {fileID: 0}
+  weaponUI: {fileID: 0}
   shortcutButtons: []
 --- !u!114 &8699797446048524044
 MonoBehaviour:

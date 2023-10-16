@@ -72,33 +72,40 @@ public class InventoryUI : MonoBehaviour
     public void ShortcutUseItem(int num,InventoryObject inventory,InventoryObject shortcut)
     {
         Item item = shortcut.Container[num].item;
-        if (inventory.UsedItem(item, 1))
+        if (!inventory.UsedItem(item, 1)) return;
+        switch (item.GetType().ToString())
         {
-            shortcut.ShortCutUsedItem(item, 1);
-            string func = item.funcname;
-            ItemFunctions.instance.Invoke(func, 0);
-            UpdateInventoryUI(inventory);
-            UpdateShortCutInventoryUI(shortcut);
+            case nameof(HealItem):
+                HealItem healitem = (HealItem)item;
+                GameManager.instance.Player.HealPlayer(healitem.healvalue);
+                break;
+
         }
+        shortcut.ShortCutUsedItem(item, 1);
+        UpdateInventoryUI(inventory);
+        UpdateShortCutInventoryUI(shortcut);
+        
     }
 
     public void useItem(InventoryObject inventory)
     {
         Debug.Log("アイテム使った");
         Debug.Log(selecteditem);
-        if(inventory.UsedItem(selecteditem, 1))
+        //Debug.Log(selecteditem.GetType().ToString());
+        if (!inventory.UsedItem(selecteditem, 1)) return;
+        switch (selecteditem.GetType().ToString()) 
         {
-            Debug.Log("tukatta");
-            string func =selecteditem.funcname;
-            ItemFunctions.instance.Invoke(func, 0);
-            if (!inventory.existItem(selecteditem))
-            {
-                CloseInventory();
-            }
-            UpdateInventoryUI(inventory);
-            UpdateShortCutInventoryUI(GameManager.instance.Player.ShortCut);
+            case nameof(HealItem):
+                HealItem healitem = (HealItem)selecteditem;
+                GameManager.instance.Player.HealPlayer(healitem.healvalue);
+                break;
+                
         }
 
+        Debug.Log("tukatta");
+        if (!inventory.existItem(selecteditem))CloseInventory();
+        UpdateInventoryUI(inventory);
+        UpdateShortCutInventoryUI(GameManager.instance.Player.ShortCut);
     }
 
     public void CloseInventory()

@@ -47,6 +47,7 @@ public class DropedWeapon : MonoBehaviour
         if (collision.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerController>().weaponPouch.AddWeapon(weapon);
+            Destroy(this.gameObject.transform.Find("‚Ô‚«‚µ‚ñ‚Ú‚é").gameObject);
             audioSource.PlayOneShot(audioClip);
             Destroy(Collider2D);
             got = true;

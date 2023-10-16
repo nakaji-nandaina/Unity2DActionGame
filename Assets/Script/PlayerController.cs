@@ -22,8 +22,12 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
 
     private SpriteRenderer ImgWeapon;
+    private GameObject weaponHolder;
+    private GameObject weaponObj;
+    private Sprite defaultWeaponSprite;
     private Animator weaponAnim;
     private PlayerShotManager ShotManager;
+    Vector3 shotRotate;
 
     //ステータス
     [System.NonSerialized]
@@ -122,10 +126,12 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        GameObject weaponhold = this.gameObject.transform.GetChild(0).gameObject;
-        weaponAnim = weaponhold.GetComponent<Animator>();
-        GameObject weaponObj = weaponhold.transform.GetChild(0).gameObject;
+        weaponHolder = this.gameObject.transform.GetChild(0).gameObject;
+        weaponAnim = weaponHolder.GetComponent<Animator>();
+        weaponObj = weaponHolder.transform.GetChild(0).gameObject;
+        weaponObj.AddComponent<Sword>();
         ImgWeapon = weaponObj.GetComponent<SpriteRenderer>();
+        defaultWeaponSprite = ImgWeapon.sprite;
         playerAnim = GetComponent<Animator>();
         SetPlayerInstance();
         if (SceneManager.GetActiveScene().name == "StartScene")
@@ -172,6 +178,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //weaponHolder.transform.localEulerAngles =new Vector3(0,0,90);
         switch (ps){
             case PS.dead:
                 rb.velocity = Vector2.zero;
@@ -183,6 +190,7 @@ public class PlayerController : MonoBehaviour
                     knockbackCounter -= Time.deltaTime;
                     rb.velocity = knockbackForce * knockDir;
                     if (knockbackCounter <= 0)isknockingback = false;
+                    Attack();
                     return;
                 }
                 Move();
@@ -225,6 +233,14 @@ public class PlayerController : MonoBehaviour
     public void UseItem()
     {
         GameManager.instance.inventoryUI.useItem(inventory);
+    }
+
+    public void HealPlayer(int healP)
+    {
+        Debug.LogError("heal");
+        currentHealth += healP;
+        currentHealth = currentHealth < maxHealth ? currentHealth : maxHealth ;
+        GameManager.instance.UpdateHealthUI();
     }
 
     public void OpenInventory()
@@ -419,20 +435,25 @@ public class PlayerController : MonoBehaviour
     }
     private void Attack()
     {
-
-        if (Input.GetMouseButtonDown(0)&&attackCounter<=0)
+        if (attackCounter > 0) return;
+        //weaponHolder.transform.localEulerAngles = shotRotate;
+        if (Input.GetMouseButtonDown(0)||(Input.GetMouseButton(0)&&weapon.nagaoshi))
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 attackDir = mousePos - this.transform.position;
             ImgWeapon.sprite = weapon.ImgWeapon;
+            weaponAnim.applyRootMotion = false;
+            weaponHolder.transform.localEulerAngles = new Vector3(0, 0, 0);
             attackTime = weapon.DisTime;
             if (attackAnimTime > attackTime) attackAnimCounter = attackTime;
             else attackAnimCounter = attackAnimTime;
             //Debug.Log(attackDir);
             attackCounter = attackTime;
             playerAnim.SetTrigger("IsAttack");
-            
-            if(Mathf.Abs(attackDir.x) <= Mathf.Abs(attackDir.y))
+
+            if (attackDir.x < 0) weaponObj.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+            else weaponObj.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+            if (Mathf.Abs(attackDir.x) <= Mathf.Abs(attackDir.y))
             {
                 if (attackDir.y <= 0f)
                 {
@@ -466,7 +487,29 @@ public class PlayerController : MonoBehaviour
                     weaponAnim.SetFloat("Y", 0);
                 }
             }
+            //weaponAnim.SetTrigger("Attack");
+            if (weapon.kinsetu)
+            {
+                weaponAnim.SetTrigger("Attack");
+                Debug.LogError(ImgWeapon.bounds.size.ToString());
+                weaponObj.transform.localPosition = new Vector3(0, ImgWeapon.bounds.size.y*0.55f,0);
+                weaponObj.GetComponent<BoxCollider2D>().enabled = true;
+                weaponObj.GetComponent<BoxCollider2D>().size = new Vector2(ImgWeapon.bounds.size.x,ImgWeapon.bounds.size.y);
+                weaponObj.GetComponent<Sword>().WD = this.weapon;
+                GameManager.instance.PlayAudio(weapon.ShotSound);
+                Debug.LogError(weaponObj.transform.position);
+                return;
+            }
+            if (weapon.yumi)
+            {
+                weaponAnim.applyRootMotion = true;
+                weaponAnim.SetTrigger("Yumi");
+                
+                weaponHolder.transform.localEulerAngles = new Vector3(0,0,Mathf.Atan2(attackDir.normalized.y, attackDir.normalized.x) * Mathf.Rad2Deg -90);
+            }
             weaponAnim.SetTrigger("Attack");
+            weaponObj.GetComponent<BoxCollider2D>().enabled = false;
+            weaponObj.transform.localPosition = new Vector2(0, 0.8f);
             ShotManager.ShotAttack(this.transform.position, attackDir, weapon.shot, at, kbforce,weapon);
         }
     }

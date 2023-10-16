@@ -14,8 +14,11 @@ public class BossfirstHead : MonoBehaviour
     private float speed = 5f;
     Vector2 dir;
     private EnemyShotManager enemyshot;
+    private Animator anim;
+
     private void Start()
     {
+        anim = this.gameObject.GetComponent<Animator>();
         this.gameObject.AddComponent<EnemyShotManager>();
         enemyshot = this.gameObject.GetComponent<EnemyShotManager>();
         speed = 5f;
@@ -89,10 +92,12 @@ public class BossfirstHead : MonoBehaviour
         {
             case BossEnemyfirst.BattleState.Syukai:
                 bossfirst.TakeDamage(at);
+                anim.SetTrigger("Damaged");
                 break;
             case BossEnemyfirst.BattleState.Hansya:
                 break;
             case BossEnemyfirst.BattleState.Last:
+                anim.SetTrigger("Damaged");
                 bossfirst.TakeDamage(at);
                 break;
         }

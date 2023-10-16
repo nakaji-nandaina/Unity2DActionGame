@@ -13,14 +13,15 @@ TagManager:
   - BossFirst
   - NoEffect
   - EnemyArea
+  - NoBreak
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - wall
   - Water
   - UI
-  - 
+  - minimap
   - 
   - Confiner
   - 

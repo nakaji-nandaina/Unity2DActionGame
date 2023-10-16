@@ -16,7 +16,7 @@ public class KaidanMoveScene : MonoBehaviour
     [SerializeField]
     private Vector2[] NextPosition;
     float turnonT;
-    bool isNext = false;
+    //bool isNext = false;
     // Start is called before the first frame update
     void Start()
     {

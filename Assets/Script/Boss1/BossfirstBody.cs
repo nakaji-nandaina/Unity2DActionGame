@@ -17,9 +17,11 @@ public class BossfirstBody : MonoBehaviour
     Vector2 dir;
     private int maxhp;
     private int hp;
+    Animator anim;
 
     private void Start()
     {
+        anim = this.gameObject.GetComponent<Animator>();
         rb = this.GetComponent<Rigidbody2D>();
         bossfirst = boss.GetComponent<BossEnemyfirst>();
         enemyshot = this.gameObject.GetComponent<EnemyShotManager>();
@@ -110,9 +112,11 @@ public class BossfirstBody : MonoBehaviour
         {
             case BossEnemyfirst.BattleState.Syukai:
                 bossfirst.TakeDamage(at);
+                anim.SetTrigger("Damaged");
                 break;
             case BossEnemyfirst.BattleState.Hansya:
                 hp -= at;
+                anim.SetTrigger("Damaged");
                 if (hp <= 0)
                 {
                     Destroy(this.gameObject);

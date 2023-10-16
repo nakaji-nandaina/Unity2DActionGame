@@ -15,18 +15,8 @@ public class Item : ScriptableObject
 
     public String itemname;
     public Type type;
-    public String funcname;
-    public float point;
     [Multiline(10)]
     public String information;
     public GameObject itemObj;
     public Sprite itemIcon;
-    public Item(Item item)
-    {
-        this.itemname = item.itemname;
-        this.type = item.type;
-        this.information = item.information;
-        this.itemObj = item.itemObj;
-        this.itemIcon = item.itemIcon;
-    }
 }

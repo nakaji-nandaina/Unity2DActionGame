@@ -44,6 +44,7 @@ public class BreakObj : MonoBehaviour
             child.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
             //child.gameObject.transform.position = Vector2.zero;
             // 子要素リストにパーツを追加
+            if (child.gameObject.tag == "NoBreak") continue;
             myParts.Add(child.gameObject);
 
         }
@@ -64,7 +65,7 @@ public class BreakObj : MonoBehaviour
                     obj.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
                     obj.GetComponent<Rigidbody2D>().angularVelocity = 0.0f;
                     obj.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                    if (this.gameObject.tag == "Enemy" && obj.gameObject.name != "Area")
+                    if (this.gameObject.tag == "Enemy" && obj.gameObject.name != "Area" &&obj.gameObject.tag!="NoBreak")
                     {
                         obj.gameObject.AddComponent<AbsorbParts>();
                         obj.gameObject.GetComponent<AbsorbParts>().parts = parts;
