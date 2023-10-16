@@ -12,6 +12,9 @@
 
 武器ポーチ：Oキーで開いてOキーで閉じる。
 
+## 戦闘
+![Videotogif (2)](https://github.com/nakaji-nandaina/Unity2DActionGame/assets/65334953/f1b9c769-9cc9-4b8a-9dda-12b78d303c15)
+
 ## アイテム選択
 アイテムを選択すると右のパネルに説明と使用ボタンが表示される（使用可能なアイテムだけ）
 
