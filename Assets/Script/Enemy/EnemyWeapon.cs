@@ -30,6 +30,11 @@ public class EnemyWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.instance.Player.ps != PlayerController.PS.normal)
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
         rb.velocity = shotSpeed * weaponDirection;
         DestroyCounter();
         if (anim == null) return;

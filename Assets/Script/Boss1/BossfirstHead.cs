@@ -15,6 +15,8 @@ public class BossfirstHead : MonoBehaviour
     Vector2 dir;
     private EnemyShotManager enemyshot;
     private Animator anim;
+    float damagedTime=0.2f;
+    float damagedCount=0f;
 
     private void Start()
     {
@@ -32,7 +34,12 @@ public class BossfirstHead : MonoBehaviour
     }
     private void Update()
     {
-        if (GameManager.instance.Player.ps != PlayerController.PS.normal) return;
+        if (GameManager.instance.Player.ps != PlayerController.PS.normal)
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
+        damagedCount = 0 > damagedCount - Time.deltaTime ? 0 : damagedCount - Time.deltaTime;
         switch (bossfirst.currentState)
         {
             case BossEnemyfirst.BossState.Battle:
@@ -88,6 +95,8 @@ public class BossfirstHead : MonoBehaviour
     public void takeDamage(int at)
     {
         if (bossfirst.currentState != BossEnemyfirst.BossState.Battle) return;
+        if (damagedCount > 0) return;
+        damagedCount = damagedTime;
         switch (bossfirst.battleState)
         {
             case BossEnemyfirst.BattleState.Syukai:
