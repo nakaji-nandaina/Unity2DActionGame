@@ -83,6 +83,9 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool isFadein = false;
 
+    //ゲームオーバー画面
+    public GameObject GameOverUI;
+
     //敵のダメージUI
     public GameObject damageText;
 

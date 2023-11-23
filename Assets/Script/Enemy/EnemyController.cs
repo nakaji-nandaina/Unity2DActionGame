@@ -129,6 +129,7 @@ public class EnemyController : MonoBehaviour
             case EnemyState.Dead:
                 rb.velocity = Vector2.zero;
                 Destroy(this.transform.Find("てきしんぼる").gameObject);
+                Destroy(this.transform.Find("shadow").gameObject);
                 ES = next;
                 break;
         }
@@ -292,6 +293,7 @@ public class EnemyController : MonoBehaviour
             weaponAnim.SetTrigger("Attack");
             enemyAnim.SetTrigger("isAttack");
             zanzouAnim.SetTrigger("Attack");
+
         }
         isAttackCounter -= Time.deltaTime;
         if (isAttackCounter <= 0)
@@ -423,6 +425,7 @@ public class EnemyController : MonoBehaviour
             if (ES!=EnemyState.Dead)
             {
                 PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+
                 player.KnockBack(transform.position);
                 player.DamagePlayer(attackDamage);
             }
@@ -451,6 +454,7 @@ public class EnemyController : MonoBehaviour
     }
     public void TakeDamage(int damage,Vector3 position,float kbforce)
     {
+        //Debug.LogError(mutekiC);
         if (ES == EnemyState.Dead) return;
         if (mutekiC > 0) return;
         mutekiC = mutekiT;

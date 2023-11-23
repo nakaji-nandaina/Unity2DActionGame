@@ -63,7 +63,7 @@ public class Weapon : MonoBehaviour
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             weaponDirection = (mousePos - this.transform.position).normalized;
-            rb.velocity = shotSpeed * weaponDirection;
+            rb.velocity = shotSpeed * weaponDirection.normalized;
             DestroyCounter();
             return;
         }
@@ -174,8 +174,12 @@ public class Weapon : MonoBehaviour
             case "Break":
                 collision.gameObject.GetComponent<BreakObj>().BreakThis();
                 if (notDest) return;                
-                bakuhatu();
-                if (WD.bakuhatu) return;
+                //bakuhatu();
+                if (WD.bakuhatu)
+                {
+                    bakuhatu();
+                    return;
+                }
                 Destroy(this.gameObject);
                 break;
         }
@@ -187,6 +191,16 @@ public class Weapon : MonoBehaviour
         {
             case "Enemy":
                 collision.gameObject.GetComponent<EnemyController>().TakeDamage(attackDamage, this.transform.position, kbforce);
+                break;
+            case "BossFirst":
+                if (collision.gameObject.GetComponent<BossfirstBody>())
+                {
+                    collision.gameObject.GetComponent<BossfirstBody>().takeDamage(attackDamage);
+                }
+                if (collision.gameObject.GetComponent<BossfirstHead>())
+                {
+                    collision.gameObject.GetComponent<BossfirstHead>().takeDamage(attackDamage);
+                }
                 break;
         }
 

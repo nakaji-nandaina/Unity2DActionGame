@@ -509,6 +509,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 531716794501118830}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1728662823026373963 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1196963775365778981, guid: 45d5137bcab81894fbdcc0d1b763c92a,
+    type: 3}
+  m_PrefabInstance: {fileID: 531716794501118830}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2410117568217343668 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2743673707076312538, guid: 45d5137bcab81894fbdcc0d1b763c92a,
@@ -1312,6 +1318,11 @@ PrefabInstance:
       propertyPath: nameSpace
       value: 
       objectReference: {fileID: 8264856852455705456}
+    - target: {fileID: 9074385018434786009, guid: 3afc399c8c56b0a4299433d5cc1e01d2,
+        type: 3}
+      propertyPath: GameOverUI
+      value: 
+      objectReference: {fileID: 1728662823026373963}
     - target: {fileID: 9074385018434786009, guid: 3afc399c8c56b0a4299433d5cc1e01d2,
         type: 3}
       propertyPath: SceneSlide
