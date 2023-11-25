@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEditor;
 using System;
 public class PlayerController : MonoBehaviour
@@ -41,15 +42,24 @@ public class PlayerController : MonoBehaviour
 
     private bool isknockingback;
     private Vector2 knockDir;
-
+    //ノックバック時間
     [SerializeField]
     private float knockbackTime, knockbackForce;
     private float knockbackCounter;
-
+    //無敵時間
     [SerializeField]
     private float invicibilityTime;
     private float invincibilityCounter;
-
+    //回避移動
+    private float avoidTime=0.2f;
+    private float avoidCounter;
+    private float avoidForce = 20f;
+    private float avoidDistime = 0.5f;
+    private float avoidDisCounter;
+    private float avoidEffectTime = 0.05f;
+    private float avoidEffectCounter;
+    private Vector2 avoidDir;
+    //攻撃時間
     private float attackTime = 0.5f;
     private float attackCounter;
     private float attackAnimTime = 0.5f;
@@ -82,6 +92,20 @@ public class PlayerController : MonoBehaviour
     private List<int> defnum = new List<int>() { 0, 0, 0, 0, 0, 0, 0 }; 
     private float[] buffStatus = new float[4];
     public PS ps;
+    public NS ns;
+
+    private float GameOverTime=4f;
+    private float GameOverCounter;
+    public AudioClip deadclip;
+
+
+    private KeyCode[] numkey = new KeyCode[]
+    {
+        KeyCode.Alpha1, KeyCode.Alpha2,
+        KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5,
+        KeyCode.Alpha6, KeyCode.Alpha7
+    };
+
 
     public enum PS
     {
@@ -118,8 +142,41 @@ public class PlayerController : MonoBehaviour
                 break;
             case PS.dead:
                 rb.velocity = Vector2.zero;
+                playerAnim.SetTrigger("Dead");
+                GameManager.instance.GameOverUI.SetActive(true);
+                GameManager.instance.GameOverUI.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+                GameManager.instance.StopBGM();
+                GameManager.instance.PlayAudio(deadclip);
+                GameOverCounter = 0;
+
                 ps = nextState;
                 break;
+        }
+
+    }
+    public enum NS
+    {
+        free,
+        kb,
+        avoid,
+    }
+    public void changeNS(NS nextState)
+    {
+        switch (nextState) {
+            case NS.free:
+                if (ns == NS.avoid) avoidDisCounter = avoidDistime;
+                ns = nextState;
+                break;
+            case NS.kb:
+                ns = nextState;
+                break;
+            case NS.avoid:
+                avoidEffectCounter = 0;
+                avoidCounter = avoidTime;
+                invincibilityCounter = avoidTime/2;
+                ns = nextState;
+                break;
+
         }
 
     }
@@ -182,27 +239,18 @@ public class PlayerController : MonoBehaviour
         switch (ps){
             case PS.dead:
                 rb.velocity = Vector2.zero;
+                if (GameOverCounter >= GameOverTime) return;
+                GameOverCounter += Time.deltaTime;
+                GameManager.instance.GameOverUI.GetComponent<Image>().color = new Color(0, 0, 0, GameOverCounter / (GameOverTime/1.2f));
+                if (GameOverCounter < GameOverTime) return;
+                GameManager.instance.GameOverUI.transform.Find("DeadText").gameObject.SetActive(true);
+                GameManager.instance.GameOverUI.transform.Find("DeadButton").gameObject.SetActive(true);
+                GameManager.instance.GameOverUI.transform.Find("DeadButton").gameObject.GetComponent<Button>().onClick.AddListener(ToStart);
+
                 return;
             case PS.normal:
-                if (invincibilityCounter > 0)invincibilityCounter -= Time.deltaTime;
-                if (isknockingback)
-                {
-                    knockbackCounter -= Time.deltaTime;
-                    rb.velocity = knockbackForce * knockDir;
-                    if (knockbackCounter <= 0)isknockingback = false;
-                    Attack();
-                    return;
-                }
-                Move();
-                Attack();
-                if (attackCounter > 0)attackCounter -= Time.deltaTime;
-                if (attackCounter < 0)attackCounter = 0;
-                if (attackAnimCounter > 0) attackAnimCounter -= Time.deltaTime;
-                if (attackAnimCounter < 0) attackAnimCounter = 0;
-                //if (Input.GetKeyDown(KeyCode.O))SavePlayer();
-                //if (Input.GetKeyDown(KeyCode.L))LoadPlayer();
-                if (Input.GetKeyDown(KeyCode.O)) OpenWeaponPouch();
-                if (Input.GetKeyDown(KeyCode.I)) OpenInventory();
+                Normal();
+                
                 break;
 
             case PS.inventory:
@@ -228,6 +276,71 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+    }
+    private void ToStart()
+    {
+        LoadPlayer();
+        GameManager.StartSpone = new Vector2(-38, -22);
+        FadeManager.Instance.LoadScene("StartScene", 1f);
+    }
+
+    private void Normal()
+    {
+        if (invincibilityCounter > 0) invincibilityCounter -= Time.deltaTime;
+        switch (ns)
+        {
+            case NS.free:
+                Move();
+                Attack();
+                Avoid();
+                UseShortCut();
+                break;
+            case NS.kb:
+                knockbackCounter -= Time.deltaTime;
+                rb.velocity = knockbackForce * knockDir;
+                if (knockbackCounter <= 0) changeNS(NS.free);
+                return;
+            case NS.avoid:
+                avoidCounter -= Time.deltaTime;
+                rb.velocity = avoidForce * avoidDir;
+                if (avoidCounter <= 0) changeNS(NS.free);
+                avoidEffectCounter -= Time.deltaTime;
+                if (avoidEffectCounter > 0) return;
+                avoidEffectCounter = avoidEffectTime;
+                GameObject avoideffect = new GameObject("avoid");
+                avoideffect.AddComponent<AvoidEffect>();
+                return;
+        }
+        if (attackCounter > 0) attackCounter -= Time.deltaTime;
+        if (attackCounter < 0) attackCounter = 0;
+        if (attackAnimCounter > 0) attackAnimCounter -= Time.deltaTime;
+        if (attackAnimCounter < 0) attackAnimCounter = 0;
+        if (avoidDisCounter > 0) avoidDisCounter -= Time.deltaTime;
+        //if (Input.GetKeyDown(KeyCode.O))SavePlayer();
+        //if (Input.GetKeyDown(KeyCode.L))LoadPlayer();
+        if (Input.GetKeyDown(KeyCode.O)) OpenWeaponPouch();
+        if (Input.GetKeyDown(KeyCode.I)) OpenInventory();
+    }
+
+    private void Avoid()
+    {
+        if (avoidDisCounter > 0) return;
+        if (attackAnimCounter > 0) return;
+        if (rb.velocity.normalized == Vector2.zero) return;
+        if (!Input.GetKeyDown(KeyCode.LeftShift)) return;
+        avoidDir = rb.velocity.normalized;
+        changeNS(NS.avoid);
+        playerAnim.SetTrigger("IsAttack");
+    }
+    public void UseShortCut()
+    {
+        for (int i = 0; i < 7; i++)
+        {
+            if (!Input.GetKeyDown(numkey[i])) continue;
+            Debug.LogError(i);
+            GameManager.instance.inventoryUI.ShortcutUseItem(i, inventory, ShortCut);
+            break;
+        }
     }
 
     public void UseItem()
@@ -346,7 +459,8 @@ public class PlayerController : MonoBehaviour
         if (invincibilityCounter <= 0)
         {
             knockbackCounter = knockbackTime;
-            isknockingback = true;
+            changeNS(NS.kb);
+            //isknockingback = true;
             knockDir = transform.position - position;
             knockDir.Normalize();
         }
@@ -388,8 +502,9 @@ public class PlayerController : MonoBehaviour
             if(currentHealth == 0&&ps!=PS.dead)
             {
                 //gameObject.SetActive(false);
-                ps=PS.dead;
-                Destroy(this.gameObject.GetComponent<SpriteRenderer>());
+                //ps=PS.dead;
+                changePS(PS.dead);
+                //Destroy(this.gameObject.GetComponent<SpriteRenderer>());
             }
         }
         GameManager.instance.UpdateHealthUI();

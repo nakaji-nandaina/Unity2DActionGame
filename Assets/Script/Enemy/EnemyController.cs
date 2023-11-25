@@ -129,6 +129,7 @@ public class EnemyController : MonoBehaviour
             case EnemyState.Dead:
                 rb.velocity = Vector2.zero;
                 Destroy(this.transform.Find("てきしんぼる").gameObject);
+                Destroy(this.transform.Find("shadow").gameObject);
                 ES = next;
                 break;
         }
@@ -292,6 +293,7 @@ public class EnemyController : MonoBehaviour
             weaponAnim.SetTrigger("Attack");
             enemyAnim.SetTrigger("isAttack");
             zanzouAnim.SetTrigger("Attack");
+
         }
         isAttackCounter -= Time.deltaTime;
         if (isAttackCounter <= 0)
@@ -332,7 +334,7 @@ public class EnemyController : MonoBehaviour
                 knockback();
                 return;
             case EnemyState.Longshot:
-                Debug.LogError("shot");
+                //Debug.LogError("shot");
                 LongShot();
                 break;
             case EnemyState.Attack:
@@ -423,6 +425,7 @@ public class EnemyController : MonoBehaviour
             if (ES!=EnemyState.Dead)
             {
                 PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+
                 player.KnockBack(transform.position);
                 player.DamagePlayer(attackDamage);
             }
@@ -449,10 +452,12 @@ public class EnemyController : MonoBehaviour
         knockBackPForce = knockBackForce + force;
         ChangeES(EnemyState.KnockBack);
     }
-    public void TakeDamage(int damage,Vector3 position,float kbforce)
+    public void TakeDamage(int damage,Vector3 position,float kbforce,AudioClip clip)
     {
+        //Debug.LogError(mutekiC);
         if (ES == EnemyState.Dead) return;
         if (mutekiC > 0) return;
+        GameManager.instance.PlayAudio(clip);
         mutekiC = mutekiT;
         int culDamage = Random.Range((int)(damage * 0.8), (int)(damage * 1.3));
         currentHealth -= culDamage;

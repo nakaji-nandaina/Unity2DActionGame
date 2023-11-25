@@ -17,6 +17,8 @@ public class BossfirstHead : MonoBehaviour
     private Animator anim;
     float damagedTime=0.2f;
     float damagedCount=0f;
+    [SerializeField]
+    GameObject[] shot;
 
     private void Start()
     {
@@ -57,12 +59,21 @@ public class BossfirstHead : MonoBehaviour
                 break;
             case BossEnemyfirst.BattleState.Last:
                 rb.velocity = new Vector2(0, 0);
+                this.gameObject.transform.Rotate(0, 0, 2f);
                 currentT += Time.deltaTime;
                 if (currentT < nextT) return;
-                nextT = Random.Range(0.5f, 1f);
+                nextT = 0.1f;
                 currentT = 0f;
-                Shot();
+                fourShot();
                 break;
+        }
+    }
+    private void fourShot()
+    {
+        for(int i = 0; i < 4; i++)
+        {
+            Vector2 dir = shot[i].gameObject.transform.position - this.gameObject.transform.position;
+            enemyshot.EmemyShot(shot[i].gameObject.transform.position, this.gameObject.transform.position, dir, bossfirst.BodyShotWeapon);
         }
     }
 
@@ -92,10 +103,11 @@ public class BossfirstHead : MonoBehaviour
         }
     }
 
-    public void takeDamage(int at)
+    public void takeDamage(int at,AudioClip clip)
     {
         if (bossfirst.currentState != BossEnemyfirst.BossState.Battle) return;
         if (damagedCount > 0) return;
+        GameManager.instance.PlayAudio(clip);
         damagedCount = damagedTime;
         switch (bossfirst.battleState)
         {
@@ -111,6 +123,7 @@ public class BossfirstHead : MonoBehaviour
                 break;
         }
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

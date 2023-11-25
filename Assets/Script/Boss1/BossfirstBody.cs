@@ -112,11 +112,12 @@ public class BossfirstBody : MonoBehaviour
         }
     }
 
-    public void takeDamage(int at)
+    public void takeDamage(int at,AudioClip clip)
     {
         if (bossfirst.currentState != BossEnemyfirst.BossState.Battle) return;
         if (damagedCount > 0) return;
         damagedCount = damagedTime;
+        GameManager.instance.PlayAudio(clip);
         switch (bossfirst.battleState)
         {
             case BossEnemyfirst.BattleState.Syukai:

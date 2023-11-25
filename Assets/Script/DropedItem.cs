@@ -49,6 +49,10 @@ public class DropedItem : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerController>().inventory.AddItem(item, 1);
             Destroy(this.gameObject.transform.Find("Drop‚µ‚ñ‚Ú‚é").gameObject);
+            if (this.gameObject.transform.Find("shadow"))
+            {
+                Destroy(this.gameObject.transform.Find("shadow").gameObject);
+            }
             audioSource.PlayOneShot(audioClip);
             Destroy(Collider2D);
             got = true;
