@@ -1620,7 +1620,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropItem:
   - {fileID: 7352195759069961805, guid: 44cab840aa77c3f499af8fd7bc9a11a1, type: 3}
-  dropP: 32000000
+  - {fileID: 7880338938360541143, guid: ba7650a30a94a8a46b04c5b2eff4f060, type: 3}
+  dropP: 3200000005000000
   max: 100
 --- !u!114 &3758002640582631074
 MonoBehaviour:

@@ -94,8 +94,9 @@ public class PlayerController : MonoBehaviour
     public PS ps;
     public NS ns;
 
-    private float GameOverTime=6f;
+    private float GameOverTime=4f;
     private float GameOverCounter;
+    public AudioClip deadclip;
 
 
     private KeyCode[] numkey = new KeyCode[]
@@ -144,6 +145,8 @@ public class PlayerController : MonoBehaviour
                 playerAnim.SetTrigger("Dead");
                 GameManager.instance.GameOverUI.SetActive(true);
                 GameManager.instance.GameOverUI.GetComponent<Image>().color = new Color(0, 0, 0, 0);
+                GameManager.instance.StopBGM();
+                GameManager.instance.PlayAudio(deadclip);
                 GameOverCounter = 0;
 
                 ps = nextState;
@@ -238,9 +241,12 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 if (GameOverCounter >= GameOverTime) return;
                 GameOverCounter += Time.deltaTime;
-                GameManager.instance.GameOverUI.GetComponent<Image>().color = new Color(0, 0, 0, GameOverCounter / GameOverTime);
+                GameManager.instance.GameOverUI.GetComponent<Image>().color = new Color(0, 0, 0, GameOverCounter / (GameOverTime/1.2f));
                 if (GameOverCounter < GameOverTime) return;
-                GameManager.instance.GameOverUI.transform.GetChild(1).gameObject.SetActive(true);
+                GameManager.instance.GameOverUI.transform.Find("DeadText").gameObject.SetActive(true);
+                GameManager.instance.GameOverUI.transform.Find("DeadButton").gameObject.SetActive(true);
+                GameManager.instance.GameOverUI.transform.Find("DeadButton").gameObject.GetComponent<Button>().onClick.AddListener(ToStart);
+
                 return;
             case PS.normal:
                 Normal();
@@ -270,6 +276,12 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+    }
+    private void ToStart()
+    {
+        LoadPlayer();
+        GameManager.StartSpone = new Vector2(-38, -22);
+        FadeManager.Instance.LoadScene("StartScene", 1f);
     }
 
     private void Normal()

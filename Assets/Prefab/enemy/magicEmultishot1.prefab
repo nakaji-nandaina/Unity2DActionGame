@@ -2087,7 +2087,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropItem:
   - {fileID: 7352195759069961805, guid: 44cab840aa77c3f499af8fd7bc9a11a1, type: 3}
-  dropP: 32000000
+  - {fileID: 8632227376641266574, guid: 28ee81ca1d262664d810758543649f66, type: 3}
+  dropP: 3200000005000000
   max: 100
 --- !u!95 &8911918005012905795
 Animator:

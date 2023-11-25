@@ -12,17 +12,17 @@ public class Sword : MonoBehaviour
         switch (collision.tag)
         {
             case "Enemy":
-                collision.gameObject.GetComponent<EnemyController>().TakeDamage(WD.At, this.transform.position, WD.KbForce);
-                GameManager.instance.PlayAudio(WD.HitSound);
+                collision.gameObject.GetComponent<EnemyController>().TakeDamage(WD.At, this.transform.position, WD.KbForce,WD.HitSound);
+                
                 break;
             case "BossFirst":
                 if (collision.gameObject.GetComponent<BossfirstBody>())
                 {
-                    collision.gameObject.GetComponent<BossfirstBody>().takeDamage(WD.At);
+                    collision.gameObject.GetComponent<BossfirstBody>().takeDamage(WD.At, WD.HitSound);
                 }
                 if (collision.gameObject.GetComponent<BossfirstHead>())
                 {
-                    collision.gameObject.GetComponent<BossfirstHead>().takeDamage(WD.At);
+                    collision.gameObject.GetComponent<BossfirstHead>().takeDamage(WD.At, WD.HitSound);
                 }
                 break;
             case "Break":

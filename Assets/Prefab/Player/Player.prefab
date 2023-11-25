@@ -178,6 +178,8 @@ MonoBehaviour:
   weaponId: 
   mainWeapon: 0
   ps: 0
+  ns: 0
+  deadclip: {fileID: 8300000, guid: 6bbe4687eb55cb140be81161b2386683, type: 3}
 --- !u!114 &1672310285104073477
 MonoBehaviour:
   m_ObjectHideFlags: 0

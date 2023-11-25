@@ -20,6 +20,8 @@ public class BossEnemyfirst : MonoBehaviour
     Slider hpbar;
     [SerializeField, Tooltip("à⁄ìÆêßå¿ópï«É^ÉCÉã")]
     GameObject limWall;
+    [SerializeField]
+    AudioClip BossBGM;
 
     public enum BossState 
     { 
@@ -51,6 +53,8 @@ public class BossEnemyfirst : MonoBehaviour
     private GameObject lastPoint;
 
     public GameObject BodyShotWeapon;
+    [SerializeField]
+    private Sprite angry;
 
     private int childnum;
 
@@ -132,6 +136,7 @@ public class BossEnemyfirst : MonoBehaviour
             case BattleState.toLast:
                 break;
             case BattleState.Last:
+                headobj.GetComponent<SpriteRenderer>().sprite=angry;
                 break;
         }
         battleState = nextstate;
@@ -142,11 +147,14 @@ public class BossEnemyfirst : MonoBehaviour
     {
         limWall.SetActive(true);
         hpbar.gameObject.SetActive(true);
+        GameManager.instance.ChangeBGM(BossBGM,1);
     }
     private void DeadEffect()
     {
         limWall.SetActive(false);
         hpbar.gameObject.SetActive(false);
+        GameManager.instance.TurnBGM();
+        Destroy(this.gameObject);
     }
     private void FirstDir()
     {

@@ -142,8 +142,9 @@ public class Weapon : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Enemy":
-                collision.gameObject.GetComponent<EnemyController>().TakeDamage(attackDamage, this.transform.position, kbforce);
-                if (notDest) return;
+                collision.gameObject.GetComponent<EnemyController>().TakeDamage(attackDamage, this.transform.position, kbforce,clips[1]);
+                if (notDest)return;
+                
                 bakuhatu();
                 if (WD.bakuhatu) return;
                 Destroy(this.gameObject);
@@ -152,13 +153,13 @@ public class Weapon : MonoBehaviour
             case "BossFirst":
                 if (collision.gameObject.GetComponent<BossfirstBody>())
                 {
-                    collision.gameObject.GetComponent<BossfirstBody>().takeDamage(attackDamage);
+                    collision.gameObject.GetComponent<BossfirstBody>().takeDamage(attackDamage,clips[1]);
                 }
                 if (collision.gameObject.GetComponent<BossfirstHead>())
                 {
-                    collision.gameObject.GetComponent<BossfirstHead>().takeDamage(attackDamage);
+                    collision.gameObject.GetComponent<BossfirstHead>().takeDamage(attackDamage,clips[1]);
                 }
-                if (notDest) return;
+                if (notDest)return;
                 bakuhatu();
                 if (WD.bakuhatu) return;
                 Destroy(this.gameObject);
@@ -190,16 +191,16 @@ public class Weapon : MonoBehaviour
         switch (collision.gameObject.tag) 
         {
             case "Enemy":
-                collision.gameObject.GetComponent<EnemyController>().TakeDamage(attackDamage, this.transform.position, kbforce);
+                collision.gameObject.GetComponent<EnemyController>().TakeDamage(attackDamage, this.transform.position, kbforce, clips[1]);
                 break;
             case "BossFirst":
                 if (collision.gameObject.GetComponent<BossfirstBody>())
                 {
-                    collision.gameObject.GetComponent<BossfirstBody>().takeDamage(attackDamage);
+                    collision.gameObject.GetComponent<BossfirstBody>().takeDamage(attackDamage, clips[1]);
                 }
                 if (collision.gameObject.GetComponent<BossfirstHead>())
                 {
-                    collision.gameObject.GetComponent<BossfirstHead>().takeDamage(attackDamage);
+                    collision.gameObject.GetComponent<BossfirstHead>().takeDamage(attackDamage, clips[1]);
                 }
                 break;
         }

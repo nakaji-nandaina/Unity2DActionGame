@@ -334,7 +334,7 @@ public class EnemyController : MonoBehaviour
                 knockback();
                 return;
             case EnemyState.Longshot:
-                Debug.LogError("shot");
+                //Debug.LogError("shot");
                 LongShot();
                 break;
             case EnemyState.Attack:
@@ -452,11 +452,12 @@ public class EnemyController : MonoBehaviour
         knockBackPForce = knockBackForce + force;
         ChangeES(EnemyState.KnockBack);
     }
-    public void TakeDamage(int damage,Vector3 position,float kbforce)
+    public void TakeDamage(int damage,Vector3 position,float kbforce,AudioClip clip)
     {
         //Debug.LogError(mutekiC);
         if (ES == EnemyState.Dead) return;
         if (mutekiC > 0) return;
+        GameManager.instance.PlayAudio(clip);
         mutekiC = mutekiT;
         int culDamage = Random.Range((int)(damage * 0.8), (int)(damage * 1.3));
         currentHealth -= culDamage;

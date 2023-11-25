@@ -75,6 +75,8 @@ public class GameManager : MonoBehaviour
 
     //効果音BGM関係
     private AudioSource audioSource;
+    private AudioSource BGMSource;
+    private AudioClip ChangedBGM;
     [SerializeField]
     private AudioClip talkdot;
     //フェードアウト用
@@ -96,6 +98,7 @@ public class GameManager : MonoBehaviour
     public WeaponPouchUI weaponUI;
 
     public GameObject[] shortcutButtons;
+
 
     public PlayerController Player
     {
@@ -166,6 +169,8 @@ public class GameManager : MonoBehaviour
     {
         
         audioSource = GetComponent<AudioSource>();
+        BGMSource = GameObject.FindGameObjectWithTag("BGM").gameObject.GetComponent<AudioSource>();
+        Debug.LogError(GameObject.FindGameObjectWithTag("BGM"));
         //isWriting = false;
         writingSpeed = writingDef;
         PlayerState();
@@ -176,9 +181,7 @@ public class GameManager : MonoBehaviour
         DialogFuncName = "NullReturn";
         inventoryUI = GetComponent<InventoryUI>();
         weaponUI = GetComponent<WeaponPouchUI>();
-        //Cursor.SetCursor(CursolImage, Vector2.zero, CursorMode.Auto);
-        //alfa = fadeImage.color.a;
-        //setFadein();
+        
     }
 
     // Update is called once per frame
@@ -186,11 +189,7 @@ public class GameManager : MonoBehaviour
     {
 
         DialogControll();
-        /*
-        Fadeout();
-        Fadein();
-        Debug.Log(Convert.ToString(alfa));
-        */
+        
     }
 
     private void DialogControll()
@@ -269,93 +268,7 @@ public class GameManager : MonoBehaviour
                 }
                 break;
         }
-        /***
-        if (dialogBox.activeInHierarchy && NormalDialog)
-        {
-            if (Input.GetMouseButtonUp(1) || Choiced)
-            {
-                Choiced = false;
-                if (justStarted)
-                {
-                    justStarted = false;
-                    return;
-                }
-                if (!isWriting)
-                {
-                    currentLine++;
-                    if (currentLine >= dialogLines.Length && !Choice)
-                    {
-                        dialogText.text = "";
-                        dialogBox.SetActive(false);
-                        nameSpace.SetActive(false);
-                        choiceBox.SetActive(false);
-                        NormalDialog = false;
-                        player.changePS(PlayerController.PS.normal);
-                    }
-                    else if (currentLine >= dialogLines.Length && Choice)
-                    {
-                        choiceBox.SetActive(true);
-                        Debug.Log(YesChoice + "Yesc");
-                        Debug.Log(NoChoice + "Noc");
-                        if (YesChoice)
-                        {
-                            dialogText.text = "";
-                            YesChoice = false;
-                            NoChoice = false;
-                            choiceBox.SetActive(false);
-                            Choice = false;
-                            dialogLines = yesDialogLines;
-                            currentLine = 0;
-                            writingSpeed = writingDef;
-                            StartCoroutine(IEWrite(dialogLines[currentLine]));
-                            Invoke(DialogFuncName, 0);
-                            DialogFuncName = "NullReturn";
-                        }
-                        else if (NoChoice)
-                        {
-                            dialogText.text = "";
-                            YesChoice = false;
-                            NoChoice = false;
-                            choiceBox.SetActive(false);
-                            Choice = false;
-                            dialogLines = noDialogLines;
-                            currentLine = 0;
-                            writingSpeed = writingDef;
-                            StartCoroutine(IEWrite(dialogLines[currentLine]));
-                            DialogFuncName = "NullReturn";
-                        }
-
-                    }
-                    else
-                    {
-                        dialogText.text = "";
-                        writingSpeed = writingDef;
-                        StartCoroutine(IEWrite(dialogLines[currentLine]));
-                        //dialogText.text = dialogLines[currentLine];
-                    }
-                }
-                else
-                {
-                    writingSpeed = 0f;
-                }
-
-
-            }
-        }
         
-        if (dialogBox.activeInHierarchy)
-        {
-            switch (player.ps)
-            {
-                case PlayerController.PS.conversation:
-                    break;
-                default:
-                    player.changePS(PlayerController.PS.conversation);
-                    break;
-            }
-            player.changePS(PlayerController.PS.conversation);
-        }
-        ***/
     }
     public void PlayerStateHold()
     {
@@ -464,69 +377,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("No");
     }
 
-    /*
-    private void Fadeout()
-    {
-        if (isFadeout)
-        {
-            
-            alfa += 0.005f;
-            fadeCount = -0.002f;
-            //fadeImage.color = new Color(0, 0, 0, alfa);
-            Debug.Log("フェード中");
-        }
-        if (alfa>=1)
-        {
-            
-            alfa = 1;
-            Debug.Log("フェードおわり");
-            fadeCount =fadeTime;
-            isFadeout = false;
-            Time.timeScale = 1;
-        }
-    }
-    private void Fadein()
-    {
-        if (isFadein)
-        {
-            isFadein = true;
-            
-            alfa -= 0.02f;
-            fadeCount -= 0.002f;
-            //fadeImage.color = new Color(0, 0, 0, alfa);
-            if (alfa <= 0)
-            {
-                
-                fadeCount = fadeTime;
-                isFadein = false;
-                Time.timeScale = 1;
-
-            }
-        }
-        
-    }
-
-    public void setFadeout()
-    {
-        
-        alfa = 0f;
-        isFadeout = true;
-        //fadeImage.color = new Color(0, 0, 0, alfa);
-        Time.timeScale = 0;
-        fadeCount = fadeTime;
-        Fadeout();
-    }
-    public void setFadein()
-    {
-        
-        isFadein = true;
-        alfa = 1;
-        //fadeImage.color = new Color(0, 0, 0, 1);
-        Fadein();
-        Time.timeScale = 0;
-        fadeCount = fadeTime;
-    }
-    */
+    
 
 
 
@@ -536,9 +387,30 @@ public class GameManager : MonoBehaviour
         audioSource.PlayOneShot(clip);
     }
 
-    private
+    public void StopBGM()
+    {
+        if (BGMSource == null) return;
+        BGMSource.Stop();
+        //BGMSource.gameObject.SetActive(false);
+        //Debug.LogError(BGMSource.isPlaying);
+    }
 
-    IEnumerator IEWrite(string s)
+    public void ChangeBGM(AudioClip clip,float f)
+    {
+        if (BGMSource == null) return;
+        ChangedBGM = BGMSource.clip;
+        BGMSource.clip = clip;
+        BGMSource.Play();
+    }
+    public void TurnBGM()
+    {
+        if (BGMSource == null) return;
+        if (ChangedBGM == null) return;
+        BGMSource.clip = ChangedBGM;
+        BGMSource.Play();
+    }
+
+    private IEnumerator IEWrite(string s)
     {
         //isWriting = true;
         for (int i = 0; i < s.Length; i++)
