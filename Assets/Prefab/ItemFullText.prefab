@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8014826490874106304}
   - component: {fileID: 8046767327375979316}
   m_Layer: 5
-  m_Name: Damege
+  m_Name: ItemFull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: ItemFull
 --- !u!114 &8014826490874106304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,11 +128,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8014826492145826144}
   - component: {fileID: 8014826492145826147}
-  - component: {fileID: 3584407297388083277}
   - component: {fileID: 8014826492145826146}
   - component: {fileID: 8014826492145826157}
+  - component: {fileID: 690316834355455696}
   m_Layer: 5
-  m_Name: DamegeText
+  m_Name: ItemFullText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,19 +180,6 @@ Canvas:
   m_SortingLayerID: 560592669
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &3584407297388083277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8014826492145826156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa0327710b2ef074581641c6d920140a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Dtext: {fileID: 8014826490874106305}
 --- !u!114 &8014826492145826146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,3 +220,16 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &690316834355455696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8014826492145826156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733e2050e454b2649b10ff1a5e72dce9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Dtext: {fileID: 8014826490874106305}

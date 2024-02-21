@@ -136,6 +136,7 @@ public class BossEnemyfirst : MonoBehaviour
             case BattleState.toLast:
                 break;
             case BattleState.Last:
+                //headobj.GetComponent<Animator>().applyRootMotion = true;
                 headobj.GetComponent<SpriteRenderer>().sprite=angry;
                 break;
         }

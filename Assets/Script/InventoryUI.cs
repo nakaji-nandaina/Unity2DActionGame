@@ -72,15 +72,9 @@ public class InventoryUI : MonoBehaviour
     public void ShortcutUseItem(int num,InventoryObject inventory,InventoryObject shortcut)
     {
         Item item = shortcut.Container[num].item;
-        if (!inventory.UsedItem(item, 1)) return;
-        switch (item.GetType().ToString())
-        {
-            case nameof(HealItem):
-                HealItem healitem = (HealItem)item;
-                GameManager.instance.Player.HealPlayer(healitem.healvalue);
-                break;
-
-        }
+        if (!inventory.existItem(item)) return;
+        if(!ItemEffect(item))return;
+        inventory.UsedItem(item, 1);
         shortcut.ShortCutUsedItem(item, 1);
         UpdateInventoryUI(inventory);
         UpdateShortCutInventoryUI(shortcut);
@@ -92,20 +86,32 @@ public class InventoryUI : MonoBehaviour
         Debug.Log("アイテム使った");
         Debug.Log(selecteditem);
         //Debug.Log(selecteditem.GetType().ToString());
-        if (!inventory.UsedItem(selecteditem, 1)) return;
-        switch (selecteditem.GetType().ToString()) 
-        {
-            case nameof(HealItem):
-                HealItem healitem = (HealItem)selecteditem;
-                GameManager.instance.Player.HealPlayer(healitem.healvalue);
-                break;
-                
-        }
+        if (!inventory.existItem(selecteditem)) return;//アイテムが存在するか確認
+        if(!ItemEffect(selecteditem))return;//アイテムの効果が適用可能か確認し使用するorしない
 
         Debug.Log("tukatta");
+        inventory.UsedItem(selecteditem, 1);
         if (!inventory.existItem(selecteditem))CloseInventory();
         UpdateInventoryUI(inventory);
         UpdateShortCutInventoryUI(GameManager.instance.Player.ShortCut);
+    }
+    public bool ItemEffect(Item _item)
+    {
+        bool used = true;
+        switch (_item.GetType().ToString())
+        {
+            case nameof(HealItem):
+                if (GameManager.instance.Player.currentHealth == GameManager.instance.Player.maxHealth)
+                {
+                    used = false;
+                    break;
+                }                
+                HealItem healitem = (HealItem)_item;
+                GameManager.instance.Player.HealPlayer(healitem.healvalue);
+                break;
+
+        }
+        return used;
     }
 
     public void CloseInventory()

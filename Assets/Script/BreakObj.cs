@@ -115,7 +115,7 @@ public class BreakObj : MonoBehaviour
         {
             dropitem.Drop(this.gameObject.transform.position);
         }
-        BreakSE.PlayOneShot(clips[0]);
+        GameManager.instance.PlayAudio(clips[0]);
         this.GetComponent<SpriteRenderer>().sortingOrder = -2;
         this.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
         Destroy(this.GetComponent<BoxCollider2D>());

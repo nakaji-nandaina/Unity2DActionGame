@@ -46,11 +46,15 @@ public class DropedWeapon : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            if (collision.gameObject.GetComponent<PlayerController>().weaponPouch.Pouch.Count >= collision.gameObject.GetComponent<PlayerController>().weaponPouch.max) return;
+            if (collision.gameObject.GetComponent<PlayerController>().weaponPouch.Pouch.Count >= collision.gameObject.GetComponent<PlayerController>().weaponPouch.max)
+            {
+                Instantiate(GameManager.instance.InventoryFullText, GameManager.instance.Player.transform.position, Quaternion.Euler(0, 0, 0));
+                return;
+            }
             collision.gameObject.GetComponent<PlayerController>().weaponPouch.AddWeapon(weapon);
             Destroy(this.gameObject.transform.Find("‚Ô‚«‚µ‚ñ‚Ú‚é").gameObject);
             Destroy(this.gameObject.transform.Find("shadow").gameObject);
-            audioSource.PlayOneShot(audioClip);
+            GameManager.instance.PlayAudio(audioClip);
             Destroy(Collider2D);
             got = true;
         }

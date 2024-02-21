@@ -19,11 +19,14 @@ MonoBehaviour:
   cursor: 1
   dasei: 0
   kinsetu: 0
+  yumi: 0
+  bakuhatu: 0
+  nagaoshi: 0
   ImgWeapon: {fileID: 21300000, guid: 005c494c80ae511478b37d21e9143932, type: 3}
   Icon: {fileID: 21300000, guid: 2bed6cb5e2a9e4641b35b68818e51e50, type: 3}
   At: 40
   KbForce: 5
-  Speed: 20
+  Speed: 10
   DisTime: 5
   DestTime: 5
   ShotSound: {fileID: 8300000, guid: 9e8966e52b4780a4384c391263e6efea, type: 3}

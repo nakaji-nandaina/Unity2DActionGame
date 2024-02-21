@@ -53,7 +53,7 @@ public class DropedItem : MonoBehaviour
             {
                 Destroy(this.gameObject.transform.Find("shadow").gameObject);
             }
-            audioSource.PlayOneShot(audioClip);
+            GameManager.instance.PlayAudio(audioClip);
             Destroy(Collider2D);
             got = true;
         }
