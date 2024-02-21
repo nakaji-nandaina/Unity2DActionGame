@@ -10,11 +10,14 @@ public class AvoidEffect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.transform.position = GameManager.instance.Player.transform.position;
-        sr = this.gameObject.AddComponent<SpriteRenderer>();
-        sr.sprite = GameManager.instance.Player.GetComponent<SpriteRenderer>().sprite;
+        //this.transform.position = GameManager.instance.Player.transform.position;
+        if (sr == null)
+        {
+            sr = this.gameObject.AddComponent<SpriteRenderer>();
+            sr.sprite = GameManager.instance.Player.GetComponent<SpriteRenderer>().sprite;
+        }
         sr.sortingOrder = 3;
-        sr.color = new Color(255, 255, 255, 0.8f);
+        sr.color = new Color(255, 255, 255, 0.9f);
         counter = timer;
     }
 
@@ -23,7 +26,12 @@ public class AvoidEffect : MonoBehaviour
     {
         counter -= Time.deltaTime;
         if (counter <= 0) Destroy(this.gameObject);
-        sr.color = new Color(255, 255, 255, (counter / timer)*0.8f);
-        Debug.LogWarning(sr.color);
+        sr.color = new Color(255, 255, 255, (counter / timer)*0.9f);
+        //Debug.LogWarning(sr.color);
+    }
+    public void SetSprite(Sprite sprite)
+    {
+        sr = this.gameObject.AddComponent<SpriteRenderer>();
+        sr.sprite = sprite;
     }
 }

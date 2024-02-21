@@ -68,7 +68,6 @@ public class PlayerController : MonoBehaviour
     //private bool isDead;
     public WeaponData weapon;
 
-    [SerializeField]
     private AudioClip levelClip;
     [SerializeField]
     private GameObject levelText;
@@ -183,6 +182,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        levelClip = GameManager.instance.clips[1];
         weaponHolder = this.gameObject.transform.GetChild(0).gameObject;
         weaponAnim = weaponHolder.GetComponent<Animator>();
         weaponObj = weaponHolder.transform.GetChild(0).gameObject;
@@ -309,6 +309,7 @@ public class PlayerController : MonoBehaviour
                 avoidEffectCounter = avoidEffectTime;
                 GameObject avoideffect = new GameObject("avoid");
                 avoideffect.AddComponent<AvoidEffect>();
+                avoideffect.transform.position = this.gameObject.transform.position;
                 return;
         }
         if (attackCounter > 0) attackCounter -= Time.deltaTime;
@@ -351,6 +352,7 @@ public class PlayerController : MonoBehaviour
     public void HealPlayer(int healP)
     {
         Debug.LogError("heal");
+        GameManager.instance.PlayAudio(GameManager.instance.clips[0]);
         currentHealth += healP;
         currentHealth = currentHealth < maxHealth ? currentHealth : maxHealth ;
         GameManager.instance.UpdateHealthUI();

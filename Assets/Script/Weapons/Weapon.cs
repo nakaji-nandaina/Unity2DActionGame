@@ -23,6 +23,9 @@ public class Weapon : MonoBehaviour
     //爆発パラメータ
     bool isBakuhatu = false;
     // Start is called before the first frame update
+
+    private float zanzotime = 0.1f;
+    private float zanzocounter = 0;
     void Start()
     {
         //attackDamage = WD.At;
@@ -64,7 +67,17 @@ public class Weapon : MonoBehaviour
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             weaponDirection = (mousePos - this.transform.position).normalized;
             rb.velocity = shotSpeed * weaponDirection.normalized;
+            if (Mathf.Abs(mousePos.x - this.transform.position.x) <= 0.1f && Mathf.Abs(mousePos.y - this.transform.position.y) <= 0.1f) rb.velocity = Vector2.zero;
             DestroyCounter();
+            zanzocounter -= Time.deltaTime;
+            if (zanzocounter > 0) return;
+            zanzocounter = zanzotime;
+            GameObject zanzo = new GameObject("zanzo");
+            zanzo.AddComponent<AvoidEffect>();
+            zanzo.transform.position = this.transform.position;
+            zanzo.transform.rotation = this.transform.rotation;
+            Sprite sprite = this.gameObject.GetComponent<SpriteRenderer>().sprite;
+            zanzo.GetComponent<AvoidEffect>().SetSprite(sprite);
             return;
         }
         if (WD.dasei)

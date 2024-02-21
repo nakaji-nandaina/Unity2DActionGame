@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
     private AudioClip ChangedBGM;
     [SerializeField]
     private AudioClip talkdot;
+    public AudioClip[] clips;
     //フェードアウト用
     [HideInInspector]
     public bool isFadeout = false;
@@ -90,6 +91,8 @@ public class GameManager : MonoBehaviour
 
     //敵のダメージUI
     public GameObject damageText;
+    //インベントリフルUI
+    public GameObject InventoryFullText;
 
     //インベントリ関係
     [HideInInspector]
@@ -170,6 +173,8 @@ public class GameManager : MonoBehaviour
         
         audioSource = GetComponent<AudioSource>();
         BGMSource = GameObject.FindGameObjectWithTag("BGM").gameObject.GetComponent<AudioSource>();
+        BGMSource.volume = 0.1f;
+        audioSource.volume = 0.4f;
         Debug.LogError(GameObject.FindGameObjectWithTag("BGM"));
         //isWriting = false;
         writingSpeed = writingDef;

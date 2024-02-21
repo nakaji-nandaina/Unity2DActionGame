@@ -68,9 +68,15 @@ MonoBehaviour:
   NormalDialog: 0
   SceneSlide: {fileID: 0}
   talkdot: {fileID: 8300000, guid: cde1d21650281a34c8b3816347515fe6, type: 3}
+  clips:
+  - {fileID: 8300000, guid: ed16982d8033a114ba47a720c09207df, type: 3}
+  - {fileID: 8300000, guid: 00ef1b8fd551084448197489bd3b7ae4, type: 3}
   isFadeout: 0
   isFadein: 0
+  GameOverUI: {fileID: 0}
   damageText: {fileID: 8014826492145826156, guid: 30aa0c63e637a0c468ceb26a4514b81b,
+    type: 3}
+  InventoryFullText: {fileID: 8014826492145826156, guid: b1be82de35c126a4ea3e8026ecba2c12,
     type: 3}
   inventoryUI: {fileID: 0}
   weaponUI: {fileID: 0}

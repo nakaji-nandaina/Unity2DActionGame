@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: ShortCutObj
   m_EditorClassIdentifier: 
   Container:
-  - item: {fileID: 11400000, guid: c4b9932c0006582409d970df09542ec0, type: 2}
-    amount: 16
-  - item: {fileID: 11400000, guid: c4b9932c0006582409d970df09542ec0, type: 2}
-    amount: 16
+  - item: {fileID: 11400000, guid: 7fc2a1f7fc0deea488b577af2cc869a6, type: 2}
+    amount: 9
+  - item: {fileID: 0}
+    amount: 0
   - item: {fileID: 0}
     amount: 0
   - item: {fileID: 0}
