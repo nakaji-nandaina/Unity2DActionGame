@@ -373,6 +373,7 @@ public class PlayerController : MonoBehaviour
 
     public void OpenWeaponPouch()
     {
+        Debug.Log(GameManager.instance.weaponUI);
         GameManager.instance.weaponUI.WeaponPouchPanel.SetActive(true);
         GameManager.instance.weaponUI.InitiateWeaponPouch(weaponPouch);
         GameManager.instance.weaponUI.UpdateWeaponPouchUI(weaponPouch);
