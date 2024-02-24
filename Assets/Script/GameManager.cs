@@ -186,7 +186,8 @@ public class GameManager : MonoBehaviour
         DialogFuncName = "NullReturn";
         inventoryUI = GetComponent<InventoryUI>();
         weaponUI = GetComponent<WeaponPouchUI>();
-        
+        Debug.Log(inventoryUI.GetType());
+        Debug.Log(weaponUI.GetType());
     }
 
     // Update is called once per frame
