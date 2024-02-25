@@ -4,6 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
+public class TBuff
+{
+    public enum BuffType
+    {
+        attack,
+        diffence,
+    }
+    public float buffvalue;
+    public float bufftime;
+    public int id;
+    public BuffType bufftype;
+}
 public class GameManager : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -55,6 +67,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public static List<int> itemId, shortcutId, itemAmount, skillId, skillLv, weaponId;
     public static int mainWeapon;
+    [HideInInspector]
+    public static List<TBuff> tbuffs;
     [HideInInspector]
     public static bool load = true;
 
@@ -186,8 +200,6 @@ public class GameManager : MonoBehaviour
         DialogFuncName = "NullReturn";
         inventoryUI = GetComponent<InventoryUI>();
         weaponUI = GetComponent<WeaponPouchUI>();
-        Debug.Log(inventoryUI.GetType());
-        Debug.Log(weaponUI.GetType());
     }
 
     // Update is called once per frame
@@ -289,13 +301,14 @@ public class GameManager : MonoBehaviour
         skillLv = player.database.GetSkillIds(player.skills);
         mainWeapon = player.mainWeapon;
         weaponId = player.database.GetWeaponIds(player.weaponPouch);
+        tbuffs = player.tbuffs;
         Debug.LogError("状態保存");
     }
     private void PlayerState()
     {
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        player.nextXP = nextXP;
-        player.currentXP = currentXP;
+        //player.nextXP = nextXP;
+        //player.currentXP = currentXP;
         if (StartSpone != null && StartSpone != Vector2.zero)
         {
             playerObj.transform.position = StartSpone;

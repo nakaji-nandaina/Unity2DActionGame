@@ -1990,7 +1990,7 @@ MonoBehaviour:
   chaseWaitTime: 0
   chaseTime: 1
   rangeToAttack: 2
-  attackDamage: 10
+  attackDamage: 18
   attackTime: 0.2
   isAttackTime: 0.8
   xp: 10

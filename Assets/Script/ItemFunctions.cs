@@ -13,14 +13,24 @@ public class ItemFunctions:MonoBehaviour
             instance = this;
         }
     }
-    public void HealHundred()
+    public void HealPlayer(int healpoint)
     {
-        int point = 100;
-        GameManager.instance.Player.currentHealth += point;
+        GameManager.instance.Player.currentHealth += healpoint;
+        GameManager.instance.PlayAudio(GameManager.instance.clips[0]);
         if (GameManager.instance.Player.currentHealth > GameManager.instance.Player.maxHealth)
         {
             GameManager.instance.Player.currentHealth = GameManager.instance.Player.maxHealth;
         }
         GameManager.instance.UpdateHealthUI();
+    }
+    public void AttackUpPlayer(Item item)
+    {
+        TBuff buff = new TBuff();
+        buff.bufftype = TBuff.BuffType.attack;
+        buff.id=GameManager.instance.Player.database.GetItemId(item);
+        AttackUPItem atitem = (AttackUPItem)item;
+        buff.bufftime = atitem.uptime;
+        buff.buffvalue = atitem.upvalue;
+        GameManager.instance.Player.AddBuff(buff);
     }
 }

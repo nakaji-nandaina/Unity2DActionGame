@@ -107,9 +107,11 @@ public class InventoryUI : MonoBehaviour
                     break;
                 }                
                 HealItem healitem = (HealItem)_item;
-                GameManager.instance.Player.HealPlayer(healitem.healvalue);
+                ItemFunctions.instance.HealPlayer(healitem.healvalue);
                 break;
-
+            case nameof(AttackUPItem):
+                ItemFunctions.instance.AttackUpPlayer(_item);
+                break;
         }
         return used;
     }
