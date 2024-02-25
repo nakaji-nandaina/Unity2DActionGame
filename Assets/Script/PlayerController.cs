@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     public int currentLevel;
     public int at;
     public float kbforce=0.1f;
+    public int diffence=0;
 
     private bool isknockingback;
     private Vector2 knockDir;
@@ -87,6 +88,9 @@ public class PlayerController : MonoBehaviour
     public List<int> skillLvs;
     public List<int> weaponId;
     public int mainWeapon=0;
+
+    //一時的なバフ用
+    public List<TBuff> tbuffs;
 
     private List<int> defnum = new List<int>() { 0, 0, 0, 0, 0, 0, 0 }; 
     private float[] buffStatus = new float[4];
@@ -227,9 +231,30 @@ public class PlayerController : MonoBehaviour
         currentXP = GameManager.currentXP;
         nextXP = GameManager.nextXP;
         currentLevel = GameManager.currentlevel;
+        //アイテム等による一時的なバフのセット
+        tbuffs = GameManager.tbuffs;
         //maxHealth = GameManager.maxHealth;
+        //パッシブスキルによるバフのセット
         SetStatus();
         currentHealth = GameManager.currentHealth;
+        
+    }
+    private void TbuffInstance()
+    {
+        if (tbuffs == null) tbuffs = new List<TBuff>();
+        for(int i = 0; i < tbuffs.Count; i++)
+        {
+            switch (tbuffs[i].bufftype)
+            {
+                case TBuff.BuffType.attack:
+                    float buffedat = tbuffs[i].buffvalue * at;
+                    at = (int)buffedat;
+                    break;
+                case TBuff.BuffType.diffence:
+                    diffence += (int)tbuffs[i].buffvalue;
+                    break;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -321,6 +346,49 @@ public class PlayerController : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.L))LoadPlayer();
         if (Input.GetKeyDown(KeyCode.O)) OpenWeaponPouch();
         if (Input.GetKeyDown(KeyCode.I)) OpenInventory();
+        TBuffPeriod();
+    }
+
+    private void TBuffPeriod()
+    {
+        for(int i = 0; i < tbuffs.Count; i++)
+        {
+            //Debug.LogError(tbuffs[i].bufftype);
+            tbuffs[i].bufftime -= Time.deltaTime;
+            if (tbuffs[i].bufftime > 0) continue;
+            switch (tbuffs[i].bufftype) {
+                case TBuff.BuffType.attack:
+                    float debuffedat = at/tbuffs[i].buffvalue;
+                    at = (int)debuffedat;
+                    break;
+                case TBuff.BuffType.diffence:
+                    diffence-= (int)tbuffs[i].buffvalue;
+                    break;
+            }
+
+        }
+        tbuffs.RemoveAll(value => value.bufftime <= 0);
+    }
+    public void AddBuff(TBuff tbuff)
+    {
+        for(int i = 0; i < tbuffs.Count; i++)
+        {
+            if (tbuffs[i].id != tbuff.id&&tbuff.id!=-1) continue;
+            tbuffs[i].bufftime = tbuff.bufftime;
+            return;
+        }
+        tbuffs.Add(tbuff);
+        switch (tbuff.bufftype)
+        {
+            case TBuff.BuffType.attack:
+                float buffedat = at * tbuff.buffvalue;
+                at = (int)buffedat;
+                break;
+            case TBuff.BuffType.diffence:
+                diffence += (int)tbuff.buffvalue;
+                break;
+        }
+
     }
 
     private void Avoid()
@@ -349,14 +417,6 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.inventoryUI.useItem(inventory);
     }
 
-    public void HealPlayer(int healP)
-    {
-        Debug.LogError("heal");
-        GameManager.instance.PlayAudio(GameManager.instance.clips[0]);
-        currentHealth += healP;
-        currentHealth = currentHealth < maxHealth ? currentHealth : maxHealth ;
-        GameManager.instance.UpdateHealthUI();
-    }
 
     public void OpenInventory()
     {
@@ -436,6 +496,8 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.PlayerStateHold();
         SetStatus();
         currentHealth = maxHealth;
+        tbuffs = new List<TBuff>();
+        GameManager.tbuffs = new List<TBuff>();
         GameManager.instance.inventoryUI.UpdateShortCutInventoryUI(ShortCut);
         GameManager.instance.UpdateHealthUI();
         GameManager.instance.UpdateXPUI();
@@ -451,6 +513,8 @@ public class PlayerController : MonoBehaviour
         float timesHp = buffStatus[3]+1;
         at = (int)(database.playerLvDatabase[currentLevel - 1].Attack*timesAt+plusAt);
         maxHealth = (int)(database.playerLvDatabase[currentLevel - 1].Hp * timesHp + plusHp);
+        diffence = 0;
+        TbuffInstance();
     }
 
     /// <summary>
@@ -498,6 +562,8 @@ public class PlayerController : MonoBehaviour
 
     public void DamagePlayer(int Damage)
     {
+        Damage = Damage / 2 - diffence / 4;
+        Damage = Damage > 1 ? Damage : 1;
         if (invincibilityCounter <= 0)
         {
             currentHealth = Mathf.Clamp(currentHealth - Damage, 0, maxHealth);
@@ -557,6 +623,7 @@ public class PlayerController : MonoBehaviour
         //weaponHolder.transform.localEulerAngles = shotRotate;
         if (Input.GetMouseButtonDown(0)||(Input.GetMouseButton(0)&&weapon.nagaoshi))
         {
+            Debug.LogError("at" + at.ToString());
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 attackDir = mousePos - this.transform.position;
             ImgWeapon.sprite = weapon.ImgWeapon;
@@ -629,6 +696,7 @@ public class PlayerController : MonoBehaviour
             weaponObj.GetComponent<BoxCollider2D>().enabled = false;
             weaponObj.transform.localPosition = new Vector2(0, 0.8f);
             ShotManager.ShotAttack(this.transform.position, attackDir, weapon.shot, at, kbforce,weapon);
+           
         }
     }
 

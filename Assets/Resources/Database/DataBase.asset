@@ -20,6 +20,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a21519a6b9b07604792dc4a5ee254535, type: 2}
   - {fileID: 11400000, guid: c21d05a018ff0ff429fbecb48c5434a4, type: 2}
   - {fileID: 11400000, guid: d1c05473f52da7a4d9ed935edf63610e, type: 2}
+  - {fileID: 11400000, guid: 5b13b95cef230cf4191071d5200a273d, type: 2}
   playerLvDatabase:
   - {fileID: 11400000, guid: 5b2358cc7869d3946bfb4ecfbfdf373d, type: 2}
   - {fileID: 11400000, guid: 8c736d1d5d2385844b5570ac9dc06d6b, type: 2}

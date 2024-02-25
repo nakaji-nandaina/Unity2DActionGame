@@ -158,12 +158,12 @@ MonoBehaviour:
   currentLevel: 0
   at: 0
   kbforce: 0.1
+  diffence: 0
   knockbackTime: 0.2
   knockbackForce: 5
   invicibilityTime: 0.5
   kaiwaNow: 0
   weapon: {fileID: 11400000, guid: 683162d3398952649ac73462a6a18971, type: 2}
-  levelClip: {fileID: 8300000, guid: 00ef1b8fd551084448197489bd3b7ae4, type: 3}
   levelText: {fileID: 8030022509000291885}
   inventory: {fileID: 11400000, guid: 9493e18068b91874dbd117cf9a58f0ec, type: 2}
   ShortCut: {fileID: 11400000, guid: 2218e3728a0f5594b87d64cc337a857f, type: 2}
@@ -205,7 +205,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05960369, y: -0.053818345}
+  m_Offset: {x: 0.05960369, y: -0.18029594}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -216,7 +216,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.660429, y: 0.9032719}
+  m_Size: {x: 0.660429, y: 0.6892357}
   m_EdgeRadius: 0
 --- !u!1 &1682254343616949441
 GameObject:
