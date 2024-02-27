@@ -368,6 +368,30 @@ public class PlayerController : MonoBehaviour
 
         }
         tbuffs.RemoveAll(value => value.bufftime <= 0);
+        int buffpCount = GameManager.instance.BuffContainer.transform.childCount;
+        if (tbuffs.Count < GameManager.instance.BuffContainer.transform.childCount)
+        {
+            for(int i = buffpCount-1; i >= tbuffs.Count; i--)
+            {
+                Destroy(GameManager.instance.BuffContainer.transform.GetChild(i).gameObject);
+            }
+        }
+        if (tbuffs.Count > buffpCount)
+        {
+            for(int i = 0; i < tbuffs.Count - buffpCount; i++)
+            {
+                GameObject newPanel = Instantiate(GameManager.instance.BuffPanel);
+                newPanel.transform.SetParent(GameManager.instance.BuffContainer.transform,false);
+            }
+        }
+        for(int i = 0; i < tbuffs.Count; i++)
+        {
+            if (tbuffs[i].bufftype == TBuff.BuffType.attack) GameManager.instance.BuffContainer.transform.GetChild(i).gameObject.transform.GetChild(0).GetComponent<Image>().sprite = GameManager.instance.AttackUpImage;
+            if (tbuffs[i].bufftype == TBuff.BuffType.diffence) GameManager.instance.BuffContainer.transform.GetChild(i).gameObject.transform.GetChild(0).GetComponent<Image>().sprite = GameManager.instance.DiffenceUpImage;
+            GameManager.instance.BuffContainer.transform.GetChild(i).gameObject.transform.GetChild(1).GetComponent<Text>().text = ((int)tbuffs[i].bufftime).ToString();
+        }
+
+
     }
     public void AddBuff(TBuff tbuff)
     {

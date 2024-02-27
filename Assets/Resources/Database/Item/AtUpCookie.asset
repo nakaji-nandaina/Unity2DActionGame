@@ -18,4 +18,4 @@ MonoBehaviour:
   itemObj: {fileID: 0}
   itemIcon: {fileID: 21300000, guid: 6409c11082fb944429858adee6ed74fe, type: 3}
   upvalue: 5
-  uptime: 5
+  uptime: 50
