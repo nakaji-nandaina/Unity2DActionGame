@@ -78,6 +78,11 @@ MonoBehaviour:
     type: 3}
   InventoryFullText: {fileID: 8014826492145826156, guid: b1be82de35c126a4ea3e8026ecba2c12,
     type: 3}
+  BuffContainer: {fileID: 0}
+  BuffPanel: {fileID: 6176648055841149159, guid: 0bae6cd42ee16444da09ab7b13e6ebed,
+    type: 3}
+  AttackUpImage: {fileID: 21300000, guid: 2f1a7f3fdd0e05d41a322ee3229d1241, type: 3}
+  DiffenceUpImage: {fileID: 21300000, guid: e6594f7f70b235443a210b07eaa5eabe, type: 3}
   inventoryUI: {fileID: 0}
   weaponUI: {fileID: 0}
   shortcutButtons: []

@@ -107,6 +107,15 @@ public class GameManager : MonoBehaviour
     public GameObject damageText;
     //インベントリフルUI
     public GameObject InventoryFullText;
+    //バフ表示UI
+    [Tooltip("バフ表示コンテナ")]
+    public GameObject BuffContainer;
+    [Tooltip("バフ表示パネル")]
+    public GameObject BuffPanel;
+    [Tooltip("攻撃バフ画像")]
+    public Sprite AttackUpImage;
+    [Tooltip("攻撃バフ画像")]
+    public Sprite DiffenceUpImage;
 
     //インベントリ関係
     [HideInInspector]
