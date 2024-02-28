@@ -46,6 +46,7 @@ public class DialogActivater : MonoBehaviour
         {
             canActivater = true;
 
+            if (this.transform.Find("hukidashi")) this.transform.Find("hukidashi").gameObject.SetActive(true);
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -53,7 +54,7 @@ public class DialogActivater : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             canActivater = false;
-
+            if (this.transform.Find("hukidashi")) this.transform.Find("hukidashi").gameObject.SetActive(false);
             //GameManager.instance.ShowDialogChange(canActivater);
         }
     }

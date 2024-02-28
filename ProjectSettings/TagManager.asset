@@ -15,6 +15,7 @@ TagManager:
   - EnemyArea
   - NoBreak
   - BGM
+  - SpeechBubble
   layers:
   - Default
   - TransparentFX
