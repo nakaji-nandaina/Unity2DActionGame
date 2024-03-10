@@ -9,6 +9,7 @@ public class DataBase : ScriptableObject
     public List<Status> playerLvDatabase = new List<Status> ();
     public List<Skill> skillDatabase = new List<Skill>();
     public List<WeaponData> weaponDatabase = new List<WeaponData>();
+    public List<SceneData> sceneDatabase = new List<SceneData>();
     
     //アイテム関係
     public List<int> GetItemIds(InventoryObject inventory)
@@ -111,5 +112,20 @@ public class DataBase : ScriptableObject
     public WeaponData GetWeaponData(int id)
     {
         return weaponDatabase[id];
+    }
+
+    //Scene関係
+    public float GetSceneBright(string sceneName)
+    {
+        float res = -1;
+        for(int i=0; i < sceneDatabase.Count; i++)
+        {
+            if (sceneDatabase[i].SceneName == sceneName)
+            {
+                res = sceneDatabase[i].SceneBrightness;
+                break;
+            }
+        }
+        return res;
     }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.Universal;
 
 public class TBuff
 {
@@ -209,6 +211,7 @@ public class GameManager : MonoBehaviour
         DialogFuncName = "NullReturn";
         inventoryUI = GetComponent<InventoryUI>();
         weaponUI = GetComponent<WeaponPouchUI>();
+        settingLight();
     }
 
     // Update is called once per frame
@@ -217,6 +220,21 @@ public class GameManager : MonoBehaviour
 
         DialogControll();
         
+    }
+
+    private void settingLight()
+    {
+        Light2D light = GetComponent<Light2D>();
+        if (light==null) light =this.gameObject.AddComponent<Light2D>();
+        float br = player.database.GetSceneBright(SceneManager.GetActiveScene().name);
+        if (br == -1)
+        {
+            light.intensity = 0.9f;
+            player.GetComponent<Light2D>().intensity = 0.2f;
+            return;
+        }
+        light.intensity = br;
+        player.GetComponent<Light2D>().intensity = 1-br;
     }
 
     private void DialogControll()

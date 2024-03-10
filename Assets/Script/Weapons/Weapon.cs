@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Weapon : MonoBehaviour
 {
@@ -234,6 +235,7 @@ public class Weapon : MonoBehaviour
         if (isBakuhatu) return;
         GameManager.instance.PlayAudio(clips[1]);
         this.gameObject.GetComponent<Animator>().SetTrigger("Break");
+        this.gameObject.GetComponent<Light2D>().intensity = 1-GameManager.instance.GetComponent<Light2D>().intensity;
         rb.velocity = Vector2.zero;
         isBakuhatu = true;
     }
