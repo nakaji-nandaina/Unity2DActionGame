@@ -151,7 +151,8 @@ QualitySettings:
     asyncUploadBufferSize: 16
     asyncUploadPersistentBuffer: 1
     resolutionScalingFixedDPIFactor: 1
-    customRenderPipeline: {fileID: 0}
+    customRenderPipeline: {fileID: 11400000, guid: ae07d70651db9b145a44052e36df8b6a,
+      type: 2}
     excludedTargetPlatforms: []
   - serializedVersion: 2
     name: Very High
@@ -234,6 +235,7 @@ QualitySettings:
     PS4: 5
     PSM: 5
     PSP2: 2
+    Server: 0
     Standalone: 5
     Tizen: 2
     WebGL: 3
