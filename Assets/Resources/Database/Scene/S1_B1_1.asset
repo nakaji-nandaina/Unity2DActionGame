@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: S1_B1_1
   m_EditorClassIdentifier: 
   SceneName: S1_B1_1
-  SceneBrightness: 0.1
+  SceneBrightness: 0.8
+  goalPoint: {x: -24, y: 20}

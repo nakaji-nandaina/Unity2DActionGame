@@ -647,7 +647,7 @@ public class PlayerController : MonoBehaviour
         //weaponHolder.transform.localEulerAngles = shotRotate;
         if (Input.GetMouseButtonDown(0)||(Input.GetMouseButton(0)&&weapon.nagaoshi))
         {
-            Debug.LogError("at" + at.ToString());
+            //Debug.LogError("at" + at.ToString());
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 attackDir = mousePos - this.transform.position;
             ImgWeapon.sprite = weapon.ImgWeapon;

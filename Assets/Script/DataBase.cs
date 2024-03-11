@@ -128,4 +128,17 @@ public class DataBase : ScriptableObject
         }
         return res;
     }
+    public Vector2 GetSceneGoal(string sceneName)
+    {
+        Vector2 res = new Vector2(0,0);
+        for (int i = 0; i < sceneDatabase.Count; i++)
+        {
+            if (sceneDatabase[i].SceneName == sceneName)
+            {
+                res = sceneDatabase[i].goalPoint;
+                break;
+            }
+        }
+        return res;
+    }
 }

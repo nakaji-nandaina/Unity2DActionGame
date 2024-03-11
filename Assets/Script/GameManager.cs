@@ -119,6 +119,10 @@ public class GameManager : MonoBehaviour
     [Tooltip("攻撃バフ画像")]
     public Sprite DiffenceUpImage;
 
+    //ミニマップ階段位置表示
+    public GameObject nextPointUI;
+    public Vector2 nextPoint;
+
     //インベントリ関係
     [HideInInspector]
     public InventoryUI inventoryUI;
@@ -212,12 +216,13 @@ public class GameManager : MonoBehaviour
         inventoryUI = GetComponent<InventoryUI>();
         weaponUI = GetComponent<WeaponPouchUI>();
         settingLight();
+        settingNextPoint();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        nextPointControll();
         DialogControll();
         
     }
@@ -235,6 +240,20 @@ public class GameManager : MonoBehaviour
         }
         light.intensity = br;
         player.GetComponent<Light2D>().intensity = 1-br;
+    }
+
+    private void settingNextPoint()
+    {
+        nextPoint = player.database.GetSceneGoal(SceneManager.GetActiveScene().name);
+        if (nextPoint != Vector2.zero)nextPointUI.SetActive(true);
+    }
+    private void nextPointControll()
+    {
+        if (!nextPointUI.activeInHierarchy) return;
+        Vector2 np = nextPoint - (Vector2)player.transform.position;
+        np = np.normalized ;
+        nextPointUI.GetComponent<RectTransform>().anchoredPosition= np * 130;
+        nextPointUI.transform.rotation=Quaternion.Euler(0,0, -Mathf.Atan2(np.x, np.y)*180/Mathf.PI);
     }
 
     private void DialogControll()

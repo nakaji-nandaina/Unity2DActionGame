@@ -802,6 +802,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &9151639234746447732 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8673984550819318810, guid: 45d5137bcab81894fbdcc0d1b763c92a,
+    type: 3}
+  m_PrefabInstance: {fileID: 531716794501118830}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &9194497052461193267 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8716826760647959389, guid: 45d5137bcab81894fbdcc0d1b763c92a,
@@ -1354,6 +1360,11 @@ PrefabInstance:
       propertyPath: inventoryUI
       value: 
       objectReference: {fileID: 2014812917752772617}
+    - target: {fileID: 9074385018434786009, guid: 3afc399c8c56b0a4299433d5cc1e01d2,
+        type: 3}
+      propertyPath: nextPointUI
+      value: 
+      objectReference: {fileID: 9151639234746447732}
     - target: {fileID: 9074385018434786009, guid: 3afc399c8c56b0a4299433d5cc1e01d2,
         type: 3}
       propertyPath: InventoryBox

@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/S2_B1_1.unity
     guid: 862a31cae364bdb4c9d961035f7ebf16
+  - enabled: 1
+    path: Assets/Scenes/S1_B1_1_Dark.unity
+    guid: cf2cf2b4bb1c6194cb4dfbe8db14fc95
   m_configObjects: {}
