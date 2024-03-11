@@ -259,7 +259,8 @@ public class EnemyController : MonoBehaviour
         {
             Vector2 attackDir= playerPos.position - this.transform.position;
             isAttackCounter -= Time.deltaTime;
-            ShotManager.EmemyShot(playerPos.position, this.gameObject.transform.position, attackDir, attackObj);
+            if(attackObj.GetComponent<EnemyWeapon>())ShotManager.EmemyShot(playerPos.position, this.gameObject.transform.position, attackDir, attackObj,attackDamage);
+            if(attackObj.GetComponent<EnemyFallWeapon>()) ShotManager.EnemySkyFall(playerPos.position, attackObj, attackDamage);
             if (multiAtcount <= 1) return;
             multiAtcount--;
             attackCounter = multiAttime;
@@ -304,6 +305,7 @@ public class EnemyController : MonoBehaviour
             ChangeES(EnemyState.Move);
         }
     }
+
 
     // Update is called once per frame
     void Update()

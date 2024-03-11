@@ -99,7 +99,7 @@ public class BossfirstBody : MonoBehaviour
         Vector3 Ppos=GameManager.instance.Player.transform.position;
         Vector3 Tpos = this.gameObject.transform.position;
         Vector2 attackDir = Ppos - Tpos;
-        enemyshot.EmemyShot(Ppos, Tpos, attackDir, bossfirst.BodyShotWeapon);
+        enemyshot.EmemyShot(Ppos, Tpos, attackDir, bossfirst.BodyShotWeapon,bossfirst.At);
     }
 
     private void hitOthers()

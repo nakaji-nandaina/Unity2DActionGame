@@ -19,7 +19,7 @@ public class EnemyShotManager : MonoBehaviour
         
     }
 
-    public void EmemyShot(Vector2 PlayerPos, Vector2 EnemyPos, Vector2 attackDir, GameObject shotWeapon)
+    public void EmemyShot(Vector2 PlayerPos, Vector2 EnemyPos, Vector2 attackDir, GameObject shotWeapon,int at)
     {
         targetPos = PlayerPos;
         SpawnPos = EnemyPos + (PlayerPos - EnemyPos).normalized * 0.7f;
@@ -28,7 +28,13 @@ public class EnemyShotManager : MonoBehaviour
             Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90);
         GameObject ShotObj = Instantiate(shotWeapon,
             SpawnPos, shotRotate);
-        ShotObj.GetComponent<EnemyWeapon>().moveDirection(direction);
+        ShotObj.GetComponent<EnemyWeapon>().moveDirection(direction,at);
         //Debug.Log("shot");
+    }
+
+    public void EnemySkyFall(Vector2 PlayerPos, GameObject FallWeapon,int at)
+    {
+        GameObject Fallobj = Instantiate(FallWeapon, PlayerPos, Quaternion.identity);
+        Fallobj.GetComponent<EnemyFallWeapon>().SetFall(at);
     }
 }

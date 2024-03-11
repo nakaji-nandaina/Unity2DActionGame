@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
     private float GameOverTime=4f;
     private float GameOverCounter;
     public AudioClip deadclip;
-
+    public AudioClip avoidclip;
 
     private KeyCode[] numkey = new KeyCode[]
     {
@@ -177,6 +177,7 @@ public class PlayerController : MonoBehaviour
                 avoidEffectCounter = 0;
                 avoidCounter = avoidTime;
                 invincibilityCounter = avoidTime/2;
+                GameManager.instance.PlayAudio(avoidclip);
                 ns = nextState;
                 break;
 
