@@ -64,9 +64,10 @@ public class EnemyWeapon : MonoBehaviour
             destFunc();
         }
     }
-    public void moveDirection(Vector2 direction)
+    public void moveDirection(Vector2 direction,int enemyat)
     {
         weaponDirection = direction;
+        attackDamage = enemyat;
     }
 
     private void destFunc()

@@ -73,7 +73,7 @@ public class BossfirstHead : MonoBehaviour
         for(int i = 0; i < 4; i++)
         {
             Vector2 dir = shot[i].gameObject.transform.position - this.gameObject.transform.position;
-            enemyshot.EmemyShot(shot[i].gameObject.transform.position, this.gameObject.transform.position, dir, bossfirst.BodyShotWeapon);
+            enemyshot.EmemyShot(shot[i].gameObject.transform.position, this.gameObject.transform.position, dir, bossfirst.BodyShotWeapon,bossfirst.At);
         }
     }
 
@@ -83,7 +83,7 @@ public class BossfirstHead : MonoBehaviour
         Vector3 Ppos = GameManager.instance.Player.transform.position;
         Vector3 Tpos = this.gameObject.transform.position;
         Vector2 attackDir = Ppos - Tpos;
-        enemyshot.EmemyShot(Ppos, Tpos, attackDir, bossfirst.BodyShotWeapon);
+        enemyshot.EmemyShot(Ppos, Tpos, attackDir, bossfirst.BodyShotWeapon,bossfirst.At);
     }
 
     private void Bound()
