@@ -11,5 +11,5 @@ public class SceneData : ScriptableObject
     public string SceneName;
     public float SceneBrightness;
     public Vector2 goalPoint;
-
+    public AudioClip BGM;
 }

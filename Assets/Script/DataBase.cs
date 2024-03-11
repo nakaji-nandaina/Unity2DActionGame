@@ -141,4 +141,18 @@ public class DataBase : ScriptableObject
         }
         return res;
     }
+
+    public AudioClip GetSceneBGM(string sceneName)
+    {
+        AudioClip res = null;
+        for (int i = 0; i < sceneDatabase.Count; i++)
+        {
+            if (sceneDatabase[i].SceneName == sceneName)
+            {
+                res = sceneDatabase[i].BGM;
+                break;
+            }
+        }
+        return res;
+    }
 }

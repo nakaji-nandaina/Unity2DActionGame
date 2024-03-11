@@ -15,3 +15,4 @@ MonoBehaviour:
   SceneName: S1_B1_1_Dark
   SceneBrightness: 0.1
   goalPoint: {x: -24, y: 20}
+  BGM: {fileID: 8300000, guid: b724433b0af8fcc47a7c2489a6aadab2, type: 3}
