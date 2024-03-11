@@ -201,10 +201,8 @@ public class GameManager : MonoBehaviour
     {
         
         audioSource = GetComponent<AudioSource>();
-        BGMSource = GameObject.FindGameObjectWithTag("BGM").gameObject.GetComponent<AudioSource>();
-        BGMSource.volume = 0.1f;
-        audioSource.volume = 0.4f;
-        Debug.LogError(GameObject.FindGameObjectWithTag("BGM"));
+        settingBGM();
+        //Debug.LogError(GameObject.FindGameObjectWithTag("BGM"));
         //isWriting = false;
         writingSpeed = writingDef;
         PlayerState();
@@ -225,6 +223,18 @@ public class GameManager : MonoBehaviour
         nextPointControll();
         DialogControll();
         
+    }
+
+    private void settingBGM()
+    {
+        GameObject BGMObj =new GameObject();
+        BGMSource = BGMObj.AddComponent<AudioSource>();
+        BGMSource.volume = 0.1f;
+        audioSource.volume = 0.4f;
+        BGMSource.loop = true;
+        if (player.database.GetSceneBGM(SceneManager.GetActiveScene().name) == null) return;
+        BGMSource.clip=player.database.GetSceneBGM(SceneManager.GetActiveScene().name);
+        BGMSource.Play();
     }
 
     private void settingLight()
