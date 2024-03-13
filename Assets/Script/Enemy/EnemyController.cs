@@ -160,6 +160,9 @@ public class EnemyController : MonoBehaviour
         ShotManager = GetComponent<EnemyShotManager>();
         multiAtcount = multiAt;
         area = GameObject.FindGameObjectWithTag("EnemyArea").GetComponent<BoxCollider2D>();
+
+        //テスト
+        knockBackForce = 0;
     }
     
     void knockback()
@@ -463,7 +466,7 @@ public class EnemyController : MonoBehaviour
         mutekiC = mutekiT;
         int culDamage = Random.Range((int)(damage * 0.8), (int)(damage * 1.3));
         currentHealth -= culDamage;
-        GameObject DamageObj = Instantiate(damageUI, playerPos.position, Quaternion.Euler(0, 0, 0));
+        GameObject DamageObj = Instantiate(damageUI, transform.position, Quaternion.Euler(0, 0, 0));
         DamageObj.GetComponent<DamageUI>().DamageSet(culDamage, playerPos.position, this.gameObject);
         if (currentHealth <= 0)
         {
