@@ -23,6 +23,8 @@ public class Weapon : MonoBehaviour
     Vector2 keepV;
     //爆発パラメータ
     bool isBakuhatu = false;
+
+
     // Start is called before the first frame update
 
     private float zanzotime = 0.1f;
@@ -58,87 +60,105 @@ public class Weapon : MonoBehaviour
         rb.velocity = keepV;
         if (WD.delay)
         {
-            float slow = Mathf.Pow(destroyTime / yukkuri, 1.5f);
-            rb.velocity = shotSpeed * slow * weaponDirection;
-            DestroyCounter();
+            delay();
             return;
         }
         if (WD.cursor)
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            weaponDirection = (mousePos - this.transform.position).normalized;
-            rb.velocity = shotSpeed * weaponDirection.normalized;
-            if (Mathf.Abs(mousePos.x - this.transform.position.x) <= 0.1f && Mathf.Abs(mousePos.y - this.transform.position.y) <= 0.1f) rb.velocity = Vector2.zero;
-            DestroyCounter();
-            zanzocounter -= Time.deltaTime;
-            if (zanzocounter > 0) return;
-            zanzocounter = zanzotime;
-            GameObject zanzo = new GameObject("zanzo");
-            zanzo.AddComponent<AvoidEffect>();
-            zanzo.transform.position = this.transform.position;
-            zanzo.transform.rotation = this.transform.rotation;
-            Sprite sprite = this.gameObject.GetComponent<SpriteRenderer>().sprite;
-            zanzo.GetComponent<AvoidEffect>().SetSprite(sprite);
+            chaseCursor();
             return;
         }
         if (WD.dasei)
         {
-
-            float Maxdis = 5f;
-            float lowSpeed = WD.Speed * 0.2f;
-            float dis = Vector3.Distance(this.transform.position, GameManager.instance.Player.transform.position);
-            if (destroyTime == WD.DestTime)
-            {
-                daseiCount = 0;
-                daseiNextP = new Vector2(GameManager.instance.Player.transform.position.x + weaponDirection.x * Maxdis, GameManager.instance.Player.transform.position.y + weaponDirection.y * Maxdis);
-                rb.velocity = shotSpeed * weaponDirection;
-                daseiKikan = false;
-                //Debug.LogError(daseiNextP.ToString());
-            }
-            else if(dis<1f&&daseiKikan)
-            {
-                //Debug.LogError("ぷれいや");
-                daseiCount = 0;
-                shotSpeed = WD.Speed;
-                rb.velocity= shotSpeed * weaponDirection;
-                daseiKikan = false;
-                daseiNextP = new Vector2(GameManager.instance.Player.transform.position.x + weaponDirection.x * Maxdis, GameManager.instance.Player.transform.position.y + weaponDirection.y * Maxdis);
-            }
-            else if (daseiKikan)
-            {
-                daseiCount += Time.deltaTime;
-                weaponDirection = (GameManager.instance.Player.transform.position-this.transform.position).normalized;
-                shotSpeed = WD.Speed * daseiCount/2;
-                shotSpeed = shotSpeed > lowSpeed ? shotSpeed : lowSpeed;
-                rb.velocity = shotSpeed * weaponDirection;
-                //Debug.LogError("帰還");
-            }
-            else
-            {
-                daseiCount += Time.deltaTime;
-                shotSpeed = WD.Speed*(daseiTime-daseiCount)/daseiTime;
-                shotSpeed = shotSpeed > lowSpeed ? shotSpeed : lowSpeed;
-                rb.velocity = shotSpeed * weaponDirection;
-                if (daseiCount >= daseiTime)
-                {
-                    daseiCount = 0;
-                    daseiKikan = true;
-                }
-                //Debug.LogError("ぶっとび "+dis.ToString()+" "+ndis.ToString());
-            }
-            DestroyCounter();
+            dasei();
             return;
         }
         if (WD.bakuhatu)
         {
-            destroyTime -= Time.deltaTime;
-            rb.velocity = shotSpeed * weaponDirection;
-            if (destroyTime > 0) return;
-            bakuhatu();
-            //Debug.LogError("baku");
+            explosion();
             return;
         }
         rb.velocity = shotSpeed * weaponDirection;
+        DestroyCounter();
+    }
+
+    private void delay()
+    {
+        float slow = Mathf.Pow(destroyTime / yukkuri, 1.5f);
+        rb.velocity = shotSpeed * slow * weaponDirection;
+        DestroyCounter();
+    }
+
+    private void chaseCursor()
+    {
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        weaponDirection = (mousePos - this.transform.position).normalized;
+        rb.velocity = shotSpeed * weaponDirection.normalized;
+        if (Mathf.Abs(mousePos.x - this.transform.position.x) <= 0.1f && Mathf.Abs(mousePos.y - this.transform.position.y) <= 0.1f) rb.velocity = Vector2.zero;
+        DestroyCounter();
+        zanzocounter -= Time.deltaTime;
+        if (zanzocounter > 0) return;
+        zanzocounter = zanzotime;
+        GameObject zanzo = new GameObject("zanzo");
+        zanzo.AddComponent<AvoidEffect>();
+        zanzo.transform.position = this.transform.position;
+        zanzo.transform.rotation = this.transform.rotation;
+        Sprite sprite = this.gameObject.GetComponent<SpriteRenderer>().sprite;
+        zanzo.GetComponent<AvoidEffect>().SetSprite(sprite);
+    }
+
+    private void explosion()
+    {
+        destroyTime -= Time.deltaTime;
+        rb.velocity = shotSpeed * weaponDirection;
+        if (destroyTime > 0) return;
+        bakuhatu();
+    }
+
+    private void dasei()
+    {
+        float Maxdis = 5f;
+        float lowSpeed = WD.Speed * 0.2f;
+        float dis = Vector3.Distance(this.transform.position, GameManager.instance.Player.transform.position);
+        if (destroyTime == WD.DestTime)
+        {
+            daseiCount = 0;
+            daseiNextP = new Vector2(GameManager.instance.Player.transform.position.x + weaponDirection.x * Maxdis, GameManager.instance.Player.transform.position.y + weaponDirection.y * Maxdis);
+            rb.velocity = shotSpeed * weaponDirection;
+            daseiKikan = false;
+            //Debug.LogError(daseiNextP.ToString());
+        }
+        else if (dis < 1f && daseiKikan)
+        {
+            //Debug.LogError("ぷれいや");
+            daseiCount = 0;
+            shotSpeed = WD.Speed;
+            rb.velocity = shotSpeed * weaponDirection;
+            daseiKikan = false;
+            daseiNextP = new Vector2(GameManager.instance.Player.transform.position.x + weaponDirection.x * Maxdis, GameManager.instance.Player.transform.position.y + weaponDirection.y * Maxdis);
+        }
+        else if (daseiKikan)
+        {
+            daseiCount += Time.deltaTime;
+            weaponDirection = (GameManager.instance.Player.transform.position - this.transform.position).normalized;
+            shotSpeed = WD.Speed * daseiCount / 2;
+            shotSpeed = shotSpeed > lowSpeed ? shotSpeed : lowSpeed;
+            rb.velocity = shotSpeed * weaponDirection;
+            //Debug.LogError("帰還");
+        }
+        else
+        {
+            daseiCount += Time.deltaTime;
+            shotSpeed = WD.Speed * (daseiTime - daseiCount) / daseiTime;
+            shotSpeed = shotSpeed > lowSpeed ? shotSpeed : lowSpeed;
+            rb.velocity = shotSpeed * weaponDirection;
+            if (daseiCount >= daseiTime)
+            {
+                daseiCount = 0;
+                daseiKikan = true;
+            }
+            //Debug.LogError("ぶっとび "+dis.ToString()+" "+ndis.ToString());
+        }
         DestroyCounter();
     }
 
