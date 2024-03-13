@@ -5,6 +5,7 @@ using UnityEngine.Rendering.Universal;
 
 public class SkyFallWeapon : MonoBehaviour
 {
+    bool damaged;
     bool falled;
     bool inFall;
     float FallPointY;
@@ -26,7 +27,8 @@ public class SkyFallWeapon : MonoBehaviour
     void Start()
     {
         inFall = false;
-        falled = false;   
+        falled = false;
+        damaged = false;
         FallCount = FallTime;
         FallPointY = this.gameObject.transform.position.y;
         if(this.gameObject.GetComponent<Rigidbody2D>())this.gameObject.AddComponent<Rigidbody2D>();
@@ -44,14 +46,7 @@ public class SkyFallWeapon : MonoBehaviour
         if (inFall)
         {
             rb.velocity = Vector2.down*30f;
-            if (this.transform.position.y <= FallPointY)
-            {
-                falled = true;
-                Destroy(cobj);
-                GameManager.instance.PlayAudio(FallClip);
-                spriteExplosion();
-                Destroy(this.gameObject);
-            }
+            if (this.transform.position.y <= FallPointY)falled = true;
             return;
         }
         FallCount -= Time.deltaTime;
@@ -63,6 +58,19 @@ public class SkyFallWeapon : MonoBehaviour
             GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, 1);
             this.gameObject.transform.position=new Vector2(this.transform.position.x,FallPointY + 20f);
         }
+    }
+    private void LateUpdate()
+    {
+        if (!falled) return;
+        if (!damaged)
+        {
+            damaged = true;
+            return;
+        }
+        Destroy(cobj);
+        GameManager.instance.PlayAudio(FallClip);
+        spriteExplosion();
+        Destroy(this.gameObject);
     }
 
     private void spriteExplosion()
@@ -93,7 +101,14 @@ public class SkyFallWeapon : MonoBehaviour
         }
         if (collision.tag == "BossFirst")
         {
-
+            if (collision.gameObject.GetComponent<BossfirstBody>())
+            {
+                collision.gameObject.GetComponent<BossfirstBody>().takeDamage(at, FallClip);
+            }
+            if (collision.gameObject.GetComponent<BossfirstHead>())
+            {
+                collision.gameObject.GetComponent<BossfirstHead>().takeDamage(at, FallClip);
+            }
         }
     }
 }

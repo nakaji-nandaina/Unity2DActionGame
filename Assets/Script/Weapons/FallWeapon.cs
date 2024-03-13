@@ -9,7 +9,7 @@ public class FallWeapon : MonoBehaviour
     GameObject FallObj;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy") Instantiate(FallObj, this.transform.position, Quaternion.identity);
-        if (collision.tag == "Bossfirst") Instantiate(FallObj, this.transform.position, Quaternion.identity);
+        if (collision.tag == "Enemy") Instantiate(FallObj, collision.transform.position, Quaternion.identity);
+        if (collision.tag == "BossFirst") Instantiate(FallObj, collision.transform.position, Quaternion.identity);
     }
 }

@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     public int nextXP;
     public int currentLevel;
     public int at;
-    public float kbforce=0.1f;
+    public float kbforce=0f;
     public int diffence=0;
 
     private bool isknockingback;
@@ -592,6 +592,8 @@ public class PlayerController : MonoBehaviour
         if (invincibilityCounter <= 0)
         {
             currentHealth = Mathf.Clamp(currentHealth - Damage, 0, maxHealth);
+            GameObject DamageT = Instantiate(GameManager.instance.damageText, transform.position, Quaternion.identity);
+            DamageT.GetComponent<DamageUI>().DamageSet(Damage, transform.position, this.gameObject);
             invincibilityCounter = invicibilityTime;
             if(currentHealth == 0&&ps!=PS.dead)
             {
