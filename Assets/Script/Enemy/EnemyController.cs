@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
@@ -128,6 +129,7 @@ public class EnemyController : MonoBehaviour
                 break;
             case EnemyState.Dead:
                 rb.velocity = Vector2.zero;
+                if(GetComponent<NavMeshObstacle>())Destroy(GetComponent<NavMeshObstacle>());
                 Destroy(this.transform.Find("てきしんぼる").gameObject);
                 Destroy(this.transform.Find("shadow").gameObject);
                 ES = next;
