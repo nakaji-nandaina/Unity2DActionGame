@@ -459,7 +459,7 @@ public class EnemyController : MonoBehaviour
         //Debug.LogError(mutekiC);
         if (ES == EnemyState.Dead) return;
         if (mutekiC > 0) return;
-        GameManager.instance.PlayAudio(clip);
+        if(clip!=null)GameManager.instance.PlayAudio(clip);
         mutekiC = mutekiT;
         int culDamage = Random.Range((int)(damage * 0.8), (int)(damage * 1.3));
         currentHealth -= culDamage;

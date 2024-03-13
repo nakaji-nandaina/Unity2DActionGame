@@ -19697,8 +19697,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6702254229423298154, guid: 20e284e1aeb66694ea5a6cd533ce46cf,
         type: 3}
+      propertyPath: Scene.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702254229423298154, guid: 20e284e1aeb66694ea5a6cd533ce46cf,
+        type: 3}
+      propertyPath: Scene.Array.data[1]
+      value: S1_B1_1_Dark
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702254229423298154, guid: 20e284e1aeb66694ea5a6cd533ce46cf,
+        type: 3}
       propertyPath: NextPosition.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6702254229423298154, guid: 20e284e1aeb66694ea5a6cd533ce46cf,
         type: 3}
