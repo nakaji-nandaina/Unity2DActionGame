@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8beaf3301d051694eb5387722017dba7, type: 3}
+  m_Name: Slime
+  m_EditorClassIdentifier: 
+  enemyName: "\u3050\u308A\u30FC\u3093\u3059\u3089\u3044\u3080"
+  enemyImage: {fileID: -1367157038, guid: 5f1bec949c2fe5c429bb10ee27fba35d, type: 3}
+  huntedNum: 0
+  Info: "\u308F\u308B\u3044\u3059\u3089\u3044\u3080\u3002"

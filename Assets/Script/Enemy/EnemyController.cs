@@ -14,7 +14,8 @@ public class EnemyController : MonoBehaviour
     private Transform playerPos;
 
     Vector2 Dir;
-
+    [SerializeField, Tooltip("敵データ")]
+    private Enemy enemydata;
     [SerializeField]
     private float moveSpeed,waitTime,walkTime;
     private float moveCounter, waitCounter;
@@ -129,7 +130,9 @@ public class EnemyController : MonoBehaviour
                 break;
             case EnemyState.Dead:
                 rb.velocity = Vector2.zero;
-                if(GetComponent<NavMeshObstacle>())Destroy(GetComponent<NavMeshObstacle>());
+                GameManager.instance.Player.database.AddHuntedEnemyNum(enemydata);
+                GameManager.instance.Player.orderQuest.HuntEnemy(enemydata);
+                if (GetComponent<NavMeshObstacle>())Destroy(GetComponent<NavMeshObstacle>());
                 Destroy(this.transform.Find("てきしんぼる").gameObject);
                 Destroy(this.transform.Find("shadow").gameObject);
                 ES = next;

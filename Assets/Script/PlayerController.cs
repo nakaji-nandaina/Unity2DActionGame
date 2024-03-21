@@ -79,6 +79,8 @@ public class PlayerController : MonoBehaviour
     public InventoryObject ShortCut;
     public MySkills skills;
     public WeaponPouch weaponPouch;
+    public OrderQuest orderQuest;
+
     //データ保存用
     public DataBase database;
     public List<int> itemId;
@@ -88,6 +90,8 @@ public class PlayerController : MonoBehaviour
     public List<int> skillLvs;
     public List<int> weaponId;
     public int mainWeapon=0;
+    public List<int> questId;
+
 
     //一時的なバフ用
     public List<TBuff> tbuffs;
@@ -347,6 +351,7 @@ public class PlayerController : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.L))LoadPlayer();
         if (Input.GetKeyDown(KeyCode.O)) OpenWeaponPouch();
         if (Input.GetKeyDown(KeyCode.I)) OpenInventory();
+        if (Input.GetKeyDown(KeyCode.J)) orderQuest.CompleteQuests();
         TBuffPeriod();
     }
 
