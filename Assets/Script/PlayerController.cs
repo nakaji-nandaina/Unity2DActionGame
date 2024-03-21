@@ -90,6 +90,8 @@ public class PlayerController : MonoBehaviour
     public List<int> skillLvs;
     public List<int> weaponId;
     public int mainWeapon=0;
+    public List<int> questId;
+
 
     //一時的なバフ用
     public List<TBuff> tbuffs;

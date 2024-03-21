@@ -17,6 +17,12 @@ public class OrderQuest : ScriptableObject
             Debug.LogError("受注済みクエストです。");
             return false;
         }
+        switch (_quest.GetType().ToString())
+        {
+            case nameof(HuntQuest):
+                HuntNumClear((HuntQuest)_quest);
+                break;
+        }
         QuestList.Add(_quest);
         return true;
     }
