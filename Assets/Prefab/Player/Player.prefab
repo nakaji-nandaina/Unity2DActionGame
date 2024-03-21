@@ -170,6 +170,7 @@ MonoBehaviour:
   ShortCut: {fileID: 11400000, guid: 2218e3728a0f5594b87d64cc337a857f, type: 2}
   skills: {fileID: 11400000, guid: d39835eda1aff0846a071450e28ec2c1, type: 2}
   weaponPouch: {fileID: 11400000, guid: 1829b3ef5584d13488552c6d30bcbfbf, type: 2}
+  orderQuest: {fileID: 11400000, guid: 0b76480128e7c284790a3e680f5ac367, type: 2}
   database: {fileID: 11400000, guid: 6625210e71a8587418c61eed02876cbf, type: 2}
   itemId: 
   shortcutId: 

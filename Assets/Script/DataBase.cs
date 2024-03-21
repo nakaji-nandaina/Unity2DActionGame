@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="DataBase",menuName ="CreateDataBase")]
+[CreateAssetMenu(fileName = "DataBase", menuName = "CreateDataBase")]
+
 public class DataBase : ScriptableObject
 {
     public List<Item> itemDatabase = new List<Item>();
     public List<Status> playerLvDatabase = new List<Status> ();
     public List<Skill> skillDatabase = new List<Skill>();
+    public List<Enemy> enemyDatabase = new List<Enemy>();
     public List<WeaponData> weaponDatabase = new List<WeaponData>();
+    public List<Quest> questDatabase = new List<Quest>();
     public List<SceneData> sceneDatabase = new List<SceneData>();
     
     //アイテム関係
@@ -93,6 +96,31 @@ public class DataBase : ScriptableObject
         return skillDatabase[id];
     }
 
+    //敵関係
+    public int GetHuntedEnemyNum(Enemy enemy)
+    {
+        int num = 0;
+        for(int i = 0; i < enemyDatabase.Count; i++)
+        {
+            if (enemy != enemyDatabase[i]) continue;
+            num = enemyDatabase[i].huntedNum;
+            break;
+        }
+        return num;
+    }
+
+    public void AddHuntedEnemyNum(Enemy enemy)
+    {
+        if (enemy == null) Debug.LogError("enemyにデータ付与し忘れてるで");
+        for (int i = 0; i < enemyDatabase.Count; i++)
+        {
+            if (enemy != enemyDatabase[i]) continue;
+            enemyDatabase[i].huntedNum++;
+            Debug.LogError(enemyDatabase[i].name+enemyDatabase[i].huntedNum.ToString());
+            break;
+        }
+    }
+
     //武器関係
     public List<int> GetWeaponIds(WeaponPouch weaponPouch)
     {
@@ -112,6 +140,17 @@ public class DataBase : ScriptableObject
     public WeaponData GetWeaponData(int id)
     {
         return weaponDatabase[id];
+    }
+
+    //Quest関係
+    public int GetQuestId(Quest quest) 
+    {
+        for(int i = 0; i < questDatabase.Count; i++)
+        {
+            if (questDatabase[i] != quest) continue;
+            return i;
+        }
+        return -1;
     }
 
     //Scene関係

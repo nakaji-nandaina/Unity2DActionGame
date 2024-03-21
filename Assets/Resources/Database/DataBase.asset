@@ -33,6 +33,16 @@ MonoBehaviour:
   skillDatabase:
   - {fileID: 11400000, guid: 0d3cc59f378beae42990197c0521fef1, type: 2}
   - {fileID: 11400000, guid: 59675a00b3ab9674b98b9695a9f8ff28, type: 2}
+  enemyDatabase:
+  - {fileID: 11400000, guid: a90550c4c69ac584bbf9494f90f9d6a3, type: 2}
+  - {fileID: 11400000, guid: d964666743cbe5349bee363f41278bfe, type: 2}
+  - {fileID: 11400000, guid: cae3af3fb40210f43bf3ac2eb30ce378, type: 2}
+  - {fileID: 11400000, guid: 1ab6a7bf4b78eac4e9968f0ef833592a, type: 2}
+  - {fileID: 11400000, guid: 29b86d753dc9a1840b438b0c1b6a36d3, type: 2}
+  - {fileID: 11400000, guid: aacbf2e52455fcc43a116777c1ee4fd2, type: 2}
+  - {fileID: 11400000, guid: c840469083a51004dbcce58d76639530, type: 2}
+  - {fileID: 11400000, guid: 1f1549ee8baaec642a830381a3164933, type: 2}
+  - {fileID: 11400000, guid: 39dbda45f16f7984f8b674af9d3bae75, type: 2}
   weaponDatabase:
   - {fileID: 11400000, guid: 09403f4cd6b1db142b54baf25525afd3, type: 2}
   - {fileID: 11400000, guid: 683162d3398952649ac73462a6a18971, type: 2}
@@ -42,6 +52,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5dd871067c52c8446be990a50844c659, type: 2}
   - {fileID: 11400000, guid: 3f0260b58314ecc4da740d21f8183bc2, type: 2}
   - {fileID: 11400000, guid: 3b5a6f5cb33867e4eb4f0bdcb32c915d, type: 2}
+  questDatabase:
+  - {fileID: 11400000, guid: 00934b3b7e3d4bd4abd28d9e193660bf, type: 2}
   sceneDatabase:
   - {fileID: 11400000, guid: 956cf4b93461f604e8318607b1440101, type: 2}
   - {fileID: 11400000, guid: d0b318ddf2ffaa14d84e8c8727e37fd5, type: 2}
