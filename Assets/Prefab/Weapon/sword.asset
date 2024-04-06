@@ -16,6 +16,12 @@ MonoBehaviour:
   delay: 1
   chase: 0
   penetrate: 0
+  cursor: 0
+  dasei: 0
+  kinsetu: 0
+  yumi: 0
+  bakuhatu: 0
+  nagaoshi: 0
   ImgWeapon: {fileID: 21300000, guid: 3771e5002a1348d49acfef2154f60fa9, type: 3}
   Icon: {fileID: 21300000, guid: f57739b1131abac4ea2569892e5f7d21, type: 3}
   At: 10

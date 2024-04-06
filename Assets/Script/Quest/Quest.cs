@@ -18,6 +18,7 @@ public class Quest : ScriptableObject
     public Type questType;
     [Multiline(10)]
     public String information;
+    public String client;
     public int money;
     public List<RewardItems> rewardItems;
 }
