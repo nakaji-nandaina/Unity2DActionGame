@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3731645593818941418}
   - component: {fileID: 7574449991953445958}
   - component: {fileID: 5442089370236498773}
+  - component: {fileID: 2917134093998747319}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -84,6 +85,8 @@ MonoBehaviour:
     type: 3}
   AttackUpImage: {fileID: 21300000, guid: 2f1a7f3fdd0e05d41a322ee3229d1241, type: 3}
   DiffenceUpImage: {fileID: 21300000, guid: e6594f7f70b235443a210b07eaa5eabe, type: 3}
+  nextPointUI: {fileID: 0}
+  nextPoint: {x: 0, y: 0}
   inventoryUI: {fileID: 0}
   weaponUI: {fileID: 0}
   shortcutButtons: []
@@ -322,3 +325,19 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &2917134093998747319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9074385018434786010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56e97cd47b4c5654eb7d3ed4c3f6cbb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explaneText: {fileID: 0}
+  titleText: {fileID: 0}
+  target: {fileID: 0}
+  papers: []

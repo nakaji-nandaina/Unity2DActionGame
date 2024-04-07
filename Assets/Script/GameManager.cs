@@ -128,6 +128,8 @@ public class GameManager : MonoBehaviour
     public InventoryUI inventoryUI;
     [HideInInspector]
     public WeaponPouchUI weaponUI;
+    [HideInInspector]
+    public QuestUI questUI;
 
     public GameObject[] shortcutButtons;
 
@@ -213,6 +215,7 @@ public class GameManager : MonoBehaviour
         DialogFuncName = "NullReturn";
         inventoryUI = GetComponent<InventoryUI>();
         weaponUI = GetComponent<WeaponPouchUI>();
+        questUI = GetComponent<QuestUI>();
         settingLight();
         settingNextPoint();
     }

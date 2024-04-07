@@ -79,7 +79,8 @@ public class EnemyFallWeapon : MonoBehaviour
             fragobj.GetComponent<SpriteRenderer>().sortingOrder = 4;
             fragobj.AddComponent<Rigidbody2D>().mass = 1;
             fragobj.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-2f,2f), Random.Range(5f,8f)), ForceMode2D.Impulse);
-            DestCoroutine(fragobj);
+            fragobj.AddComponent<BreakTwoms>();
+            //DestCoroutine(fragobj);
         }
     }
 
