@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: OrderQuest
   m_EditorClassIdentifier: 
   max: 10
-  QuestList: []
+  QuestList:
+  - {fileID: 11400000, guid: 00934b3b7e3d4bd4abd28d9e193660bf, type: 2}
+  - {fileID: 11400000, guid: 390eb6e209443f84bb83262719937463, type: 2}

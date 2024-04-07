@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64758f8301ce6384b9a4abbd715117d6, type: 3}
   m_Name: HuntZombi
   m_EditorClassIdentifier: 
-  questName: 
+  questName: "\u307F\u3069\u308A\u306E\u30A2\u30A4\u30C4"
   questType: 0
   information: "\u3088\u3049\uFF01 \u300C\u3046\u3043\u3059\u3066\u308A\u3042\u308D\u30FC\u308B\u300D\u306E
     \u30B1\u30F3\u3060\u3002\n\u3053\u3093\u3069 \u306A\u304B\u307E\u3068\n\u30C0\u30F3\u30B8\u30E7\u30F3\u306B\u3000\u3061\u3087\u3046\u305B\u3093\u3059\u308B\u3093\u3060\u3002\n\u305F\u3060\u3001

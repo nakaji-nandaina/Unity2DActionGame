@@ -6,7 +6,7 @@ using System;
 [CreateAssetMenu(fileName = "OrderQuest", menuName = "OrderQuest")]
 public class OrderQuest : ScriptableObject
 {
-    public int max = 10;
+    public int max = 3;
     public List<Quest> QuestList = new List<Quest>();
     public bool AddQuest(Quest _quest)
     {

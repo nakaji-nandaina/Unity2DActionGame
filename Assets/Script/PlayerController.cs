@@ -121,6 +121,7 @@ public class PlayerController : MonoBehaviour
         conversation,
         inventory,
         weapon,
+        quest,
         dead,
     }
     public void changePS(PS nextState)
@@ -144,6 +145,10 @@ public class PlayerController : MonoBehaviour
                 ps = nextState;
                 break;
             case PS.weapon:
+                rb.velocity = Vector2.zero;
+                ps = nextState;
+                break;
+            case PS.quest:
                 rb.velocity = Vector2.zero;
                 ps = nextState;
                 break;
@@ -295,6 +300,12 @@ public class PlayerController : MonoBehaviour
                     CloseWeaponPouch();
                 }
                 break;
+            case PS.quest:
+                if (Input.GetKeyDown(KeyCode.J))
+                {
+                    CloseQuestUI();
+                }
+                break;
         }
 
         if (levelupcount > 0)
@@ -351,7 +362,11 @@ public class PlayerController : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.L))LoadPlayer();
         if (Input.GetKeyDown(KeyCode.O)) OpenWeaponPouch();
         if (Input.GetKeyDown(KeyCode.I)) OpenInventory();
-        if (Input.GetKeyDown(KeyCode.J)) orderQuest.CompleteQuests();
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            OpenQuestUI();
+            //orderQuest.CompleteQuests();
+        }
         TBuffPeriod();
     }
 
@@ -477,7 +492,17 @@ public class PlayerController : MonoBehaviour
         weapon = weaponPouch.Pouch[mainWeapon];
         changePS(PS.normal);
     }
-
+    public void OpenQuestUI()
+    {
+        GameManager.instance.questUI.QuestPanel.SetActive(true);
+        GameManager.instance.questUI.setQuestUI(orderQuest);
+        changePS(PS.quest);
+    }
+    public void CloseQuestUI()
+    {
+        GameManager.instance.questUI.QuestPanel.SetActive(false);
+        changePS(PS.normal);
+    }
     public void SavePlayer()
     {
         itemId = database.GetItemIds(inventory);
@@ -547,10 +572,8 @@ public class PlayerController : MonoBehaviour
         TbuffInstance();
     }
 
-    /// <summary>
     /// プレイヤー吹き飛ばし処理
-    /// </summary>
-    /// <param name="position"></param>
+    
     public void KnockBack(Vector3 position)
     {
         if (invincibilityCounter <= 0)
@@ -562,10 +585,9 @@ public class PlayerController : MonoBehaviour
             knockDir.Normalize();
         }
     }
-    /// <summary>
+
     /// プレイヤーダメージ処理
-    /// </summary>
-    /// 
+
     public void KillEnemy(int XP)
     {
         bool isLevelUpOnce=true;
