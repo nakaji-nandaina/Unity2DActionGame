@@ -1435,6 +1435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4808727fbac74954fb4633e6acfccedf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemydata: {fileID: 11400000, guid: a90550c4c69ac584bbf9494f90f9d6a3, type: 2}
   moveSpeed: 2
   waitTime: 1
   walkTime: 1

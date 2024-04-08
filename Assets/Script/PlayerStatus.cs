@@ -27,6 +27,14 @@ public class PlayerStatus
     [SerializeField]
     List<int> WeaponIds;
     [SerializeField]
+    List<int> QuestIds;
+    [SerializeField]
+    List<int> QuestContent1;
+    [SerializeField]
+    List<int> QuestContent2;
+    [SerializeField]
+    List<int> QuestContent3;
+    [SerializeField]
     int MainWeapon;
 
     private const string SAVEKEY = "PLAYER-STATUS-SAVE";
@@ -85,6 +93,30 @@ public class PlayerStatus
         private set { WeaponIds = value; }
     }
 
+    public List<int> questIds
+    {
+        get { return QuestIds; }
+        private set { QuestIds = value; }
+    }
+
+    public List<int> questContent1
+    {
+        get { return QuestContent1; }
+        private set { QuestContent1 = value; }
+    }
+
+    public List<int> questContent2
+    {
+        get { return QuestContent2; }
+        private set { QuestContent2 = value; }
+    }
+
+    public List<int> questContent3
+    {
+        get { return QuestContent3; }
+        private set { QuestContent3 = value; }
+    }
+
     public int mainWeapon
     {
         get { return MainWeapon; }
@@ -101,10 +133,16 @@ public class PlayerStatus
         ItemAmounts = null;
         SkillLvs = null;
         SkillIds = null;
+        WeaponIds = null;
+        QuestIds = null;
+        QuestContent1 = null;
+        QuestContent2 = null;
+        QuestContent3 = null;
+        mainWeapon = 0;
     }
     
 
-    public  PlayerStatus(int currentXp,int Gold,int currentLv,List<int> itemids,List<int> shortcutids,List<int>itemAmounts, List<int> skillids, List<int> skilllvs,List<int> weaponids,int mainweapon)
+    public  PlayerStatus(int currentXp,int Gold,int currentLv,List<int> itemids,List<int> shortcutids,List<int>itemAmounts, List<int> skillids, List<int> skilllvs,List<int> weaponids,List<int> questids, List<int> questcontent1, List<int> questcontent2, List<int> questcontent3, int mainweapon)
     {
         this.CurrentXp = currentXp;
         this.GOLD = Gold;
@@ -115,10 +153,14 @@ public class PlayerStatus
         this.SkillIds = skillids;
         this.SkillLvs = skilllvs;
         this.WeaponIds = weaponids;
+        this.QuestIds = questids;
+        this.QuestContent1 = questcontent1;
+        this.QuestContent2 = questcontent2;
+        this.QuestContent3 = questcontent3;
         this.MainWeapon = mainweapon;
     }
 
-    public void ReStatus(int cx, int gold, int cl,List<int> itemids, List<int> shortcutids, List<int> amounts,List<int> skillids,List<int> skilllvs,List<int> weaponids,int mainweapon)
+    public void ReStatus(int cx, int gold, int cl,List<int> itemids, List<int> shortcutids, List<int> amounts,List<int> skillids,List<int> skilllvs,List<int> weaponids,List<int> questids, List<int> questcontent1, List<int> questcontent2, List<int> questcontent3, int mainweapon)
     {
         currentXp = cx;
         Gold = gold;
@@ -129,6 +171,10 @@ public class PlayerStatus
         skillIds = skillids;
         skillLvs = skilllvs;
         weaponIds = weaponids;
+        questIds = questids;
+        questContent1 = questcontent1;
+        questContent2 = questcontent2;
+        questContent3 = questcontent3;
         mainWeapon = mainweapon;
     }
 

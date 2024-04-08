@@ -8,6 +8,18 @@ public class OrderQuest : ScriptableObject
 {
     public int max = 3;
     public List<Quest> QuestList = new List<Quest>();
+
+    public void SetInitiate(List<int> ids,List<List<int>> content, DataBase dataBase)
+    {
+        QuestList = new List<Quest>();
+        for (int i = 0; i < ids.Count; i++)
+        {
+            Quest _quest = dataBase.GetQuest(ids[i]);
+            AddQuest(_quest);
+            SetQuestContent(content[i], i);
+        }
+    }
+
     public bool AddQuest(Quest _quest)
     {
         if (QuestList.Count >= max) return false;
@@ -26,6 +38,18 @@ public class OrderQuest : ScriptableObject
         QuestList.Add(_quest);
         return true;
     }
+    public void SetQuestContent(List<int> content,int idx)
+    {
+        if (QuestList[idx] == null) return;
+        Quest _quest = QuestList[idx];
+        switch (_quest.GetType().ToString())
+        {
+            case nameof(HuntQuest):
+                SetHuntNum((HuntQuest)_quest, content);
+                break;
+        }
+    }
+
     public void CompleteQuests()
     {
         for(int i = 0; i < QuestList.Count; i++)
@@ -93,6 +117,18 @@ public class OrderQuest : ScriptableObject
         {
             _quest.huntEnemys[i].huntednum = 0;
         }
+    }
+
+    public void SetHuntNum(HuntQuest _quest,List<int> content)
+    {
+        for (int i = 0; i < _quest.huntEnemys.Count; i++) _quest.huntEnemys[i].huntednum = content[i];
+    }
+
+    public List<int> GetHuntNum(HuntQuest _quest)
+    {
+        List<int> huntnum=new List<int>();
+        for (int i = 0; i < _quest.huntEnemys.Count; i++) huntnum.Add(_quest.huntEnemys[i].huntednum);
+        return huntnum;
     }
 
 }

@@ -67,7 +67,10 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public static int currentXP,nextXP,currentlevel,maxHealth, currentHealth ,currentMoney = 0;
     [HideInInspector]
-    public static List<int> itemId, shortcutId, itemAmount, skillId, skillLv, weaponId;
+    public static List<int> itemId, shortcutId, itemAmount, skillId, skillLv, weaponId,questId;
+    [HideInInspector]
+    public static List<List<int>> questContent;
+    [HideInInspector]
     public static int mainWeapon;
     [HideInInspector]
     public static List<TBuff> tbuffs;
@@ -360,6 +363,8 @@ public class GameManager : MonoBehaviour
         skillLv = player.database.GetSkillIds(player.skills);
         mainWeapon = player.mainWeapon;
         weaponId = player.database.GetWeaponIds(player.weaponPouch);
+        questId = player.database.GetQuestIds(player.orderQuest);
+        questContent = player.database.GetQuestContent(player.orderQuest);
         tbuffs = player.tbuffs;
         Debug.LogError("状態保存");
     }

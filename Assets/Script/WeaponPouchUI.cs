@@ -23,10 +23,11 @@ public class WeaponPouchUI : MonoBehaviour
     public Text nextWeaponAttack;
 
     public int selectedWeapon;
-
+    bool CanFunc;
     public void Start()
     {
         selectedWeapon = 0;
+        CanFunc = false;
         setButton.GetComponent<Button>().onClick.AddListener(setMainWeapon);
         destButton.GetComponent<Button>().onClick.AddListener(destWeapon);
     }
@@ -95,10 +96,12 @@ public class WeaponPouchUI : MonoBehaviour
         nextWeaponName.text = GameManager.instance.Player.weaponPouch.Pouch[selectedWeapon].Name;
         nextWeaponAttack.text = GameManager.instance.Player.weaponPouch.Pouch[selectedWeapon].At.ToString();
         SetExplane(selectedWeapon);
+        CanFunc = true;
     }
 
     public void setMainWeapon()
     {
+        if (!CanFunc) return;
         GameManager.instance.Player.mainWeapon = selectedWeapon;
         currentWeaponImage.sprite = GameManager.instance.Player.weaponPouch.Pouch[selectedWeapon].Icon;
         currentWeaponName.text = GameManager.instance.Player.weaponPouch.Pouch[selectedWeapon].Name;
@@ -108,6 +111,7 @@ public class WeaponPouchUI : MonoBehaviour
 
     public void destWeapon()
     {
+        if (!CanFunc) return;
         if (selectedWeapon == GameManager.instance.Player.mainWeapon) return;
         if (selectedWeapon < GameManager.instance.Player.mainWeapon)GameManager.instance.Player.mainWeapon--;
         GameManager.instance.Player.weaponPouch.Pouch.RemoveAt(selectedWeapon);
@@ -115,5 +119,6 @@ public class WeaponPouchUI : MonoBehaviour
         nextWeaponImage.sprite = GameManager.instance.Player.weaponPouch.Pouch[GameManager.instance.Player.mainWeapon].Icon;
         nextWeaponName.text = GameManager.instance.Player.weaponPouch.Pouch[GameManager.instance.Player.mainWeapon].Name;
         nextWeaponAttack.text = GameManager.instance.Player.weaponPouch.Pouch[GameManager.instance.Player.mainWeapon].At.ToString();
+        CanFunc = false;
     }
 }
