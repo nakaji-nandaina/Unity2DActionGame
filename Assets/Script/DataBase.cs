@@ -153,6 +153,36 @@ public class DataBase : ScriptableObject
         return -1;
     }
 
+    public List<int> GetQuestIds(OrderQuest orderQuest)
+    {
+        List<int> ids=new List<int>();
+        for(int i = 0; i < orderQuest.QuestList.Count; i++)
+        {
+            ids.Add(GetQuestId(orderQuest.QuestList[i]));
+        }
+        return ids;
+    }
+
+    public List<List<int>> GetQuestContent(OrderQuest orderQuest)
+    {
+        List<List<int>> questcont=new List<List<int>>();
+        for (int i = 0; i < orderQuest.QuestList.Count; i++)
+        {
+            switch (orderQuest.QuestList[i].GetType().ToString())
+            {
+                case nameof(HuntQuest):
+                    questcont.Add(orderQuest.GetHuntNum((HuntQuest)orderQuest.QuestList[i]));
+                    break;
+            }
+        }
+        return questcont;
+    }
+
+    public Quest GetQuest(int id)
+    {
+        return questDatabase[id];
+    }
+
     //Scene関係
     public float GetSceneBright(string sceneName)
     {

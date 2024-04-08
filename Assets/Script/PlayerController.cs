@@ -91,6 +91,7 @@ public class PlayerController : MonoBehaviour
     public List<int> weaponId;
     public int mainWeapon=0;
     public List<int> questId;
+    public List<List<int>> questContent=new List<List<int>>() {new List<int>(), new List<int>(), new List<int>() };
 
 
     //一時的なバフ用
@@ -232,6 +233,11 @@ public class PlayerController : MonoBehaviour
         mainWeapon = GameManager.mainWeapon;
         weaponPouch.SetInitiate(weaponId, database);
         weapon = weaponPouch.Pouch[mainWeapon];
+        //クエストのセット
+        questId = GameManager.questId;
+        questContent = GameManager.questContent;
+        //orderQuest = OrderQuest.CreateInstance<OrderQuest>();
+        orderQuest.SetInitiate(questId,questContent, database);
         //スキルのセット
         skillId = GameManager.skillId;
         skillLvs = GameManager.skillLv;
@@ -489,6 +495,7 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.instance.weaponUI.WeaponPouchPanel.SetActive(false);
         GameManager.instance.weaponUI.UpdateWeaponPouchUI(weaponPouch);
+        Debug.LogError(mainWeapon);
         weapon = weaponPouch.Pouch[mainWeapon];
         changePS(PS.normal);
     }
@@ -511,8 +518,9 @@ public class PlayerController : MonoBehaviour
         skillId = database.GetSkillIds(skills);
         skillLvs = database.GetSkillLvs(skills);
         weaponId = database.GetWeaponIds(weaponPouch);
-
-        PlayerStatus.GetInstance().ReStatus(currentXP, GameManager.currentMoney, currentLevel,itemId,shortcutId,itemAmount,skillId,skillLvs,weaponId,mainWeapon);
+        questId = database.GetQuestIds(orderQuest);
+        questContent = database.GetQuestContent(orderQuest);
+        PlayerStatus.GetInstance().ReStatus(currentXP, GameManager.currentMoney, currentLevel,itemId,shortcutId,itemAmount,skillId,skillLvs,weaponId,questId,questContent[0], questContent[1], questContent[2], mainWeapon);
         PlayerStatus.GetInstance().Save();
         Debug.Log(PlayerStatus.GetInstance().currentLv);
     }
@@ -535,6 +543,10 @@ public class PlayerController : MonoBehaviour
         skillId = PlayerStatus.GetInstance().skillIds;
         skillLvs = PlayerStatus.GetInstance().skillLvs;
         weaponId = PlayerStatus.GetInstance().weaponIds;
+        questId = PlayerStatus.GetInstance().questIds;
+        questContent[0] = PlayerStatus.GetInstance().questContent1;
+        questContent[1] = PlayerStatus.GetInstance().questContent2;
+        questContent[2] = PlayerStatus.GetInstance().questContent3;
         mainWeapon = PlayerStatus.GetInstance().mainWeapon;
 
         if (weaponId.Count == 0)
@@ -547,6 +559,7 @@ public class PlayerController : MonoBehaviour
         weaponPouch.SetInitiate(weaponId, database);
         weapon = weaponPouch.Pouch[mainWeapon];
         skills.SetInitiate(skillId, skillLvs, database);
+        orderQuest.SetInitiate(questId,questContent, database);
 
         GameManager.instance.PlayerStateHold();
         SetStatus();

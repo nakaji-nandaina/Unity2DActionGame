@@ -66,7 +66,7 @@ public class QuestUI : MonoBehaviour
         titleText.text = quest.questName;
         explaneText.text = quest.information;
         ClientText.text = quest.client;
-        Debug.LogError(ind);
+        //Debug.LogError(ind);
     }
     
 }

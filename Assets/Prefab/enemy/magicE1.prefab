@@ -1148,6 +1148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4808727fbac74954fb4633e6acfccedf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemydata: {fileID: 11400000, guid: f5d7c209e168d3f468d1bbec0fdc6edc, type: 2}
   moveSpeed: 2
   waitTime: 1
   walkTime: 1
