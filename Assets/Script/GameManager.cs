@@ -69,6 +69,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public static List<int> itemId, shortcutId, itemAmount, skillId, skillLv, weaponId,questId;
     [HideInInspector]
+    public static List<Quest> boardQuest;
+    [HideInInspector]
     public static List<List<int>> questContent;
     [HideInInspector]
     public static int mainWeapon;
@@ -133,6 +135,8 @@ public class GameManager : MonoBehaviour
     public WeaponPouchUI weaponUI;
     [HideInInspector]
     public QuestUI questUI;
+    [HideInInspector]
+    public QuestBoard questBoard;
 
     public GameObject[] shortcutButtons;
 
@@ -219,6 +223,7 @@ public class GameManager : MonoBehaviour
         inventoryUI = GetComponent<InventoryUI>();
         weaponUI = GetComponent<WeaponPouchUI>();
         questUI = GetComponent<QuestUI>();
+        questBoard = GetComponent<QuestBoard>();
         settingLight();
         settingNextPoint();
     }
@@ -279,7 +284,7 @@ public class GameManager : MonoBehaviour
             case DialogState.wait:
                 return;
             case DialogState.write:
-                if (Input.GetMouseButtonUp(1))
+                if (Input.GetMouseButtonUp(0))
                 {
                     if (justStarted)
                     {
@@ -292,7 +297,7 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case DialogState.conv:
-                if (Input.GetMouseButtonUp(1))
+                if (Input.GetMouseButtonUp(0))
                 {
                     currentLine++;
                     Debug.Log("Next");
@@ -364,7 +369,9 @@ public class GameManager : MonoBehaviour
         mainWeapon = player.mainWeapon;
         weaponId = player.database.GetWeaponIds(player.weaponPouch);
         questId = player.database.GetQuestIds(player.orderQuest);
+        boardQuest = player.BoardQuests;
         questContent = player.database.GetQuestContent(player.orderQuest);
+
         tbuffs = player.tbuffs;
         Debug.LogError("状態保存");
     }

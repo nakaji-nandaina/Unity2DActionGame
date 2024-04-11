@@ -11,11 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField,Tooltip("移動速度")] 
     private int moveSpeed;
     
-    //方向
-    private bool IsLeft;
-    private bool IsRight;
-    private bool IsFront;
-    private bool IsBack;
+    
 
     //[SerializeField]
     public Animator playerAnim;
@@ -93,7 +89,8 @@ public class PlayerController : MonoBehaviour
     public List<int> questId;
     public List<List<int>> questContent=new List<List<int>>() {new List<int>(), new List<int>(), new List<int>() };
 
-
+    //クエストボードに掲載するクエスト
+    public List<Quest> BoardQuests;
     //一時的なバフ用
     public List<TBuff> tbuffs;
 
@@ -123,6 +120,7 @@ public class PlayerController : MonoBehaviour
         inventory,
         weapon,
         quest,
+        questBoard,
         dead,
     }
     public void changePS(PS nextState)
@@ -150,6 +148,10 @@ public class PlayerController : MonoBehaviour
                 ps = nextState;
                 break;
             case PS.quest:
+                rb.velocity = Vector2.zero;
+                ps = nextState;
+                break;
+            case PS.questBoard:
                 rb.velocity = Vector2.zero;
                 ps = nextState;
                 break;
@@ -209,6 +211,7 @@ public class PlayerController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "StartScene")
         {
             currentHealth = GameManager.maxHealth;
+            BoardQuests = database.GetBoardQuest(questId);
         }
         GameManager.instance.UpdateHealthUI();
         GameManager.instance.UpdateXPUI();
@@ -236,8 +239,10 @@ public class PlayerController : MonoBehaviour
         //クエストのセット
         questId = GameManager.questId;
         questContent = GameManager.questContent;
+        BoardQuests = GameManager.boardQuest;
         //orderQuest = OrderQuest.CreateInstance<OrderQuest>();
         orderQuest.SetInitiate(questId,questContent, database);
+
         //スキルのセット
         skillId = GameManager.skillId;
         skillLvs = GameManager.skillLv;
@@ -312,6 +317,12 @@ public class PlayerController : MonoBehaviour
                     CloseQuestUI();
                 }
                 break;
+            case PS.questBoard:
+                if (Input.GetKeyDown(KeyCode.K))
+                {
+                    CloseQuestBoard();
+                }
+                break;
         }
 
         if (levelupcount > 0)
@@ -373,6 +384,7 @@ public class PlayerController : MonoBehaviour
             OpenQuestUI();
             //orderQuest.CompleteQuests();
         }
+        if (Input.GetKeyDown(KeyCode.K)) OpenQuestBoard();
         TBuffPeriod();
     }
 
@@ -510,6 +522,18 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.questUI.QuestPanel.SetActive(false);
         changePS(PS.normal);
     }
+
+    public void OpenQuestBoard()
+    {
+        GameManager.instance.questBoard.QuestBoardPanel.SetActive(true);
+        GameManager.instance.questBoard.SetQuestBoard();
+        changePS(PS.questBoard);
+    }
+    public void CloseQuestBoard()
+    {
+        GameManager.instance.questBoard.QuestBoardPanel.SetActive(false);
+        changePS(PS.normal);
+    }
     public void SavePlayer()
     {
         itemId = database.GetItemIds(inventory);
@@ -547,6 +571,7 @@ public class PlayerController : MonoBehaviour
         questContent[0] = PlayerStatus.GetInstance().questContent1;
         questContent[1] = PlayerStatus.GetInstance().questContent2;
         questContent[2] = PlayerStatus.GetInstance().questContent3;
+        BoardQuests = database.GetBoardQuest(questId);
         mainWeapon = PlayerStatus.GetInstance().mainWeapon;
 
         if (weaponId.Count == 0)

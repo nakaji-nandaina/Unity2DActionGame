@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64758f8301ce6384b9a4abbd715117d6, type: 3}
+  m_Name: HuntBoneSoldier
+  m_EditorClassIdentifier: 
+  questName: "\u304B\u3044\u3081\u3064\u306E\u30AD\u30AD"
+  questType: 0
+  information: "\u304D\u3044\u3066\u304F\u308C\uFF01\u304A\u308C\u3089\u306E\u30AE\u30EB\u30C9
+    \u304C \u3044\u307E\n\u304B\u3044\u3081\u3064\u306E\u3000\u30AD\u30AD\u306B\u3072\u3093\u3057\u3066\u3044\u308B\uFF01\n\u3063\u3066\u3044\u3046\u306E\u306F
+    \u304A\u304A\u3052\u3055\u3060\u304C\u3001\n\u304A\u308C\u306B\u3000\u3068\u3063\u3066\u306F\u3044\u3061\u3060\u3044\u3058\u3060\uFF01\n\u305F\u3051\u3084\u307E\u306B\u3000\u305C\u3093\u3057\u3093\u304C\u307B\u306D\u306E
+    \u3051\u3093\u3057\u304C \n\u3044\u305F\u3093\u3060\u304C\u3001 \u3042\u3044\u3064\u3089\u3000\u304D\u3082\u3061\u308F\u308B\u304F\u3066\n\u3061\u304B\u3065\u3051\u306A\u304F\u3066\u3088\uFF01\u306A\u304B\u307E\u304C
+    \u304A\u308C\u306E\u3053\u3068\n \u305F\u3088\u308A\u306A\u3055\u305D\u3046\u306B
+    \u307F\u3066\u3093\u3060\uFF01\n\u305F\u306E\u3080\uFF01\u304A\u308C\u304C\u30EA\u30D9\u30F3\u30B8\u3059\u308B\u307E\u3048\u306B\u3000\n\u3084\u3064\u3089\u306E\u304B\u305A\u3092\u3078\u3089\u3057\u3066\u304F\u308C\uFF01"
+  client: "\u30B1\u30F3"
+  money: 500
+  rewardItems:
+  - item: {fileID: 11400000, guid: afac721ffb75b614d9151752b0454ca4, type: 2}
+    num: 5
+  huntEnemys:
+  - enemy: {fileID: 11400000, guid: 7c8f980626eec4240b1efc2131bc4d4e, type: 2}
+    num: 10
+    huntednum: 0

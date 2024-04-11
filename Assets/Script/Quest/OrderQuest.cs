@@ -6,11 +6,13 @@ using System;
 [CreateAssetMenu(fileName = "OrderQuest", menuName = "OrderQuest")]
 public class OrderQuest : ScriptableObject
 {
+    [HideInInspector]
     public int max = 3;
     public List<Quest> QuestList = new List<Quest>();
 
     public void SetInitiate(List<int> ids,List<List<int>> content, DataBase dataBase)
     {
+        Debug.Log("クエスト上限"+max.ToString());
         QuestList = new List<Quest>();
         for (int i = 0; i < ids.Count; i++)
         {
@@ -23,12 +25,8 @@ public class OrderQuest : ScriptableObject
     public bool AddQuest(Quest _quest)
     {
         if (QuestList.Count >= max) return false;
-        for(int i = 0; i < QuestList.Count; i++)
-        {
-            if (QuestList[i] != _quest) continue;
-            Debug.LogError("受注済みクエストです。");
-            return false;
-        }
+        if (IsOrdered(_quest)) return false;
+
         switch (_quest.GetType().ToString())
         {
             case nameof(HuntQuest):
@@ -37,6 +35,16 @@ public class OrderQuest : ScriptableObject
         }
         QuestList.Add(_quest);
         return true;
+    }
+
+    public bool IsOrdered(Quest _quest)
+    {
+        for(int i = 0; i < QuestList.Count; i++)
+        {
+            if (QuestList[i] != _quest) continue;
+            return true;
+        }
+        return false;
     }
     public void SetQuestContent(List<int> content,int idx)
     {

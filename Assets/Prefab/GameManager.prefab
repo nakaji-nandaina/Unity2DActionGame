@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7574449991953445958}
   - component: {fileID: 5442089370236498773}
   - component: {fileID: 2917134093998747319}
+  - component: {fileID: 996746130601939089}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -89,6 +90,7 @@ MonoBehaviour:
   nextPoint: {x: 0, y: 0}
   inventoryUI: {fileID: 0}
   weaponUI: {fileID: 0}
+  questUI: {fileID: 0}
   shortcutButtons: []
 --- !u!114 &8699797446048524044
 MonoBehaviour:
@@ -337,7 +339,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56e97cd47b4c5654eb7d3ed4c3f6cbb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  QuestPanel: {fileID: 0}
   explaneText: {fileID: 0}
   titleText: {fileID: 0}
+  ClientText: {fileID: 0}
+  TargetCont: {fileID: 0}
   target: {fileID: 0}
   papers: []
+--- !u!114 &996746130601939089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9074385018434786010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a807d8f71169d2949a3094abd050e6a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  QuestBoardPanel: {fileID: 0}
+  QuestOrderPanel: {fileID: 0}
+  QuestPapers: []
+  PaperImages: []
+  BoardQuests: []
+  QuestName: {fileID: 0}
+  ClientName: {fileID: 0}
+  QuestCont: {fileID: 0}
+  RewardCont: {fileID: 0}
+  QuestInfo: {fileID: 0}
+  AcceptStamp: {fileID: 0}
+  CloseButton: {fileID: 0}
+  AcceptButton: {fileID: 0}

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba516a8a49182614e9c88a05a630c012, type: 3}
   m_Name: OrderQuest
   m_EditorClassIdentifier: 
-  max: 10
+  max: 3
   QuestList:
   - {fileID: 11400000, guid: 390eb6e209443f84bb83262719937463, type: 2}
   - {fileID: 11400000, guid: 00934b3b7e3d4bd4abd28d9e193660bf, type: 2}
-  - {fileID: 11400000, guid: 39f0de05c284554438b96dc5892e73fd, type: 2}
+  - {fileID: 11400000, guid: 38dc0b0885be1274bb1da9d97584bdc7, type: 2}

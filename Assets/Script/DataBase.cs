@@ -155,19 +155,62 @@ public class DataBase : ScriptableObject
 
     public List<int> GetQuestIds(OrderQuest orderQuest)
     {
-        List<int> ids=new List<int>();
-        for(int i = 0; i < orderQuest.QuestList.Count; i++)
+        List<int> ids = new List<int>();
+        for (int i = 0; i < orderQuest.QuestList.Count; i++)
         {
             ids.Add(GetQuestId(orderQuest.QuestList[i]));
         }
         return ids;
     }
+    public List<int> GetQuestIdsfromL(List<Quest> quests)
+    {
+        List<int> ids = new List<int>();
+        for (int i = 0; i < quests.Count; i++)
+        {
+            ids.Add(GetQuestId(quests[i]));
+        }
+        return ids;
+    }
+
+
+    public List<Quest> GetBoardQuest(List<int> questIds)
+    {
+        List<int> BoardQuestIds = new List<int>();
+        for(int i = 0; i < 8; i++)
+        {
+            int id= Random.Range(0, questDatabase.Count); 
+            
+            bool ok = true;
+            for(int j = 0; j < questIds.Count; j++)
+            {
+                if (questIds[j] == id) ok = false;
+                if (!ok) break;
+            }
+            for (int j = 0; j < BoardQuestIds.Count; j++)
+            {
+                if (BoardQuestIds[j] == id) ok = false;
+                if (!ok) break;
+            }
+            if (ok) BoardQuestIds.Add(id); 
+        }
+        List<Quest> BoardQuests = new List<Quest>();
+        for(int i = 0; i < BoardQuestIds.Count; i++)
+        {
+            BoardQuests.Add(GetQuest(BoardQuestIds[i]));
+        }
+        return BoardQuests;
+    }
 
     public List<List<int>> GetQuestContent(OrderQuest orderQuest)
     {
         List<List<int>> questcont=new List<List<int>>();
-        for (int i = 0; i < orderQuest.QuestList.Count; i++)
+        for (int i = 0; i < 3; i++)
         {
+            if (i >= orderQuest.QuestList.Count)
+            {
+                questcont.Add(new List<int>());
+                continue;
+            }
             switch (orderQuest.QuestList[i].GetType().ToString())
             {
                 case nameof(HuntQuest):
@@ -182,6 +225,7 @@ public class DataBase : ScriptableObject
     {
         return questDatabase[id];
     }
+    
 
     //Scene関係
     public float GetSceneBright(string sceneName)
