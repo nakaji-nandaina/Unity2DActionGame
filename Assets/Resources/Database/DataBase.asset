@@ -43,6 +43,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c840469083a51004dbcce58d76639530, type: 2}
   - {fileID: 11400000, guid: 1f1549ee8baaec642a830381a3164933, type: 2}
   - {fileID: 11400000, guid: 39dbda45f16f7984f8b674af9d3bae75, type: 2}
+  - {fileID: 11400000, guid: 7c8f980626eec4240b1efc2131bc4d4e, type: 2}
   weaponDatabase:
   - {fileID: 11400000, guid: 09403f4cd6b1db142b54baf25525afd3, type: 2}
   - {fileID: 11400000, guid: 683162d3398952649ac73462a6a18971, type: 2}
@@ -56,6 +57,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 00934b3b7e3d4bd4abd28d9e193660bf, type: 2}
   - {fileID: 11400000, guid: 39f0de05c284554438b96dc5892e73fd, type: 2}
   - {fileID: 11400000, guid: 390eb6e209443f84bb83262719937463, type: 2}
+  - {fileID: 11400000, guid: 38dc0b0885be1274bb1da9d97584bdc7, type: 2}
   sceneDatabase:
   - {fileID: 11400000, guid: 956cf4b93461f604e8318607b1440101, type: 2}
   - {fileID: 11400000, guid: d0b318ddf2ffaa14d84e8c8727e37fd5, type: 2}

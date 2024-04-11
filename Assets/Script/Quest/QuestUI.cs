@@ -15,9 +15,9 @@ public class QuestUI : MonoBehaviour
     
     public void setQuestUI(OrderQuest orderQuest)
     {
-        titleText.text = "";
+        titleText.text = "クエスト名";
         explaneText.text = "";
-        ClientText.text = "";
+        ClientText.text = "いらいしゃ";
         for (int i = 0; i< 3; i++)
         {
             if(i>= orderQuest.QuestList.Count)
