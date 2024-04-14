@@ -167,6 +167,7 @@ public class PlayerController : MonoBehaviour
                 ps = nextState;
                 break;
         }
+        Debug.LogError(ps);
 
     }
     public enum NS
@@ -300,25 +301,25 @@ public class PlayerController : MonoBehaviour
                 break;
 
             case PS.inventory:
-                if (Input.GetKeyDown(KeyCode.I))
+                if (Input.GetKeyDown(KeyCode.I)|| Input.GetKeyDown(KeyCode.Escape))
                 {
                     CloseInventory();
                 }
                 break;
             case PS.weapon:
-                if (Input.GetKeyDown(KeyCode.O))
+                if (Input.GetKeyDown(KeyCode.O) || Input.GetKeyDown(KeyCode.Escape))
                 {
                     CloseWeaponPouch();
                 }
                 break;
             case PS.quest:
-                if (Input.GetKeyDown(KeyCode.J))
+                if (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Escape))
                 {
                     CloseQuestUI();
                 }
                 break;
             case PS.questBoard:
-                if (Input.GetKeyDown(KeyCode.K))
+                if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Escape))
                 {
                     CloseQuestBoard();
                 }

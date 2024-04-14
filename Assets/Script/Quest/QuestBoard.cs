@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class QuestBoard : MonoBehaviour
 {
@@ -12,12 +13,37 @@ public class QuestBoard : MonoBehaviour
     [HideInInspector]
     public List<Quest> BoardQuests;
     public GameObject QuestName,ClientName,QuestCont,RewardCont,QuestInfo,AcceptStamp,CloseButton,AcceptButton;
+    public AudioClip StampSE;
 
+    private Vector2 iniPos;
+    private float ShakeCounter=0.2f;
+
+    private float ShakeTime = 0.2f;
+    private void Update()
+    {
+        if(ShakeCounter<ShakeTime)ShakePaper();
+        else
+        {
+            QuestOrderPanel.transform.localPosition=iniPos;
+        }
+    }
+    public void ShakePaper()
+    {
+        float speed = 10f;
+        float amplitude = 15f;
+        float offsetx = Random.Range(0f, 256f);
+        float offsety = Random.Range(0f, 256f);
+        ShakeCounter += Time.deltaTime;
+        float nx = 2*amplitude * (Mathf.PerlinNoise(Time.time*speed+offsetx, 0) - 0.5f);
+        float ny = 2*amplitude * (Mathf.PerlinNoise(Time.time*speed+offsety, 0) - 0.5f);
+        QuestOrderPanel.transform.localPosition =new Vector2(nx,ny);
+        
+    }
     public void SetQuestBoard()
     {
         BoardQuests = GameManager.instance.Player.BoardQuests;
         OrderQuest ordered = GameManager.instance.Player.orderQuest;
-
+        iniPos = QuestOrderPanel.transform.localPosition;
         CloseButton.GetComponent<Button>().onClick.RemoveAllListeners();
         CloseButton.GetComponent<Button>().onClick.AddListener(() => { QuestOrderPanel.SetActive(false); });
 
@@ -90,6 +116,9 @@ public class QuestBoard : MonoBehaviour
         if (ordered.IsOrdered(BoardQuests[id])) return;
         ordered.AddQuest(BoardQuests[id]);
         AcceptStamp.SetActive(true);
+        GameManager.instance.PlayAudio(StampSE);
+        //GameManager.instance.Impulse.GetComponent<CinemachineImpulseSource>().GenerateImpulse();
+        ShakeCounter = 0f;
         QuestPapers[id].transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
         AcceptButton.SetActive(false);
 

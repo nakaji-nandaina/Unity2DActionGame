@@ -91,6 +91,7 @@ MonoBehaviour:
   inventoryUI: {fileID: 0}
   weaponUI: {fileID: 0}
   questUI: {fileID: 0}
+  questBoard: {fileID: 0}
   shortcutButtons: []
 --- !u!114 &8699797446048524044
 MonoBehaviour:
