@@ -15,10 +15,12 @@ public class DialogActivater : MonoBehaviour
     [SerializeField, Header("下選択文章"), Multiline(3)]
     private string[] NoLines;
     private bool canActivater;
-    [SerializeField, Header("関数実行")]
-    private bool isfunc=false;
     [SerializeField, Header("実行関数名")]
     private string funcName = "NullReturn";
+    [SerializeField, Header("実行関数名")]
+    private string YesfuncName = "NullReturn";
+    [SerializeField, Header("実行関数名")]
+    private string NofuncName = "NullReturn";
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +31,10 @@ public class DialogActivater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.instance.Player.ps != PlayerController.PS.normal) return;
         if(Input.GetMouseButtonDown(1) && canActivater && !GameManager.instance.dialogBox.activeInHierarchy)
         {
-            GameManager.instance.ShowDialog(lines,CharName,Choice,YesLines,NoLines,this.gameObject,isfunc,funcName);
+            GameManager.instance.ShowDialog(lines,CharName,Choice,YesLines,NoLines,this.gameObject,funcName,YesfuncName,NofuncName);
             if (this.gameObject.GetComponent<NPCanim>())
             {
                 this.gameObject.GetComponent<NPCanim>().ChageDir();

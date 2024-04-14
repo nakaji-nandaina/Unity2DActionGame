@@ -91,8 +91,12 @@ public class GameManager : MonoBehaviour
     private float writingDef = 0.05f;
 
     private string DialogFuncName;
+    private string DialogYesFuncName;
+    private string DialogNoFuncName;
 
     private DialogState ds;
+
+    public GameObject Impulse;
 
     //効果音BGM関係
     private AudioSource audioSource;
@@ -241,7 +245,7 @@ public class GameManager : MonoBehaviour
         GameObject BGMObj =new GameObject();
         BGMSource = BGMObj.AddComponent<AudioSource>();
         BGMSource.volume = 0.1f;
-        audioSource.volume = 0.4f;
+        audioSource.volume = 0.6f;
         BGMSource.loop = true;
         if (player.database.GetSceneBGM(SceneManager.GetActiveScene().name) == null) return;
         BGMSource.clip=player.database.GetSceneBGM(SceneManager.GetActiveScene().name);
@@ -288,7 +292,7 @@ public class GameManager : MonoBehaviour
                 {
                     if (justStarted)
                     {
-                        Debug.Log("convstart");
+                        Debug.LogError("convstart");
                         justStarted = false;
                         break;
                     }
@@ -300,11 +304,13 @@ public class GameManager : MonoBehaviour
                 if (Input.GetMouseButtonUp(0))
                 {
                     currentLine++;
-                    Debug.Log("Next");
+                    Debug.LogError("Next");
                     if (currentLine >= dialogLines.Length && !Choice)
                     {
                         changeDs(DialogState.wait);
-                        Debug.Log("Stop");
+                        Invoke(DialogFuncName, 0);
+                        DialogFuncName = "NullReturn";
+                        Debug.LogError("Stop");
                     }
                     else if (currentLine >= dialogLines.Length && Choice)
                     {
@@ -333,8 +339,8 @@ public class GameManager : MonoBehaviour
                         writingSpeed = writingDef;
                         //StartCoroutine(IEWrite(dialogLines[currentLine]));
                         changeDs(DialogState.write);
-                        Invoke(DialogFuncName, 0);
-                        DialogFuncName = "NullReturn";
+                        Invoke(DialogYesFuncName, 0);
+                        DialogYesFuncName = "NullReturn";
                     }
                     else if (NoChoice)
                     {
@@ -348,6 +354,7 @@ public class GameManager : MonoBehaviour
                         writingSpeed = writingDef;
                         //StartCoroutine(IEWrite(dialogLines[currentLine]));
                         changeDs(DialogState.write);
+                        Invoke(DialogNoFuncName, 0);
                         DialogFuncName = "NullReturn";
                     }
                 }
@@ -424,7 +431,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void ShowDialog(string[] lines, string Name, bool yesno, string[] YesLines, string[] NoLines, GameObject target, bool isfunc, string funcName)
+    public void ShowDialog(string[] lines, string Name, bool yesno, string[] YesLines, string[] NoLines, GameObject target, string funcName,string YesfuncName,string NofuncName)
     {
         NormalDialog = true;
         
@@ -447,6 +454,8 @@ public class GameManager : MonoBehaviour
         yesDialogLines = YesLines;
         noDialogLines = NoLines;
         DialogFuncName = funcName;
+        DialogYesFuncName = YesfuncName;
+        DialogNoFuncName = NofuncName;
         player.changePS(PlayerController.PS.conversation);
         changeDs(DialogState.write);
     }
@@ -524,5 +533,8 @@ public class GameManager : MonoBehaviour
     {
         player.SavePlayer();
     }
-
+    private void OpenQuestBoard()
+    {
+        player.OpenQuestBoard();
+    }
 }
