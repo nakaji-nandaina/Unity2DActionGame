@@ -245,7 +245,7 @@ public class GameManager : MonoBehaviour
         GameObject BGMObj =new GameObject();
         BGMSource = BGMObj.AddComponent<AudioSource>();
         BGMSource.volume = 0.1f;
-        audioSource.volume = 0.6f;
+        audioSource.volume = 0.4f;
         BGMSource.loop = true;
         if (player.database.GetSceneBGM(SceneManager.GetActiveScene().name) == null) return;
         BGMSource.clip=player.database.GetSceneBGM(SceneManager.GetActiveScene().name);
