@@ -57,7 +57,6 @@ public class OrderQuest : ScriptableObject
                 break;
         }
     }
-
     public void CompleteQuests()
     {
         for(int i = 0; i < QuestList.Count; i++)
@@ -74,6 +73,25 @@ public class OrderQuest : ScriptableObject
             }
             QuestList.RemoveAt(i);
         }
+    }
+
+    public List<string> RewardString()
+    {
+        List<string> reward = new List<string>();
+        for (int i = 0; i < QuestList.Count; i++)
+        {
+            if (!CompleteQuest(QuestList[i])) continue;
+            reward.Add("クエスト「"　+　QuestList[i].questName + "」をクリアしました。");
+            reward.Add("ほうしょうきん"+QuestList[i].money.ToString() + "Gになります。");
+            for (int j = 0; j < QuestList[i].rewardItems.Count; j++)
+            {
+                reward.Add(QuestList[i].rewardItems[j].item.itemname+" "+ QuestList[i].rewardItems[j].num + "こ");
+            }
+            reward.Add("「" + QuestList[i].questName + "」のせいさんはいじょうです。");
+        }
+        if (reward.Count == 0) reward.Add("クリアしたクエストはないみたいです。");
+        reward.Add("ひきつづき、がんばってください");
+        return reward;
     }
 
     public void RewardQuest(Quest _quest)

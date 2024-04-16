@@ -292,8 +292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85548a21920dc4a47af739f8b8fc5454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animX: 0
-  animY: -1
+  animX: 1
+  animY: 0
 --- !u!50 &3365403738335884265
 Rigidbody2D:
   serializedVersion: 4
@@ -355,12 +355,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lines:
   - "\u3053\u3093\u306B\u3061\u306F\uFF01\n\u30AF\u30A8\u30B9\u30C8\u307B\u3046\u3057\u3085\u3046\u306E\u305B\u3044\u3055\u3093\u3092\u304A\u3053\u306A\u3046\u3088"
-  - "\u304B\u3044\u308F\u30B7\u30B9\u30C6\u30E0\u306E\u30C7\u30D0\u30C3\u30AF\u3088\u3046\u306B\u3064\u304F\u3089\u308C\u305F\u3000\n\u304B\u306A\u3057\u304D\u30E2\u30EB\u30E2\u30C3\u30C8\u3060"
-  CharName: "\u30AC\u30F3\u30C7\u30EA"
+  CharName: "\u3046\u3051\u3064\u3051"
   Choice: 0
   YesLines: []
   NoLines: []
-  funcName: NullReturn
+  funcName: QuestReward
   YesfuncName: NullReturn
   NofuncName: NullReturn
 --- !u!1001 &8797947612102360261
