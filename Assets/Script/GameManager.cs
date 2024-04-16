@@ -168,7 +168,7 @@ public class GameManager : MonoBehaviour
                 dialogBox.SetActive(false);
                 nameSpace.SetActive(false);
                 choiceBox.SetActive(false);
-                NormalDialog = false;
+                //NormalDialog = false;
                 player.changePS(PlayerController.PS.normal);
                 break;
             case DialogState.write:
@@ -222,7 +222,7 @@ public class GameManager : MonoBehaviour
         UpdateMoneyUI(currentMoney);
         YesChoice = false;
         NoChoice = false;
-        NormalDialog = false;
+        //NormalDialog = false;
         DialogFuncName = "NullReturn";
         inventoryUI = GetComponent<InventoryUI>();
         weaponUI = GetComponent<WeaponPouchUI>();
@@ -433,7 +433,7 @@ public class GameManager : MonoBehaviour
 
     public void ShowDialog(string[] lines, string Name, bool yesno, string[] YesLines, string[] NoLines, GameObject target, string funcName,string YesfuncName,string NofuncName)
     {
-        NormalDialog = true;
+        //NormalDialog = true;
         
         dialogText.text = "";
         dialogLines = lines;
@@ -536,5 +536,22 @@ public class GameManager : MonoBehaviour
     private void OpenQuestBoard()
     {
         player.OpenQuestBoard();
+    }
+    private void QuestReward()
+    {
+        List<string> convs=player.orderQuest.RewardString();
+        //配列初期化
+        dialogLines = convs.Count % 3 != 0 ?  new string[convs.Count/3+1]: new string[convs.Count / 3  ];
+        for(int i = 0; i < convs.Count; i++)
+        {
+            dialogLines[i / 3] += convs[i] + "\n";
+        }
+        dialogText.text = "";
+        nameSpace.SetActive(true);
+        currentLine = 0;
+        dialogBox.SetActive(true);
+        player.orderQuest.CompleteQuests();
+        player.changePS(PlayerController.PS.conversation);
+        changeDs(DialogState.write);
     }
 }
