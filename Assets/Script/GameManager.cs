@@ -541,7 +541,7 @@ public class GameManager : MonoBehaviour
     {
         List<string> convs=player.orderQuest.RewardString();
         //配列初期化
-        dialogLines = convs.Count % 3 != 0 ?  new string[convs.Count/3+1]: new string[convs.Count / 3  ];
+        dialogLines = convs.Count % 3 != 0 ?  new string[convs.Count/3+1]: new string[convs.Count / 3];
         for(int i = 0; i < convs.Count; i++)
         {
             dialogLines[i / 3] += convs[i] + "\n";

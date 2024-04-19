@@ -40,6 +40,8 @@ public class EnemyController : MonoBehaviour
     private int xp=10;
     [SerializeField, Tooltip("遠距離攻撃？")]
     private bool longAt=false;
+    [SerializeField, Tooltip("遠距離攻撃位置")]
+    private Vector2 LongAtPos=Vector2.zero;
     [SerializeField, Tooltip("近距離攻撃？")]
     private bool kinsetuAt = false;
     [SerializeField, Tooltip("遠距離攻撃の連続回数")]
@@ -267,7 +269,7 @@ public class EnemyController : MonoBehaviour
         {
             Vector2 attackDir= playerPos.position - this.transform.position;
             isAttackCounter -= Time.deltaTime;
-            if(attackObj.GetComponent<EnemyWeapon>())ShotManager.EmemyShot(playerPos.position, this.gameObject.transform.position, attackDir, attackObj,attackDamage);
+            if(attackObj.GetComponent<EnemyWeapon>())ShotManager.EmemyShot(playerPos.position, (Vector2)this.gameObject.transform.position+LongAtPos, attackDir, attackObj,attackDamage);
             if(attackObj.GetComponent<EnemyFallWeapon>()) ShotManager.EnemySkyFall(playerPos.position, attackObj, attackDamage);
             if (multiAtcount <= 1) return;
             multiAtcount--;

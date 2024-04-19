@@ -16,6 +16,7 @@ TagManager:
   - NoBreak
   - BGM
   - SpeechBubble
+  - Water
   layers:
   - Default
   - TransparentFX

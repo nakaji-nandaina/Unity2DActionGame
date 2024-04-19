@@ -252,10 +252,11 @@ public class Weapon : MonoBehaviour
     private void bakuhatu()
     {
         if (!this.gameObject.GetComponent<Animator>()) return;
+        if (!WD.bakuhatu) return;
         if (isBakuhatu) return;
         GameManager.instance.PlayAudio(clips[1]);
         this.gameObject.GetComponent<Animator>().SetTrigger("Break");
-        this.gameObject.GetComponent<Light2D>().intensity = 1-GameManager.instance.GetComponent<Light2D>().intensity;
+        if(this.gameObject.GetComponent<Light2D>()) this.gameObject.GetComponent<Light2D>().intensity = 1-GameManager.instance.GetComponent<Light2D>().intensity;
         rb.velocity = Vector2.zero;
         isBakuhatu = true;
     }
