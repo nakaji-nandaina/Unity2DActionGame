@@ -116,7 +116,7 @@ public class DataBase : ScriptableObject
         {
             if (enemy != enemyDatabase[i]) continue;
             enemyDatabase[i].huntedNum++;
-            Debug.LogError(enemyDatabase[i].name+enemyDatabase[i].huntedNum.ToString());
+            //Debug.LogError(enemyDatabase[i].name+enemyDatabase[i].huntedNum.ToString());
             break;
         }
     }

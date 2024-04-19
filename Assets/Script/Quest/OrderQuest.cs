@@ -82,12 +82,15 @@ public class OrderQuest : ScriptableObject
         {
             if (!CompleteQuest(QuestList[i])) continue;
             reward.Add("クエスト「"　+　QuestList[i].questName + "」をクリアしました。");
-            reward.Add("ほうしょうきん"+QuestList[i].money.ToString() + "Gになります。");
+        }
+        for (int i = 0; i < QuestList.Count; i++)
+        {
+            if (!CompleteQuest(QuestList[i])) continue;
+            reward.Add("ほうしょうきん" + QuestList[i].money.ToString() + "G");
             for (int j = 0; j < QuestList[i].rewardItems.Count; j++)
             {
-                reward.Add(QuestList[i].rewardItems[j].item.itemname+" "+ QuestList[i].rewardItems[j].num + "こ");
+                reward.Add(QuestList[i].rewardItems[j].item.itemname + " " + QuestList[i].rewardItems[j].num + "こ");
             }
-            reward.Add("「" + QuestList[i].questName + "」のせいさんはいじょうです。");
         }
         if (reward.Count == 0) reward.Add("クリアしたクエストはないみたいです。");
         reward.Add("ひきつづき、がんばってください");

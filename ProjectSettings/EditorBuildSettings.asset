@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/S1_B1_1.unity
-    guid: 8231f82e0db29b3498c8538e15837e09
-  - enabled: 1
     path: Assets/Scenes/StartScene_2.unity
     guid: e2149873f42459a43a184a9569d2e6e7
   - enabled: 1
@@ -32,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/S1_B1_1_Dark.unity
     guid: cf2cf2b4bb1c6194cb4dfbe8db14fc95
+  - enabled: 1
+    path: Assets/Scenes/S3_B1_1.unity
+    guid: 2adeb952bff19a64d8369e89d1455b6a
   m_configObjects: {}

@@ -10,10 +10,13 @@ public class EnemyWeapon : MonoBehaviour
     private float shotSpeed, destroyTime;
     [SerializeField]
     bool Bakuhatu;
+    [SerializeField]
+    bool WallPenetoration;
     private Rigidbody2D rb;
     private Vector2 weaponDirection;
     private float yukkuri;
     private Animator anim;
+
     protected AudioSource weaponAudio;
     [SerializeField]
     AudioClip[] clips;
@@ -51,6 +54,7 @@ public class EnemyWeapon : MonoBehaviour
         }
         if (collision.gameObject.tag == "Wall")
         {
+            if (WallPenetoration) return;
             destFunc();
         }
 

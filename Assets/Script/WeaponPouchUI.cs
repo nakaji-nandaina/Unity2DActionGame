@@ -101,6 +101,11 @@ public class WeaponPouchUI : MonoBehaviour
 
     public void setMainWeapon()
     {
+        if (!GameManager.instance.Player.AttackTerm())
+        {
+            Debug.LogError("クールタイム中です。");
+            return;
+        }
         if (!CanFunc) return;
         GameManager.instance.Player.mainWeapon = selectedWeapon;
         currentWeaponImage.sprite = GameManager.instance.Player.weaponPouch.Pouch[selectedWeapon].Icon;

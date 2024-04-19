@@ -104,6 +104,9 @@ public class PlayerController : MonoBehaviour
     public AudioClip deadclip;
     public AudioClip avoidclip;
 
+    public GameObject shadowobj;
+    public GameObject WaterMask;
+
     private KeyCode[] numkey = new KeyCode[]
     {
         KeyCode.Alpha1, KeyCode.Alpha2,
@@ -163,7 +166,6 @@ public class PlayerController : MonoBehaviour
                 GameManager.instance.StopBGM();
                 GameManager.instance.PlayAudio(deadclip);
                 GameOverCounter = 0;
-
                 ps = nextState;
                 break;
         }
@@ -193,7 +195,6 @@ public class PlayerController : MonoBehaviour
                 GameManager.instance.PlayAudio(avoidclip);
                 ns = nextState;
                 break;
-
         }
 
     }
@@ -430,6 +431,13 @@ public class PlayerController : MonoBehaviour
             if (tbuffs[i].bufftype == TBuff.BuffType.diffence) GameManager.instance.BuffContainer.transform.GetChild(i).gameObject.transform.GetChild(0).GetComponent<Image>().sprite = GameManager.instance.DiffenceUpImage;
             GameManager.instance.BuffContainer.transform.GetChild(i).gameObject.transform.GetChild(1).GetComponent<Text>().text = ((int)tbuffs[i].bufftime).ToString();
         }
+        //攻撃のクールタイム表示
+        if (attackCounter > 0)
+        {
+            GameObject termPanel = Instantiate(GameManager.instance.BuffPanel);
+            termPanel.transform.SetParent(GameManager.instance.BuffContainer.transform, false);
+            termPanel.transform.GetChild(1).GetComponent<Text>().text = (attackCounter).ToString("F1");
+        }
 
 
     }
@@ -596,6 +604,10 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.UpdateHealthUI();
         GameManager.instance.UpdateXPUI();
         GameManager.instance.UpdateMoneyUI(GameManager.currentMoney);
+    }
+    public bool AttackTerm()
+    {
+        return attackCounter <= 0;
     }
 
     public void SetStatus()
@@ -792,5 +804,4 @@ public class PlayerController : MonoBehaviour
            
         }
     }
-
 }
