@@ -111,13 +111,17 @@ public class DataBase : ScriptableObject
 
     public void AddHuntedEnemyNum(Enemy enemy)
     {
-        if (enemy == null) Debug.LogError("enemyにデータ付与し忘れてるで");
+        if (enemy == null)
+        {
+            Debug.LogError("enemyにデータ付与し忘れてるで");
+            return;
+        }
         for (int i = 0; i < enemyDatabase.Count; i++)
         {
             if (enemy != enemyDatabase[i]) continue;
             enemyDatabase[i].huntedNum++;
             //Debug.LogError(enemyDatabase[i].name+enemyDatabase[i].huntedNum.ToString());
-            break;
+            return;
         }
     }
 

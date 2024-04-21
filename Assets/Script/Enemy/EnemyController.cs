@@ -361,16 +361,18 @@ public class EnemyController : MonoBehaviour
     private void MakeDir()
     {
         Dir = playerPos.position - this.transform.position;
+        float minx = Dir.x < 0f ? -0.1f : 0.1f;
+        float miny = Dir.y < 0f ? -0.1f : 0.1f;
         if (Mathf.Abs(Dir.x) <= Mathf.Abs(Dir.y))
         {
             if (Dir.y<=0f)
             {
-                enemyAnim.SetFloat("X", 0.0f);
+                enemyAnim.SetFloat("X",minx);
                 enemyAnim.SetFloat("Y", -1.0f);
             }
             else
             {
-                enemyAnim.SetFloat("X", 0.0f);
+                enemyAnim.SetFloat("X", minx);
                 enemyAnim.SetFloat("Y", 1.0f);
             }
         }
@@ -379,12 +381,12 @@ public class EnemyController : MonoBehaviour
             if (Dir.x < 0f)
             {
                 enemyAnim.SetFloat("X", -1.0f);
-                enemyAnim.SetFloat("Y", 0.0f);
+                enemyAnim.SetFloat("Y", miny);
             }
             else
             {
                 enemyAnim.SetFloat("X", 1.0f);
-                enemyAnim.SetFloat("Y", 0.0f);
+                enemyAnim.SetFloat("Y", miny);
             }
         }
     }
