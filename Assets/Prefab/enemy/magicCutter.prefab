@@ -264,6 +264,7 @@ MonoBehaviour:
   isAttackTime: 2
   xp: 10
   longAt: 1
+  LongAtPos: {x: 0, y: 0}
   kinsetuAt: 0
   multiAt: 3
   multiAttime: 0.5
@@ -435,11 +436,11 @@ MonoBehaviour:
   dropItem:
   - {fileID: 7352195759069961805, guid: 44cab840aa77c3f499af8fd7bc9a11a1, type: 3}
   - {fileID: 4303788248663995360, guid: 47c5974218bbca4428fb8556e3fbae10, type: 3}
-  dropP: 3200000005000000
-  max: 100
+  dropP: f401000005000000
+  max: 1000
 --- !u!95 &464250308816581068
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -456,7 +457,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &7038297837491751281
 MonoBehaviour:
   m_ObjectHideFlags: 0
