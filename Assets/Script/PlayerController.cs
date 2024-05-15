@@ -10,7 +10,9 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField,Tooltip("移動速度")] 
     private int moveSpeed;
-    
+    [HideInInspector]
+    public bool isWater=false;
+    private float WaterMove = 0.5f;
     
 
     //[SerializeField]
@@ -51,7 +53,7 @@ public class PlayerController : MonoBehaviour
     private float avoidTime=0.2f;
     private float avoidCounter;
     private float avoidForce = 20f;
-    private float avoidDistime = 0.5f;
+    private float avoidDistime = 0.8f;
     private float avoidDisCounter;
     private float avoidEffectTime = 0.05f;
     private float avoidEffectCounter;
@@ -103,6 +105,7 @@ public class PlayerController : MonoBehaviour
     private float GameOverCounter;
     public AudioClip deadclip;
     public AudioClip avoidclip;
+
 
     public GameObject shadowobj;
     public GameObject WaterMask;
@@ -219,6 +222,7 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.UpdateXPUI();
         ShotManager=GetComponent<PlayerShotManager>();
         GameManager.instance.inventoryUI.UpdateShortCutInventoryUI(ShortCut);
+        isWater = false;
     }
 
     private void SetPlayerInstance()
@@ -363,6 +367,7 @@ public class PlayerController : MonoBehaviour
             case NS.avoid:
                 avoidCounter -= Time.deltaTime;
                 rb.velocity = avoidForce * avoidDir;
+                if (isWater) rb.velocity = avoidForce * avoidDir*WaterMove;
                 if (avoidCounter <= 0) changeNS(NS.free);
                 avoidEffectCounter -= Time.deltaTime;
                 if (avoidEffectCounter > 0) return;
@@ -437,6 +442,13 @@ public class PlayerController : MonoBehaviour
             GameObject termPanel = Instantiate(GameManager.instance.BuffPanel);
             termPanel.transform.SetParent(GameManager.instance.BuffContainer.transform, false);
             termPanel.transform.GetChild(1).GetComponent<Text>().text = (attackCounter).ToString("F1");
+        }
+        if (avoidDisCounter > 0)
+        {
+            GameObject termPanel = Instantiate(GameManager.instance.BuffPanel);
+            termPanel.transform.SetParent(GameManager.instance.BuffContainer.transform, false);
+            termPanel.transform.GetChild(0).GetComponent<Image>().sprite = GameManager.instance.AvoidCooltimeImage;
+            termPanel.transform.GetChild(1).GetComponent<Text>().text = (avoidDisCounter).ToString("F1");
         }
 
 
@@ -687,7 +699,7 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * moveSpeed;
-
+        if(isWater) rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * moveSpeed*WaterMove;
         if (rb.velocity != Vector2.zero)
         {
             playerAnim.SetBool("IsMove", true);

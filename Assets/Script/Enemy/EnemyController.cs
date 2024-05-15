@@ -76,7 +76,7 @@ public class EnemyController : MonoBehaviour
     private Animator dirAnim;
     private Animator zanzouAnim;
 
-    float mutekiT = 0.1f;
+    float mutekiT = 0.3f;
     float mutekiC = 0;
     public enum EnemyState
     {

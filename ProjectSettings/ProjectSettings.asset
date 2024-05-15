@@ -753,11 +753,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 
+  cloudProjectId: 4f72b858-3be4-4661-aec9-e7dd104197e7
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: FinalSword2d
+  organizationId: nandaina
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 

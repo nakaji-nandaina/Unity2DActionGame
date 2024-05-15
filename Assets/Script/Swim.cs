@@ -12,6 +12,7 @@ public class Swim : MonoBehaviour
             Debug.LogError("êÖ");
             GameManager.instance.Player.shadowobj.SetActive(false);
             GameManager.instance.Player.WaterMask.SetActive(true);
+            GameManager.instance.Player.isWater = true;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -20,6 +21,7 @@ public class Swim : MonoBehaviour
         {
             GameManager.instance.Player.shadowobj.SetActive(true);
             GameManager.instance.Player.WaterMask.SetActive(false);
+            GameManager.instance.Player.isWater = false;
         }
     }
 
