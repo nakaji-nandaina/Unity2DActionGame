@@ -26,7 +26,8 @@ public class Coin : MonoBehaviour
         if (collision.tag == "Player")
         {
             coinanim.SetTrigger("Got");
-            if(this.gameObject.transform.Find("coinしんぼる"))Destroy(this.gameObject.transform.Find("coinしんぼる").gameObject);
+            if (this.gameObject.transform.Find("coinしんぼる")) Destroy(this.gameObject.transform.Find("coinしんぼる").gameObject);
+            if (this.gameObject.transform.Find("shadow")) Destroy(this.gameObject.transform.Find("shadow").gameObject);
             rb.AddForce(Vector2.up*0.1f);
             GameManager.instance.PlayAudio(clips[0]);
             GameManager.instance.UpdateMoneyUI(moneyValue+GameManager.currentMoney);

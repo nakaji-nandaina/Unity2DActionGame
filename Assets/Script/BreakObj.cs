@@ -17,6 +17,7 @@ public class BreakObj : MonoBehaviour
     [SerializeField]
     private bool isDrop=false;
     private DropItem dropitem;
+    private GameObject shadow;
 
     [SerializeField]
     private Item parts;
@@ -44,7 +45,12 @@ public class BreakObj : MonoBehaviour
             child.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
             //child.gameObject.transform.position = Vector2.zero;
             // 子要素リストにパーツを追加
-            if (child.gameObject.tag == "NoBreak") continue;
+            if (child.gameObject.tag == "NoBreak"|| child.gameObject.name == "Area") continue;
+            if (child.gameObject.tag == "Shadow")
+            {
+                shadow = child.gameObject;
+                continue;
+            }
             myParts.Add(child.gameObject);
 
         }
@@ -65,7 +71,7 @@ public class BreakObj : MonoBehaviour
                     obj.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
                     obj.GetComponent<Rigidbody2D>().angularVelocity = 0.0f;
                     obj.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                    if (this.gameObject.tag == "Enemy" && obj.gameObject.name != "Area" &&obj.gameObject.tag!="NoBreak")
+                    if (this.gameObject.tag == "Enemy" )
                     {
                         obj.gameObject.AddComponent<AbsorbParts>();
                         obj.gameObject.GetComponent<AbsorbParts>().parts = parts;
@@ -120,6 +126,7 @@ public class BreakObj : MonoBehaviour
         this.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
         Destroy(this.GetComponent<BoxCollider2D>());
         Destroy(this.GetComponent<EnemyController>());
+        if (shadow != null) Destroy(shadow);
         IsBreak = true;
         BreakTime = 1.8f;
         miniTime = 0.7f;

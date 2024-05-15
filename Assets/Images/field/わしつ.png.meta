@@ -3,7 +3,7 @@ guid: 074bf2b602ee740429e5de107dab9f3d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -43,7 +43,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -486,22 +487,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\u308F\u3057\u3064_7": 990392358
-      "\u308F\u3057\u3064_5": -252542594
-      "\u308F\u3057\u3064_12": 1193154086
-      "\u308F\u3057\u3064_15": 1386534650
-      "\u308F\u3057\u3064_14": 1542773591
-      "\u308F\u3057\u3064_11": -120715615
-      "\u308F\u3057\u3064_4": -1581301192
       "\u308F\u3057\u3064_0": 474445655
       "\u308F\u3057\u3064_1": -823186576
-      "\u308F\u3057\u3064_6": 783786540
-      "\u308F\u3057\u3064_8": 688864252
-      "\u308F\u3057\u3064_9": -1347366958
+      "\u308F\u3057\u3064_10": 2018960344
+      "\u308F\u3057\u3064_11": -120715615
+      "\u308F\u3057\u3064_12": 1193154086
+      "\u308F\u3057\u3064_13": -1933529108
+      "\u308F\u3057\u3064_14": 1542773591
+      "\u308F\u3057\u3064_15": 1386534650
       "\u308F\u3057\u3064_2": 360182220
       "\u308F\u3057\u3064_3": -2075623639
-      "\u308F\u3057\u3064_10": 2018960344
-      "\u308F\u3057\u3064_13": -1933529108
+      "\u308F\u3057\u3064_4": -1581301192
+      "\u308F\u3057\u3064_5": -252542594
+      "\u308F\u3057\u3064_6": 783786540
+      "\u308F\u3057\u3064_7": 990392358
+      "\u308F\u3057\u3064_8": 688864252
+      "\u308F\u3057\u3064_9": -1347366958
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

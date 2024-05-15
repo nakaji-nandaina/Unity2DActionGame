@@ -33,5 +33,8 @@ public class WeaponData : ScriptableObject
     public AudioClip HitSound;
     //武器のオブジェクト
     public GameObject shot;
+    //武器の説明
+    [Multiline(5)]
+    public String Explane;
     
 }

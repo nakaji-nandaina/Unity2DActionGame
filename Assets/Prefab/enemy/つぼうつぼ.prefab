@@ -1026,7 +1026,7 @@ MonoBehaviour:
   attackObj: {fileID: 498310258629117951, guid: e4a5e55eed0e86143a4c40d2f0f7b7b6,
     type: 3}
   area: {fileID: 2559581698027080161}
-  currentHealth: 50
+  currentHealth: 100
   knockBackTime: 0.1
   knockBackForce: 4
   ES: 0
@@ -1195,7 +1195,7 @@ MonoBehaviour:
   max: 100
 --- !u!95 &5669952181528779387
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1212,7 +1212,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &2986978172127503046
 MonoBehaviour:
   m_ObjectHideFlags: 0

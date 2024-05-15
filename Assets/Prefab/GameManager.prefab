@@ -70,6 +70,7 @@ MonoBehaviour:
   Isdialog: 0
   NormalDialog: 0
   SceneSlide: {fileID: 0}
+  Impulse: {fileID: 0}
   talkdot: {fileID: 8300000, guid: cde1d21650281a34c8b3816347515fe6, type: 3}
   clips:
   - {fileID: 8300000, guid: ed16982d8033a114ba47a720c09207df, type: 3}
@@ -86,6 +87,7 @@ MonoBehaviour:
     type: 3}
   AttackUpImage: {fileID: 21300000, guid: 2f1a7f3fdd0e05d41a322ee3229d1241, type: 3}
   DiffenceUpImage: {fileID: 21300000, guid: e6594f7f70b235443a210b07eaa5eabe, type: 3}
+  AvoidCooltimeImage: {fileID: 21300000, guid: 2e6a53021491178489183e259851107a, type: 3}
   nextPointUI: {fileID: 0}
   nextPoint: {x: 0, y: 0}
   inventoryUI: {fileID: 0}
@@ -282,35 +284,6 @@ MonoBehaviour:
   m_ShadowIntensity: 0.75
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
-  m_Vertices:
-  - position: {x: 0.9985302, y: 0.9985302, z: 0}
-    color: {r: 0.70710677, g: 0.70710677, b: 0, a: 0}
-    uv: {x: 0, y: 0}
-  - position: {x: 0.9985302, y: 0.9985302, z: 0}
-    color: {r: 0, g: 0, b: 0, a: 1}
-    uv: {x: 0, y: 0}
-  - position: {x: -0.9985302, y: 0.9985302, z: 0}
-    color: {r: -0.70710677, g: 0.70710677, b: 0, a: 0}
-    uv: {x: 0, y: 0}
-  - position: {x: -0.9985302, y: 0.9985302, z: 0}
-    color: {r: 0, g: 0, b: 0, a: 1}
-    uv: {x: 0, y: 0}
-  - position: {x: -0.99853003, y: -0.9985304, z: 0}
-    color: {r: -0.70710665, g: -0.7071069, b: 0, a: 0}
-    uv: {x: 0, y: 0}
-  - position: {x: -0.99853003, y: -0.9985304, z: 0}
-    color: {r: 0, g: 0, b: 0, a: 1}
-    uv: {x: 0, y: 0}
-  - position: {x: 0.99853003, y: -0.9985304, z: 0}
-    color: {r: 0.70710665, g: -0.7071069, b: 0, a: 0}
-    uv: {x: 0, y: 0}
-  - position: {x: 0.99853003, y: -0.9985304, z: 0}
-    color: {r: 0, g: 0, b: 0, a: 1}
-    uv: {x: 0, y: 0}
-  - position: {x: 0, y: 0, z: 0}
-    color: {r: 0, g: 0, b: 0, a: 1}
-    uv: {x: 0, y: 0}
-  m_Triangles: 030001000800020000000100030002000100050003000800040002000300050004000300070005000800060004000500070006000500010007000800000006000700010000000700
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
@@ -372,3 +345,4 @@ MonoBehaviour:
   AcceptStamp: {fileID: 0}
   CloseButton: {fileID: 0}
   AcceptButton: {fileID: 0}
+  StampSE: {fileID: 0}

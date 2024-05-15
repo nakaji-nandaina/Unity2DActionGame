@@ -13,6 +13,7 @@ public class WeaponPouchUI : MonoBehaviour
     //右側に表示する選択中のアイテムの説明
     public Image selectedImage;
     public Text selectedExplane;
+    public Text selectedBackExplane;
     public Text selectedName;
     //左側に表示する装備中の武器と変更後の武器
     public Image currentWeaponImage;
@@ -53,6 +54,7 @@ public class WeaponPouchUI : MonoBehaviour
         if (GameManager.instance.Player.weaponPouch.Pouch[selectedWeapon].penetrate) selectedExplane.text += "貫通攻撃\n";
         if (GameManager.instance.Player.weaponPouch.Pouch[selectedWeapon].nagaoshi) selectedExplane.text += "連続攻撃\n";
         if (GameManager.instance.Player.weaponPouch.Pouch[selectedWeapon].cursor) selectedExplane.text += "操作可能\n";
+        selectedBackExplane.text = GameManager.instance.Player.weaponPouch.Pouch[num].Explane;
     }
     
     public void UpdateWeaponPouchUI(WeaponPouch weaponPouch)

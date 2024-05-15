@@ -127,6 +127,8 @@ public class GameManager : MonoBehaviour
     public Sprite AttackUpImage;
     [Tooltip("攻撃バフ画像")]
     public Sprite DiffenceUpImage;
+    [Tooltip("回避画像")]
+    public Sprite AvoidCooltimeImage;
 
     //ミニマップ階段位置表示
     public GameObject nextPointUI;

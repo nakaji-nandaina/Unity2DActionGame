@@ -3,7 +3,7 @@ guid: 478fc481bc4379148b4cb4794223df6d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -43,7 +43,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -486,22 +487,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_14": 1980700411
-      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_6": -22622686
-      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_3": 1047120195
-      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_8": 253309971
-      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_9": 49045029
-      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_1": -666534497
-      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_13": -849368402
-      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_12": 584162274
-      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_7": 1695688482
-      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_15": -502788928
       "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_0": -400970293
+      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_1": -666534497
       "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_10": 1363536783
+      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_11": -344370359
+      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_12": 584162274
+      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_13": -849368402
+      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_14": 1980700411
+      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_15": -502788928
+      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_2": 1681531586
+      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_3": 1047120195
       "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_4": 1783375300
       "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_5": 1363286874
-      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_2": 1681531586
-      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_11": -344370359
+      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_6": -22622686
+      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_7": 1695688482
+      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_8": 253309971
+      "\u3064\u3061\u3075\u3043\u30FC\u308B\u3069_9": 49045029
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
