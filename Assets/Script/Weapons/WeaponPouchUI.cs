@@ -53,6 +53,7 @@ public class WeaponPouchUI : MonoBehaviour
         selectedExplane.text += "‚è‚ë[‚Ç‚¶‚©‚ñ@@" + GameManager.instance.Player.weaponPouch.Pouch[num].DisTime.ToString("F1") + "\n";
         if (GameManager.instance.Player.weaponPouch.Pouch[selectedWeapon].penetrate) selectedExplane.text += "ŠÑ’ÊUŒ‚\n";
         if (GameManager.instance.Player.weaponPouch.Pouch[selectedWeapon].nagaoshi) selectedExplane.text += "˜A‘±UŒ‚\n";
+        if (GameManager.instance.Player.weaponPouch.Pouch[selectedWeapon].bakuhatu) selectedExplane.text += "”š”jUŒ‚\n";
         if (GameManager.instance.Player.weaponPouch.Pouch[selectedWeapon].cursor) selectedExplane.text += "‘€ì‰Â”\\n";
         selectedBackExplane.text = GameManager.instance.Player.weaponPouch.Pouch[num].Explane;
     }

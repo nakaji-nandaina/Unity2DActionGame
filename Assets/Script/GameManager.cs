@@ -140,9 +140,13 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public WeaponPouchUI weaponUI;
     [HideInInspector]
+    public WeaponStore weaponStore;
+    [HideInInspector]
     public QuestUI questUI;
     [HideInInspector]
     public QuestBoard questBoard;
+    [HideInInspector]
+    public NoticeUI pulldownNotice;
 
     public GameObject[] shortcutButtons;
 
@@ -228,8 +232,10 @@ public class GameManager : MonoBehaviour
         DialogFuncName = "NullReturn";
         inventoryUI = GetComponent<InventoryUI>();
         weaponUI = GetComponent<WeaponPouchUI>();
+        weaponStore = GetComponent<WeaponStore>();
         questUI = GetComponent<QuestUI>();
         questBoard = GetComponent<QuestBoard>();
+        pulldownNotice = GetComponent<NoticeUI>();
         settingLight();
         settingNextPoint();
     }
@@ -303,27 +309,26 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case DialogState.conv:
-                if (Input.GetMouseButtonUp(0))
+                if (!Input.GetMouseButtonUp(0)) return;
+                currentLine++;
+                Debug.LogError("Next");
+                if (currentLine >= dialogLines.Length && !Choice)
                 {
-                    currentLine++;
-                    Debug.LogError("Next");
-                    if (currentLine >= dialogLines.Length && !Choice)
-                    {
-                        changeDs(DialogState.wait);
-                        Invoke(DialogFuncName, 0);
-                        DialogFuncName = "NullReturn";
-                        Debug.LogError("Stop");
-                    }
-                    else if (currentLine >= dialogLines.Length && Choice)
-                    {
-                        changeDs(DialogState.choice);
-                    }
-                    else
-                    {
-                        changeDs(DialogState.write);
-                        //dialogText.text = dialogLines[currentLine];
-                    }
+                    changeDs(DialogState.wait);
+                    Invoke(DialogFuncName, 0);
+                    DialogFuncName = "NullReturn";
+                    Debug.LogError("Stop");
                 }
+                else if (currentLine >= dialogLines.Length && Choice)
+                {
+                    changeDs(DialogState.choice);
+                }
+                else
+                {
+                    changeDs(DialogState.write);
+                    //dialogText.text = dialogLines[currentLine];
+                }
+         
                 break;
             case DialogState.choice:
                 if (Input.GetMouseButtonUp(0))
@@ -339,7 +344,6 @@ public class GameManager : MonoBehaviour
                         dialogLines = yesDialogLines;
                         currentLine = 0;
                         writingSpeed = writingDef;
-                        //StartCoroutine(IEWrite(dialogLines[currentLine]));
                         changeDs(DialogState.write);
                         Invoke(DialogYesFuncName, 0);
                         DialogYesFuncName = "NullReturn";
@@ -354,7 +358,6 @@ public class GameManager : MonoBehaviour
                         dialogLines = noDialogLines;
                         currentLine = 0;
                         writingSpeed = writingDef;
-                        //StartCoroutine(IEWrite(dialogLines[currentLine]));
                         changeDs(DialogState.write);
                         Invoke(DialogNoFuncName, 0);
                         DialogFuncName = "NullReturn";
@@ -434,17 +437,10 @@ public class GameManager : MonoBehaviour
 
 
     public void ShowDialog(string[] lines, string Name, bool yesno, string[] YesLines, string[] NoLines, GameObject target, string funcName,string YesfuncName,string NofuncName)
-    {
-        //NormalDialog = true;
-        
+    {   
         dialogText.text = "";
         dialogLines = lines;
-        currentLine = 0;
-        /***
-        writingSpeed = writingDef;
-        StartCoroutine(IEWrite(dialogLines[currentLine]));
-        ***/
-        //dialogText.text = dialogLines[currentLine];
+        currentLine = 0;  
         dialogBox.SetActive(true);
         if (Name != "")
         {

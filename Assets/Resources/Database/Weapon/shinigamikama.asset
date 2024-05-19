@@ -22,7 +22,7 @@ MonoBehaviour:
   yumi: 0
   bakuhatu: 0
   nagaoshi: 0
-  ImgWeapon: {fileID: 21300000, guid: db8460cc0b1c3494794b8d1b5f56fd16, type: 3}
+  ImgWeapon: {fileID: 21300000, guid: 6f2662b1422370346ad832dcab216704, type: 3}
   Icon: {fileID: 21300000, guid: d8d65c331edb4bb4cbeef2ccffe2fb5e, type: 3}
   At: 100
   KbForce: 2
