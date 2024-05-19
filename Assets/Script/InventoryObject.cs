@@ -6,6 +6,11 @@ public class InventoryObject: ScriptableObject
 {
     [Header("持ち物")]
     public List<InventorySlot> Container = new List<InventorySlot>();
+    
+    /*アイテムの追加処理
+    すでにインベントリに存在するなら数を増やし、存在しないならば新たにアイテムを追加する
+    ショートカットと同期する
+    */
     public int AddItem(Item _item, int _amount)
     {
         bool hasItem = false;
@@ -114,7 +119,6 @@ public class InventoryObject: ScriptableObject
 
     public void SetInitiateShortcut(List<int> ids, DataBase dataBase)
     {
-        //Container = new List<InventorySlot>();
         for (int i = 0; i < ids.Count; i++)
         {
             Item item = dataBase.GetItemData(ids[i]);

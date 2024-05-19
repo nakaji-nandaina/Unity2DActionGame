@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     private float WaterMove = 0.5f;
     
 
-    //[SerializeField]
     public Animator playerAnim;
 
     public Rigidbody2D rb;
@@ -125,6 +124,7 @@ public class PlayerController : MonoBehaviour
         conversation,
         inventory,
         weapon,
+        craftWeapon,
         quest,
         questBoard,
         dead,
@@ -150,6 +150,10 @@ public class PlayerController : MonoBehaviour
                 ps = nextState;
                 break;
             case PS.weapon:
+                rb.velocity = Vector2.zero;
+                ps = nextState;
+                break;
+            case PS.craftWeapon:
                 rb.velocity = Vector2.zero;
                 ps = nextState;
                 break;
@@ -284,7 +288,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+  
     void Update()
     {
         //weaponHolder.transform.localEulerAngles =new Vector3(0,0,90);
@@ -315,6 +319,12 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.O) || Input.GetKeyDown(KeyCode.Escape))
                 {
                     CloseWeaponPouch();
+                }
+                break;
+            case PS.craftWeapon:
+                if (Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.Escape))
+                {
+                    CloseWeaponCraft();
                 }
                 break;
             case PS.quest:
@@ -385,12 +395,9 @@ public class PlayerController : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.O))SavePlayer();
         //if (Input.GetKeyDown(KeyCode.L))LoadPlayer();
         if (Input.GetKeyDown(KeyCode.O)) OpenWeaponPouch();
+        if (Input.GetKeyDown(KeyCode.M)) OpenWeaponCraft();
         if (Input.GetKeyDown(KeyCode.I)) OpenInventory();
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            OpenQuestUI();
-            //orderQuest.CompleteQuests();
-        }
+        if (Input.GetKeyDown(KeyCode.J)) OpenQuestUI();
         if (Input.GetKeyDown(KeyCode.K)) OpenQuestBoard();
         TBuffPeriod();
     }
@@ -399,7 +406,6 @@ public class PlayerController : MonoBehaviour
     {
         for(int i = 0; i < tbuffs.Count; i++)
         {
-            //Debug.LogError(tbuffs[i].bufftype);
             tbuffs[i].bufftime -= Time.deltaTime;
             if (tbuffs[i].bufftime > 0) continue;
             switch (tbuffs[i].bufftype) {
@@ -500,7 +506,17 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.instance.inventoryUI.useItem(inventory);
     }
-
+    public void OpenWeaponCraft()
+    {
+        GameManager.instance.weaponStore.weaponStorePanel.SetActive(true);
+        GameManager.instance.weaponStore.MakeWeaponUIUpdate();
+        changePS(PS.craftWeapon);
+    }
+    public void CloseWeaponCraft()
+    {
+        GameManager.instance.weaponStore.weaponStorePanel.SetActive(false);
+        changePS(PS.normal);
+    }
 
     public void OpenInventory()
     {
@@ -813,7 +829,6 @@ public class PlayerController : MonoBehaviour
             weaponObj.GetComponent<BoxCollider2D>().enabled = false;
             weaponObj.transform.localPosition = new Vector2(0, 0.8f);
             ShotManager.ShotAttack(this.transform.position, attackDir, weapon.shot, at, kbforce,weapon);
-           
         }
     }
 }

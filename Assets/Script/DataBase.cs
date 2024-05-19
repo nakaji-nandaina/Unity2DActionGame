@@ -7,6 +7,7 @@ using UnityEngine;
 public class DataBase : ScriptableObject
 {
     public List<Item> itemDatabase = new List<Item>();
+    public List<Recipe> recipeDatabase = new List<Recipe>();
     public List<Status> playerLvDatabase = new List<Status> ();
     public List<Skill> skillDatabase = new List<Skill>();
     public List<Enemy> enemyDatabase = new List<Enemy>();
@@ -49,6 +50,7 @@ public class DataBase : ScriptableObject
         }
         return -1;
     }
+
 
     public Item GetItemData(int id)
     {

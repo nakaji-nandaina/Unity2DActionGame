@@ -39,6 +39,7 @@ public class AbsorbParts : MonoBehaviour
         {
             if (parts){
                 collision.gameObject.GetComponent<PlayerController>().inventory.AddItem(parts, 1);
+                GameManager.instance.pulldownNotice.AddItem(parts);
                 //EditorUtility.SetDirty(collision.gameObject.GetComponent<PlayerController>().inventory);
             }
             Destroy(this.gameObject);
