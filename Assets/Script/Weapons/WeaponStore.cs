@@ -120,6 +120,11 @@ public class WeaponStore : MonoBehaviour
     {
         if (GameManager.instance.Player.weaponPouch.max <= GameManager.instance.Player.weaponPouch.Pouch.Count) return;
         GameManager.instance.Player.weaponPouch.AddWeapon(ViewRecipeList[currentRecipeNum].CraftedWeapon);
+        for(int i = 0; i < ViewRecipeList[currentRecipeNum].materials.Count; i++)
+        {
+            GameManager.instance.Player.inventory.UsedItem(ViewRecipeList[currentRecipeNum].materials[i].item, ViewRecipeList[currentRecipeNum].materials[i].num);
+        }
+        GameManager.instance.UpdateMoneyUI(GameManager.currentMoney-ViewRecipeList[currentRecipeNum].cost);
         MakeWeaponUIUpdate();
     }
 

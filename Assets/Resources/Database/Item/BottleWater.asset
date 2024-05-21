@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98dacdd6af7b1a940a58386d2ab7402f, type: 3}
-  m_Name: BottleFire
+  m_Name: BottleWater
   m_EditorClassIdentifier: 
-  itemname: "\u304B\u3048\u3093\u3073\u3093"
+  itemname: "\u307F\u305A\u3044\u308A\u3073\u3093"
   type: 1
-  information: "\u3072\u306E\u3000\u305B\u3044\u308C\u3044\u304C\u3000\n\u306F\u3044\u3063\u305F\u3073\u3093\u3002\n\n\u305B\u3044\u308C\u3044\u304C\u3000\u304A\u3053\u308B\u3068\n\u3081\u3061\u3083\u304F\u3061\u3083\u3042\u3064\u304F\u306A\u308B\u3002"
+  information: "\u307F\u305A\u304C\u306F\u3044\u3063\u305F\u3073\u3093\u3002\n\u305F\u3060\u306E\u307F\u305A\u3000\u3058\u3083\u306A\u3044\u3088\n\u3066\u3093\u306D\u3093\u3059\u3044\u3000\u3060\u3088\u3002"
   itemObj: {fileID: 0}
-  itemIcon: {fileID: 21300000, guid: e05247844e456144f8dc8ea2762b56ca, type: 3}
+  itemIcon: {fileID: 21300000, guid: 0a4e59d0781a1f8458105c614ce29807, type: 3}

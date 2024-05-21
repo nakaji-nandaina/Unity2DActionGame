@@ -58,6 +58,7 @@ public class NoticeUI : MonoBehaviour
         }
         for (int i= 0; i < pulldownView.transform.childCount; i++)
         {
+            if (getItems.Count <= i) break;
             GameObject getpanel = pulldownView.transform.GetChild(i).gameObject;
             getpanel.transform.GetChild(1).GetComponent<Image>().sprite = getItems[i].item.itemIcon;
             getpanel.transform.GetChild(0).GetComponent<Text>().text = "Å~"+getItems[i].count.ToString()+" Ç©Ç≠Ç∆Ç≠";
