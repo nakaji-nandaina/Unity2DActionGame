@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShinigamiKama
   m_EditorClassIdentifier: 
   materials:
-  - item: {fileID: 11400000, guid: b999e2e0e4e131243b5600e0e2d92b63, type: 2}
+  - item: {fileID: 11400000, guid: fc0f4db49db1a8244a06fa76b49aa433, type: 2}
     num: 5
   - item: {fileID: 11400000, guid: a997588cc7b0bc343ab716568fbf16b1, type: 2}
     num: 2
