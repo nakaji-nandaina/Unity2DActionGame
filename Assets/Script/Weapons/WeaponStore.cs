@@ -9,13 +9,34 @@ public class WeaponStore : MonoBehaviour
     public GameObject weaponStoreScrollView;
     public GameObject weaponViewButton;
     public GameObject weaponMakeButton;
+    public GameObject weaponMakingAnimPanel;
     public Image weaponIcon;
+    public Image makingIcon;
     public Text weaponNameText;
     public Text weaponMaterialsText;
     public Text weaponDetailText;
 
+    public AudioClip makingClip;
+
     List<WeaponRecipe> ViewRecipeList;
     public int currentRecipeNum;
+
+    private float makingTime, makingCount;
+
+    private void Start()
+    {
+        makingTime = 3f;
+        makingCount = makingTime;
+    }
+    private void Update()
+    {
+        makingCount -= Time.deltaTime;
+        if (makingCount <= 0)
+        {
+            makingCount = 0;
+            weaponMakingAnimPanel.SetActive(false);
+        }
+    }
 
     //•Ší¶ŽY‚ÌUI‚ðXV‚·‚éi‰Šú‰»Žž‚â•Ší¶ŽYŽž‚ÉŒÄ‚Î‚ê‚éj
     public void MakeWeaponUIUpdate()
@@ -120,7 +141,16 @@ public class WeaponStore : MonoBehaviour
     {
         if (GameManager.instance.Player.weaponPouch.max <= GameManager.instance.Player.weaponPouch.Pouch.Count) return;
         GameManager.instance.Player.weaponPouch.AddWeapon(ViewRecipeList[currentRecipeNum].CraftedWeapon);
+        for(int i = 0; i < ViewRecipeList[currentRecipeNum].materials.Count; i++)
+        {
+            GameManager.instance.Player.inventory.UsedItem(ViewRecipeList[currentRecipeNum].materials[i].item, ViewRecipeList[currentRecipeNum].materials[i].num);
+        }
+        GameManager.instance.UpdateMoneyUI(GameManager.currentMoney-ViewRecipeList[currentRecipeNum].cost);
+        makingIcon.sprite = ViewRecipeList[currentRecipeNum].CraftedWeapon.Icon;
         MakeWeaponUIUpdate();
+        //weaponMakingAnimPanel.SetActive(true);
+        makingCount = makingTime;
+        GameManager.instance.PlayAudio(makingClip);
     }
 
 }

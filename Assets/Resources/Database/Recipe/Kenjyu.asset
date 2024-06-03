@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materials:
   - item: {fileID: 11400000, guid: b999e2e0e4e131243b5600e0e2d92b63, type: 2}
-    num: 50
+    num: 1000
   CraftedWeapon: {fileID: 11400000, guid: 3b5a6f5cb33867e4eb4f0bdcb32c915d, type: 2}
   cost: 5000

@@ -1913,6 +1913,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 531716794501118830}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5039685993735562475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4796762611281010565, guid: 45d5137bcab81894fbdcc0d1b763c92a,
+    type: 3}
+  m_PrefabInstance: {fileID: 531716794501118830}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5483582090972055961 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5438256255259669239, guid: 45d5137bcab81894fbdcc0d1b763c92a,
@@ -1937,6 +1943,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 531716794501118830}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5628719429912007331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5295164317592168909, guid: 45d5137bcab81894fbdcc0d1b763c92a,
+    type: 3}
+  m_PrefabInstance: {fileID: 531716794501118830}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5653898262547868695 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5266862011257722745, guid: 45d5137bcab81894fbdcc0d1b763c92a,
@@ -2779,6 +2797,16 @@ PrefabInstance:
       objectReference: {fileID: 2781910428899247419}
     - target: {fileID: 5294475415287086480, guid: 3afc399c8c56b0a4299433d5cc1e01d2,
         type: 3}
+      propertyPath: makingClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 13382275b6f8d6c4a998b1ab6c33d3b8, type: 3}
+    - target: {fileID: 5294475415287086480, guid: 3afc399c8c56b0a4299433d5cc1e01d2,
+        type: 3}
+      propertyPath: makingIcon
+      value: 
+      objectReference: {fileID: 5628719429912007331}
+    - target: {fileID: 5294475415287086480, guid: 3afc399c8c56b0a4299433d5cc1e01d2,
+        type: 3}
       propertyPath: weaponIcon
       value: 
       objectReference: {fileID: 3597839930609919793}
@@ -2813,6 +2841,11 @@ PrefabInstance:
       propertyPath: weaponMaterialsText
       value: 
       objectReference: {fileID: 1309341570768355194}
+    - target: {fileID: 5294475415287086480, guid: 3afc399c8c56b0a4299433d5cc1e01d2,
+        type: 3}
+      propertyPath: weaponMakingAnimPanel
+      value: 
+      objectReference: {fileID: 5039685993735562475}
     - target: {fileID: 5294475415287086480, guid: 3afc399c8c56b0a4299433d5cc1e01d2,
         type: 3}
       propertyPath: weaponStoreScrollView

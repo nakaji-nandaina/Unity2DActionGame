@@ -21,9 +21,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c21d05a018ff0ff429fbecb48c5434a4, type: 2}
   - {fileID: 11400000, guid: d1c05473f52da7a4d9ed935edf63610e, type: 2}
   - {fileID: 11400000, guid: 5b13b95cef230cf4191071d5200a273d, type: 2}
+  - {fileID: 11400000, guid: 6af22755288acdb488606c0f6afab160, type: 2}
+  - {fileID: 11400000, guid: 94dd0711c14ffd94ebd32f1251ea56f0, type: 2}
+  - {fileID: 11400000, guid: fc0f4db49db1a8244a06fa76b49aa433, type: 2}
   recipeDatabase:
+  - {fileID: 11400000, guid: 0f4608ea50b866a449ffb6a49a28fd57, type: 2}
+  - {fileID: 11400000, guid: 4cc5e212666174a459ea7313a20ea0a4, type: 2}
   - {fileID: 11400000, guid: cc12046e280687940b7e2f9699dd5128, type: 2}
   - {fileID: 11400000, guid: 8e5866e7ba78c2f47a1dcae6f6e96c62, type: 2}
+  - {fileID: 11400000, guid: dc3eb18ab161cc24ab396c769821aebb, type: 2}
   playerLvDatabase:
   - {fileID: 11400000, guid: 5b2358cc7869d3946bfb4ecfbfdf373d, type: 2}
   - {fileID: 11400000, guid: 8c736d1d5d2385844b5570ac9dc06d6b, type: 2}
@@ -57,6 +63,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5dd871067c52c8446be990a50844c659, type: 2}
   - {fileID: 11400000, guid: 3f0260b58314ecc4da740d21f8183bc2, type: 2}
   - {fileID: 11400000, guid: 3b5a6f5cb33867e4eb4f0bdcb32c915d, type: 2}
+  - {fileID: 11400000, guid: 883d70f629d404441be7837a81fa5819, type: 2}
+  - {fileID: 11400000, guid: d166d6cc7ae578d409c1e984d5b5a77c, type: 2}
   questDatabase:
   - {fileID: 11400000, guid: 00934b3b7e3d4bd4abd28d9e193660bf, type: 2}
   - {fileID: 11400000, guid: 39f0de05c284554438b96dc5892e73fd, type: 2}

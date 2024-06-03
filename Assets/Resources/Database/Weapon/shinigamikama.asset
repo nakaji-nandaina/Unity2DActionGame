@@ -27,7 +27,7 @@ MonoBehaviour:
   At: 100
   KbForce: 2
   Speed: 10
-  DisTime: 1.2
+  DisTime: 5
   DestTime: 3
   ShotSound: {fileID: 8300000, guid: 9e8966e52b4780a4384c391263e6efea, type: 3}
   HitSound: {fileID: 8300000, guid: 6bbe4687eb55cb140be81161b2386683, type: 3}

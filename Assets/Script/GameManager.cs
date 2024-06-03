@@ -552,4 +552,9 @@ public class GameManager : MonoBehaviour
         player.changePS(PlayerController.PS.conversation);
         changeDs(DialogState.write);
     }
+
+    private void OpenCraftWeaponUI()
+    {
+        Player.OpenWeaponCraft();
+    }
 }
