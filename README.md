@@ -21,7 +21,8 @@
 <br>
 回復アイテム等の使用可能アイテムを選択した状態で、左下のショートカットをクリックすることで、ショートカットにアイテムをセットできます。
 <br>
-![Videotogif](https://github.com/nakaji-nandaina/Unity2DActionGame/issues/43)
+![アイテム選択](https://github.com/nakaji-nandaina/Unity2DActionGame/assets/65334953/0d696d64-bd94-46bb-9865-1d2a93413b86)
+
 ## 武器作成
 町の左下にいるピンク髪のNPCに話しかけることで、武器を作成できます。
 <br>
