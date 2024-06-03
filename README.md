@@ -20,7 +20,8 @@
 インベントリはIキーで開くことができます。
 <br>
 回復アイテム等の使用可能アイテムを選択した状態で、左下のショートカットをクリックすることで、ショートカットにアイテムをセットできます。
-![Videotogif (2)](https://github.com/nakaji-nandaina/Unity2DActionGame/issues/43)
+<br>
+![Videotogif](https://github.com/nakaji-nandaina/Unity2DActionGame/issues/43)
 ## 武器作成
 町の左下にいるピンク髪のNPCに話しかけることで、武器を作成できます。
 <br>
