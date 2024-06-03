@@ -2799,7 +2799,7 @@ PrefabInstance:
         type: 3}
       propertyPath: makingClip
       value: 
-      objectReference: {fileID: 8300000, guid: cffbca642dcc83044be95ee4250bd3bd, type: 3}
+      objectReference: {fileID: 8300000, guid: 13382275b6f8d6c4a998b1ab6c33d3b8, type: 3}
     - target: {fileID: 5294475415287086480, guid: 3afc399c8c56b0a4299433d5cc1e01d2,
         type: 3}
       propertyPath: makingIcon

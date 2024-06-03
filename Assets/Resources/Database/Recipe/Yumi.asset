@@ -10,12 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4897cfc0ce1a985488bfec0b19ecd525, type: 3}
-  m_Name: ShinigamiKama
+  m_Name: Yumi
   m_EditorClassIdentifier: 
-  materials:
-  - item: {fileID: 11400000, guid: fc0f4db49db1a8244a06fa76b49aa433, type: 2}
-    num: 150
-  - item: {fileID: 11400000, guid: a997588cc7b0bc343ab716568fbf16b1, type: 2}
-    num: 100
-  CraftedWeapon: {fileID: 11400000, guid: 4fc5810347e246e43be1837f368ab280, type: 2}
-  cost: 1500
+  materials: []
+  CraftedWeapon: {fileID: 11400000, guid: 883d70f629d404441be7837a81fa5819, type: 2}
+  cost: 500
