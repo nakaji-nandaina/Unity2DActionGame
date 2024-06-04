@@ -28,6 +28,7 @@ public class WeaponData : ScriptableObject
     public float Speed;
     public float DisTime;
     public float DestTime;
+    public float AnimTime=1;
     //Œø‰Ê‰¹
     public AudioClip ShotSound;
     public AudioClip HitSound;

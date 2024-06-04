@@ -395,10 +395,10 @@ public class PlayerController : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.O))SavePlayer();
         //if (Input.GetKeyDown(KeyCode.L))LoadPlayer();
         if (Input.GetKeyDown(KeyCode.O)) OpenWeaponPouch();
-        if (Input.GetKeyDown(KeyCode.M)) OpenWeaponCraft();
+        //if (Input.GetKeyDown(KeyCode.M)) OpenWeaponCraft();
         if (Input.GetKeyDown(KeyCode.I)) OpenInventory();
         if (Input.GetKeyDown(KeyCode.J)) OpenQuestUI();
-        if (Input.GetKeyDown(KeyCode.K)) OpenQuestBoard();
+        //if (Input.GetKeyDown(KeyCode.K)) OpenQuestBoard();
         TBuffPeriod();
     }
 
@@ -763,11 +763,15 @@ public class PlayerController : MonoBehaviour
             weaponAnim.applyRootMotion = false;
             weaponHolder.transform.localEulerAngles = new Vector3(0, 0, 0);
             attackTime = weapon.DisTime;
-            if (attackAnimTime > attackTime) attackAnimCounter = attackTime;
-            else attackAnimCounter = attackAnimTime;
+            attackAnimCounter = 100;
+            /*float tentativeAttackAnimTime = attackAnimTime / weapon.AnimTime;
+            if (tentativeAttackAnimTime > attackTime) attackAnimCounter = attackTime;
+            else attackAnimCounter = tentativeAttackAnimTime;*/
             //Debug.Log(attackDir);
             attackCounter = attackTime;
             playerAnim.SetTrigger("IsAttack");
+            weaponAnim.speed = weapon.AnimTime;
+            playerAnim.speed = 1f*weapon.AnimTime;
 
             if (attackDir.x < 0) weaponObj.gameObject.GetComponent<SpriteRenderer>().flipX = true;
             else weaponObj.gameObject.GetComponent<SpriteRenderer>().flipX = false;
@@ -830,5 +834,10 @@ public class PlayerController : MonoBehaviour
             weaponObj.transform.localPosition = new Vector2(0, 0.8f);
             ShotManager.ShotAttack(this.transform.position, attackDir, weapon.shot, at, kbforce,weapon);
         }
+    }
+    public void AnimSpeedReset()
+    {
+        playerAnim.speed = 1f;
+        attackAnimCounter = 0;
     }
 }

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a69b241bb55be744ad73125768b3a24, type: 3}
+  m_Name: BigSword
+  m_EditorClassIdentifier: 
+  Name: "\u3067\u304B\u3044\u3051\u3093"
+  delay: 0
+  chase: 0
+  penetrate: 0
+  cursor: 0
+  dasei: 0
+  kinsetu: 1
+  yumi: 0
+  bakuhatu: 0
+  nagaoshi: 0
+  ImgWeapon: {fileID: 21300000, guid: f45381c8433051144911223155483e83, type: 3}
+  Icon: {fileID: 21300000, guid: daaa0744b39390846977c2e76047ef8d, type: 3}
+  At: 20
+  KbForce: 50
+  Speed: 10
+  DisTime: 2
+  DestTime: 2
+  AnimTime: 0.5
+  ShotSound: {fileID: 8300000, guid: 9e8966e52b4780a4384c391263e6efea, type: 3}
+  HitSound: {fileID: 8300000, guid: 6bbe4687eb55cb140be81161b2386683, type: 3}
+  shot: {fileID: 2482943847549993309, guid: 99a954d21a92b6f4e8cf60c1e6d7a748, type: 3}
+  Explane: "\u3067\u304B\u304F\u3066\u3001\u3067\u304B\u3044\u3051\u3093\u3002\n\u3068\u306B\u304B\u304F\u3067\u304B\u3044\u3002\n"
