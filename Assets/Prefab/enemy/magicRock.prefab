@@ -656,7 +656,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fe3f918e23f8a1e41b546a7756922409, type: 3}
   area: {fileID: 5461747243834451623}
   isDrop: 1
-  parts: {fileID: 11400000, guid: a997588cc7b0bc343ab716568fbf16b1, type: 2}
+  parts: {fileID: 11400000, guid: 118b7b020b7b07b4ea0778c2eb238554, type: 2}
 --- !u!212 &2803144042118853944
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -737,6 +737,7 @@ MonoBehaviour:
   isAttackTime: 2
   xp: 10
   longAt: 1
+  LongAtPos: {x: 0, y: 0}
   kinsetuAt: 0
   multiAt: 5
   multiAttime: 0.5
@@ -911,7 +912,7 @@ MonoBehaviour:
   max: 100
 --- !u!95 &2803144042118853949
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -928,7 +929,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &4700230798321061248
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1243,7 +1243,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fe3f918e23f8a1e41b546a7756922409, type: 3}
   area: {fileID: 6045458822443111997}
   isDrop: 1
-  parts: {fileID: 11400000, guid: d1c05473f52da7a4d9ed935edf63610e, type: 2}
+  parts: {fileID: 11400000, guid: bd89a427af0c66a42bbaf64dcb352b97, type: 2}
 --- !u!212 &4525847476812285346
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1324,6 +1324,7 @@ MonoBehaviour:
   isAttackTime: 0
   xp: 10
   longAt: 0
+  LongAtPos: {x: 0, y: 0}
   kinsetuAt: 0
   multiAt: 1
   multiAttime: 1
@@ -1357,7 +1358,7 @@ Rigidbody2D:
   m_Constraints: 4
 --- !u!95 &4525847476812285351
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1374,7 +1375,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &4586827955662934171
 MonoBehaviour:
   m_ObjectHideFlags: 0
