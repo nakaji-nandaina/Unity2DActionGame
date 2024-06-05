@@ -2057,6 +2057,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 531716794501118830}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6987671793064507546 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7464782227335365620, guid: 45d5137bcab81894fbdcc0d1b763c92a,
+    type: 3}
+  m_PrefabInstance: {fileID: 531716794501118830}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6989072737479789007 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7466727644743119521, guid: 45d5137bcab81894fbdcc0d1b763c92a,
@@ -2810,6 +2816,11 @@ PrefabInstance:
       propertyPath: weaponIcon
       value: 
       objectReference: {fileID: 3597839930609919793}
+    - target: {fileID: 5294475415287086480, guid: 3afc399c8c56b0a4299433d5cc1e01d2,
+        type: 3}
+      propertyPath: fullTextObject
+      value: 
+      objectReference: {fileID: 6987671793064507546}
     - target: {fileID: 5294475415287086480, guid: 3afc399c8c56b0a4299433d5cc1e01d2,
         type: 3}
       propertyPath: weaponNameText
