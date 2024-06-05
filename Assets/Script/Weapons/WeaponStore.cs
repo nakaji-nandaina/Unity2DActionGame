@@ -10,6 +10,7 @@ public class WeaponStore : MonoBehaviour
     public GameObject weaponViewButton;
     public GameObject weaponMakeButton;
     public GameObject weaponMakingAnimPanel;
+    public GameObject fullTextObject; 
     public Image weaponIcon;
     public Image makingIcon;
     public Text weaponNameText;
@@ -85,6 +86,7 @@ public class WeaponStore : MonoBehaviour
         weaponDetailText.text = "こうげきりょく　0\nりろーどじかん　0\n";
         weaponMaterialsText.text = "";
         weaponMakeButton.SetActive(false);
+        fullTextObject.SetActive(false);
         weaponMakeButton.GetComponent<Button>().onClick.RemoveAllListeners();
         weaponMakeButton.GetComponent<Button>().onClick.AddListener(()=> { WeaponCraft(); });
     }
@@ -119,7 +121,7 @@ public class WeaponStore : MonoBehaviour
     {
         currentRecipeNum = idx;
         WeaponRecipe recipe = ViewRecipeList[currentRecipeNum];
-
+        fullTextObject.SetActive(false);
         weaponIcon.sprite = recipe.CraftedWeapon.Icon;
         weaponNameText.text = recipe.CraftedWeapon.Name;
         weaponDetailText.text = "こうげきりょく　" + recipe.CraftedWeapon.At+"\n";
@@ -139,7 +141,12 @@ public class WeaponStore : MonoBehaviour
 
     public void WeaponCraft()
     {
-        if (GameManager.instance.Player.weaponPouch.max <= GameManager.instance.Player.weaponPouch.Pouch.Count) return;
+        if (GameManager.instance.Player.weaponPouch.max <= GameManager.instance.Player.weaponPouch.Pouch.Count)
+        {
+            fullTextObject.SetActive(true);
+            return;
+        }
+
         GameManager.instance.Player.weaponPouch.AddWeapon(ViewRecipeList[currentRecipeNum].CraftedWeapon);
         for(int i = 0; i < ViewRecipeList[currentRecipeNum].materials.Count; i++)
         {
