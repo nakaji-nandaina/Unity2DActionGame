@@ -25,7 +25,7 @@ MonoBehaviour:
   ImgWeapon: {fileID: 21300000, guid: f45381c8433051144911223155483e83, type: 3}
   Icon: {fileID: 21300000, guid: daaa0744b39390846977c2e76047ef8d, type: 3}
   At: 20
-  KbForce: 50
+  KbForce: 30
   Speed: 10
   DisTime: 2
   DestTime: 2
