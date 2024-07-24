@@ -18,8 +18,10 @@ public class EventManager : MonoBehaviour
      */
 
     //event1用
-    public GameObject firstNPC;
-
+    [SerializeField]
+    private GameObject firstNPC;
+    [HideInInspector]
+    public GameObject FirstNPC; 
 
 
     void Awake()
@@ -53,17 +55,49 @@ public class EventManager : MonoBehaviour
         FinishedEventFlag[idx] = true;
     }
 
+    public IEnumerator PlayerWait(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        GameManager.instance.Player.changePS(PlayerController.PS.stop);
+    }
+    public IEnumerator PlayerNorm(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        GameManager.instance.Player.changePS(PlayerController.PS.normal);
+    }
+
+    //イベント#1 はじめてゲームをはじめた場合に衛兵がプレイヤーの前に現れ，会話が始まる
     public void FirstGameEvent()
     {
         setFinishedEventFlag(0);
-        StartCoroutine(FirstConv());
+        StartCoroutine(PlayerWait(0.1f));
+        StartCoroutine(FirstEventStart());
     }
 
-    //FirstGameEventから呼ばれてはじめてゲームをはじめた場合に衛兵がプレイヤーの前に現れ，会話が始まる
-    public IEnumerator FirstConv()
+    public void GoalEihei()
+    {
+        StartCoroutine(FirstConv());
+    }
+    public void EndEihei()
+    {
+        StartCoroutine(PlayerWait(0.1f));
+        StartCoroutine(PlayerNorm(2f));
+        List<int> x = new List<int>();
+        List<int> y = new List<int>();
+        x.Add(-19); x.Add(-19);y.Add(-22);y.Add(-6);
+        FirstNPC.GetComponent<EventNPC>().InitNPC(x,y,"DeleteNPC");
+    }
+    
+    public IEnumerator FirstEventStart()
     {
         yield return new WaitForSeconds(0.1f);
-        GameManager.instance.Player.changePS(PlayerController.PS.stop);
+        FirstNPC=Instantiate(firstNPC);
+        FirstNPC.transform.position =new Vector2(-19,-6);
+        Debug.LogError(FirstNPC);
+    }
+
+    public IEnumerator FirstConv()
+    {
         yield return new WaitForSeconds(1f);
         string[] lines=new string[2] { "こんにちは！そろそろ王様との謁見の時間になります!\nご準備ください", "それでは、よろしくおねがいします" };
         string CharName = "たろう";
