@@ -561,6 +561,6 @@ public class GameManager : MonoBehaviour
 
     private void FinishStartConv()
     {
-
+        eventManager.EndEihei();
     }
 }
