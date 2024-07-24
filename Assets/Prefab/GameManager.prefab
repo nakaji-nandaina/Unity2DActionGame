@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: 996746130601939089}
   - component: {fileID: 4561920784406021176}
   - component: {fileID: 5294475415287086480}
+  - component: {fileID: 1893524014398656725}
+  - component: {fileID: 4152649652340540131}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -94,10 +96,12 @@ MonoBehaviour:
   nextPoint: {x: 0, y: 0}
   inventoryUI: {fileID: 0}
   weaponUI: {fileID: 0}
+  weaponStore: {fileID: 0}
   questUI: {fileID: 0}
   questBoard: {fileID: 0}
   pulldownNotice: {fileID: 0}
   shortcutButtons: []
+  eventManager: {fileID: 1893524014398656725}
 --- !u!114 &8699797446048524044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,8 +384,36 @@ MonoBehaviour:
   weaponStoreScrollView: {fileID: 0}
   weaponViewButton: {fileID: 0}
   weaponMakeButton: {fileID: 0}
+  weaponMakingAnimPanel: {fileID: 0}
+  fullTextObject: {fileID: 0}
   weaponIcon: {fileID: 0}
+  makingIcon: {fileID: 0}
   weaponNameText: {fileID: 0}
   weaponMaterialsText: {fileID: 0}
   weaponDetailText: {fileID: 0}
+  makingClip: {fileID: 0}
   currentRecipeNum: 0
+--- !u!114 &1893524014398656725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9074385018434786010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da80967bb10385c469dddfd614eb7eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4152649652340540131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9074385018434786010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ad7cfccfa8e084fb49b80f08a772a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

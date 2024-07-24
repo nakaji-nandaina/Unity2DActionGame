@@ -150,6 +150,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] shortcutButtons;
 
+    //イベント関係
+    public EventManager eventManager;
+
 
     public PlayerController Player
     {
@@ -206,7 +209,6 @@ public class GameManager : MonoBehaviour
                 load = false;
                 player.LoadPlayer();
             }
-
         }
         else
         {
@@ -218,7 +220,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
         audioSource = GetComponent<AudioSource>();
         settingBGM();
         //Debug.LogError(GameObject.FindGameObjectWithTag("BGM"));
@@ -556,5 +557,10 @@ public class GameManager : MonoBehaviour
     private void OpenCraftWeaponUI()
     {
         Player.OpenWeaponCraft();
+    }
+
+    private void FinishStartConv()
+    {
+
     }
 }

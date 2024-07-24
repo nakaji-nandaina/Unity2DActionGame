@@ -486,7 +486,7 @@ public class PlayerController : MonoBehaviour
         if (avoidDisCounter > 0) return;
         if (attackAnimCounter > 0) return;
         if (rb.velocity.normalized == Vector2.zero) return;
-        if (!Input.GetKeyDown(KeyCode.LeftShift)) return;
+        if (!Input.GetKeyDown(KeyCode.Space)) return;
         avoidDir = rb.velocity.normalized;
         changeNS(NS.avoid);
         playerAnim.SetTrigger("IsAttack");
