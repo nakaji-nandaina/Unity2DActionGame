@@ -271,6 +271,7 @@ public class EnemyController : MonoBehaviour
             isAttackCounter -= Time.deltaTime;
             if(attackObj.GetComponent<EnemyWeapon>())ShotManager.EmemyShot(playerPos.position, (Vector2)this.gameObject.transform.position+LongAtPos, attackDir, attackObj,attackDamage);
             if(attackObj.GetComponent<EnemyFallWeapon>()) ShotManager.EnemySkyFall(playerPos.position, attackObj, attackDamage);
+            enemyAnim.SetBool("AtWait", true);
             if (multiAtcount <= 1) return;
             multiAtcount--;
             attackCounter = multiAttime;
@@ -279,6 +280,7 @@ public class EnemyController : MonoBehaviour
         }
         else if (isAttackCounter <= 0)
         {
+            enemyAnim.SetBool("AtWait", false);
             isAttackCounter = isAttackTime;
             multiAtcount = multiAt;
             attackCounter = attackTime;
