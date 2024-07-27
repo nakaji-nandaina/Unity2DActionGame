@@ -16,7 +16,7 @@
 ダンジョンで指定された数のモンスターを討伐したあと、
 受付嬢に話しかけることで、報酬を受け取ることができる。
 <br>
-<img src="https://github.com/user-attachments/assets/dfe67763-5f58-4336-a34f-ab914e5d9b5c" width="1600">
+<img src="https://github.com/user-attachments/assets/398efe7c-ec73-4f75-9da0-770aedcb1610" width="1600">
 
 ## 武器ポーチ
 購入したり、敵からドロップした武器は武器ポーチで装備することができます。
