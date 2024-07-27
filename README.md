@@ -10,7 +10,7 @@
 回避:SHIFTキー
 <br>
 ## クエスト
-![クエスト受注](https://github.com/user-attachments/assets/e8cbab80-9d88-422f-ae26-e3971f36608e)
+![クエスト受注](https://github.com/user-attachments/assets/dfe67763-5f58-4336-a34f-ab914e5d9b5c)
 主人公の家のすぐ上にあるクエストボードを調べることで、
 クエストを受注することができる。
 クエストは基本的に討伐依頼で
