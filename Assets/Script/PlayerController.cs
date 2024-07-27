@@ -583,6 +583,8 @@ public class PlayerController : MonoBehaviour
         questContent = database.GetQuestContent(orderQuest);
         PlayerStatus.GetInstance().ReStatus(currentXP, GameManager.currentMoney, currentLevel,itemId,shortcutId,itemAmount,skillId,skillLvs,weaponId,questId,questContent[0], questContent[1], questContent[2], mainWeapon);
         PlayerStatus.GetInstance().Save();
+        //イベント進行度の保存
+        GameManager.instance.SaveEventFlag();
         Debug.Log(PlayerStatus.GetInstance().currentLv);
     }
 
@@ -591,6 +593,9 @@ public class PlayerController : MonoBehaviour
         //Load
         PlayerStatus.GetInstance().Load();
         Debug.Log(PlayerStatus.GetInstance().currentLv);
+        EventStatus.GetInstance().Load();
+        //イベント進行度のセット
+        GameManager.instance.UpdateEventFlag(EventStatus.GetInstance().startEventFlag, EventStatus.GetInstance().finishedEventFlag);
 
         currentLevel = PlayerStatus.GetInstance().currentLv;
         currentXP = PlayerStatus.GetInstance().currentXp;

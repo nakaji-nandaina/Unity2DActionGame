@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class EventManager : MonoBehaviour
 {
-    //event用のフラグ（開始条件フラグとイベント完了フラグ）
-    public List<bool> StartEventFlag { get; private set;}
-    public List<bool> FinishedEventFlag { get; private set; }
+
     /*
      * 0:初ゲーム開始イベントフラグ
      * 1:初王様会話フラグ
@@ -24,35 +22,15 @@ public class EventManager : MonoBehaviour
     public GameObject FirstNPC; 
 
 
-    void Awake()
-    {
-        //仮のイベントフラグ作成
-        InitStartEventFlag(new List<bool>(new bool[10]));
-        InitFinishedEventFlag(new List<bool>(new bool[10]));
-    }
-
-    void Update()
-    {
-        
-    }
-
-    public void InitStartEventFlag(List<bool> startEventFlag)
-    {
-        StartEventFlag = startEventFlag;
-    }
-    public void InitFinishedEventFlag(List<bool> finishedEventFlag)
-    {
-        FinishedEventFlag = finishedEventFlag;
-    }
 
     public void setStartEventFlag(int idx)
     {
-        StartEventFlag[idx] = true;
+        GameManager.startEventFlag[idx] = true;
     }
 
     public void setFinishedEventFlag(int idx)
     {
-        FinishedEventFlag[idx] = true;
+        GameManager.finishedEventFlag[idx] = true;
     }
 
     public IEnumerator PlayerWait(float waitTime)
