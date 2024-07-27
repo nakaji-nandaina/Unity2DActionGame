@@ -13,7 +13,7 @@ public class EventWake : MonoBehaviour
             case "StartScene":
                 //初期起動イベント
                 eventManager.setStartEventFlag(0);
-                if (!eventManager.FinishedEventFlag[0]) eventManager.FirstGameEvent();
+                if (!GameManager.finishedEventFlag[0]) eventManager.FirstGameEvent();
                 break;
         }
     }

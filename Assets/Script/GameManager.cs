@@ -77,6 +77,10 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public static List<TBuff> tbuffs;
     [HideInInspector]
+    public static List<bool> startEventFlag = new List<bool>(new bool[100]);
+    [HideInInspector]
+    public static List<bool> finishedEventFlag = new List<bool>(new bool[100]);
+    [HideInInspector]
     public static bool load = true;
 
     //会話システム関係
@@ -368,6 +372,19 @@ public class GameManager : MonoBehaviour
         }
         
     }
+
+    public void UpdateEventFlag(List<bool> _startEventFlag,List<bool> _finishedEventFlag)
+    {
+        startEventFlag = _startEventFlag;
+        finishedEventFlag = _finishedEventFlag;
+    }
+
+    public void SaveEventFlag()
+    {
+        EventStatus.GetInstance().ReStatus(startEventFlag, finishedEventFlag);
+        EventStatus.GetInstance().Save();
+    }
+
     public void PlayerStateHold()
     {
         currentXP = player.currentXP;
