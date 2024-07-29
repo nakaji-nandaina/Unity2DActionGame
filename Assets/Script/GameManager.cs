@@ -580,4 +580,9 @@ public class GameManager : MonoBehaviour
     {
         eventManager.EndEihei();
     }
+    //イベント#1の会話後処理
+    private void FirstKingConv()
+    {
+        eventManager.KingAfterFirstFunc();
+    }
 }

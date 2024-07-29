@@ -62,4 +62,15 @@ public class DialogActivater : MonoBehaviour
         }
     }
 
+    public void InitActivater(string[] _lines,bool _choice, string[] _yesLines, string[] _noLines,string _funcName,string _yesfuncName,string _nofuncName)
+    {
+        lines = _lines;
+        Choice = _choice;
+        YesLines = _yesLines;
+        NoLines = _noLines;
+        funcName = _funcName;
+        YesfuncName = _yesfuncName;
+        NofuncName = _nofuncName;
+    }
+
 }
