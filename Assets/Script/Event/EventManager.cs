@@ -7,7 +7,7 @@ public class EventManager : MonoBehaviour
 
     /*
      * 0:初ゲーム開始イベントフラグ
-     * 1:初王様会話フラグ
+     * 1:初王様会話イベントフラグ
      * 2:初ダンジョン潜入フラグ
      * 3:第一ボス討伐フラグ
      * 4:武器制作フラグ
@@ -19,8 +19,9 @@ public class EventManager : MonoBehaviour
     [SerializeField]
     private GameObject firstNPC;
     [HideInInspector]
-    public GameObject FirstNPC; 
-
+    public GameObject FirstNPC;
+    [HideInInspector]
+    public GameObject KingNPC;
 
 
     public void setStartEventFlag(int idx)
@@ -44,16 +45,18 @@ public class EventManager : MonoBehaviour
         GameManager.instance.Player.changePS(PlayerController.PS.normal);
     }
 
-    //イベント#1 はじめてゲームをはじめた場合に衛兵がプレイヤーの前に現れ，会話が始まる
+    //イベント#0 はじめてゲームをはじめた場合に衛兵がプレイヤーの前に現れ，会話が始まる
     public void FirstGameEvent()
     {
         setFinishedEventFlag(0);
+        setStartEventFlag(1);
         StartCoroutine(PlayerWait(0.1f));
         StartCoroutine(FirstEventStart());
     }
 
     public void GoalEihei()
     {
+        Debug.LogError("EiheiGoal");
         StartCoroutine(FirstConv());
     }
     public void EndEihei()
@@ -86,6 +89,21 @@ public class EventManager : MonoBehaviour
         string YesfuncName = "";
         string NofuncName = "";
         GameManager.instance.ShowDialog(lines, CharName, Choice, YesLines, NoLines, this.gameObject, funcName, YesfuncName, NofuncName);
+    }
+
+    //イベント#1 王様との初めての会話
+    public void KingFirstFunc(GameObject kingObj)
+    {
+        setFinishedEventFlag(1);
+        KingNPC = kingObj;
+        string[] _lines = { "英雄を夢見るしょうねんよ。\nおぬしも ようやく15さいになったな。", "我が王国の伝統に従い、\n今日からお前も一人前の冒険者として認められる。" };
+        KingNPC.GetComponent<DialogActivater>().InitActivater(_lines, false, new string[1], new string[1], "FirstKingConv", "NullReturn", "NullReturn");
+    }
+
+    public void KingAfterFirstFunc()
+    {
+        string[] _lines = { "しょうねんよ。\nきたいしておるぞ。" };
+        KingNPC.GetComponent<DialogActivater>().InitActivater(_lines, false, new string[1], new string[1], "NullReturn", "NullReturn", "NullReturn");
     }
 
 

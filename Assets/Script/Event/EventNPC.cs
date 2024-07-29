@@ -5,16 +5,22 @@ using System;
 
 public class EventNPC : MonoBehaviour
 {
+    [Tooltip("移動ルート")]
     public List<Route> Routes;
     public float MoveSpeed=5f;
     public float AnimSpeed = 2f;
-    public string FuncName;
+    [Tooltip("移動後に呼び出す関数")]
+    public string AfterMoveFuncName;
+    public bool isStartEvent = false;
+    [Tooltip("シーン読み込み時に呼ばれる関数")]
+    public string StartEventFuncName;
     int nowPoint = 0;
     Rigidbody2D rb;
 
     private void Start()
     {
         rb = this.gameObject.GetComponent<Rigidbody2D>();
+        if (!isStartEvent) Invoke(StartEventFuncName, 0);
     }
 
     // Update is called once per frame
@@ -22,6 +28,7 @@ public class EventNPC : MonoBehaviour
     {
         MoveRoute();
     }
+
     void MoveRoute()
     {
         if (Routes.Count <= nowPoint)
@@ -35,7 +42,7 @@ public class EventNPC : MonoBehaviour
             Debug.LogError(nowPoint.ToString());
             if (Routes.Count == nowPoint)
             {
-                Invoke(FuncName, 0);
+                Invoke(AfterMoveFuncName, 0);
                 return;
             }
         }
@@ -81,7 +88,7 @@ public class EventNPC : MonoBehaviour
             r.x = x[i];r.y = y[i];
             Routes.Add(r);
         }
-        FuncName = func;
+        AfterMoveFuncName = func;
         nowPoint = 0;
         Debug.LogError("InitNPC"+nowPoint.ToString());
     }
@@ -94,8 +101,17 @@ public class EventNPC : MonoBehaviour
     private void FirstEihei()
     {
         GameManager.instance.eventManager.GoalEihei();
-    } 
-
+    }
+    private void KingEventFunc()
+    {
+        Debug.LogError("King");
+        if (GameManager.startEventFlag[1] && !GameManager.finishedEventFlag[1])
+        {
+            GameManager.instance.eventManager.KingFirstFunc(this.gameObject);
+            return;
+        }
+    }
+    
 }
 
 [Serializable]

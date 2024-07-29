@@ -280,7 +280,9 @@ MonoBehaviour:
     y: -22
   MoveSpeed: 6
   AnimSpeed: 1.5
-  FuncName: FirstEihei
+  AfterMoveFuncName: FirstEihei
+  isChangeConv: 0
+  StartEventFuncName: 
 --- !u!1 &4757406970223552713
 GameObject:
   m_ObjectHideFlags: 0
