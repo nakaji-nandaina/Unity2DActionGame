@@ -6776,80 +6776,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1435150426}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1458069131
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 415914942310661513, guid: 4d50a16457a66f44a926f545991f26db,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 415914942310661513, guid: 4d50a16457a66f44a926f545991f26db,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 415914942310661513, guid: 4d50a16457a66f44a926f545991f26db,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 415914942310661513, guid: 4d50a16457a66f44a926f545991f26db,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 415914942310661513, guid: 4d50a16457a66f44a926f545991f26db,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 415914942310661513, guid: 4d50a16457a66f44a926f545991f26db,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 415914942310661513, guid: 4d50a16457a66f44a926f545991f26db,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 415914942310661513, guid: 4d50a16457a66f44a926f545991f26db,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 415914942310661513, guid: 4d50a16457a66f44a926f545991f26db,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 415914942310661513, guid: 4d50a16457a66f44a926f545991f26db,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 415914942310661513, guid: 4d50a16457a66f44a926f545991f26db,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 415914942310661514, guid: 4d50a16457a66f44a926f545991f26db,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 5b6d419a366a9654989e95c26d7b2434, type: 3}
-    - target: {fileID: 415914942310661515, guid: 4d50a16457a66f44a926f545991f26db,
-        type: 3}
-      propertyPath: m_Name
-      value: BGM
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4d50a16457a66f44a926f545991f26db, type: 3}
 --- !u!1 &1838060972
 GameObject:
   m_ObjectHideFlags: 0
@@ -40025,7 +39951,7 @@ MonoBehaviour:
   MoveSpeed: 5
   AnimSpeed: 2
   AfterMoveFuncName: 
-  isChangeConv: 1
+  isStartEvent: 0
   StartEventFuncName: KingEventFunc
 --- !u!1001 &3808458129983694820
 PrefabInstance:
