@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 615971659563678521}
   - component: {fileID: 1223459374145823730}
   - component: {fileID: -7865168733496479058}
+  - component: {fileID: -5794040389737302439}
   m_Layer: 0
   m_Name: syabon
   m_TagString: Untagged
@@ -153,3 +154,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-5794040389737302439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498310258629117951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e2e4cc34704964c9392f1807e6518b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects:
+  - {fileID: 498310258629117951, guid: 34fdc3b1a84875547b255be92699e04d, type: 3}
+  width: 0.5
+  height: 0.5
+  effectTime: 0.05

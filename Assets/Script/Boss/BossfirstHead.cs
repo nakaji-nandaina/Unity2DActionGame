@@ -2,46 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossfirstBody : MonoBehaviour
+public class BossfirstHead : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
     GameObject boss;
     private BossEnemyfirst bossfirst;
-    private EnemyShotManager enemyshot;
-    private float currentT;  //0f
-    private float nextT;     //rand
+    private float currentT = 0f;
+    private float nextT = 1f;
     Rigidbody2D rb;
-    private float speed;     //5f
-    private bool isJoint;
+    private float speed = 5f;
     Vector2 dir;
-    private int maxhp;
-    private int hp;
-    Animator anim;
-    float damagedTime = 0.2f;
-    float damagedCount = 0f;
-
+    private EnemyShotManager enemyshot;
+    private Animator anim;
+    float damagedTime=0.2f;
+    float damagedCount=0f;
+    [SerializeField]
+    GameObject[] shot;
+    [SerializeField]
+    Sprite[] sprites;
+    SpriteRenderer sr;
     private void Start()
     {
         anim = this.gameObject.GetComponent<Animator>();
+        this.gameObject.AddComponent<EnemyShotManager>();
+        enemyshot = this.gameObject.GetComponent<EnemyShotManager>();
+        speed = 5f;
+        currentT = 0;
+        nextT = 1f;
         rb = this.GetComponent<Rigidbody2D>();
         bossfirst = boss.GetComponent<BossEnemyfirst>();
-        enemyshot = this.gameObject.GetComponent<EnemyShotManager>();
-        if (enemyshot == null)
-        {
-            this.gameObject.AddComponent<EnemyShotManager>();
-            enemyshot= this.gameObject.GetComponent<EnemyShotManager>();
-        }
+        sr = GetComponent<SpriteRenderer>();
 
-        currentT = 0f;
-        nextT = Random.Range(3f, 5f);
-        dir.x = Random.Range(-1f,1f);
+        dir.x = Random.Range(-1f, 1f);
         dir.y = Random.Range(-1f, 1f);
-        speed = 5f;
-        isJoint = true;
-
-        maxhp = 200;
-        hp = maxhp;
     }
     private void Update()
     {
@@ -51,7 +45,8 @@ public class BossfirstBody : MonoBehaviour
             return;
         }
         damagedCount = 0 > damagedCount - Time.deltaTime ? 0 : damagedCount - Time.deltaTime;
-        switch (bossfirst.currentState) {
+        switch (bossfirst.currentState)
+        {
             case BossEnemyfirst.BossState.Battle:
                 battle();
                 break;
@@ -60,31 +55,53 @@ public class BossfirstBody : MonoBehaviour
 
     private void battle()
     {
-        currentT += Time.deltaTime;
-        switch (bossfirst.battleState) {
-            case BossEnemyfirst.BattleState.Syukai:
-                if (currentT < nextT) return;
-                nextT = Random.Range(3f, 5f);
-                currentT = 0f;
-                Shot();
-                break;
+        if(bossfirst.battleState!=BossEnemyfirst.BattleState.Last) spriteDir();
+        switch (bossfirst.battleState)
+        {
             case BossEnemyfirst.BattleState.Hansya:
-                if (isJoint)
-                {
-
-                    Destroy(GetComponent<DistanceJoint2D>());
-                    isJoint = false;
-                    //return;
-                    Debug.Log("jointOut");
-                }
                 rb.velocity = new Vector2(dir.x, dir.y).normalized * speed;
-                //éÀèo
+                break;
+            case BossEnemyfirst.BattleState.Last:
+                rb.velocity = new Vector2(0, 0);
+                this.gameObject.transform.Rotate(0, 0, 2f);
+                currentT += Time.deltaTime;
                 if (currentT < nextT) return;
-                nextT = Random.Range(0.5f, 1f);
+                nextT = 0.1f;
                 currentT = 0f;
-                Shot();
+                fourShot();
                 break;
         }
+    }
+
+    private void spriteDir()
+    {
+        Vector3 Ppos = GameManager.instance.Player.transform.position;
+        if (Ppos.y > this.transform.position.y)
+        {
+            if (Ppos.x < this.transform.position.x)sr.sprite = sprites[0];
+            else sr.sprite = sprites[1];
+            return;
+        }
+        if (Ppos.x < this.transform.position.x) sr.sprite = sprites[2];
+        else sr.sprite = sprites[3];
+    }
+
+    private void fourShot()
+    {
+        for(int i = 0; i < 4; i++)
+        {
+            Vector2 dir = shot[i].gameObject.transform.position - this.gameObject.transform.position;
+            enemyshot.EmemyShot(shot[i].gameObject.transform.position, this.gameObject.transform.position, dir, bossfirst.BodyShotWeapon,bossfirst.At);
+        }
+    }
+
+    private void Shot()
+    {
+        //Debug.Log(bossfirst.BodyShotWeapon);
+        Vector3 Ppos = GameManager.instance.Player.transform.position;
+        Vector3 Tpos = this.gameObject.transform.position;
+        Vector2 attackDir = Ppos - Tpos;
+        enemyshot.EmemyShot(Ppos, Tpos, attackDir, bossfirst.BodyShotWeapon,bossfirst.At);
     }
 
     private void Bound()
@@ -93,15 +110,7 @@ public class BossfirstBody : MonoBehaviour
         dir.y = Random.Range(-1f, 1f);
     }
 
-    private void Shot()
-    {
-        //Debug.Log(bossfirst.BodyShotWeapon);
-        Vector3 Ppos=GameManager.instance.Player.transform.position;
-        Vector3 Tpos = this.gameObject.transform.position;
-        Vector2 attackDir = Ppos - Tpos;
-        enemyshot.EmemyShot(Ppos, Tpos, attackDir, bossfirst.BodyShotWeapon,bossfirst.At);
-    }
-
+    
     private void hitOthers()
     {
         switch (bossfirst.battleState)
@@ -116,8 +125,8 @@ public class BossfirstBody : MonoBehaviour
     {
         if (bossfirst.currentState != BossEnemyfirst.BossState.Battle) return;
         if (damagedCount > 0) return;
-        damagedCount = damagedTime;
         GameManager.instance.PlayAudio(clip);
+        damagedCount = damagedTime;
         switch (bossfirst.battleState)
         {
             case BossEnemyfirst.BattleState.Syukai:
@@ -125,16 +134,15 @@ public class BossfirstBody : MonoBehaviour
                 anim.SetTrigger("Damaged");
                 break;
             case BossEnemyfirst.BattleState.Hansya:
-                hp -= at;
+                break;
+            case BossEnemyfirst.BattleState.Last:
                 anim.SetTrigger("Damaged");
-                if (hp <= 0)
-                {
-                    Destroy(this.gameObject);
-                }
+                bossfirst.TakeDamage(at);
                 break;
         }
     }
-    
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         switch (collision.gameObject.tag)
@@ -171,5 +179,4 @@ public class BossfirstBody : MonoBehaviour
                 break;
         }
     }
-    
 }

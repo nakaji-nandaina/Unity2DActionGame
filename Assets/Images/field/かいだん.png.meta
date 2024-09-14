@@ -3,7 +3,7 @@ guid: 405a9a2299d446d4f992fff887984015
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -63,13 +63,14 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -235,8 +236,8 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       "\u304B\u3044\u3060\u3093_0": 95010644
-      "\u304B\u3044\u3060\u3093_2": 523990603
       "\u304B\u3044\u3060\u3093_1": 1818105702
+      "\u304B\u3044\u3060\u3093_2": 523990603
       "\u304B\u3044\u3060\u3093_3": 787962732
   spritePackingTag: 
   pSDRemoveMatte: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1635911740150805156}
   - component: {fileID: 5716699986451557187}
   - component: {fileID: 83083097189746311}
+  - component: {fileID: 3903634564183429432}
   m_Layer: 0
   m_Name: bossBat
   m_TagString: Untagged
@@ -157,6 +158,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.307705, y: 2.2259007}
   m_EdgeRadius: 0
+--- !u!114 &3903634564183429432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044953979579505139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e2e4cc34704964c9392f1807e6518b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects:
+  - {fileID: 498310258629117951, guid: 425c3eefc308ee44ca38ab6a935928cd, type: 3}
+  - {fileID: 498310258629117951, guid: 203eee4528d7fb441afa4b0ab70d05b3, type: 3}
+  width: 2
+  height: 1
+  effectTime: 0.05
 --- !u!1001 &4890509474947321656
 PrefabInstance:
   m_ObjectHideFlags: 0

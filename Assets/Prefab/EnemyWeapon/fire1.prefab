@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -7865168733496479058}
   - component: {fileID: 8006417858603750853}
   - component: {fileID: 516629717431077733}
+  - component: {fileID: 4668367776148253703}
   m_Layer: 0
   m_Name: fire1
   m_TagString: Untagged
@@ -132,6 +133,7 @@ MonoBehaviour:
   shotSpeed: 10
   destroyTime: 5
   Bakuhatu: 0
+  WallPenetoration: 0
   clips:
   - {fileID: 8300000, guid: 6bca55d23872eb647a5dd574524629bf, type: 3}
 --- !u!50 &-7865168733496479058
@@ -157,7 +159,7 @@ Rigidbody2D:
   m_Constraints: 0
 --- !u!95 &8006417858603750853
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -174,7 +176,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &516629717431077733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,11 +211,6 @@ MonoBehaviour:
   m_ShadowIntensity: 0.75
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
-  m_Vertices:
-  - position: {x: 0, y: 0, z: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    uv: {x: 0, y: 0}
-  m_Triangles: 0000
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
@@ -230,3 +228,20 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &4668367776148253703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498310258629117951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e2e4cc34704964c9392f1807e6518b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects:
+  - {fileID: 498310258629117951, guid: b8a2e940631698a4c9a1349c34056daf, type: 3}
+  width: 0.3
+  height: 0.5
+  effectTime: 0.03
