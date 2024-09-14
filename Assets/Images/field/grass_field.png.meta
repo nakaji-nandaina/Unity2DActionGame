@@ -51,7 +51,7 @@ TextureImporter:
       213: 7840530860471244929
     second: grass_field_15
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -111,13 +111,14 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -167,10 +168,10 @@ TextureImporter:
       name: grass_field_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 480
-        width: 160
-        height: 160
+        x: 1
+        y: 479.25
+        width: 159.75
+        height: 159.75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,9 +190,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 160
-        y: 480
-        width: 160
-        height: 160
+        y: 479.25
+        width: 159.75
+        height: 159.75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,10 +210,10 @@ TextureImporter:
       name: grass_field_2
       rect:
         serializedVersion: 2
-        x: 320
-        y: 480
-        width: 160
-        height: 160
+        x: 319
+        y: 479.25
+        width: 159.75
+        height: 159.75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -230,10 +231,10 @@ TextureImporter:
       name: grass_field_3
       rect:
         serializedVersion: 2
-        x: 480
-        y: 480
-        width: 160
-        height: 160
+        x: 478
+        y: 479.25
+        width: 159.75
+        height: 159.75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,10 +252,10 @@ TextureImporter:
       name: grass_field_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 320
-        width: 160
-        height: 160
+        x: 1
+        y: 320.25
+        width: 159.75
+        height: 159.75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,9 +274,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 160
-        y: 320
-        width: 160
-        height: 160
+        y: 320.25
+        width: 159.75
+        height: 159.75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -293,10 +294,10 @@ TextureImporter:
       name: grass_field_6
       rect:
         serializedVersion: 2
-        x: 320
-        y: 320
-        width: 160
-        height: 160
+        x: 319
+        y: 320.25
+        width: 159.75
+        height: 159.75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -314,10 +315,10 @@ TextureImporter:
       name: grass_field_7
       rect:
         serializedVersion: 2
-        x: 480
-        y: 320
-        width: 160
-        height: 160
+        x: 478
+        y: 320.25
+        width: 159.75
+        height: 159.75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -335,10 +336,10 @@ TextureImporter:
       name: grass_field_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 160
-        width: 160
-        height: 160
+        x: 1
+        y: 161.25
+        width: 159.75
+        height: 159.75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -357,9 +358,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 160
-        y: 160
-        width: 160
-        height: 160
+        y: 161.25
+        width: 159.75
+        height: 159.75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -377,10 +378,10 @@ TextureImporter:
       name: grass_field_10
       rect:
         serializedVersion: 2
-        x: 320
-        y: 160
-        width: 160
-        height: 160
+        x: 319
+        y: 161.25
+        width: 159.75
+        height: 159.75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -398,10 +399,10 @@ TextureImporter:
       name: grass_field_11
       rect:
         serializedVersion: 2
-        x: 480
-        y: 160
-        width: 160
-        height: 160
+        x: 478
+        y: 161.25
+        width: 159.75
+        height: 159.75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -419,10 +420,10 @@ TextureImporter:
       name: grass_field_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 160
-        height: 160
+        x: 1
+        y: 2.25
+        width: 159.75
+        height: 159.75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -441,9 +442,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 160
-        y: 0
-        width: 160
-        height: 160
+        y: 2.25
+        width: 159.75
+        height: 159.75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -461,10 +462,10 @@ TextureImporter:
       name: grass_field_14
       rect:
         serializedVersion: 2
-        x: 320
-        y: 0
-        width: 160
-        height: 160
+        x: 319
+        y: 2.25
+        width: 159.75
+        height: 159.75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -482,10 +483,10 @@ TextureImporter:
       name: grass_field_15
       rect:
         serializedVersion: 2
-        x: 480
-        y: 0
-        width: 160
-        height: 160
+        x: 478
+        y: 2.25
+        width: 159.75
+        height: 159.75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -510,22 +511,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      grass_field_1: -4209462587733746184
-      grass_field_2: 4408493773116449898
-      grass_field_4: -8578858253558913626
-      grass_field_8: 4276165734721020776
-      grass_field_10: 683985307963555902
-      grass_field_12: 7591670712341267521
-      grass_field_7: 7363854565241778421
-      grass_field_15: 7840530860471244929
-      grass_field_14: 7869994915256724258
-      grass_field_5: 86267692271755830
       grass_field_0: 3569328468372648401
-      grass_field_3: 7865770712700440703
-      grass_field_6: -3469340629352105175
+      grass_field_1: -4209462587733746184
+      grass_field_10: 683985307963555902
       grass_field_11: -6247275795369082592
-      grass_field_9: -3822963411952426845
+      grass_field_12: 7591670712341267521
       grass_field_13: -1863631744000850450
+      grass_field_14: 7869994915256724258
+      grass_field_15: 7840530860471244929
+      grass_field_2: 4408493773116449898
+      grass_field_3: 7865770712700440703
+      grass_field_4: -8578858253558913626
+      grass_field_5: 86267692271755830
+      grass_field_6: -3469340629352105175
+      grass_field_7: 7363854565241778421
+      grass_field_8: 4276165734721020776
+      grass_field_9: -3822963411952426845
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

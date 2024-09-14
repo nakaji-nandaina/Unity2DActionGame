@@ -75,7 +75,7 @@ TextureImporter:
       213: -446045001332266009
     second: soil_11
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -135,13 +135,14 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -450,18 +451,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      soil_10: -1852141100495637979
-      soil_3: 7471592208625278436
-      soil_7: -2791258941530329385
-      soil_1: 7148464984485362941
-      soil_8: -5513153577992867150
-      soil_11: 1854562128436830514
-      soil_6: 2349804642732947873
-      soil_4: -7440564347386917253
       soil_0: -3211722605467465565
+      soil_1: 7148464984485362941
+      soil_10: -1852141100495637979
+      soil_11: 1854562128436830514
       soil_2: 7296750885522900666
-      soil_9: 6971404605825949068
+      soil_3: 7471592208625278436
+      soil_4: -7440564347386917253
       soil_5: -2010816934608769824
+      soil_6: 2349804642732947873
+      soil_7: -2791258941530329385
+      soil_8: -5513153577992867150
+      soil_9: 6971404605825949068
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

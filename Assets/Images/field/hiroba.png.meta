@@ -18,7 +18,7 @@ TextureImporter:
       213: -4740629570747765375
     second: hiroba_4
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -78,13 +78,14 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -246,11 +247,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hiroba_2: -3144343489604139923
-      hiroba_4: -4740629570747765375
-      hiroba_3: 7726684856248623532
-      hiroba_1: 3051894147088027523
       hiroba_0: -7952252502623895082
+      hiroba_1: 3051894147088027523
+      hiroba_2: -3144343489604139923
+      hiroba_3: 7726684856248623532
+      hiroba_4: -4740629570747765375
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
