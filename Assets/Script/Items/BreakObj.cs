@@ -18,6 +18,10 @@ public class BreakObj : MonoBehaviour
     private bool isDrop=false;
     private DropItem dropitem;
     private GameObject shadow;
+    [SerializeField]
+    private List<Sprite> partImages;
+
+    private int partnum;
 
     [SerializeField]
     private Item parts;
@@ -38,22 +42,38 @@ public class BreakObj : MonoBehaviour
         foreach (Transform child in gameObject.transform)
         {
             // パーツに Rigidbody2D を追加して Kinematic にしておく
-            child.gameObject.AddComponent<Rigidbody2D>();
+            if(!child.gameObject.GetComponent<Rigidbody2D>())child.gameObject.AddComponent<Rigidbody2D>();
             child.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
             child.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
-            child.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
+            child.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2;
             child.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
             //child.gameObject.transform.position = Vector2.zero;
             // 子要素リストにパーツを追加
-            if (child.gameObject.tag == "NoBreak"|| child.gameObject.name == "Area") continue;
+            if (child.gameObject.tag == "NoBreak" || child.gameObject.name == "Area") continue;
             if (child.gameObject.tag == "Shadow")
             {
                 shadow = child.gameObject;
+                shadow.GetComponent<SpriteRenderer>().sortingOrder = 1;
                 continue;
             }
             myParts.Add(child.gameObject);
-
         }
+        partnum = Random.Range(12, 18);
+        for(int i = 0; i < partnum; i++)
+        {
+            GameObject child = new GameObject();
+            child.transform.SetParent(this.transform);
+            child.transform.localPosition = Vector2.zero;
+            child.gameObject.AddComponent<Rigidbody2D>();
+            child.gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+            child.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+            child.gameObject.AddComponent<SpriteRenderer>();
+            child.gameObject.GetComponent<SpriteRenderer>().sprite = partImages[i % partImages.Count];
+            child.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2;
+            child.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
+            myParts.Add(child.gameObject);
+        }
+        
     }
 
     // Update is called once per frame
