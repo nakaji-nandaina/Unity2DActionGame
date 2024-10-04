@@ -157,6 +157,10 @@ public class GameManager : MonoBehaviour
     //イベント関係
     public EventManager eventManager;
 
+    //敵の死亡演出
+    [HideInInspector]
+    public BloodSpread bloodSpread;
+
 
     public PlayerController Player
     {
@@ -224,6 +228,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        bloodSpread = GetComponent<BloodSpread>();
         audioSource = GetComponent<AudioSource>();
         settingBGM();
         //Debug.LogError(GameObject.FindGameObjectWithTag("BGM"));

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 5294475415287086480}
   - component: {fileID: 1893524014398656725}
   - component: {fileID: 4152649652340540131}
+  - component: {fileID: 5502508089953745470}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -102,6 +103,7 @@ MonoBehaviour:
   pulldownNotice: {fileID: 0}
   shortcutButtons: []
   eventManager: {fileID: 1893524014398656725}
+  bloodSpread: {fileID: 0}
 --- !u!114 &8699797446048524044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +410,7 @@ MonoBehaviour:
   firstNPC: {fileID: 4196593476043602667, guid: cd59434bb9fbde3478972e769ae45dd4,
     type: 3}
   FirstNPC: {fileID: 0}
+  KingNPC: {fileID: 0}
 --- !u!114 &4152649652340540131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,3 +423,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7ad7cfccfa8e084fb49b80f08a772a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5502508089953745470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9074385018434786010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba85a3ee443bcd4581f18239543da9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RedBloods:
+  - {fileID: 150136766213867586, guid: 64636ec32fc584a4db1308830928644c, type: 3}
+  - {fileID: 2318428360022514123, guid: cee71b9ed9323ff428ad42b4392f68a8, type: 3}
+  - {fileID: 4597799242857773425, guid: 209137236c2682b4cb131c21211be4f3, type: 3}
+  - {fileID: 7698968356224459565, guid: 6a7571a4cc547f64fb2f2224a9fb148f, type: 3}
+  - {fileID: 8956577458508108832, guid: cb59a27806b72cd44a306e930226d2e0, type: 3}
+  - {fileID: 1020037534490288069, guid: f7ac5832c638fa3409d0921e161ed552, type: 3}
+  BlueBloods: []

@@ -12,6 +12,7 @@ public class BossEnemyfirst : MonoBehaviour
     [SerializeField]
     public int At { get; private set; } = 10;
     public Animator anim;
+    public Sprite[] Breaks;
     private Rigidbody2D rb;
     private Transform playerPos;
     [SerializeField]
@@ -22,7 +23,7 @@ public class BossEnemyfirst : MonoBehaviour
     GameObject limWall;
     [SerializeField]
     AudioClip BossBGM;
-
+    public Item breakItem;
     public enum BossState 
     { 
         Default,
@@ -56,7 +57,10 @@ public class BossEnemyfirst : MonoBehaviour
     [SerializeField]
     private Sprite angry;
 
-    private int childnum;
+    [HideInInspector]
+    public int childnum;
+
+    public List<GameObject> bloods;
 
     public enum BattleState
     {
@@ -78,6 +82,7 @@ public class BossEnemyfirst : MonoBehaviour
         childnum = this.gameObject.transform.childCount;
         hpbar.maxValue = Maxhp;
         hpbar.value = hp;
+        
     }
 
     // Update is called once per frame
@@ -212,7 +217,6 @@ public class BossEnemyfirst : MonoBehaviour
                 return;
             case BattleState.Hansya:
                 rb.velocity = new Vector2(dirx, diry).normalized * moveSpeed;
-                childnum = this.gameObject.transform.childCount;
                 if (childnum == 1) ChangeBattleState(BattleState.toLast);
                 return;
             case BattleState.toLast:

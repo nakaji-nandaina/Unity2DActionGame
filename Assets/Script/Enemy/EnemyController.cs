@@ -131,12 +131,15 @@ public class EnemyController : MonoBehaviour
                 ES = next;
                 break;
             case EnemyState.Dead:
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().KillEnemy(xp);
                 rb.velocity = Vector2.zero;
+                GameManager.instance.bloodSpread.RedSpread(this.transform.position);
                 GameManager.instance.Player.database.AddHuntedEnemyNum(enemydata);
                 GameManager.instance.Player.orderQuest.HuntEnemy(enemydata);
                 if (GetComponent<NavMeshObstacle>())Destroy(GetComponent<NavMeshObstacle>());
                 Destroy(this.transform.Find("てきしんぼる").gameObject);
                 Destroy(this.transform.Find("shadow").gameObject);
+                breakObj.BreakThis();
                 ES = next;
                 break;
         }
@@ -481,10 +484,8 @@ public class EnemyController : MonoBehaviour
         DamageObj.GetComponent<DamageUI>().DamageSet(culDamage, playerPos.position, this.gameObject);
         if (currentHealth <= 0)
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().KillEnemy(xp);
             ChangeES(EnemyState.Dead);
-            rb.velocity = Vector2.zero;
-            breakObj.BreakThis();
+            
             return;
         }
         KnockBack(position, kbforce);
