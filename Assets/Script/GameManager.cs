@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
     private string DialogFuncName;
     private string DialogYesFuncName;
     private string DialogNoFuncName;
-
+    private bool canWrite;
     private DialogState ds;
 
     public GameObject Impulse;
@@ -238,6 +238,7 @@ public class GameManager : MonoBehaviour
         UpdateMoneyUI(currentMoney);
         YesChoice = false;
         NoChoice = false;
+        canWrite = true;
         //NormalDialog = false;
         DialogFuncName = "NullReturn";
         inventoryUI = GetComponent<InventoryUI>();
@@ -315,7 +316,7 @@ public class GameManager : MonoBehaviour
                         break;
                     }
                     writingSpeed = 0f;
-                    changeDs(DialogState.conv);
+                    //changeDs(DialogState.conv);
                 }
                 break;
             case DialogState.conv:

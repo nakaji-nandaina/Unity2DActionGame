@@ -3,7 +3,7 @@ guid: bec61b2fd7c6e314581b3abcf75f5f0e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,13 +63,14 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -114,6 +115,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -390,18 +403,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      magic_shopper_10: -1687486852
-      magic_shopper_7: -2032140329
-      magic_shopper_2: -195104047
-      magic_shopper_11: -1292467218
-      magic_shopper_8: -2122191079
-      magic_shopper_3: -301109744
+      magic_shopper_0: -490976758
       magic_shopper_1: -860727092
-      magic_shopper_9: -1880866858
+      magic_shopper_10: -1687486852
+      magic_shopper_11: -1292467218
+      magic_shopper_2: -195104047
+      magic_shopper_3: -301109744
       magic_shopper_4: 1217653928
       magic_shopper_5: -191688904
-      magic_shopper_0: -490976758
       magic_shopper_6: -435098044
+      magic_shopper_7: -2032140329
+      magic_shopper_8: -2122191079
+      magic_shopper_9: -1880866858
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

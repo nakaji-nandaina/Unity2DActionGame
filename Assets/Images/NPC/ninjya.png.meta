@@ -195,7 +195,7 @@ TextureImporter:
       213: 2982957910589952666
     second: ninjya_63
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -255,13 +255,14 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -654,22 +655,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      ninjya_0: 732401440302416792
+      ninjya_1: 9058581065389183567
+      ninjya_10: -5511391616621684489
+      ninjya_11: -4453796961485197737
+      ninjya_12: -1317844073991457057
+      ninjya_13: 1992609028855972080
       ninjya_14: 799371139520428617
       ninjya_15: -3492427817947930595
-      ninjya_4: -3057735202174550457
-      ninjya_1: 9058581065389183567
-      ninjya_11: -4453796961485197737
       ninjya_2: 4486650126579341685
-      ninjya_9: -7519908227515934249
-      ninjya_13: 1992609028855972080
-      ninjya_0: 732401440302416792
-      ninjya_12: -1317844073991457057
-      ninjya_5: -2856752754239125065
-      ninjya_10: -5511391616621684489
       ninjya_3: 8868671314331266771
-      ninjya_8: 8269355250993250994
-      ninjya_7: -1726786814376475648
+      ninjya_4: -3057735202174550457
+      ninjya_5: -2856752754239125065
       ninjya_6: -8009050076085208169
+      ninjya_7: -1726786814376475648
+      ninjya_8: 8269355250993250994
+      ninjya_9: -7519908227515934249
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
