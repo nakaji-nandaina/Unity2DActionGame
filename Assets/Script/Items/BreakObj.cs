@@ -56,7 +56,6 @@ public class BreakObj : MonoBehaviour
                 shadow.GetComponent<SpriteRenderer>().sortingOrder = 1;
                 continue;
             }
-            myParts.Add(child.gameObject);
         }
         partnum = Random.Range(12, 18);
         for(int i = 0; i < partnum; i++)
@@ -69,7 +68,7 @@ public class BreakObj : MonoBehaviour
             child.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             child.gameObject.AddComponent<SpriteRenderer>();
             child.gameObject.GetComponent<SpriteRenderer>().sprite = partImages[i % partImages.Count];
-            child.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2;
+            child.gameObject.GetComponent<SpriteRenderer>().sortingOrder = -1;
             child.gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Default";
             myParts.Add(child.gameObject);
         }
@@ -156,7 +155,7 @@ public class BreakObj : MonoBehaviour
 
             // 飛ばすパワーと回転をランダムに設定
             Vector2 forcePower = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(2.0f, 5.0f));
-
+            obj.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2;
             // パーツをふっとばす！
             obj.GetComponent<Rigidbody2D>().isKinematic = false;
             obj.GetComponent<Rigidbody2D>().AddForce(forcePower, ForceMode2D.Impulse);

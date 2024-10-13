@@ -3,7 +3,7 @@ guid: 7bd8dc646bf79034db9ec2ccf4f3faee
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,13 +63,14 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -114,6 +115,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -390,18 +403,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hunter1_4: -1072958754
+      hunter1_0: 545554376
+      hunter1_1: -1961677735
+      hunter1_10: -370042110
+      hunter1_11: 586549734
       hunter1_2: -1419149141
       hunter1_3: -1348489565
-      hunter1_1: -1961677735
+      hunter1_4: -1072958754
+      hunter1_5: -706098977
+      hunter1_6: 73785082
       hunter1_7: 1392819435
       hunter1_8: 1669127051
-      hunter1_0: 545554376
       hunter1_9: -17026776
-      hunter1_6: 73785082
-      hunter1_11: 586549734
-      hunter1_10: -370042110
-      hunter1_5: -706098977
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

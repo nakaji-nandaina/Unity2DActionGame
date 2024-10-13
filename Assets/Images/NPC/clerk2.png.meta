@@ -15,7 +15,7 @@ TextureImporter:
       213: -7905544240184575701
     second: clerk2_3
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -75,13 +75,14 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -222,10 +223,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      clerk2_1: 312504465953521647
-      clerk2_3: -7905544240184575701
-      clerk2_2: -221030771278366309
       clerk2_0: 6769656672136764347
+      clerk2_1: 312504465953521647
+      clerk2_2: -221030771278366309
+      clerk2_3: -7905544240184575701
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

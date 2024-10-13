@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
     private string DialogFuncName;
     private string DialogYesFuncName;
     private string DialogNoFuncName;
-
+    private bool canWrite;
     private DialogState ds;
 
     public GameObject Impulse;
@@ -238,6 +238,7 @@ public class GameManager : MonoBehaviour
         UpdateMoneyUI(currentMoney);
         YesChoice = false;
         NoChoice = false;
+        canWrite = true;
         //NormalDialog = false;
         DialogFuncName = "NullReturn";
         inventoryUI = GetComponent<InventoryUI>();
@@ -315,7 +316,7 @@ public class GameManager : MonoBehaviour
                         break;
                     }
                     writingSpeed = 0f;
-                    changeDs(DialogState.conv);
+                    //changeDs(DialogState.conv);
                 }
                 break;
             case DialogState.conv:
@@ -518,6 +519,7 @@ public class GameManager : MonoBehaviour
     public void ChangeBGM(AudioClip clip,float f)
     {
         if (BGMSource == null) return;
+        if (BGMSource.clip == clip) return;
         ChangedBGM = BGMSource.clip;
         BGMSource.clip = clip;
         BGMSource.Play();
@@ -535,7 +537,7 @@ public class GameManager : MonoBehaviour
         //isWriting = true;
         for (int i = 0; i < s.Length; i++)
         {
-            if (writingSpeed != 0)
+            if (writingSpeed != 0&& s.Substring(i, 1)!=" ")
             {
                 audioSource.PlayOneShot(talkdot);
             }

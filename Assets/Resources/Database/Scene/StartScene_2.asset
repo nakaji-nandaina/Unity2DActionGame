@@ -15,4 +15,4 @@ MonoBehaviour:
   SceneName: StartScene_2
   SceneBrightness: 0.9
   goalPoint: {x: 0, y: 0}
-  BGM: {fileID: 8300000, guid: 5b6d419a366a9654989e95c26d7b2434, type: 3}
+  BGM: {fileID: 8300000, guid: 75ef83c1ad0c11b47ac78581618c3ea8, type: 3}

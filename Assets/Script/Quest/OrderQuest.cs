@@ -71,6 +71,10 @@ public class OrderQuest : ScriptableObject
                     HuntNumClear((HuntQuest)QuestList[i]);
                     break;
             }
+        }
+        for (int i = 0; i < QuestList.Count; i++)
+        {
+            if (!CompleteQuest(QuestList[i])) continue;
             QuestList.RemoveAt(i);
         }
     }
@@ -99,12 +103,13 @@ public class OrderQuest : ScriptableObject
 
     public void RewardQuest(Quest _quest)
     {
+        Debug.LogError(_quest.questName);
         for (int i = 0; i < _quest.rewardItems.Count; i++)
         {
             GameManager.instance.Player.inventory.AddItem(_quest.rewardItems[i].item, _quest.rewardItems[i].num);
         }
         GameManager.instance.UpdateMoneyUI(_quest.money + GameManager.currentMoney);
-        Debug.LogError("ƒQƒbƒg");
+        //Debug.LogError("ƒQƒbƒg");
     }
 
     public bool CompleteQuest(Quest _quest)
