@@ -519,6 +519,7 @@ public class GameManager : MonoBehaviour
     public void ChangeBGM(AudioClip clip,float f)
     {
         if (BGMSource == null) return;
+        if (BGMSource.clip == clip) return;
         ChangedBGM = BGMSource.clip;
         BGMSource.clip = clip;
         BGMSource.Play();
@@ -536,7 +537,7 @@ public class GameManager : MonoBehaviour
         //isWriting = true;
         for (int i = 0; i < s.Length; i++)
         {
-            if (writingSpeed != 0)
+            if (writingSpeed != 0&& s.Substring(i, 1)!=" ")
             {
                 audioSource.PlayOneShot(talkdot);
             }
