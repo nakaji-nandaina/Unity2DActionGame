@@ -80,7 +80,7 @@ public class EventManager : MonoBehaviour
     public IEnumerator FirstConv()
     {
         yield return new WaitForSeconds(1f);
-        string[] lines=new string[2] { "こんにちは！そろそろ王様との謁見の時間になります!\nご準備ください", "それでは、よろしくおねがいします" };
+        string[] lines=new string[2] { "こんにちは！ \nもうすぐ、おうさまとのえっけんのじかんになります!   \nごじゅんびください", "それでは、よろしくおねがいします" };
         string CharName = "たろう";
         bool Choice = false;
         string[] YesLines = new string[1];
@@ -96,7 +96,15 @@ public class EventManager : MonoBehaviour
     {
         setFinishedEventFlag(1);
         KingNPC = kingObj;
-        string[] _lines = { "英雄を夢見るしょうねんよ。\nおぬしも ようやく15さいになったな。", "我が王国の伝統に従い、\n今日からお前も一人前の冒険者として認められる。" };
+        string[] _lines = { "おお！ きたか、しょうねんよ。  \nおめでとう。 ようやく 15さいになったのだな。",
+            "これで、おぬしも いちにんまえとなり、  \nめいきゅうに いどむけんりを えたのだ。  " ,
+            "このくにには、けんこくのころから つづくめいきゅうが ある。   \nめいきゅう には おおくの ぶきやざいほうが ねむっておる。",
+            "その さいしんぶには、きゅうきょくの ざいほう が \nそんざいしている といわれておる。",
+            "だがしかし、さいしんぶまで たどりつけた ものは ひとりも おらぬ。  \nめいきゅうには、 きけんなまものが せいそくしており、\nちょうせんしゃたちの しんこうを はばんでおるのじゃ。",
+            "そこで、おぬしのうでを みこんで たのみがある！！   \nさいしんぶを めざし、 \nその ざいほうを てにいれて ほしいのだ。", 
+            "ただし、めいきゅうの なかは きけんじゃ。   \nしっかりと ぶきを つくり、じぶんを きたえなければ、 \nさいごまで たどりつけぬ じゃろう。",
+            "どうだ？やってくれるか？"
+        };
         KingNPC.GetComponent<DialogActivater>().InitActivater(_lines, false, new string[1], new string[1], "FirstKingConv", "NullReturn", "NullReturn");
     }
 
