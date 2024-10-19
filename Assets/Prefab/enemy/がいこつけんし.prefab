@@ -536,7 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4808727fbac74954fb4633e6acfccedf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemydata: {fileID: 0}
+  enemydata: {fileID: 11400000, guid: 7c8f980626eec4240b1efc2131bc4d4e, type: 2}
   moveSpeed: 2
   waitTime: 1
   walkTime: 1
@@ -555,6 +555,7 @@ MonoBehaviour:
   LongAtPos: {x: 0, y: 0}
   kinsetuAt: 1
   multiAt: 1
+  attackClip: {fileID: 0}
   multiAttime: 1
   attackObj: {fileID: 0}
   area: {fileID: 0}

@@ -13,4 +13,5 @@ public class Enemy : ScriptableObject
     public int huntedNum=0;
     [Multiline(10)]
     public String Info;
+    public AudioClip attackClip;
 }
