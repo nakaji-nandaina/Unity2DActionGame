@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4897cfc0ce1a985488bfec0b19ecd525, type: 3}
+  m_Name: ShinigamiKama
+  m_EditorClassIdentifier: 
+  materials:
+  - item: {fileID: 11400000, guid: fc0f4db49db1a8244a06fa76b49aa433, type: 2}
+    num: 150
+  - item: {fileID: 11400000, guid: a997588cc7b0bc343ab716568fbf16b1, type: 2}
+    num: 100
+  CraftedWeapon: {fileID: 11400000, guid: 4fc5810347e246e43be1837f368ab280, type: 2}
+  cost: 1500

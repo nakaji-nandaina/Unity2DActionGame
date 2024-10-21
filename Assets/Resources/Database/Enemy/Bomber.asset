@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8beaf3301d051694eb5387722017dba7, type: 3}
+  m_Name: Bomber
+  m_EditorClassIdentifier: 
+  enemyName: "\u3070\u304F\u3060\u3093\u304A\u3068\u3053"
+  enemyImage: {fileID: 669270690, guid: 0d448a6a7f494894bb194a04a6dc1f24, type: 3}
+  huntedNum: 0
+  Info: "\u3070\u304F\u3060\u3093\u3092\u3000\u306A\u3052\u3061\u3089\u304B\u3059\u3002\n\n\u3064\u304B\u307E\u3048\u3066\u3082\n\u304B\u3044\u3058\u3087\u3055\u308C\u306A\u3044\u3088\u3002"

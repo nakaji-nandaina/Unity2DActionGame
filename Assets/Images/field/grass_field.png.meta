@@ -1,0 +1,535 @@
+fileFormatVersion: 2
+guid: 03d542461251fc24294b4eefdc6f1a3a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3569328468372648401
+    second: grass_field_0
+  - first:
+      213: -4209462587733746184
+    second: grass_field_1
+  - first:
+      213: 4408493773116449898
+    second: grass_field_2
+  - first:
+      213: 7865770712700440703
+    second: grass_field_3
+  - first:
+      213: -8578858253558913626
+    second: grass_field_4
+  - first:
+      213: 86267692271755830
+    second: grass_field_5
+  - first:
+      213: -3469340629352105175
+    second: grass_field_6
+  - first:
+      213: 7363854565241778421
+    second: grass_field_7
+  - first:
+      213: 4276165734721020776
+    second: grass_field_8
+  - first:
+      213: -3822963411952426845
+    second: grass_field_9
+  - first:
+      213: 683985307963555902
+    second: grass_field_10
+  - first:
+      213: -6247275795369082592
+    second: grass_field_11
+  - first:
+      213: 7591670712341267521
+    second: grass_field_12
+  - first:
+      213: -1863631744000850450
+    second: grass_field_13
+  - first:
+      213: 7869994915256724258
+    second: grass_field_14
+  - first:
+      213: 7840530860471244929
+    second: grass_field_15
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 159
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: grass_field_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 479.25
+        width: 159.75
+        height: 159.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d17a04b45dc88130800000000000000
+      internalID: 3569328468372648401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_field_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 479.25
+        width: 159.75
+        height: 159.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fd55d2441cf495c0800000000000000
+      internalID: -4209462587733746184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_field_2
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 479.25
+        width: 159.75
+        height: 159.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a64a02dbabd1e2d30800000000000000
+      internalID: 4408493773116449898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_field_3
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 479.25
+        width: 159.75
+        height: 159.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f705e2fd9c4d82d60800000000000000
+      internalID: 7865770712700440703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_field_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 320.25
+        width: 159.75
+        height: 159.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a561320fd5c1f880800000000000000
+      internalID: -8578858253558913626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_field_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 320.25
+        width: 159.75
+        height: 159.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6326371520c723100800000000000000
+      internalID: 86267692271755830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_field_6
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 320.25
+        width: 159.75
+        height: 159.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92b33a6341d6adfc0800000000000000
+      internalID: -3469340629352105175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_field_7
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 320.25
+        width: 159.75
+        height: 159.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f0ffd236baa13660800000000000000
+      internalID: 7363854565241778421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_field_8
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 161.25
+        width: 159.75
+        height: 159.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8636eb2641ef75b30800000000000000
+      internalID: 4276165734721020776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_field_9
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 161.25
+        width: 159.75
+        height: 159.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a0a241280b12fac0800000000000000
+      internalID: -3822963411952426845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_field_10
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 161.25
+        width: 159.75
+        height: 159.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3001c083010e7900800000000000000
+      internalID: 683985307963555902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_field_11
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 161.25
+        width: 159.75
+        height: 159.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 021412b73c73d49a0800000000000000
+      internalID: -6247275795369082592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_field_12
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2.25
+        width: 159.75
+        height: 159.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14486dc5a480b5960800000000000000
+      internalID: 7591670712341267521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_field_13
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 2.25
+        width: 159.75
+        height: 159.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee500b28dcc0326e0800000000000000
+      internalID: -1863631744000850450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_field_14
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 2.25
+        width: 159.75
+        height: 159.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22be10cada6d73d60800000000000000
+      internalID: 7869994915256724258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grass_field_15
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 2.25
+        width: 159.75
+        height: 159.75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18850e4d6492fcc60800000000000000
+      internalID: 7840530860471244929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      grass_field_0: 3569328468372648401
+      grass_field_1: -4209462587733746184
+      grass_field_10: 683985307963555902
+      grass_field_11: -6247275795369082592
+      grass_field_12: 7591670712341267521
+      grass_field_13: -1863631744000850450
+      grass_field_14: 7869994915256724258
+      grass_field_15: 7840530860471244929
+      grass_field_2: 4408493773116449898
+      grass_field_3: 7865770712700440703
+      grass_field_4: -8578858253558913626
+      grass_field_5: 86267692271755830
+      grass_field_6: -3469340629352105175
+      grass_field_7: 7363854565241778421
+      grass_field_8: 4276165734721020776
+      grass_field_9: -3822963411952426845
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

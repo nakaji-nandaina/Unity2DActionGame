@@ -1,0 +1,1032 @@
+fileFormatVersion: 2
+guid: 762e18d3bd4623d40b5b307094cb4bc8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1848474233466737425
+    second: tal3_barabara_0
+  - first:
+      213: 6682895654498463769
+    second: tal3_barabara_1
+  - first:
+      213: -6554456137708760550
+    second: tal3_barabara_2
+  - first:
+      213: 2165191978009167150
+    second: tal3_barabara_3
+  - first:
+      213: 2766646198839619806
+    second: tal3_barabara_4
+  - first:
+      213: 1554830558678003119
+    second: tal3_barabara_5
+  - first:
+      213: -4677564593672334160
+    second: tal3_barabara_6
+  - first:
+      213: 4860136258670194383
+    second: tal3_barabara_7
+  - first:
+      213: 5717855628138635946
+    second: tal3_barabara_8
+  - first:
+      213: 3227097703309954140
+    second: tal3_barabara_9
+  - first:
+      213: 1947771497284124858
+    second: tal3_barabara_10
+  - first:
+      213: -8842236620446205067
+    second: tal3_barabara_11
+  - first:
+      213: 939709656789772468
+    second: tal3_barabara_12
+  - first:
+      213: 7587016122339483747
+    second: tal3_barabara_13
+  - first:
+      213: 583857390753401580
+    second: tal3_barabara_14
+  - first:
+      213: -4524346681513721872
+    second: tal3_barabara_15
+  - first:
+      213: 1460227380012308921
+    second: tal3_barabara_16
+  - first:
+      213: 4088504971795743846
+    second: tal3_barabara_17
+  - first:
+      213: 4673801501944572391
+    second: tal3_barabara_18
+  - first:
+      213: -5365012080995551390
+    second: tal3_barabara_19
+  - first:
+      213: -3969465806887675677
+    second: tal3_barabara_20
+  - first:
+      213: -3049880642259563344
+    second: tal3_barabara_21
+  - first:
+      213: -487150642613906447
+    second: tal3_barabara_22
+  - first:
+      213: 1157942312703133251
+    second: tal3_barabara_23
+  - first:
+      213: -353250270069305325
+    second: tal3_barabara_24
+  - first:
+      213: -5573679396014429016
+    second: tal3_barabara_25
+  - first:
+      213: -4230196161127479383
+    second: tal3_barabara_26
+  - first:
+      213: 6527756799585608127
+    second: tal3_barabara_27
+  - first:
+      213: -1089826161658956641
+    second: tal3_barabara_28
+  - first:
+      213: -3778963304406979533
+    second: tal3_barabara_29
+  - first:
+      213: 4494626359657948653
+    second: tal3_barabara_30
+  - first:
+      213: 3758637900540073970
+    second: tal3_barabara_31
+  - first:
+      213: 5730063191832442564
+    second: tal3_barabara_32
+  - first:
+      213: -2605224803851834132
+    second: tal3_barabara_33
+  - first:
+      213: 5085898958060732542
+    second: tal3_barabara_34
+  - first:
+      213: -4582090494373399401
+    second: tal3_barabara_35
+  - first:
+      213: 6079480508915561753
+    second: tal3_barabara_36
+  - first:
+      213: -3881916803740826898
+    second: tal3_barabara_37
+  - first:
+      213: 3169545996870640295
+    second: tal3_barabara_38
+  - first:
+      213: -7776668649325283649
+    second: tal3_barabara_39
+  - first:
+      213: 4750809481171280685
+    second: tal3_barabara_40
+  - first:
+      213: -5638116333629274766
+    second: tal3_barabara_41
+  - first:
+      213: 5859605557587945016
+    second: tal3_barabara_42
+  - first:
+      213: 906257546488668493
+    second: tal3_barabara_43
+  - first:
+      213: 4976348099386472359
+    second: tal3_barabara_44
+  - first:
+      213: -7150382501958162178
+    second: tal3_barabara_45
+  - first:
+      213: 8083184311073969830
+    second: tal3_barabara_46
+  - first:
+      213: -5032867829762580921
+    second: tal3_barabara_47
+  - first:
+      213: -573412238702877195
+    second: tal3_barabara_48
+  - first:
+      213: -3470605299863326880
+    second: tal3_barabara_49
+  - first:
+      213: 163804469649857825
+    second: tal3_barabara_50
+  - first:
+      213: -7060614930466934700
+    second: tal3_barabara_51
+  - first:
+      213: 8510232467687225439
+    second: tal3_barabara_52
+  - first:
+      213: -8504659592527692047
+    second: tal3_barabara_53
+  - first:
+      213: -8484721412357139658
+    second: tal3_barabara_54
+  - first:
+      213: -7692253925134357458
+    second: tal3_barabara_55
+  - first:
+      213: -3877497589036813802
+    second: tal3_barabara_56
+  - first:
+      213: 6566265890265878175
+    second: tal3_barabara_57
+  - first:
+      213: 6272564597506077886
+    second: tal3_barabara_58
+  - first:
+      213: -4718742105963923985
+    second: tal3_barabara_59
+  - first:
+      213: -5780154391233785346
+    second: tal3_barabara_60
+  - first:
+      213: 1550415144225901265
+    second: tal3_barabara_61
+  - first:
+      213: -3752062838133545056
+    second: tal3_barabara_62
+  - first:
+      213: 2162927902054081188
+    second: tal3_barabara_63
+  - first:
+      213: 6277758042781912456
+    second: tal3_barabara_64
+  - first:
+      213: 255426671030520228
+    second: tal3_barabara_65
+  - first:
+      213: 8004025217950376531
+    second: tal3_barabara_66
+  - first:
+      213: -4284372893113119163
+    second: tal3_barabara_67
+  - first:
+      213: -6653896848272582809
+    second: tal3_barabara_68
+  - first:
+      213: 5642232177354045750
+    second: tal3_barabara_69
+  - first:
+      213: 2111424971431747261
+    second: tal3_barabara_70
+  - first:
+      213: -6579386641006023058
+    second: tal3_barabara_71
+  - first:
+      213: 4189061758835383496
+    second: tal3_barabara_72
+  - first:
+      213: 8379402679518339277
+    second: tal3_barabara_73
+  - first:
+      213: -7438572474925157567
+    second: tal3_barabara_74
+  - first:
+      213: -3394198486962059329
+    second: tal3_barabara_75
+  - first:
+      213: 1019325556321499467
+    second: tal3_barabara_76
+  - first:
+      213: -7047431665966854901
+    second: tal3_barabara_77
+  - first:
+      213: 6583604594615389554
+    second: tal3_barabara_78
+  - first:
+      213: -1913066374932301744
+    second: tal3_barabara_79
+  - first:
+      213: -2722147411169812436
+    second: tal3_barabara_0
+  - first:
+      213: 1275594161753829566
+    second: tal3_barabara_1
+  - first:
+      213: 889202551345411263
+    second: tal3_barabara_2
+  - first:
+      213: -3610572567643180840
+    second: tal3_barabara_3
+  - first:
+      213: -2442281747326866938
+    second: tal3_barabara_4
+  - first:
+      213: 3786598919565012442
+    second: tal3_barabara_5
+  - first:
+      213: -6712396654318902993
+    second: tal3_barabara_6
+  - first:
+      213: -1574221744190146766
+    second: tal3_barabara_7
+  - first:
+      213: 20836450553551107
+    second: tal3_barabara_8
+  - first:
+      213: -4202492087187541547
+    second: tal3_barabara_9
+  - first:
+      213: -2961904028995481537
+    second: tal3_barabara_10
+  - first:
+      213: 2553798543302381179
+    second: tal3_barabara_11
+  - first:
+      213: 6585544612395525832
+    second: tal3_barabara_12
+  - first:
+      213: 5599455415718559898
+    second: tal3_barabara_13
+  - first:
+      213: -5044311709687668344
+    second: tal3_barabara_14
+  - first:
+      213: -6694567153540434385
+    second: tal3_barabara_15
+  - first:
+      213: 6923185422864713292
+    second: tal3_barabara_16
+  - first:
+      213: 5518578545297434488
+    second: tal3_barabara_17
+  - first:
+      213: 2002372210569720130
+    second: tal3_barabara_18
+  - first:
+      213: 3522351917684827873
+    second: tal3_barabara_19
+  - first:
+      213: -8077059831162367982
+    second: tal3_barabara_20
+  - first:
+      213: 5189268176564312589
+    second: tal3_barabara_21
+  - first:
+      213: -2420313477888222347
+    second: tal3_barabara_22
+  - first:
+      213: 5008423939186315084
+    second: tal3_barabara_23
+  - first:
+      213: 6178183982590775661
+    second: tal3_barabara_24
+  - first:
+      213: -4591565592207920181
+    second: tal3_barabara_25
+  - first:
+      213: -5176952821844871639
+    second: tal3_barabara_26
+  - first:
+      213: -5734458690506088298
+    second: tal3_barabara_27
+  - first:
+      213: -5750053315855284846
+    second: tal3_barabara_28
+  - first:
+      213: 512029652442294423
+    second: tal3_barabara_29
+  - first:
+      213: -3613894943480262807
+    second: tal3_barabara_30
+  - first:
+      213: -6043913590784718989
+    second: tal3_barabara_31
+  - first:
+      213: -8333557035111074604
+    second: tal3_barabara_32
+  - first:
+      213: -6995613012310808364
+    second: tal3_barabara_33
+  - first:
+      213: -574464937640283087
+    second: tal3_barabara_34
+  - first:
+      213: -6387593839225876834
+    second: tal3_barabara_35
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 160
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tal3_barabara_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2069f22a5df83ad0800000000000000
+      internalID: 1848474233466737425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb036e8b122d3b110800000000000000
+      internalID: 6682895654498463769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb4705e5205175c00800000000000000
+      internalID: -6554456137708760550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d0bbdd116ba4edc0800000000000000
+      internalID: 2165191978009167150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60a6929c0b54b1ed0800000000000000
+      internalID: 2766646198839619806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: addec83b7a3bc8430800000000000000
+      internalID: 1554830558678003119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f212dc38ec6c8d2a0800000000000000
+      internalID: -4677564593672334160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 237b9db0aad372ae0800000000000000
+      internalID: 4860136258670194383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_8
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 309df9134a60a4000800000000000000
+      internalID: 5717855628138635946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d1fbc366bfbda5c0800000000000000
+      internalID: 3227097703309954140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f301dec7af335e6d0800000000000000
+      internalID: 1947771497284124858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_11
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7ec2799e3ae07320800000000000000
+      internalID: -8842236620446205067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_12
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c6a25aeeed846b50800000000000000
+      internalID: 939709656789772468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_13
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a90ca8d880345bd40800000000000000
+      internalID: 7587016122339483747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88129b7d9310ff9b0800000000000000
+      internalID: 583857390753401580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f267938a4ae1813a0800000000000000
+      internalID: -4524346681513721872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_16
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4683042678141060800000000000000
+      internalID: 1460227380012308921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_17
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 877ab81c2fde59c40800000000000000
+      internalID: 4088504971795743846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2413f1f9aead9cb10800000000000000
+      internalID: 4673801501944572391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_19
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e6258b2868e1e030800000000000000
+      internalID: -5365012080995551390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2109dfda0e488ef80800000000000000
+      internalID: -3969465806887675677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_21
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0ada54a9ebf30840800000000000000
+      internalID: -3049880642259563344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57bd16917b1596ed0800000000000000
+      internalID: -487150642613906447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_23
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4f43c3790f718540800000000000000
+      internalID: 1157942312703133251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tal3_barabara_24
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d61d45749915db550800000000000000
+      internalID: -353250270069305325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      tal3_barabara_23: 1157942312703133251
+      tal3_barabara_21: -3049880642259563344
+      tal3_barabara_6: -4677564593672334160
+      tal3_barabara_3: 2165191978009167150
+      tal3_barabara_2: -6554456137708760550
+      tal3_barabara_22: -487150642613906447
+      tal3_barabara_19: -5365012080995551390
+      tal3_barabara_5: 1554830558678003119
+      tal3_barabara_12: 939709656789772468
+      tal3_barabara_0: 1848474233466737425
+      tal3_barabara_1: 6682895654498463769
+      tal3_barabara_17: 4088504971795743846
+      tal3_barabara_24: -353250270069305325
+      tal3_barabara_11: -8842236620446205067
+      tal3_barabara_7: 4860136258670194383
+      tal3_barabara_8: 5717855628138635946
+      tal3_barabara_14: 583857390753401580
+      tal3_barabara_9: 3227097703309954140
+      tal3_barabara_4: 2766646198839619806
+      tal3_barabara_10: 1947771497284124858
+      tal3_barabara_16: 1460227380012308921
+      tal3_barabara_13: 7587016122339483747
+      tal3_barabara_18: 4673801501944572391
+      tal3_barabara_15: -4524346681513721872
+      tal3_barabara_20: -3969465806887675677
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
