@@ -59,7 +59,7 @@ public class OrderQuest : ScriptableObject
     }
     public void CompleteQuests()
     {
-        for(int i = 0; i < QuestList.Count; i++)
+        for(int i = QuestList.Count - 1; i >= 0; i--)
         {
             if (!CompleteQuest(QuestList[i])) continue ;
             //•ñV‚ğó‚¯æ‚é
@@ -71,10 +71,6 @@ public class OrderQuest : ScriptableObject
                     HuntNumClear((HuntQuest)QuestList[i]);
                     break;
             }
-        }
-        for (int i = 0; i < QuestList.Count; i++)
-        {
-            if (!CompleteQuest(QuestList[i])) continue;
             QuestList.RemoveAt(i);
         }
     }
