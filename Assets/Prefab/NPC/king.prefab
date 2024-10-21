@@ -359,6 +359,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: hukidashi
       objectReference: {fileID: 0}
+    - target: {fileID: 3268705038211595555, guid: 489fc8847f046ac4581d3bd06608fa4d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 489fc8847f046ac4581d3bd06608fa4d, type: 3}
 --- !u!4 &1239889985086319221 stripped

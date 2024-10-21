@@ -61,6 +61,24 @@ public class DialogActivater : MonoBehaviour
             //GameManager.instance.ShowDialogChange(canActivater);
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            canActivater = true;
+
+            if (this.transform.Find("hukidashi")) this.transform.Find("hukidashi").gameObject.SetActive(true);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            canActivater = false;
+            if (this.transform.Find("hukidashi")) this.transform.Find("hukidashi").gameObject.SetActive(false);
+            //GameManager.instance.ShowDialogChange(canActivater);
+        }
+    }
 
     public void InitActivater(string[] _lines,bool _choice, string[] _yesLines, string[] _noLines,string _funcName,string _yesfuncName,string _nofuncName)
     {

@@ -595,7 +595,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log(PlayerStatus.GetInstance().currentLv);
         EventStatus.GetInstance().Load();
         //イベント進行度のセット
-        //GameManager.instance.UpdateEventFlag(EventStatus.GetInstance().startEventFlag, EventStatus.GetInstance().finishedEventFlag);
+        GameManager.instance.UpdateEventFlag(EventStatus.GetInstance().startEventFlag, EventStatus.GetInstance().finishedEventFlag);
 
         currentLevel = PlayerStatus.GetInstance().currentLv;
         currentXP = PlayerStatus.GetInstance().currentXp;
