@@ -15,6 +15,15 @@ public class DropedWeapon : MonoBehaviour
     [SerializeField]
     private AudioClip audioClip;
     private AudioSource audioSource;
+
+    private float amplitude = 0.1f;  // •‚‚«ã‚ª‚éU•
+    private float heightBuffer = 0.15f;
+    private float frequency = 3f;    // •‚‚«ã‚ª‚é‘¬‚³
+
+    private Vector3 startPos;
+    private List<Transform> childObjects = new List<Transform>();
+    private List<Vector3> childInitialPositions = new List<Vector3>();
+
     private void Start()
     {
         destCount = destTime;
@@ -23,6 +32,13 @@ public class DropedWeapon : MonoBehaviour
         sp = this.gameObject.GetComponent<SpriteRenderer>();
         sp.sprite = weapon.Icon;
         audioSource = this.gameObject.GetComponent<AudioSource>();
+        startPos = this.gameObject.transform.position;
+
+        for(int i=0;i< this.gameObject.transform.childCount; i++)
+        {
+            childObjects.Add(this.gameObject.transform.GetChild(i));
+            childInitialPositions.Add(this.gameObject.transform.GetChild(i).position);
+        }
     }
     private void Update()
     {
@@ -39,6 +55,13 @@ public class DropedWeapon : MonoBehaviour
             {
                 Destroy(this.gameObject);
             }
+            return;
+        }
+        float disY = Mathf.Sin(Time.time * frequency) * amplitude+heightBuffer;
+        transform.position = new Vector3(startPos.x, startPos.y+disY, startPos.z);
+        for (int i = 0; i < childObjects.Count; i++)
+        {
+            childObjects[i].position = new Vector3(childInitialPositions[i].x, childInitialPositions[i].y, childInitialPositions[i].z);
         }
     }
 
