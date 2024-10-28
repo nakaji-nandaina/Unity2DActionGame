@@ -15,13 +15,17 @@ public class EventManager : MonoBehaviour
      * 6:下水道解放フラグ
      */
 
-    //event1用
+    //event0用
     [SerializeField]
     private GameObject firstNPC;
     [HideInInspector]
     public GameObject FirstNPC;
+    //event1用
     [HideInInspector]
     public GameObject KingNPC;
+    [HideInInspector]
+    public GameObject FirstItem;
+
 
 
     public void setStartEventFlag(int idx)
@@ -111,11 +115,18 @@ public class EventManager : MonoBehaviour
             "ただし、めいきゅうの なかは きけんじゃ。   \nしっかりと ぶきを つくり、じぶんを きたえなければ、 \nさいごまで たどりつけぬ じゃろう。",
             "どうだ？やってくれるか？"
         };
-        KingNPC.GetComponent<DialogActivater>().InitActivater(_lines, false, new string[1], new string[1], "FirstKingConv", "NullReturn", "NullReturn");
+        string[] _no_lines = { "ふむ... まだ じしんがないか。 \nだが、おぬしほどの さいのうをもつ ものは そうそう おらぬ。 \nほかのものには めいきゅうは とうはできぬじゃろう。", "もういちど よくかんがえてみては どうじゃろうか？ \nきけんは おおいが、それだけのかちがあるじゃろう。 \nおぬしの ゆうきを どうか わしに みせては くれぬか？" };
+        string[] _yes_lines = { "おお、よくぞ いってくれた！ \nさすがは わしが みこんだ しょうねんじゃ。", "おそらく、このさきには さまざまな きけんや しれんが まっておる。 \nしかし、おぬしは それをのりこえられるちからを もっておる。 \nどうか、じしんを もって すすんでくれ。","みらいの ゆうしゃの かどでに このそうびをやろう。\nわしが わかいころつかっていた ぶきとあいてむじゃ。" };
+        KingNPC.GetComponent<DialogActivater>().InitActivater(_lines, true,_yes_lines, _no_lines, "FirstKingConv", "NullReturn", "RoopConv");
+    }
+    public void SetFirstItem(GameObject firstitem)
+    {
+        FirstItem = firstitem;
     }
 
     public void KingAfterFirstFunc()
     {
+        FirstItem.SetActive(true);
         string[] _lines = { "しょうねんよ。\nきたいしておるぞ。" };
         KingNPC.GetComponent<DialogActivater>().InitActivater(_lines, false, new string[1], new string[1], "NullReturn", "NullReturn", "NullReturn");
     }
