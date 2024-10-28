@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 [System.Serializable]
 public class EventStatus
 {
-    private const string SAVEKEY = "EVENT-STATUS-SAVE";
+    // JSONファイルのパス
+    private static readonly string SaveFilePath = Path.Combine(Application.persistentDataPath, "eventstatus.json");
+
     [SerializeField]
     List<bool> StartEventFlag;
     [SerializeField]
@@ -31,7 +34,7 @@ public class EventStatus
         finishedEventFlag = new List<bool>(new bool[100]);
     }
 
-    public EventStatus(List<bool> _startEventFlag,List<bool> _finishedEventFlag)
+    public EventStatus(List<bool> _startEventFlag, List<bool> _finishedEventFlag)
     {
         this.StartEventFlag = _startEventFlag;
         this.FinishedEventFlag = _finishedEventFlag;
@@ -47,23 +50,52 @@ public class EventStatus
     {
         if (Instance == null)
         {
-            string statusJson = PlayerPrefs.GetString(SAVEKEY, JsonUtility.ToJson(new EventStatus()));
-            Instance = JsonUtility.FromJson<EventStatus>(statusJson);
+            if (File.Exists(SaveFilePath))
+            {
+                string statusJson = File.ReadAllText(SaveFilePath);
+                Instance = JsonUtility.FromJson<EventStatus>(statusJson);
+            }
+            else
+            {
+                Instance = new EventStatus();
+            }
         }
         return Instance;
     }
 
     public void Save()
     {
-        PlayerPrefs.SetString(SAVEKEY, JsonUtility.ToJson(this));
-        PlayerPrefs.Save();
-        string statusJson = PlayerPrefs.GetString(SAVEKEY, JsonUtility.ToJson(new EventStatus()));
-        Debug.LogError(statusJson);
+        string statusJson = JsonUtility.ToJson(this, true);
+        File.WriteAllText(SaveFilePath, statusJson);
+        Debug.LogError("データを保存しました: " + SaveFilePath + "\n" + statusJson);
     }
 
     public void Load()
     {
-        string statusJson = PlayerPrefs.GetString(SAVEKEY, JsonUtility.ToJson(new EventStatus()));
-        Instance = JsonUtility.FromJson<EventStatus>(statusJson);
+        if (File.Exists(SaveFilePath))
+        {
+            string statusJson = File.ReadAllText(SaveFilePath);
+            Instance = JsonUtility.FromJson<EventStatus>(statusJson);
+            Debug.LogError("データを読み込みました: " + SaveFilePath + "\n" + statusJson);
+        }
+        else
+        {
+            Instance = new EventStatus();
+            Debug.LogError("セーブファイルが見つかりませんでした: " + SaveFilePath);
+        }
+    }
+
+    public void Delete()
+    {
+        if (File.Exists(SaveFilePath))
+        {
+            File.Delete(SaveFilePath);
+            Instance = new EventStatus(); // データを初期化
+            Debug.LogError("保存データを削除しました: " + SaveFilePath);
+        }
+        else
+        {
+            Debug.LogError("削除するファイルが見つかりません: " + SaveFilePath);
+        }
     }
 }
