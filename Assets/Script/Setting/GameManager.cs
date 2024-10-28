@@ -252,6 +252,7 @@ public class GameManager : MonoBehaviour
         pulldownNotice = GetComponent<NoticeUI>();
         settingLight();
         settingNextPoint();
+        settingEvent();
     }
 
     // Update is called once per frame
@@ -262,6 +263,41 @@ public class GameManager : MonoBehaviour
         
     }
 
+    private void settingEvent()
+    {
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "StartScene":
+                settingStartSceneEvent();
+                break;
+            case "StartScene_2":
+                settingStartScene_2Event();
+                break;
+        }
+    }
+    private void settingStartSceneEvent()
+    {
+        if (!finishedEventFlag[1])
+        {
+            nextPoint = new Vector2(-12, 11);
+            nextPointUI.SetActive(true);
+        }
+    }
+    private void settingStartScene_2Event()
+    {
+        //王様との会話イベント
+        if (!finishedEventFlag[1])
+        {
+            nextPoint = new Vector2(-13, 28);
+            nextPointUI.SetActive(true);
+        }
+        //ダンジョン初挑戦
+        else if (!finishedEventFlag[2])
+        {
+            nextPoint = new Vector2(-12, 11);
+            nextPointUI.SetActive(true);
+        }
+    }
     private void settingBGM()
     {
         GameObject BGMObj =new GameObject();
@@ -297,10 +333,30 @@ public class GameManager : MonoBehaviour
     private void nextPointControll()
     {
         if (!nextPointUI.activeInHierarchy) return;
+        // プレイヤーと目的地点の距離を計算
         Vector2 np = nextPoint - (Vector2)player.transform.position;
-        np = np.normalized ;
-        nextPointUI.GetComponent<RectTransform>().anchoredPosition= np * 130;
+        float distance = np.magnitude;
+
+        np = np.normalized;
+
+        // 距離が近ければ半径とサイズを縮小
+        float maxRadius = 130f; // 最大半径
+        float minRadius = 10f; // 最小半径
+        float maxDistance = 20f; // この距離よりも近ければ縮小開始
+        // 距離に基づいて半径を計算
+        float radius = Mathf.Lerp(minRadius, maxRadius, Mathf.Clamp01(distance / maxDistance));
+
+        // 距離に応じてUIのサイズも調整
+        float maxScale = 1f;
+        float minScale = 0f;
+        float scale = Mathf.Lerp(minScale, maxScale, Mathf.Clamp01(distance / maxDistance));
+
+        np = np.normalized;
+
+        nextPointUI.GetComponent<RectTransform>().anchoredPosition= np * radius;
         nextPointUI.transform.rotation=Quaternion.Euler(0,0, -Mathf.Atan2(np.x, np.y)*180/Mathf.PI);
+        nextPointUI.transform.localScale = new Vector3(scale, scale, 1); // サイズを縮小
+        Debug.LogError(nextPoint);
     }
 
     private void DialogControll()
@@ -360,7 +416,7 @@ public class GameManager : MonoBehaviour
                         writingSpeed = writingDef;
                         changeDs(DialogState.write);
                         Invoke(DialogYesFuncName, 0);
-                        DialogYesFuncName = "NullReturn";
+                        //DialogYesFuncName = "NullReturn";
                     }
                     else if (NoChoice)
                     {
@@ -374,12 +430,12 @@ public class GameManager : MonoBehaviour
                         writingSpeed = writingDef;
                         changeDs(DialogState.write);
                         Invoke(DialogNoFuncName, 0);
-                        DialogFuncName = "NullReturn";
+                        //DialogNoFuncName = "NullReturn";
                     }
                 }
                 break;
+
         }
-        
     }
 
     public void UpdateEventFlag(List<bool> _startEventFlag,List<bool> _finishedEventFlag)
@@ -540,7 +596,7 @@ public class GameManager : MonoBehaviour
         //isWriting = true;
         for (int i = 0; i < s.Length; i++)
         {
-            if (writingSpeed != 0&& s.Substring(i, 1)!=" ")
+            if (writingSpeed != 0&& s.Substring(i, 1)!=" " && s.Substring(i, 1) != "." && s.Substring(i, 1) != "。" && s.Substring(i, 1) != "、")
             {
                 audioSource.PlayOneShot(talkdot);
             }
@@ -554,6 +610,10 @@ public class GameManager : MonoBehaviour
     private void NullReturn()
     {
 
+    }
+    private void RoopConv()
+    {
+        Choice = true;
     }
     private void SaveData()
     {
@@ -586,13 +646,15 @@ public class GameManager : MonoBehaviour
         Player.OpenWeaponCraft();
     }
 
+    //イベント#0の会話後処理
     private void FinishStartConv()
     {
         eventManager.EndEihei();
     }
-    //イベント#1の会話後処理
+    //イベント#1の会話処理
     private void FirstKingConv()
     {
         eventManager.KingAfterFirstFunc();
+        settingStartScene_2Event();
     }
 }

@@ -17,3 +17,4 @@ MonoBehaviour:
   huntedNum: 0
   Info: "\u307E\u3058\u3063\u304F\u3089\u3044\u305B\u3093\u3059 \u3092\u3082\u305F\u306A\u3044\n\u3044\u307B\u3046
     \u307E\u307B\u3046\u3064\u304B\u3044\u3002\n\n"
+  attackClip: {fileID: 8300000, guid: 90a964e95a756dc43b1e6858151f726a, type: 3}
