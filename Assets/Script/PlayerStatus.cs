@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 [System.Serializable]
@@ -7,8 +8,7 @@ public class PlayerStatus
 {
     [SerializeField]
     int CurrentXp;
-    
-    
+
     [SerializeField]
     int GOLD;
     [SerializeField]
@@ -37,7 +37,8 @@ public class PlayerStatus
     [SerializeField]
     int MainWeapon;
 
-    private const string SAVEKEY = "PLAYER-STATUS-SAVE";
+    // JSONファイルのパス
+    private static readonly string SaveFilePath = Path.Combine(Application.persistentDataPath, "playerstatus.json");
 
     static PlayerStatus Instance = null;
 
@@ -46,14 +47,13 @@ public class PlayerStatus
         get { return CurrentXp; }
         private set { CurrentXp = value; }
     }
-   
-   
+
     public int Gold
     {
         get { return GOLD; }
         private set { GOLD = value; }
     }
-    
+
     public int currentLv
     {
         get { return CurrentLv; }
@@ -128,21 +128,20 @@ public class PlayerStatus
         CurrentXp = 0;
         GOLD = 0;
         CurrentLv = 1;
-        ItemIds = null;
-        ShortcutIds = null;
-        ItemAmounts = null;
-        SkillLvs = null;
-        SkillIds = null;
-        WeaponIds = null;
-        QuestIds = null;
-        QuestContent1 = null;
-        QuestContent2 = null;
-        QuestContent3 = null;
-        mainWeapon = 0;
+        ItemIds = new List<int>();
+        ShortcutIds = new List<int>();
+        ItemAmounts = new List<int>();
+        SkillLvs = new List<int>();
+        SkillIds = new List<int>();
+        WeaponIds = new List<int>();
+        QuestIds = new List<int>();
+        QuestContent1 = new List<int>();
+        QuestContent2 = new List<int>();
+        QuestContent3 = new List<int>();
+        MainWeapon = 0;
     }
-    
 
-    public  PlayerStatus(int currentXp,int Gold,int currentLv,List<int> itemids,List<int> shortcutids,List<int>itemAmounts, List<int> skillids, List<int> skilllvs,List<int> weaponids,List<int> questids, List<int> questcontent1, List<int> questcontent2, List<int> questcontent3, int mainweapon)
+    public PlayerStatus(int currentXp, int Gold, int currentLv, List<int> itemids, List<int> shortcutids, List<int> itemAmounts, List<int> skillids, List<int> skilllvs, List<int> weaponids, List<int> questids, List<int> questcontent1, List<int> questcontent2, List<int> questcontent3, int mainweapon)
     {
         this.CurrentXp = currentXp;
         this.GOLD = Gold;
@@ -160,7 +159,7 @@ public class PlayerStatus
         this.MainWeapon = mainweapon;
     }
 
-    public void ReStatus(int cx, int gold, int cl,List<int> itemids, List<int> shortcutids, List<int> amounts,List<int> skillids,List<int> skilllvs,List<int> weaponids,List<int> questids, List<int> questcontent1, List<int> questcontent2, List<int> questcontent3, int mainweapon)
+    public void ReStatus(int cx, int gold, int cl, List<int> itemids, List<int> shortcutids, List<int> amounts, List<int> skillids, List<int> skilllvs, List<int> weaponids, List<int> questids, List<int> questcontent1, List<int> questcontent2, List<int> questcontent3, int mainweapon)
     {
         currentXp = cx;
         Gold = gold;
@@ -178,31 +177,55 @@ public class PlayerStatus
         mainWeapon = mainweapon;
     }
 
-    
-
     public static PlayerStatus GetInstance()
     {
         if (Instance == null)
         {
-            string statusJson = PlayerPrefs.GetString(SAVEKEY, JsonUtility.ToJson(new PlayerStatus()));
-            Instance = JsonUtility.FromJson<PlayerStatus>(statusJson);
+            if (File.Exists(SaveFilePath))
+            {
+                string statusJson = File.ReadAllText(SaveFilePath);
+                Instance = JsonUtility.FromJson<PlayerStatus>(statusJson);
+            }
+            else
+            {
+                Instance = new PlayerStatus();
+            }
         }
         return Instance;
     }
-   
+
     public void Save()
     {
-        PlayerPrefs.SetString(SAVEKEY, JsonUtility.ToJson(this));
-        PlayerPrefs.Save();
-        string statusJson = PlayerPrefs.GetString(SAVEKEY, JsonUtility.ToJson(new PlayerStatus()));
-        Debug.LogError(statusJson);
+        string statusJson = JsonUtility.ToJson(this, true);
+        File.WriteAllText(SaveFilePath, statusJson);
+        Debug.LogError("データを保存しました: " + SaveFilePath + "\n" + statusJson);
     }
 
     public void Load()
     {
-        string statusJson = PlayerPrefs.GetString(SAVEKEY,JsonUtility.ToJson(new PlayerStatus()));
-        Instance = JsonUtility.FromJson<PlayerStatus>(statusJson);
-        Debug.LogError(statusJson);
+        if (File.Exists(SaveFilePath))
+        {
+            string statusJson = File.ReadAllText(SaveFilePath);
+            Instance = JsonUtility.FromJson<PlayerStatus>(statusJson);
+            Debug.LogError("データを読み込みました: " + SaveFilePath + "\n" + statusJson);
+        }
+        else
+        {
+            Instance = new PlayerStatus();
+            Debug.LogError("セーブファイルが見つかりませんでした: " + SaveFilePath);
+        }
     }
-
+    public void Delete()
+    {
+        if (File.Exists(SaveFilePath))
+        {
+            File.Delete(SaveFilePath);
+            Instance = new PlayerStatus(); // データを初期化
+            Debug.LogError("保存データを削除しました: " + SaveFilePath);
+        }
+        else
+        {
+            Debug.LogError("削除するファイルが見つかりません: " + SaveFilePath);
+        }
+    }
 }

@@ -211,11 +211,12 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null)
         {
-            //Debug.LogError("Load");
-            //DontDestroyOnLoad(this.gameObject);
             instance = this;
             if (load)
             {
+                //保存されたデータの削除
+                PlayerStatus.GetInstance().Delete();
+                EventStatus.GetInstance().Delete();
                 load = false;
                 player.LoadPlayer();
             }
@@ -341,14 +342,14 @@ public class GameManager : MonoBehaviour
 
         // 距離が近ければ半径とサイズを縮小
         float maxRadius = 130f; // 最大半径
-        float minRadius = 10f; // 最小半径
+        float minRadius = 0f; // 最小半径
         float maxDistance = 20f; // この距離よりも近ければ縮小開始
         // 距離に基づいて半径を計算
         float radius = Mathf.Lerp(minRadius, maxRadius, Mathf.Clamp01(distance / maxDistance));
 
         // 距離に応じてUIのサイズも調整
         float maxScale = 1f;
-        float minScale = 0f;
+        float minScale = 0.3f;
         float scale = Mathf.Lerp(minScale, maxScale, Mathf.Clamp01(distance / maxDistance));
 
         np = np.normalized;
@@ -356,7 +357,7 @@ public class GameManager : MonoBehaviour
         nextPointUI.GetComponent<RectTransform>().anchoredPosition= np * radius;
         nextPointUI.transform.rotation=Quaternion.Euler(0,0, -Mathf.Atan2(np.x, np.y)*180/Mathf.PI);
         nextPointUI.transform.localScale = new Vector3(scale, scale, 1); // サイズを縮小
-        Debug.LogError(nextPoint);
+        //Debug.LogError(nextPoint);
     }
 
     private void DialogControll()
@@ -596,7 +597,7 @@ public class GameManager : MonoBehaviour
         //isWriting = true;
         for (int i = 0; i < s.Length; i++)
         {
-            if (writingSpeed != 0&& s.Substring(i, 1)!=" " && s.Substring(i, 1) != "." && s.Substring(i, 1) != "。" && s.Substring(i, 1) != "、")
+            if (writingSpeed != 0 && s.Substring(i, 1) != "." && s.Substring(i, 1) != "。" && s.Substring(i, 1) != "、")
             {
                 audioSource.PlayOneShot(talkdot);
             }
