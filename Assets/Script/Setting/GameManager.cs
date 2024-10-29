@@ -215,7 +215,8 @@ public class GameManager : MonoBehaviour
             if (load)
             {
                 //保存されたデータの削除
-                //PlayerPrefs.DeleteAll();
+                PlayerStatus.GetInstance().Delete();
+                EventStatus.GetInstance().Delete();
                 load = false;
                 player.LoadPlayer();
             }
@@ -596,7 +597,7 @@ public class GameManager : MonoBehaviour
         //isWriting = true;
         for (int i = 0; i < s.Length; i++)
         {
-            if (writingSpeed != 0&& s.Substring(i, 1)!=" " && s.Substring(i, 1) != "." && s.Substring(i, 1) != "。" && s.Substring(i, 1) != "、")
+            if (writingSpeed != 0 && s.Substring(i, 1) != "." && s.Substring(i, 1) != "。" && s.Substring(i, 1) != "、")
             {
                 audioSource.PlayOneShot(talkdot);
             }
