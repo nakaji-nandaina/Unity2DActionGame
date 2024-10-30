@@ -127,6 +127,8 @@ public class EventManager : MonoBehaviour
     public void KingAfterFirstFunc()
     {
         FirstItem.SetActive(true);
+
+        StartCoroutine(OpenTutorial(0.5f, 2));
         string[] _lines = { "‚µ‚å‚¤‚Ë‚ñ‚æB\n‚«‚½‚¢‚µ‚Ä‚¨‚é‚¼B" };
         KingNPC.GetComponent<DialogActivater>().InitActivater(_lines, false, new string[1], new string[1], "NullReturn", "NullReturn", "NullReturn");
     }
