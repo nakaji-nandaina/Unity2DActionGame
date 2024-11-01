@@ -8,6 +8,13 @@ public class TutorialManager : MonoBehaviour
     private GameObject TutorialPanel;
     [SerializeField]
     private List<GameObject> TutorialObjs;
+    /*
+    #0 移動 ・回避
+    #1 攻撃・アクション
+    #2 セーブ
+    #3 インベントリ
+    */
+
     public void OpenTutorial(int ind,float time)
     {
         TutorialPanel.SetActive(true);
@@ -22,12 +29,24 @@ public class TutorialManager : MonoBehaviour
             case 0:
                 OpenTutorial(1, 5f);
                 break;
+            case 1:
+                OpenTutorial(2, 5f);
+                break;
         }
     }
 
     private IEnumerator WaitTutorial(int ind,float time)
     {
-        yield return new WaitForSeconds(5f);
+        float elapsed = 0f;
+        while (elapsed < time)
+        {
+            if (GameManager.instance.Player.ps==PlayerController.PS.normal)
+            {
+                elapsed += Time.deltaTime;
+            }
+            yield return null;
+        }
+
         CloseTutorial(ind);
     }
 }
