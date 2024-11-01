@@ -126,9 +126,11 @@ public class EventManager : MonoBehaviour
 
     public void KingAfterFirstFunc()
     {
+        //初期アイテムの配布
         FirstItem.SetActive(true);
 
-        StartCoroutine(OpenTutorial(0.5f, 2));
+        //インベントリチュートリアルパネルの表示
+        StartCoroutine(OpenTutorial(0f, 3));
         string[] _lines = { "しょうねんよ。\nきたいしておるぞ。" };
         KingNPC.GetComponent<DialogActivater>().InitActivater(_lines, false, new string[1], new string[1], "NullReturn", "NullReturn", "NullReturn");
     }
